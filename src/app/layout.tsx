@@ -2,10 +2,11 @@ import { ThemeProvider } from '@/providers/themeProvider';
 import '@/styles/globals.css';
 import { GeistSans } from 'geist/font/sans';
 import { type Metadata } from 'next';
-import { Navbar } from './_components/Navbar/navbar';
-import Layout from './_components/Layout/layout';
-import Sidebar from './_components/Sidebar/sidebar';
+
 import { Github, Twitter } from 'lucide-react';
+import { Navbar } from './_components/navbar';
+import Layout from './_components/layout';
+import Sidebar from './_components/sidebar';
 
 export const metadata: Metadata = {
   title: 'Extend UI',
@@ -31,7 +32,7 @@ export default function RootLayout({
                 {
                   name: 'GitHub',
                   href: 'https://github.com/extendui/extendui',
-                  icon: <Github className='h-[1.2rem] w-[1.2rem]' />,
+                  icon: <Github className="h-[1.2rem] w-[1.2rem]" />,
                 },
                 {
                   name: 'Twitter',
