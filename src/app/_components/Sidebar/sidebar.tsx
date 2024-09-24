@@ -1,4 +1,3 @@
-// Sidebar.tsx
 import { TSidebarItem } from "@/types/sidebar.types";
 import SidebarItem from "./sidebar-item";
 

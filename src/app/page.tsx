@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function HomePage() {
   return (
-    <main className="mx-auto flex w-full max-w-6xl flex-col items-start justify-start text-left">
+    <div className="mx-auto flex w-full max-w-6xl flex-col items-start justify-start text-left">
       <div className=" ">
         <p className="text-3xl font-semibold tracking-tight">
           Welcome to Extend UI
@@ -27,6 +27,6 @@ export default function HomePage() {
           </Link>
         </div>
       </div>
-    </main>
+    </div>
   );
 }
