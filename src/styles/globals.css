@@ -64,3 +64,68 @@
     @apply bg-background text-foreground;
   }
 }
+
+@layer utilities {
+  .sidebar {
+    @apply transition-all duration-1000 ease-in-out; /* Slow down the transition */
+  }
+
+  .sidebar::-webkit-scrollbar {
+    width: 0;
+    @apply transition-all duration-1000 ease-in-out; /* Slow down the transition */
+  }
+
+  .sidebar:hover::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  .sidebar::-webkit-scrollbar-thumb {
+    @apply rounded bg-gray-500;
+  }
+
+  .sidebar::-webkit-scrollbar-track {
+    @apply bg-gray-200;
+  }
+
+  .bg-gradient {
+    background-image: linear-gradient(to right, #ebeff5 1px, transparent 1px),
+      linear-gradient(to bottom, #ebeff5 1px, transparent 1px);
+    background-size: 15px 15px;
+  }
+
+  .bg-gradient-dark {
+    background-image: linear-gradient(to right, #1f2937 1px, transparent 1px),
+      linear-gradient(to bottom, #1f2937 1px, transparent 1px);
+    background-size: 15px 15px;
+  }
+
+  .bg-repeat {
+    background-position: 10;
+    background-repeat: repeat;
+  }
+}
+
+pre {
+  padding: 1ch;
+  overflow: auto; /* Allow both vertical and horizontal scrolling */
+  height: 250px;
+  max-width: 100%;
+  border-radius: 5px;
+
+  /* Scrollbar styles for pre elements */
+  transition: all 1s ease-in-out; /* Slow down the transition */
+}
+
+pre::-webkit-scrollbar {
+  width: 8px; /* Vertical scrollbar width */
+  height: 8px; /* Horizontal scrollbar height */
+}
+
+pre::-webkit-scrollbar-thumb {
+  background-color: #252527; /* Equivalent to bg-gray-500 */
+  border-radius: 4px;
+}
+
+pre::-webkit-scrollbar-track {
+  background-color: #6b7280; /* Equivalent to bg-gray-200 */
+}
