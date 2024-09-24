@@ -31,7 +31,7 @@ export default function RootLayout({
                 {
                   name: 'GitHub',
                   href: 'https://github.com/extendui/extendui',
-                  icon: <Github className="h-[1.2rem] w-[1.2rem]" />,
+                  icon: <Github className='h-[1.2rem] w-[1.2rem]' />,
                 },
                 {
                   name: 'Twitter',
