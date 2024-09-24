@@ -2,9 +2,9 @@ import { ThemeProvider } from "@/providers/themeProvider";
 import "@/styles/globals.css";
 import { GeistSans } from "geist/font/sans";
 import { type Metadata } from "next";
-import { Navbar } from "./_components/Navbar/navbar";
-import Layout from "./_components/Layout/layout";
-import Sidebar from "./_components/Sidebar/sidebar";
+import { Navbar } from "./_components/navbar";
+import Layout from "./_components/layout";
+import Sidebar from "./_components/sidebar";
 
 export const metadata: Metadata = {
   title: "Extend UI",

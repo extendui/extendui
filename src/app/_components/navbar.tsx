@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import React, { ReactNode, useEffect, useRef, useState } from "react";
-import { ModeToggle } from "../ModeToggle/mode-toggle";
+import { ModeToggle } from "./mode-toggle";
 
 type Props = {
   logo: ReactNode;
@@ -28,8 +28,8 @@ export const Navbar = ({ logo, navLinks, socialLinks }: Props) => {
     <header ref={ref}>
       <div
         className={`bg-gradient dark:bg-gradient-dark fixed inset-x-0 top-0 z-50 h-16 bg-repeat backdrop-blur duration-200 ${isIntersecting
-            ? "border-transparent bg-zinc-900/0"
-            : "bg-zinc-900/500 border-zinc-800"
+          ? "border-transparent bg-zinc-900/0"
+          : "bg-zinc-900/500 border-zinc-800"
           }`}
       >
         <div className="container mx-auto flex items-center justify-between p-5">
