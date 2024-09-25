@@ -1,5 +1,7 @@
 import { Github, Twitter } from 'lucide-react';
 import { Navbar } from '../_components/navbar';
+import GitHubIcon from '@/components/icons/github';
+import XIcon from '@/components/icons/x';
 
 export default function LandingLayout({
   children,
@@ -19,12 +21,14 @@ export default function LandingLayout({
             {
               name: 'GitHub',
               href: 'https://github.com/extendui/extendui',
-              icon: <Github className="h-[1.2rem] w-[1.2rem]" />,
+              icon: (
+                <GitHubIcon className="fill-dark h-4 w-4 dark:fill-white" />
+              ),
             },
             {
               name: 'Twitter',
               href: 'https://x.com/extendui_pro',
-              icon: <Twitter className="h-[1.2rem] w-[1.2rem]" />,
+              icon: <XIcon className="fill-dark h-4 w-4 dark:fill-white" />,
             },
           ]}
         />
