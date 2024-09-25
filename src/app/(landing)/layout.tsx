@@ -12,7 +12,7 @@ export default function LandingLayout({
         <Navbar
           logo="Extend UI"
           navLinks={[
-            { name: 'Components', href: '/components' },
+            { name: 'Components', href: '/components/button' },
             { name: 'Templates', href: '/templates' },
           ]}
           socialLinks={[

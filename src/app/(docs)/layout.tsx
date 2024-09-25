@@ -12,7 +12,7 @@ export default function DocsLayout({
         <Navbar
           logo="Extend UI"
           navLinks={[
-            { name: 'Components', href: '/components' },
+            { name: 'Components', href: '/components/components' },
             { name: 'Templates', href: '/templates' },
           ]}
           socialLinks={[
