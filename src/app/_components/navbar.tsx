@@ -5,6 +5,7 @@ import React, { ReactNode, useEffect, useRef, useState } from 'react';
 import { ModeToggle } from './mode-toggle';
 import { CodeXml } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Badge } from '@/components/ui/badge';
 
 type Props = {
   logo: ReactNode;
@@ -42,7 +43,12 @@ export const Navbar = ({ logo, navLinks, socialLinks }: Props) => {
               className="flex items-center justify-center gap-2 text-zinc-600 duration-200 hover:text-zinc-900 dark:text-zinc-200"
             >
               <CodeXml />
-              <div className="mr-4 font-bold">{logo}</div>
+              <div className="mr-4 flex items-center justify-center gap-1 font-bold">
+                {logo}
+                <Badge variant="outline" className="bg-muted">
+                  Beta
+                </Badge>
+              </div>
             </Link>
             <div className="flex items-center justify-center gap-4 max-sm:hidden">
               {navLinks.map((link) => (
