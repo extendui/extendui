@@ -43,15 +43,17 @@ export const Navbar = ({ logo, navLinks, socialLinks }: Props) => {
               <CodeXml />
               <div className="mr-4 font-bold">{logo}</div>
             </Link>
-            {navLinks.map((link) => (
-              <Link
-                key={link.name}
-                href={link.href}
-                className="text-zinc-600 duration-200 hover:text-zinc-900 dark:text-zinc-200"
-              >
-                {link.name}
-              </Link>
-            ))}
+            <div className='max-sm:hidden'>
+              {navLinks.map((link) => (
+                <Link
+                  key={link.name}
+                  href={link.href}
+                  className="text-zinc-600 duration-200 hover:text-zinc-900 dark:text-zinc-200"
+                >
+                  {link.name}
+                </Link>
+              ))}
+            </div>
           </div>
           <div className="flex items-center gap-4">
             {socialLinks.map((link) => (
