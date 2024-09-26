@@ -1,4 +1,5 @@
 import { Button } from '@/components/ui/button';
+import { ChevronRight, Star } from 'lucide-react';
 import Link from 'next/link';
 
 export default function HomePage() {
@@ -7,28 +8,38 @@ export default function HomePage() {
       <section id="hero" className="space-y-10">
         <div className="min-h-[calc(100dvh-4rem)] md:h-[100dvh] md:space-y-24">
           <div className="mx-auto flex max-w-7xl flex-col items-center space-y-4 py-[32dvh] text-center">
-            <div className=" ">
-              <p className="text-3xl font-semibold tracking-tight">
+            <div className="relative">
+              <p className="text-3xl font-bold tracking-tight">
                 Welcome to Extend UI
               </p>
               <p className="text-xl font-normal tracking-tight text-slate-400">
                 Extend UI is a collection of React components that can be used
                 in any project that uses shadcn.
               </p>
-              <div className="mt-4">
+              <div className="mt-4 flex items-center justify-center gap-2">
                 <Link href="/components/button" passHref>
-                  <Button variant={'default'}>Get started</Button>
+                  <Button
+                    variant={'secondary'}
+                    className="flex items-center justify-center gap-1"
+                  >
+                    Get started
+                    <ChevronRight size={16} />
+                  </Button>
                 </Link>
                 <Link
                   href="https://github.com/extendui/extendui"
                   passHref
                   target="_blank"
                 >
-                  <Button variant={'link'} className="ml-2">
-                    GitHub
+                  <Button
+                    variant={'default'}
+                    className="flex items-center justify-center gap-1"
+                  >
+                    <Star /> Star on GitHub
                   </Button>
                 </Link>
               </div>
+              <div className="gradient pointer-events-none absolute inset-0 -z-10 block opacity-30 blur-3xl"></div>
             </div>
           </div>
         </div>
