@@ -9,7 +9,7 @@ export default function HomePage() {
         <div className="min-h-[calc(100dvh-4rem)] md:h-[100dvh] md:space-y-24">
           <div className="mx-auto flex max-w-7xl flex-col items-center space-y-4 py-[32dvh] text-center">
             <div className="relative">
-              <p className="text-3xl font-bold tracking-tight">
+              <p className="bg-gradient-to-br from-black via-zinc-600 to-zinc-200 bg-clip-text text-start text-4xl font-bold tracking-tight text-transparent dark:from-white dark:via-neutral-200 dark:to-black/[0.6] sm:text-center sm:text-5xl">
                 Welcome to Extend UI
               </p>
               <p className="text-xl font-normal tracking-tight text-slate-400">
