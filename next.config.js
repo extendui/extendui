@@ -1,4 +1,6 @@
-/** @type {import("next").NextConfig} */
-const config = {};
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  pageExtensions: ['tsx', 'mdx'],
+};
 
-export default config;
+export default nextConfig;

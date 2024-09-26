@@ -1,6 +1,8 @@
 import { Button } from '@/components/ui/button';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
 import { cn } from '@/lib/utils';
+import ButtonExample from '@/showcase/Button/button';
+import ButtonSettingsEngine from '@/showcase/Button/settings-engine';
 import { Code, Eye } from 'lucide-react';
 
 type Props = {
@@ -48,7 +50,10 @@ export default function PreviewTabs({
             className="bg-gradient dark:bg-gradient-dark h-[250px] w-full content-center rounded-lg bg-repeat shadow-[inset_0_0_2px_rgba(0,0,0,0.1)] shadow-slate-300"
           >
             <div className="flex justify-center">
-              <Button variant="default">Button</Button>
+              <ButtonExample />
+            </div>
+            <div>
+              <ButtonSettingsEngine />
             </div>
           </TabsContent>
         </div>
