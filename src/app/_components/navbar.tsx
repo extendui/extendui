@@ -64,7 +64,7 @@ export const Navbar = ({ navLinks, socialLinks }: Props) => {
           <div className="flex items-center gap-4">
             {socialLinks.map((link) => (
               <Link key={link.name} href={link.href}>
-                <Button variant="outline" size="icon">
+                <Button variant="ghost" size="icon">
                   {link.icon}
                 </Button>
               </Link>
