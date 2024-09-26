@@ -16,7 +16,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
     const MDXContent = dynamic(() => import(`@/mdx-components/${slug}.mdx`));
 
     return (
-        <div className="max-w-3xl z-10 w-full items-center justify-between">
+        <div>
             <MDXContent />
         </div>
     );
