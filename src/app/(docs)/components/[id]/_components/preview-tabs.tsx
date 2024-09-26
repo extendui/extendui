@@ -45,7 +45,7 @@ export default function PreviewTabs({
         <div className="w-full">
           <TabsContent
             value="preview"
-            className="bg-gradient dark:bg-gradient-dark h-[250px] w-full content-center rounded-b-lg rounded-tr-lg bg-repeat"
+            className="bg-gradient dark:bg-gradient-dark h-[250px] w-full content-center rounded-lg bg-repeat shadow-[inset_0_0_2px_rgba(0,0,0,0.1)] shadow-slate-300"
           >
             <div className="flex justify-center">
               <Button variant="default">Button</Button>
