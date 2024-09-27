@@ -11,8 +11,8 @@ export default function DocsLayout({
     <>
       <Navbar
         navLinks={[
-          { name: 'Components', href: '/components/components' },
-          { name: 'Templates', href: '/templates' },
+          { name: 'Components', href: '/components/button' },
+          { name: 'Templates', href: '#' },
         ]}
         socialLinks={[
           {

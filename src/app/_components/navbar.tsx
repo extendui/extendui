@@ -54,9 +54,21 @@ export const Navbar = ({ navLinks, socialLinks }: Props) => {
                 <Link
                   key={link.name}
                   href={link.href}
-                  className="text-zinc-600 duration-200 hover:text-zinc-900 dark:text-zinc-200"
+                  className={
+                    link.name === 'Templates'
+                      ? 'relative cursor-not-allowed text-muted-foreground'
+                      : 'relative text-zinc-600 duration-200 hover:text-zinc-900 dark:text-zinc-200'
+                  }
                 >
                   {link.name}
+                  {link.name === 'Templates' && (
+                    <Badge
+                      variant="outline"
+                      className="absolute bottom-2 left-16 rotate-12 border-zinc-500 bg-emerald-400 text-zinc-800"
+                    >
+                      Soon
+                    </Badge>
+                  )}
                 </Link>
               ))}
             </div>

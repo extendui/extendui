@@ -11,10 +11,9 @@ export default function LandingLayout({
   return (
     <>
       <Navbar
-
         navLinks={[
           { name: 'Components', href: '/components/button' },
-          { name: 'Templates', href: '/templates' },
+          { name: 'Templates', href: '#' },
         ]}
         socialLinks={[
           {
