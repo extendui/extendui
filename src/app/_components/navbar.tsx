@@ -6,6 +6,8 @@ import { ModeToggle } from './mode-toggle';
 import { CodeXml } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
+import MobileSidebar from './mobile-sidebar';
+import Logo from './logo';
 
 type Props = {
   navLinks: { name: string; href: string }[];
@@ -37,18 +39,8 @@ export const Navbar = ({ navLinks, socialLinks }: Props) => {
       >
         <div className="container mx-auto flex items-center justify-between p-5">
           <div className="flex justify-between gap-4">
-            <Link
-              href="/"
-              className="flex items-center justify-center gap-2 text-zinc-900 duration-200 dark:text-zinc-200"
-            >
-              <CodeXml className="text-emerald-400" />
-              <div className="mr-4 flex items-center justify-center gap-1 font-bold">
-                Extend <span className="text-emerald-400">UI</span>
-                <Badge variant="outline" className="bg-muted">
-                  Beta
-                </Badge>
-              </div>
-            </Link>
+            <MobileSidebar />
+            <Logo />
             <div className="flex items-center justify-center gap-4 max-sm:hidden">
               {navLinks.map((link) => (
                 <Link
@@ -64,7 +56,7 @@ export const Navbar = ({ navLinks, socialLinks }: Props) => {
                   {link.name === 'Templates' && (
                     <Badge
                       variant="outline"
-                      className="absolute bottom-2 left-16 rotate-12 border-zinc-500 bg-emerald-400 text-zinc-800"
+                      className="absolute bottom-2 left-16 rotate-12 border-zinc-500 bg-emerald-400 text-zinc-800 shadow-lg"
                     >
                       Soon
                     </Badge>
