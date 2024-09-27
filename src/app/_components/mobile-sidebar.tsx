@@ -15,8 +15,12 @@ import { usePathname } from 'next/navigation';
 import Sidebar from './sidebar';
 import { sidebarItemsData } from '@/constants/sidebarItemsData';
 import Logo from './logo';
+import { Badge } from '@/components/ui/badge';
 
-export default function MobileSidebar() {
+type Props = {
+  navLinks: { name: string; href: string }[];
+};
+export default function MobileSidebar({ navLinks }: Props) {
   const pathname = usePathname();
 
   if (pathname === '/') return null;
@@ -31,6 +35,29 @@ export default function MobileSidebar() {
       </SheetTrigger>
       <SheetContent side="left" className="sm:max-w-xs xl:hidden">
         <Logo />
+        <div className="ml-8 mt-6 flex flex-col items-start justify-start gap-6">
+          {navLinks.map((link) => (
+            <Link
+              key={link.name}
+              href={link.href}
+              className={
+                link.name === 'Templates'
+                  ? 'relative cursor-not-allowed text-muted-foreground'
+                  : 'relative text-zinc-600 duration-200 hover:text-zinc-900 dark:text-zinc-200'
+              }
+            >
+              {link.name}
+              {link.name === 'Templates' && (
+                <Badge
+                  variant="outline"
+                  className="absolute bottom-2 left-16 rotate-12 border-zinc-500 bg-emerald-400 text-zinc-800"
+                >
+                  Soon
+                </Badge>
+              )}
+            </Link>
+          ))}
+        </div>
         <Sidebar items={sidebarItemsData} />
       </SheetContent>
     </Sheet>

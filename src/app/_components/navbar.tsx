@@ -3,11 +3,11 @@
 import Link from 'next/link';
 import React, { ReactNode, useEffect, useRef, useState } from 'react';
 import { ModeToggle } from './mode-toggle';
-import { CodeXml } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import MobileSidebar from './mobile-sidebar';
 import Logo from './logo';
+import { usePathname } from 'next/navigation';
 
 type Props = {
   navLinks: { name: string; href: string }[];
@@ -16,6 +16,8 @@ type Props = {
 
 export const Navbar = ({ navLinks, socialLinks }: Props) => {
   const ref = useRef<HTMLElement>(null);
+  const pathname = usePathname();
+
   const [isIntersecting, setIntersecting] = useState<boolean | undefined>(true);
 
   useEffect(() => {
@@ -39,8 +41,8 @@ export const Navbar = ({ navLinks, socialLinks }: Props) => {
       >
         <div className="container mx-auto flex items-center justify-between p-5">
           <div className="flex justify-between gap-4">
-            <MobileSidebar />
-            <Logo />
+            <MobileSidebar navLinks={navLinks} />
+            <Logo className={pathname === '/' ? '' : 'max-sm:hidden'} />
             <div className="flex items-center justify-center gap-4 max-sm:hidden">
               {navLinks.map((link) => (
                 <Link
@@ -48,7 +50,7 @@ export const Navbar = ({ navLinks, socialLinks }: Props) => {
                   href={link.href}
                   className={
                     link.name === 'Templates'
-                      ? 'relative cursor-not-allowed text-muted-foreground'
+                      ? 'relative cursor-not-allowed text-muted-foreground max-md:hidden'
                       : 'relative text-zinc-600 duration-200 hover:text-zinc-900 dark:text-zinc-200'
                   }
                 >
