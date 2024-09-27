@@ -19,7 +19,7 @@ export default function HomePage() {
               <div className="mt-4 flex items-center justify-center gap-2">
                 <Link href="/components/button" passHref>
                   <Button
-                    variant={'secondary'}
+                    variant={'default'}
                     className="flex items-center justify-center gap-1"
                   >
                     Get started
@@ -32,10 +32,10 @@ export default function HomePage() {
                   target="_blank"
                 >
                   <Button
-                    variant={'default'}
+                    variant={'outline'}
                     className="flex items-center justify-center gap-1"
                   >
-                    <Star /> Star on GitHub
+                    <Star size={18} /> Star on GitHub
                   </Button>
                 </Link>
               </div>
