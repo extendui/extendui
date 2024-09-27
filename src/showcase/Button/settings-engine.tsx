@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import {
   Select,
@@ -8,14 +8,14 @@ import {
   SelectLabel,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select";
+} from '@/components/ui/select';
 import {
   setLoading,
   setSize,
   setVariant,
   useEngineSettingsStore,
-} from "@/zustand/stores/useEngineSettings";
-import { Checkbox } from "@/components/ui/checkbox";
+} from '@/zustand/stores/useEngineSettings';
+import { Checkbox } from '@/components/ui/checkbox';
 
 export default function ButtonSettingsEngine() {
   const loading = useEngineSettingsStore((state) => state.loading);
@@ -23,18 +23,18 @@ export default function ButtonSettingsEngine() {
 
   const handleChangeVariant = (
     value:
-      | "default"
-      | "default"
-      | "destructive"
-      | "outline"
-      | "secondary"
-      | "ghost"
-      | "link",
+      | 'default'
+      | 'default'
+      | 'destructive'
+      | 'outline'
+      | 'secondary'
+      | 'ghost'
+      | 'link',
   ) => {
     setVariant(value);
   };
 
-  const handleChangeSize = (value: "default" | "sm" | "lg" | "icon") => {
+  const handleChangeSize = (value: 'default' | 'sm' | 'lg' | 'icon') => {
     setSize(value);
   };
 
@@ -46,25 +46,25 @@ export default function ButtonSettingsEngine() {
     <>
       <div className="mx-auto">
         <Select onValueChange={handleChangeVariant}>
-          <SelectTrigger className="w-[180px]">
+          <SelectTrigger className="w-[180px] bg-secondary text-secondary-foreground">
             <SelectValue placeholder="Select variant" />
           </SelectTrigger>
           <SelectContent>
             <SelectGroup>
               <SelectLabel>Variants</SelectLabel>
-              <SelectItem value="default">default</SelectItem>
-              <SelectItem value="destructive">destructive</SelectItem>
-              <SelectItem value="outline">outline</SelectItem>
-              <SelectItem value="secondary">secondary</SelectItem>
-              <SelectItem value="ghost">ghost</SelectItem>
-              <SelectItem value="link">link</SelectItem>
+              <SelectItem value="default">Default</SelectItem>
+              <SelectItem value="destructive">Destructive</SelectItem>
+              <SelectItem value="outline">Outline</SelectItem>
+              <SelectItem value="secondary">Secondary</SelectItem>
+              <SelectItem value="ghost">Ghost</SelectItem>
+              <SelectItem value="link">Link</SelectItem>
             </SelectGroup>
           </SelectContent>
         </Select>
       </div>
       <div className="mx-auto mt-4">
         <Select onValueChange={handleChangeSize}>
-          <SelectTrigger className="w-[180px]">
+          <SelectTrigger className="w-[180px] bg-secondary text-secondary-foreground">
             <SelectValue placeholder="Select size" />
           </SelectTrigger>
           <SelectContent>
