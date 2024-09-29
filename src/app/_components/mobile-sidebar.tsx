@@ -1,15 +1,13 @@
 'use client';
-import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
-import { Button } from '@/components/ui/button';
 import {
-  Home,
-  LineChart,
-  Menu,
-  Package,
-  Package2,
-  ShoppingCart,
-  Users2,
-} from 'lucide-react';
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetTitle,
+  SheetTrigger,
+} from '@/components/ui/sheet';
+import { Button } from '@/components/ui/button';
+import { Menu } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import Sidebar from './sidebar';
@@ -33,8 +31,15 @@ export default function MobileSidebar({ navLinks }: Props) {
           <span className="sr-only">Toggle Menu</span>
         </Button>
       </SheetTrigger>
-      <SheetContent side="left" className="sm:max-w-xs xl:hidden">
-        <Logo />
+      <SheetContent
+        side="left"
+        className="h-full sm:max-w-xs xl:hidden"
+        aria-describedby={undefined}
+      >
+        <SheetTitle>
+          <Logo />
+        </SheetTitle>
+
         <div className="ml-8 mt-6 flex flex-col items-start justify-start gap-6">
           {navLinks.map((link) => (
             <Link
