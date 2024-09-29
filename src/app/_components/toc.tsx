@@ -51,10 +51,9 @@ export default function TableOfContents() {
                 <a
                   href={`#${section.id}`}
                   className={cn(
-                    `block border-l-2 px-4 py-2 text-sm transition-colors ${
-                      activeSection === section.id
-                        ? 'border-emerald-500 text-emerald-500 dark:border-emerald-500'
-                        : 'border-muted text-muted-foreground'
+                    `block border-l-2 px-4 py-2 text-sm transition-colors ${activeSection === section.id
+                      ? 'border-emerald-500 text-emerald-500 dark:border-emerald-500'
+                      : 'border-muted text-muted-foreground'
                     } `,
                   )}
                   onClick={(e) => {
@@ -87,7 +86,7 @@ function ExamplePage() {
 
   return (
     <div className="flex">
-      <main className="flex-1 p-6">
+      <main className="flex-1 my-6">
         {sections.map((section) => (
           <section key={section.id} id={section.id} className="mb-16">
             <h2 className="mb-4 text-2xl font-bold">{section.title}</h2>
