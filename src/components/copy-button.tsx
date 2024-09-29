@@ -1,18 +1,20 @@
-'use client';
-import { useState } from 'react';
 import { Button } from './ui/button';
-import { Check, Clipboard } from 'lucide-react';
 
-export default function CopyButton() {
-  const [copied, setCopied] = useState(false);
+export default function CopyButton({
+  icon,
+  onClick,
+}: {
+  icon: React.ReactNode;
+  onClick: () => void;
+}) {
   return (
     <Button
       variant={'outline'}
       size={'icon'}
       className="h-8 w-8 p-1"
-      onClick={() => setCopied(!copied)}
+      onClick={onClick}
     >
-      {copied === true ? <Check /> : <Clipboard />}
+      {icon}
     </Button>
   );
 }

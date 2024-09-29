@@ -1,7 +1,13 @@
+'use client';
+
 import { cn } from '@/lib/utils';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from './ui/tabs';
-import { Code, Eye } from 'lucide-react';
+import { Code, Eye, Check, Clipboard } from 'lucide-react';
 import CopyButton from './copy-button';
+import { useState } from 'react';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { gruvboxDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import { useToast } from '@/hooks/use-toast';
 
 type Props = {
   component: React.ReactNode;
@@ -9,6 +15,36 @@ type Props = {
 };
 
 export default function Preview({ component, settingsEngine }: Props) {
+  const [btnIcon, setBtnIcon] = useState(<Clipboard size={16} />);
+  const { toast } = useToast();
+  const codeString = `'use using'
+  import {useUse} from './useUse'
+
+export function Use() {
+  const [use,setUse] = useUse()
+  return use
+}
+  `;
+  const copyCode = () => {
+    navigator.clipboard
+
+      .writeText(codeString)
+      .then(() => {
+        setBtnIcon(<Check size={16} />);
+        setTimeout(function () {
+          setBtnIcon(<Clipboard size={16} />);
+        }, 1500);
+        toast({
+          description: 'Copied code to clipboard',
+          title: 'Copied',
+          duration: 4000,
+          variant: 'default',
+        });
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+  };
   return (
     <Tabs defaultValue="preview">
       <TabsList className={cn('flex items-center justify-end bg-inherit')}>
@@ -37,7 +73,7 @@ export default function Preview({ component, settingsEngine }: Props) {
             value="preview"
             className="dark:bg-gradient-dark bg-gradient relative h-[250px] w-full content-center rounded-lg bg-repeat shadow-[inset_0_0_2px_rgba(0,0,0,0.1)] shadow-slate-300"
           >
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               <div className="flex items-center justify-center">
                 {component}
               </div>
@@ -45,14 +81,18 @@ export default function Preview({ component, settingsEngine }: Props) {
                 {settingsEngine}
               </div>
             </div>
-            <div className="absolute right-2 top-2">
-              <CopyButton />
-            </div>
           </TabsContent>
         </div>
       </div>
       <TabsContent value="code" className="rounded-lg">
-        <div className="relative mx-auto max-w-6xl">Code</div>
+        <div className="relative mx-auto max-w-6xl">
+          <SyntaxHighlighter language="javascript" style={gruvboxDark}>
+            {codeString}
+          </SyntaxHighlighter>
+          <div className="absolute right-2 top-2">
+            <CopyButton icon={btnIcon} onClick={copyCode} />
+          </div>
+        </div>
       </TabsContent>
     </Tabs>
   );
