@@ -1,3 +1,5 @@
+// src/app/_pages/[slug]/page.tsx
+
 import fs from 'node:fs';
 import path from 'node:path';
 import matter from 'gray-matter';
@@ -5,12 +7,9 @@ import { notFound } from 'next/navigation';
 import type { Metadata } from "next";
 import { ChevronRightIcon } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import Balancer from "react-wrap-balancer"
+import Balancer from "react-wrap-balancer";
 import { MDXRemote } from 'next-mdx-remote/rsc';
-import ButtonExample from '@/showcase/Button/button';
-import ButtonSettingsEngine from '@/showcase/Button/settings-engine';
-import Preview from '@/components/preview';
-import { Component } from '@/app/_components/toc';
+import mdxComponents from '@/components/mdxComponents';
 
 type DocPageProps = {
     params: { slug: string };
@@ -44,6 +43,7 @@ export async function generateMetadata({
         },
     }
 }
+
 async function getPost(slug: string) {
     try {
         const filePath = path.join('src/mdx-components', `${slug}.mdx`);
@@ -55,10 +55,10 @@ async function getPost(slug: string) {
         const doc = matter(fileContent);
 
         if (!doc) {
-            return null
+            return null;
         }
 
-        return doc
+        return doc;
     } catch (error) {
         console.error("Error fetching post:", error);
         return null;
@@ -68,12 +68,6 @@ async function getPost(slug: string) {
 export default async function Page({ params }: DocPageProps) {
     const { slug } = params;
     const doc: any = await getPost(slug);
-    const mdxComponents = {
-        ButtonExample,
-        ButtonSettingsEngine,
-        Preview,
-        Component
-    };
 
     if (!doc) {
         notFound();
