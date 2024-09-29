@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ScrollArea } from '@/components/ui/scroll-area';
+import { cn } from '@/lib/utils';
 
 export default function TableOfContents() {
   const [activeSection, setActiveSection] = useState('');
@@ -39,7 +40,7 @@ export default function TableOfContents() {
       <ScrollArea className="h-full py-4">
         <nav aria-label="Table of contents">
           <h2 className="mb-4 text-lg font-semibold">Table of Contents</h2>
-          <ul className="space-y-2">
+          <ul>
             {sections.map((section) => (
               <motion.li
                 key={section.id}
@@ -49,11 +50,13 @@ export default function TableOfContents() {
               >
                 <a
                   href={`#${section.id}`}
-                  className={`block rounded-md px-4 py-1 text-sm transition-colors ${
-                    activeSection === section.id
-                      ? 'bg-primary text-primary-foreground'
-                      : 'hover:bg-muted'
-                  }`}
+                  className={cn(
+                    `block border-l-2 px-4 py-2 text-sm transition-colors ${
+                      activeSection === section.id
+                        ? 'border-emerald-500 text-emerald-500 dark:border-emerald-500'
+                        : 'border-muted text-muted-foreground'
+                    } `,
+                  )}
                   onClick={(e) => {
                     e.preventDefault();
                     document.getElementById(section.id)?.scrollIntoView({
