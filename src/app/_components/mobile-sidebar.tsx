@@ -52,14 +52,14 @@ export default function MobileSidebar({ navLinks }: Props) {
               }
             >
               {link.name}
-              {link.name === 'Templates' && (
+              {/* {link.name === 'Templates' && (
                 <Badge
                   variant="outline"
                   className="absolute bottom-2 left-16 rotate-12 border-zinc-500 bg-emerald-400 text-zinc-800"
                 >
                   Soon
                 </Badge>
-              )}
+              )} */}
             </Link>
           ))}
         </div>

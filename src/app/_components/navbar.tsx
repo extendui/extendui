@@ -55,14 +55,14 @@ export const Navbar = ({ navLinks, socialLinks }: Props) => {
                   }
                 >
                   {link.name}
-                  {link.name === 'Templates' && (
+                  {/* {link.name === 'Templates' && (
                     <Badge
                       variant="outline"
                       className="absolute bottom-2 left-14 rotate-12 scale-75 border-emerald-800 bg-emerald-300 text-emerald-800"
                     >
                       Soon
                     </Badge>
-                  )}
+                  )} */}
                 </Link>
               ))}
             </div>
