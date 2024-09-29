@@ -14,7 +14,10 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
-    "paths": { "@/*": ["./src/*"] },
+    "paths": { 
+      "@/*": ["./src/*"],
+      "contentlayer/generated": ["./.contentlayer/generated"]
+     },
     "plugins": [{ "name": "next" }],
     "baseUrl": "."
   },

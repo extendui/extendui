@@ -16,6 +16,7 @@ const mdxComponents = {
     ButtonSettingsEngine,
     Preview,
     Component,
+
     Step: ({ className, ...props }: React.ComponentProps<"h3">) => (
         <h3
             className={cn(

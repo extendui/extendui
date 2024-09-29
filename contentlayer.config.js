@@ -31,7 +31,7 @@ const LinksProperties = defineNestedType(() => ({
 
 export const Doc = defineDocumentType(() => ({
   name: "Doc",
-  filePathPattern: `src/mdx-components/*.mdx`,
+  filePathPattern: `*.mdx`,
   contentType: "mdx",
   fields: {
     title: {
@@ -42,13 +42,9 @@ export const Doc = defineDocumentType(() => ({
       type: "string",
       required: true,
     },
-    published: {
-      type: "boolean",
-      default: true,
-    },
-    links: {
-      type: "nested",
-      of: LinksProperties,
+    slug: {
+      type: "string",
+      required: true,
     },
     featured: {
       type: "boolean",
@@ -70,7 +66,7 @@ export const Doc = defineDocumentType(() => ({
 }))
 
 export default makeSource({
-  contentDirPath: "./content",
+  contentDirPath: "./src/mdx-components",
   documentTypes: [Doc],
   mdx: {
     remarkPlugins: [remarkGfm],

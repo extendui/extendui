@@ -15,8 +15,7 @@ export type Doc = {
   type: 'Doc'
   title: string
   description: string
-  published: boolean
-  links?: LinksProperties | undefined
+  slug: string
   featured: boolean
   component: boolean
   toc: boolean
@@ -27,15 +26,7 @@ export type Doc = {
 }  
 
 /** Nested types */
-export type LinksProperties = {
-  /** File path relative to `contentDirPath` */
-  _id: string
-  _raw: Local.RawDocumentData
-  type: 'LinksProperties'
-  doc?: string | undefined
-  api?: string | undefined
-
-}  
+  
 
 /** Helper types */
 
@@ -45,8 +36,8 @@ export type AllTypeNames = DocumentTypeNames | NestedTypeNames
 export type DocumentTypes = Doc
 export type DocumentTypeNames = 'Doc'
 
-export type NestedTypes = LinksProperties
-export type NestedTypeNames = 'LinksProperties'
+export type NestedTypes = never
+export type NestedTypeNames = never
 
 export type DataExports = {
   allDocuments: DocumentTypes[]
@@ -74,7 +65,7 @@ export type DocumentTypeMap = {
 }
 
 export type NestedTypeMap = {
-  LinksProperties: LinksProperties
+
 }
 
  
