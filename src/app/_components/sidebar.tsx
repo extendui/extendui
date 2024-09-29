@@ -1,5 +1,6 @@
 import { TSidebarItem } from '@/types/sidebar.types';
 import SidebarItem from './sidebar-item';
+import { ScrollArea } from '@/components/ui/scroll-area';
 
 type Props = {
   items: TSidebarItem[];
@@ -7,12 +8,12 @@ type Props = {
 
 export default function Sidebar({ items }: Props) {
   return (
-    <div className="relative flex h-full w-64 flex-col justify-between rounded-md bg-background px-4">
+    <ScrollArea className="h-3/4 w-48 rounded-md">
       <ul className="sidebar my-4 h-full space-y-2 overflow-y-auto">
         {items.map((item: TSidebarItem) => (
           <SidebarItem href={item.href} title={item.title} key={item.title} />
         ))}
       </ul>
-    </div>
+    </ScrollArea>
   );
 }
