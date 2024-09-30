@@ -127,7 +127,7 @@
 pre {
   padding: 1ch;
   overflow: auto; /* Allow both vertical and horizontal scrolling */
-  height: 250px;
+  max-height: 300px;
   max-width: 100%;
   border-radius: 5px;
 

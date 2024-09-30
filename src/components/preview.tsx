@@ -12,7 +12,7 @@ import { useToast } from '@/hooks/use-toast';
 type Props = {
   component: React.ReactNode;
   settingsEngine: React.ReactNode;
-  filename: string; // Pass the filename as a prop
+  filename: string;
 };
 
 export default function Preview({ component, settingsEngine, filename }: Props) {
@@ -40,7 +40,6 @@ export default function Preview({ component, settingsEngine, filename }: Props) 
       });
   };
 
-  // Fetch the code from the API when the component mounts
   useEffect(() => {
     const fetchCode = async () => {
       try {

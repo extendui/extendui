@@ -53,6 +53,7 @@
     "tailwind-merge": "^2.5.2",
     "tailwindcss-animate": "^1.0.7",
     "tocbot": "^4.30.0",
+    "unist-builder": "^4.0.0",
     "zod": "^3.23.3",
     "zustand": "^5.0.0-rc.2"
   },

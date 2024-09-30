@@ -6,6 +6,8 @@ import { useMDXComponent } from "next-contentlayer2/hooks"
 import React from 'react';
 import { cn } from '@/lib/utils';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from './ui/tabs';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { gruvboxDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
 const mdxComponents = {
   ButtonExample,
@@ -187,12 +189,18 @@ const mdxComponents = {
       {...props}
     />
   ),
-  code: ({ className, ...props }: React.HTMLAttributes<HTMLElement>) => (
-    <code
-      className={cn(
-        "relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm",
-        className
-      )}
+  Code: ({
+    className,
+    ...props
+  }: React.ComponentProps<typeof SyntaxHighlighter>) => (
+    <SyntaxHighlighter
+      language="typescript"
+      style={gruvboxDark}
+      customStyle={{
+        maxHeight: 'none', // Adjusts max height; 'none' allows it to grow
+        overflow: 'auto',   // Adds scrolling if needed
+        display: 'block',   // Ensures block display
+      }}
       {...props}
     />
   ),
