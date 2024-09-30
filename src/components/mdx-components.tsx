@@ -206,7 +206,7 @@ const mdxComponents = {
   ),
 };
 
-interface MdxProps {
+type MdxProps = {
   code: string
 }
 

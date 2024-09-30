@@ -6,9 +6,7 @@ import { TableOfContents } from "@/lib/toc"
 import { cn } from "@/lib/utils"
 import { useMounted } from "@/hooks/use-mounted"
 import { ScrollArea } from "./ui/scroll-area"
-import { ArrowRight } from "lucide-react"
-
-interface TocProps {
+type TocProps = {
   toc: TableOfContents
 }
 
@@ -43,7 +41,7 @@ function useActiveItem(itemIds: string[]) {
   return activeId
 }
 
-interface TreeProps {
+type TreeProps = {
   tree: TableOfContents
   level?: number
   activeItem?: string | null

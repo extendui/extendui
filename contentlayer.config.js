@@ -19,18 +19,6 @@ const computedFields = {
   },
 }
 
-const LinksProperties = defineNestedType(() => ({
-  name: "LinksProperties",
-  fields: {
-    doc: {
-      type: "string",
-    },
-    api: {
-      type: "string",
-    },
-  },
-}))
-
 export const Doc = defineDocumentType(() => ({
   name: "Doc",
   filePathPattern: `*.mdx`,

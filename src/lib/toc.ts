@@ -15,13 +15,13 @@ function flattenNode(node) {
   return p.join(``)
 }
 
-interface Item {
+type Item = {
   title: string
   url: string
   items?: Item[]
 }
 
-interface Items {
+type Items = {
   items?: Item[]
 }
 

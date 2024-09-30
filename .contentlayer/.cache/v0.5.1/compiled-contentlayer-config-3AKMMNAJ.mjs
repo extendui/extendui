@@ -17,17 +17,6 @@ var computedFields = {
     resolve: (doc) => doc._raw.flattenedPath.split("/").slice(1).join("/")
   }
 };
-var LinksProperties = defineNestedType(() => ({
-  name: "LinksProperties",
-  fields: {
-    doc: {
-      type: "string"
-    },
-    api: {
-      type: "string"
-    }
-  }
-}));
 var Doc = defineDocumentType(() => ({
   name: "Doc",
   filePathPattern: `*.mdx`,
@@ -87,4 +76,4 @@ export {
   Doc,
   contentlayer_config_default as default
 };
-//# sourceMappingURL=compiled-contentlayer-config-WPMMYCWB.mjs.map
+//# sourceMappingURL=compiled-contentlayer-config-3AKMMNAJ.mjs.map

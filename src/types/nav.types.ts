@@ -1,7 +1,7 @@
 import { Icons } from "@/components/icons/icons"
 
 
-export interface NavItem {
+export type NavItem = {
   title: string
   href?: string
   disabled?: boolean
@@ -10,10 +10,10 @@ export interface NavItem {
   label?: string
 }
 
-export interface NavItemWithChildren extends NavItem {
+export type NavItemWithChildren = {
   items: NavItemWithChildren[]
-}
+} & NavItem
 
-export interface MainNavItem extends NavItem {}
+export type MainNavItem = NavItem
 
-export interface SidebarNavItem extends NavItemWithChildren {}
+export type SidebarNavItem = NavItemWithChildren 

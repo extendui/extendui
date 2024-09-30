@@ -1,6 +1,6 @@
 import { MainNavItem, SidebarNavItem } from "@/types/nav.types"
 
-export interface DocsConfig {
+export type DocsConfig = {
   mainNav: MainNavItem[]
   sidebarNav: SidebarNavItem[]
 }
