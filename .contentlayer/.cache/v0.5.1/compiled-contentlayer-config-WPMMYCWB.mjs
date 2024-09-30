@@ -5,6 +5,8 @@ import {
   makeSource
 } from "contentlayer2/source-files";
 import remarkGfm from "remark-gfm";
+import rehypeSlug from "rehype-slug";
+import rehypeAutolinkHeadings from "rehype-autolink-headings";
 var computedFields = {
   slug: {
     type: "string",
@@ -64,12 +66,25 @@ var Doc = defineDocumentType(() => ({
 var contentlayer_config_default = makeSource({
   contentDirPath: "./src/mdx-components",
   documentTypes: [Doc],
+  sections: true,
   mdx: {
-    remarkPlugins: [remarkGfm]
+    remarkPlugins: [remarkGfm],
+    rehypePlugins: [
+      rehypeSlug,
+      [
+        rehypeAutolinkHeadings,
+        {
+          properties: {
+            className: ["subheading-anchor"],
+            ariaLabel: "Link to section"
+          }
+        }
+      ]
+    ]
   }
 });
 export {
   Doc,
   contentlayer_config_default as default
 };
-//# sourceMappingURL=compiled-contentlayer-config-3L63UTKB.mjs.map
+//# sourceMappingURL=compiled-contentlayer-config-WPMMYCWB.mjs.map

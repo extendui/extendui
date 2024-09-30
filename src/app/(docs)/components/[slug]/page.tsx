@@ -1,16 +1,12 @@
-// src/app/_pages/[slug]/page.tsx
-
-import fs from 'node:fs';
-import path from 'node:path';
-import matter from 'gray-matter';
 import { notFound } from 'next/navigation';
 import type { Metadata } from "next";
 import { ChevronRightIcon } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import Balancer from "react-wrap-balancer";
-import { MDXRemote } from 'next-mdx-remote/rsc';
-import mdxComponents from '@/components/mdxComponents';
 import { allDocs } from "contentlayer/generated"
+import { getTableOfContents } from '@/lib/toc';
+import { DashboardTableOfContents } from '@/components/toc';
+import { Mdx } from '@/components/mdx-components';
 
 type DocPageProps = {
     params: { slug: string };
@@ -57,13 +53,13 @@ export async function generateMetadata({
 
 export default async function Page({ params }: DocPageProps) {
     const doc = await getDocFromParams({ params })
-
     if (!doc) {
         notFound();
     }
+    const toc = await getTableOfContents(doc.body.raw)
 
     return (
-        <main>
+        <main className="relative py-6 lg:gap-10 lg:py-8 xl:grid xl:grid-cols-[1fr_300px]">
             <div className="mx-auto w-full min-w-0 pt-6">
                 <div className="mb-4 flex items-center space-x-1 text-sm leading-none text-muted-foreground">
                     <div className="truncate">Components</div>
@@ -81,11 +77,11 @@ export default async function Page({ params }: DocPageProps) {
                     )}
                 </div>
                 <div className="pb-12 pt-8">
-                    <MDXRemote
-                        source={doc.body.raw}
-                        components={mdxComponents}
-                    />
+                    <Mdx code={doc.body.code} />
                 </div>
+            </div>
+            <div className="hidden text-sm xl:block">
+                {doc.toc && <DashboardTableOfContents toc={toc} />}
             </div>
         </main>
     );

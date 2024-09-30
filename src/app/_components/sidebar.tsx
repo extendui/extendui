@@ -8,7 +8,7 @@ type Props = {
 
 export default function Sidebar({ items }: Props) {
   return (
-    <ScrollArea className="h-3/4 w-48 rounded-md">
+    <ScrollArea className="h-3/4 w-48 rounded-md mt-8">
       <ul className="sidebar my-4 h-full space-y-2 overflow-y-auto">
         {items.map((item: TSidebarItem) => (
           <SidebarItem href={item.href} title={item.title} key={item.title} />

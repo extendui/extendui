@@ -12,7 +12,7 @@ export default function ComponentsLayout({ children }: Props) {
     <Layout
       sidebar={<Sidebar items={sidebarItemsData} />}
       children={children}
-      toc={<TableOfContents />}
+    // toc={<TableOfContents />}
     />
   );
 }

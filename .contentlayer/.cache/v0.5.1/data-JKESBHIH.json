@@ -1,0 +1,31 @@
+{
+  "cacheItemsMap": {
+    "button.mdx": {
+      "document": {
+        "title": "Button",
+        "description": "Displays a button or a component that looks like a button.",
+        "slug": "/button",
+        "featured": true,
+        "component": true,
+        "toc": true,
+        "body": {
+          "raw": "\r\n<Preview\r\n  component={<ButtonExample />}\r\n  settingsEngine={<ButtonSettingsEngine />}\r\n/>\r\n\r\n## Installation\r\n\r\n<Tabs defaultValue=\"cli\">\r\n  <TabsList>\r\n    <TabsTrigger value=\"cli\">CLI</TabsTrigger>\r\n    <TabsTrigger value=\"manual\">Manual</TabsTrigger>\r\n  </TabsList>\r\n  <TabsContent value=\"cli\">\r\n    </TabsContent>\r\n    <TabsContent value=\"manual\">\r\n    <Steps>\r\n      <Step>Install the following dependencies:</Step>\r\n      <Step>Copy and paste the following code into your project.</Step>\r\n      <Step>Update the import paths to match your project setup.</Step>\r\n    </Steps>\r\n  </TabsContent>\r\n</Tabs>\r\n\r\n## Example\r\n",
+          "code": "var Component=(()=>{var T=Object.create;var s=Object.defineProperty;var j=Object.getOwnPropertyDescriptor;var E=Object.getOwnPropertyNames;var _=Object.getPrototypeOf,v=Object.prototype.hasOwnProperty;var w=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports),y=(t,e)=>{for(var i in e)s(t,i,{get:e[i],enumerable:!0})},m=(t,e,i,r)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let a of E(e))!v.call(t,a)&&a!==i&&s(t,a,{get:()=>e[a],enumerable:!(r=j(e,a))||r.enumerable});return t};var C=(t,e,i)=>(i=t!=null?T(_(t)):{},m(e||!t||!t.__esModule?s(i,\"default\",{value:t,enumerable:!0}):i,t)),L=t=>m(s({},\"__esModule\",{value:!0}),t);var g=w((M,f)=>{f.exports=_jsx_runtime});var k={};y(k,{default:()=>x,frontmatter:()=>S});var n=C(g()),S={title:\"Button\",description:\"Displays a button or a component that looks like a button.\",featured:!0,component:!0,slug:\"button\"};function b(t){let e={a:\"a\",h2:\"h2\",...t.components},{ButtonExample:i,ButtonSettingsEngine:r,Preview:a,Step:l,Steps:d,Tabs:h,TabsContent:c,TabsList:p,TabsTrigger:u}=e;return i||o(\"ButtonExample\",!0),r||o(\"ButtonSettingsEngine\",!0),a||o(\"Preview\",!0),l||o(\"Step\",!0),d||o(\"Steps\",!0),h||o(\"Tabs\",!0),c||o(\"TabsContent\",!0),p||o(\"TabsList\",!0),u||o(\"TabsTrigger\",!0),(0,n.jsxs)(n.Fragment,{children:[(0,n.jsx)(a,{component:(0,n.jsx)(i,{}),settingsEngine:(0,n.jsx)(r,{})}),`\n`,(0,n.jsx)(e.h2,{id:\"installation\",children:(0,n.jsx)(e.a,{className:\"subheading-anchor\",\"aria-label\":\"Link to section\",href:\"#installation\",children:\"Installation\"})}),`\n`,(0,n.jsxs)(h,{defaultValue:\"cli\",children:[(0,n.jsxs)(p,{children:[(0,n.jsx)(u,{value:\"cli\",children:\"CLI\"}),(0,n.jsx)(u,{value:\"manual\",children:\"Manual\"})]}),(0,n.jsx)(c,{value:\"cli\"}),(0,n.jsx)(c,{value:\"manual\",children:(0,n.jsxs)(d,{children:[(0,n.jsx)(l,{children:\"Install the following dependencies:\"}),(0,n.jsx)(l,{children:\"Copy and paste the following code into your project.\"}),(0,n.jsx)(l,{children:\"Update the import paths to match your project setup.\"})]})})]}),`\n`,(0,n.jsx)(e.h2,{id:\"example\",children:(0,n.jsx)(e.a,{className:\"subheading-anchor\",\"aria-label\":\"Link to section\",href:\"#example\",children:\"Example\"})})]})}function x(t={}){let{wrapper:e}=t.components||{};return e?(0,n.jsx)(e,{...t,children:(0,n.jsx)(b,{...t})}):b(t)}function o(t,e){throw new Error(\"Expected \"+(e?\"component\":\"object\")+\" `\"+t+\"` to be defined: you likely forgot to import, pass, or provide it.\")}return L(k);})();\n;return Component;"
+        },
+        "_id": "button.mdx",
+        "_raw": {
+          "sourceFilePath": "button.mdx",
+          "sourceFileName": "button.mdx",
+          "sourceFileDir": ".",
+          "contentType": "mdx",
+          "flattenedPath": "button"
+        },
+        "type": "Doc",
+        "slugAsParams": ""
+      },
+      "documentHash": "1727683201952",
+      "hasWarnings": false,
+      "documentTypeName": "Doc"
+    }
+  }
+}
