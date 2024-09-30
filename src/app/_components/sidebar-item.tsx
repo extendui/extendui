@@ -9,7 +9,6 @@ type Props = {
   pathname: string | null
 }
 
-
 export default function SidebarItem({ items, pathname }: Props) {
   return items?.length ? (
     <div className="grid grid-flow-row auto-rows-max text-md">
@@ -19,7 +18,7 @@ export default function SidebarItem({ items, pathname }: Props) {
             key={index}
             href={item.href}
             className={cn(
-              "group flex w-full items-center rounded-md border border-transparent px-2 py-1 hover:underline",
+              "group flex w-full items-center rounded-md border border-transparent px-2 py-1 hover:bg-muted hover:text-foreground",
               item.disabled && "cursor-not-allowed opacity-60",
               pathname === item.href
                 ? "font-medium text-foreground"
