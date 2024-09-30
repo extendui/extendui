@@ -1,5 +1,4 @@
 // @ts-nocheck
-// TODO: I'll fix this later.
 
 import { toc } from "mdast-util-toc"
 import { remark } from "remark"

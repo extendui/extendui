@@ -10,16 +10,14 @@ export default function ButtonExample() {
   const size = useEngineSettingsStore((state) => state.size);
 
   return (
-    <>
-      <Button
-        variant={variant}
-        size={size}
-        onClick={() => console.log('clicked')}
-        disabled={loading}
-      >
-        {size === 'icon' ? <ChevronRight /> : 'Button'}
-        {loading && <Loader2Icon className="ml-2 h-4 w-4 animate-spin" />}
-      </Button>
-    </>
+    <Button
+      variant={variant}
+      size={size}
+      onClick={() => console.log('clicked')}
+      disabled={loading}
+    >
+      {size === 'icon' ? <ChevronRight /> : 'Button'}
+      {loading && <Loader2Icon className="ml-2 h-4 w-4 animate-spin" />}
+    </Button>
   );
 }
