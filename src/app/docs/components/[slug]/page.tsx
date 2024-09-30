@@ -59,9 +59,9 @@ export default async function Page({ params }: DocPageProps) {
     const toc = await getTableOfContents(doc.body.raw)
 
     return (
-        <main className="relative py-6 lg:gap-10 lg:py-8 xl:grid xl:grid-cols-[1fr_300px]">
-            <div className="mx-auto w-full min-w-0 pt-6">
-                <div className="mb-4 flex items-center space-x-1 text-sm leading-none text-muted-foreground">
+        <main className="relative lg:gap-10 xl:grid xl:grid-cols-[1fr_300px] max-w-7xl">
+            <div className="mx-auto w-full min-w-0">
+                <div className="mb-4 flex items-center space-x-1 text-md leading-none text-muted-foreground">
                     <div className="truncate">Components</div>
                     <ChevronRightIcon className="h-3.5 w-3.5" />
                     <div className="text-foreground">{doc.title}</div>
@@ -71,7 +71,7 @@ export default async function Page({ params }: DocPageProps) {
                         {doc.title}
                     </h1>
                     {doc.description && (
-                        <p className="text-base text-muted-foreground">
+                        <p className="text-muted-foreground text-lg">
                             <Balancer>{doc.description}</Balancer>
                         </p>
                     )}

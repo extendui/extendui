@@ -1,5 +1,6 @@
 import { Icons } from '@/components/icons/icons';
 import { Navbar } from '../_components/navbar';
+import React from 'react';
 
 export default function LandingLayout({
   children,
@@ -10,7 +11,7 @@ export default function LandingLayout({
     <>
       <Navbar
         navLinks={[
-          { name: 'Components', href: '/components/button' },
+          { name: 'Components', href: 'docs/components/button' },
           { name: 'Templates', href: '#' },
         ]}
         socialLinks={[

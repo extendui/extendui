@@ -11,9 +11,9 @@ import { Menu } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import Sidebar from './sidebar';
-import { sidebarItemsData } from '@/constants/sidebarItemsData';
 import Logo from './logo';
-import { Badge } from '@/components/ui/badge';
+import { docsConfig } from '@/config/docs';
+
 
 type Props = {
   navLinks: { name: string; href: string }[];
@@ -63,7 +63,7 @@ export default function MobileSidebar({ navLinks }: Props) {
             </Link>
           ))}
         </div>
-        <Sidebar items={sidebarItemsData} />
+        <Sidebar config={docsConfig} />
       </SheetContent>
     </Sheet>
   );

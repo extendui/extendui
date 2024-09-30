@@ -92,7 +92,7 @@ export default function Preview({ component, settingsEngine, filename }: Props) 
         </div>
       </div>
       <TabsContent value="code" className="rounded-lg">
-        <div className="relative mx-auto max-w-6xl">
+        <div className="relative mx-auto max-w-7xl">
           {code && (
             <SyntaxHighlighter language="typescript" style={gruvboxDark}>
               {code}

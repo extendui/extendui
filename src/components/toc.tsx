@@ -6,6 +6,7 @@ import { TableOfContents } from "@/lib/toc"
 import { cn } from "@/lib/utils"
 import { useMounted } from "@/hooks/use-mounted"
 import { ScrollArea } from "./ui/scroll-area"
+import { ArrowRight } from "lucide-react"
 
 interface TocProps {
   toc: TableOfContents
@@ -64,8 +65,8 @@ function Tree({ tree, level = 1, activeItem, itemIds }: TreeProps) {
         />
       )}
 
-      <ul className={cn("m-0 list-none", { "pl-4": level !== 1 })}>
-        {tree.items.map((item, index) => {
+      <ul className={cn("m-0 list-none text-md", { "pl-4": level !== 1 })}>
+        {tree.items.map((item) => {
           const itemId = item.url?.split("#")[1]
           const isActive = itemId === activeItem
 
@@ -76,11 +77,12 @@ function Tree({ tree, level = 1, activeItem, itemIds }: TreeProps) {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.3 }}
             >
+
               <a
                 href={item.url}
                 className={cn(
-                  `block border-l-2 border-transparent px-4 py-2 text-sm transition-colors`,
-                  isActive ? 'text-emerald-500 font-medium' : 'text-muted-foreground'
+                  `block border-l-2 border-transparent px-4 py-2  transition-colors`,
+                  isActive ? 'text-emerald-500' : 'text-muted-foreground'
                 )}
                 onClick={(e) => {
                   e.preventDefault()
@@ -126,10 +128,10 @@ export function DashboardTableOfContents({ toc }: TocProps) {
   }
 
   return (
-    <aside className="sticky top-16 h-[calc(100vh-14rem)] w-64 ml-8">
-      <ScrollArea className="h-full py-4">
+    <aside className="sticky top-24 h-[calc(100vh-14rem)] w-64 ml-8">
+      <ScrollArea className="h-full pb-4">
         <nav aria-label="Table of contents">
-          <p className="font-medium mb-2">On This Page</p>
+          <p className="font-medium text-lg mb-2">On This Page</p>
           <Tree tree={toc} activeItem={activeHeading} itemIds={itemIds} />
         </nav>
       </ScrollArea>

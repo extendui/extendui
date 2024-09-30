@@ -17,7 +17,7 @@ export default function HomePage() {
                 in any project that uses shadcn.
               </p>
               <div className="mt-4 flex items-center justify-center gap-2">
-                <Link href="/components/button" passHref>
+                <Link href="docs/components/button" passHref>
                   <Button
                     variant={'default'}
                     className="flex items-center justify-center gap-1"

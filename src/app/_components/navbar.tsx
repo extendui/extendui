@@ -4,7 +4,6 @@ import Link from 'next/link';
 import React, { ReactNode, useEffect, useRef, useState } from 'react';
 import { ModeToggle } from './mode-toggle';
 import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
 import MobileSidebar from './mobile-sidebar';
 import Logo from './logo';
 import { usePathname } from 'next/navigation';
@@ -33,11 +32,10 @@ export const Navbar = ({ navLinks, socialLinks }: Props) => {
   return (
     <header ref={ref}>
       <div
-        className={`fixed inset-x-0 top-0 z-50 h-16 backdrop-blur duration-200 ${
-          isIntersecting
+        className={`fixed inset-x-0 top-0 z-50 h-16 backdrop-blur duration-200 ${isIntersecting
             ? 'border-transparent bg-zinc-900/0'
             : 'bg-zinc-900/500 border-zinc-800'
-        }`}
+          }`}
       >
         <div className="container mx-auto flex items-center justify-between p-5">
           <div className="flex justify-between gap-4">
