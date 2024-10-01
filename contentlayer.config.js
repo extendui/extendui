@@ -2,61 +2,61 @@ import {
   defineDocumentType,
   defineNestedType,
   makeSource,
-} from "contentlayer2/source-files"
-import remarkGfm from "remark-gfm"
-import rehypeSlug from "rehype-slug"
-import rehypeAutolinkHeadings from "rehype-autolink-headings" // Import rehype-autolink-headings
+} from 'contentlayer2/source-files';
+import remarkGfm from 'remark-gfm';
+import rehypeSlug from 'rehype-slug';
+import rehypeAutolinkHeadings from 'rehype-autolink-headings'; // Import rehype-autolink-headings
 
 /** @type {import('contentlayer/source-files').ComputedFields} */
 const computedFields = {
   slug: {
-    type: "string",
+    type: 'string',
     resolve: (doc) => `/${doc._raw.flattenedPath}`,
   },
   slugAsParams: {
-    type: "string",
-    resolve: (doc) => doc._raw.flattenedPath.split("/").slice(1).join("/"),
+    type: 'string',
+    resolve: (doc) => doc._raw.flattenedPath.split('/').slice(1).join('/'),
   },
-}
+};
 
 export const Doc = defineDocumentType(() => ({
-  name: "Doc",
-  filePathPattern: `*.mdx`,
-  contentType: "mdx",
+  name: 'Doc',
+  filePathPattern: `docs/**/*.mdx`,
+  contentType: 'mdx',
   fields: {
     title: {
-      type: "string",
+      type: 'string',
       required: true,
     },
     description: {
-      type: "string",
+      type: 'string',
       required: true,
     },
     slug: {
-      type: "string",
+      type: 'string',
       required: true,
     },
     featured: {
-      type: "boolean",
+      type: 'boolean',
       default: false,
       required: false,
     },
     component: {
-      type: "boolean",
+      type: 'boolean',
       default: false,
       required: false,
     },
     toc: {
-      type: "boolean",
+      type: 'boolean',
       default: true,
       required: false,
     },
   },
   computedFields,
-}))
+}));
 
 export default makeSource({
-  contentDirPath: "./src/mdx-components",
+  contentDirPath: './src/content',
   documentTypes: [Doc],
   sections: true,
   mdx: {
@@ -67,11 +67,11 @@ export default makeSource({
         rehypeAutolinkHeadings,
         {
           properties: {
-            className: ["subheading-anchor"],
-            ariaLabel: "Link to section",
+            className: ['subheading-anchor'],
+            ariaLabel: 'Link to section',
           },
         },
       ],
     ],
   },
-})
+});

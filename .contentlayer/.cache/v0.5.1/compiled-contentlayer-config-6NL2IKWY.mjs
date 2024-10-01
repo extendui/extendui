@@ -5,6 +5,8 @@ import {
   makeSource
 } from "contentlayer2/source-files";
 import remarkGfm from "remark-gfm";
+import rehypeSlug from "rehype-slug";
+import rehypeAutolinkHeadings from "rehype-autolink-headings";
 var computedFields = {
   slug: {
     type: "string",
@@ -15,20 +17,9 @@ var computedFields = {
     resolve: (doc) => doc._raw.flattenedPath.split("/").slice(1).join("/")
   }
 };
-var LinksProperties = defineNestedType(() => ({
-  name: "LinksProperties",
-  fields: {
-    doc: {
-      type: "string"
-    },
-    api: {
-      type: "string"
-    }
-  }
-}));
 var Doc = defineDocumentType(() => ({
   name: "Doc",
-  filePathPattern: `*.mdx`,
+  filePathPattern: `docs/**/*.mdx`,
   contentType: "mdx",
   fields: {
     title: {
@@ -39,13 +30,9 @@ var Doc = defineDocumentType(() => ({
       type: "string",
       required: true
     },
-    published: {
-      type: "boolean",
-      default: true
-    },
-    links: {
-      type: "nested",
-      of: LinksProperties
+    slug: {
+      type: "string",
+      required: true
     },
     featured: {
       type: "boolean",
@@ -66,14 +53,27 @@ var Doc = defineDocumentType(() => ({
   computedFields
 }));
 var contentlayer_config_default = makeSource({
-  contentDirPath: "./src/mdx-components",
+  contentDirPath: "./src/content",
   documentTypes: [Doc],
+  sections: true,
   mdx: {
-    remarkPlugins: [remarkGfm]
+    remarkPlugins: [remarkGfm],
+    rehypePlugins: [
+      rehypeSlug,
+      [
+        rehypeAutolinkHeadings,
+        {
+          properties: {
+            className: ["subheading-anchor"],
+            ariaLabel: "Link to section"
+          }
+        }
+      ]
+    ]
   }
 });
 export {
   Doc,
   contentlayer_config_default as default
 };
-//# sourceMappingURL=compiled-contentlayer-config-DXKUL6QB.mjs.map
+//# sourceMappingURL=compiled-contentlayer-config-6NL2IKWY.mjs.map
