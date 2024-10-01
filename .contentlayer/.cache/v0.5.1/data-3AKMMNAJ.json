@@ -50,7 +50,34 @@
         "type": "Doc",
         "slugAsParams": ""
       },
-      "documentHash": "1727786362913",
+      "documentHash": "1727787085947",
+      "hasWarnings": false,
+      "documentTypeName": "Doc"
+    },
+    "installation.mdx": {
+      "document": {
+        "title": "Installation",
+        "description": "Install and configure your Next.js project with t3.gg",
+        "slug": "/installation",
+        "featured": true,
+        "component": false,
+        "toc": true,
+        "body": {
+          "raw": "\r\n<Steps>\r\n\r\n### Create a new project\r\n\r\n<Code>npm create t3-app@latest</Code>\r\n\r\n### Configure project\r\n\r\nYou will be asked a few questions to configure `components.json`:\r\n\r\n```txt showLineNumbers\r\nWhich style would you like to use? › New York\r\nWhich color would you like to use as base color? › Zinc\r\nDo you want to use CSS variables for colors? › no / yes\r\n```\r\n\r\n### That's it\r\n\r\n</Steps>\r\n",
+          "code": "var Component=(()=>{var u=Object.create;var i=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var m=Object.getOwnPropertyNames;var g=Object.getPrototypeOf,j=Object.prototype.hasOwnProperty;var w=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),x=(n,e)=>{for(var t in e)i(n,t,{get:e[t],enumerable:!0})},c=(n,e,t,a)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let r of m(e))!j.call(n,r)&&r!==t&&i(n,r,{get:()=>e[r],enumerable:!(a=f(e,r))||a.enumerable});return n};var b=(n,e,t)=>(t=n!=null?u(g(n)):{},c(e||!n||!n.__esModule?i(t,\"default\",{value:n,enumerable:!0}):t,n)),k=n=>c(i({},\"__esModule\",{value:!0}),n);var l=w((_,s)=>{s.exports=_jsx_runtime});var N={};x(N,{default:()=>p,frontmatter:()=>y});var o=b(l()),y={title:\"Installation\",description:\"Install and configure your Next.js project with t3.gg\",featured:!0,component:!1,slug:\"installation\"};function d(n){let e={a:\"a\",code:\"code\",h3:\"h3\",p:\"p\",pre:\"pre\",span:\"span\",...n.components},{Code:t,Steps:a}=e;return t||h(\"Code\",!0),a||h(\"Steps\",!0),(0,o.jsxs)(a,{children:[(0,o.jsxs)(e.h3,{id:\"create-a-new-project\",children:[(0,o.jsx)(e.a,{className:\"subheading-anchor\",\"aria-label\":\"Link to section\",href:\"#create-a-new-project\",children:(0,o.jsx)(e.span,{className:\"icon icon-link\"})}),\"Create a new project\"]}),(0,o.jsx)(t,{children:\"npm create t3-app@latest\"}),(0,o.jsxs)(e.h3,{id:\"configure-project\",children:[(0,o.jsx)(e.a,{className:\"subheading-anchor\",\"aria-label\":\"Link to section\",href:\"#configure-project\",children:(0,o.jsx)(e.span,{className:\"icon icon-link\"})}),\"Configure project\"]}),(0,o.jsxs)(e.p,{children:[\"You will be asked a few questions to configure \",(0,o.jsx)(e.code,{children:\"components.json\"}),\":\"]}),(0,o.jsx)(e.pre,{children:(0,o.jsx)(e.code,{className:\"language-txt\",children:`Which style would you like to use? \\u203A New York\\r\nWhich color would you like to use as base color? \\u203A Zinc\\r\nDo you want to use CSS variables for colors? \\u203A no / yes\n`})}),(0,o.jsxs)(e.h3,{id:\"thats-it\",children:[(0,o.jsx)(e.a,{className:\"subheading-anchor\",\"aria-label\":\"Link to section\",href:\"#thats-it\",children:(0,o.jsx)(e.span,{className:\"icon icon-link\"})}),\"That's it\"]})]})}function p(n={}){let{wrapper:e}=n.components||{};return e?(0,o.jsx)(e,{...n,children:(0,o.jsx)(d,{...n})}):d(n)}function h(n,e){throw new Error(\"Expected \"+(e?\"component\":\"object\")+\" `\"+n+\"` to be defined: you likely forgot to import, pass, or provide it.\")}return k(N);})();\n;return Component;"
+        },
+        "_id": "installation.mdx",
+        "_raw": {
+          "sourceFilePath": "installation.mdx",
+          "sourceFileName": "installation.mdx",
+          "sourceFileDir": ".",
+          "contentType": "mdx",
+          "flattenedPath": "installation"
+        },
+        "type": "Doc",
+        "slugAsParams": ""
+      },
+      "documentHash": "1727788593820",
       "hasWarnings": false,
       "documentTypeName": "Doc"
     }
