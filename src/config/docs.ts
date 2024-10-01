@@ -33,6 +33,8 @@ export const docsConfig: DocsConfig = {
         {
           title: 'CLI',
           href: '/docs/cli',
+          label: 'soon',
+          disabled: true,
           items: [],
         },
       ],
@@ -43,6 +45,7 @@ export const docsConfig: DocsConfig = {
         {
           title: 'Accordion',
           href: '/docs/components/accordion',
+          disabled: true,
           items: [],
         },
         {
