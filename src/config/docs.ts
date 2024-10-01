@@ -23,7 +23,6 @@ export const docsConfig: DocsConfig = {
         {
           title: 'Introduction',
           href: '/docs',
-          label: 'Soon',
           items: [],
         },
         {
@@ -34,21 +33,6 @@ export const docsConfig: DocsConfig = {
         {
           title: 'CLI',
           href: '/docs/cli',
-          items: [],
-        },
-      ],
-    },
-    {
-      title: 'Installation',
-      items: [
-        {
-          title: 'Next.js',
-          href: '/docs/installation/next',
-          items: [],
-        },
-        {
-          title: 'Manual',
-          href: '/docs/installation/manual',
           items: [],
         },
       ],
