@@ -15,7 +15,11 @@ type Props = {
   filename: string;
 };
 
-export default function Preview({ component, settingsEngine, filename }: Props) {
+export default function Preview({
+  component,
+  settingsEngine,
+  filename,
+}: Props) {
   const [code, setCode] = useState<string | null>(null);
   const [btnIcon, setBtnIcon] = useState(<Clipboard size={16} />);
   const { toast } = useToast();
@@ -79,14 +83,18 @@ export default function Preview({ component, settingsEngine, filename }: Props) 
         </TabsTrigger>
       </TabsList>
       <div className="flex flex-col lg:flex-row">
-        <div className="mask w-full">
+        <div className="w-full">
           <TabsContent
             value="preview"
-            className="dark:bg-gradient-dark bg-gradient relative h-[250px] w-full content-center rounded-lg bg-repeat shadow-[inset_0_0_2px_rgba(0,0,0,0.1)] shadow-slate-300"
+            className="relative h-[250px] w-full content-center rounded-lg shadow-[inset_0_0_2px_rgba(0,0,0,0.1)] shadow-slate-300"
           >
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-              <div className="flex items-center justify-center">{component}</div>
-              <div className="flex flex-col items-center justify-center">{settingsEngine}</div>
+              <div className="flex items-center justify-center">
+                {component}
+              </div>
+              <div className="flex flex-col items-center justify-center">
+                {settingsEngine}
+              </div>
             </div>
           </TabsContent>
         </div>
