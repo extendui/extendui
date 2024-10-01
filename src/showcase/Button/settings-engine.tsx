@@ -16,20 +16,20 @@ import {
   useEngineSettingsStore,
 } from '@/zustand/stores/useEngineSettings';
 import { Checkbox } from '@/components/ui/checkbox';
+import React from 'react';
 
 export default function ButtonSettingsEngine() {
   const loading = useEngineSettingsStore((state) => state.loading);
-  const variant = useEngineSettingsStore((state) => state.variant);
 
   const handleChangeVariant = (
     value:
-      | 'default'
       | 'default'
       | 'destructive'
       | 'outline'
       | 'secondary'
       | 'ghost'
-      | 'link',
+      | 'link'
+      | 'ringHover',
   ) => {
     setVariant(value);
   };
@@ -58,6 +58,7 @@ export default function ButtonSettingsEngine() {
               <SelectItem value="secondary">Secondary</SelectItem>
               <SelectItem value="ghost">Ghost</SelectItem>
               <SelectItem value="link">Link</SelectItem>
+              <SelectItem value="ringHover">Ring Hover</SelectItem>
             </SelectGroup>
           </SelectContent>
         </Select>
