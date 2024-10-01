@@ -22,9 +22,37 @@
     "slugAsParams": ""
   },
   {
+<<<<<<< HEAD
     "title": "Button",
     "description": "Displays a button or a component that looks like a button.",
     "slug": "/docs/components/button",
+=======
+    "title": "Installation",
+    "description": "Install and configure your Next.js project with t3.gg",
+    "slug": "/installation",
+    "featured": true,
+    "component": false,
+    "toc": true,
+    "body": {
+      "raw": "\r\n<Steps>\r\n\r\n### Create a new project\r\n\r\n<Code>npm create t3-app@latest</Code>\r\n\r\n### Configure your project\r\n\r\nYou will be asked a few questions to configure your project:\r\n\r\n```text\r\n1. What will your project be called? › example\r\n2. Will you be using TypeScript or JavaScript? › TypeScript\r\n3. Will you be using Tailwind CSS for styling? › Yes\r\n4. Will you like to use tRPC? › Yes / No\r\n5. What authentication provider would you like to use? › None / NextAuth.js\r\n6. What database ORM would you like to use? › None / Prisma / Drizzle\r\n7. Would you like to use Next.js App Router? › Yes\r\n8. Should we initialize a Git repository and stage the changes? › Yes / No\r\n9. Should we run 'npm install' for you? › Yes\r\n10. What import alias would you like to use? › @/\r\n```\r\n\r\n### Add shadcn/ui\r\n\r\n<Code>npx shadcn@latest init</Code>\r\n\r\nYou will be asked a few questions to configure your project:\r\n\r\n```plaintext\r\n1. Which style would you like to use? › New York\r\n2. Which color would you like to use as base color? › Zinc\r\n3. Do you want to use CSS variables for colors? › no / yes\r\n```\r\n\r\n### That's it\r\n\r\nYou can now begin integrating new components.\r\n\r\n</Steps>\r\n",
+      "code": "var Component=(()=>{var p=Object.create;var r=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var g=Object.getOwnPropertyNames;var m=Object.getPrototypeOf,y=Object.prototype.hasOwnProperty;var w=(o,e)=>()=>(e||o((e={exports:{}}).exports,e),e.exports),b=(o,e)=>{for(var t in e)r(o,t,{get:e[t],enumerable:!0})},s=(o,e,t,i)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let a of g(e))!y.call(o,a)&&a!==t&&r(o,a,{get:()=>e[a],enumerable:!(i=f(e,a))||i.enumerable});return o};var j=(o,e,t)=>(t=o!=null?p(m(o)):{},s(e||!o||!o.__esModule?r(t,\"default\",{value:o,enumerable:!0}):t,o)),k=o=>s(r({},\"__esModule\",{value:!0}),o);var l=w((W,c)=>{c.exports=_jsx_runtime});var N={};b(N,{default:()=>h,frontmatter:()=>x});var n=j(l()),x={title:\"Installation\",description:\"Install and configure your Next.js project with t3.gg\",featured:!0,component:!1,slug:\"installation\"};function u(o){let e={a:\"a\",code:\"code\",h3:\"h3\",p:\"p\",pre:\"pre\",span:\"span\",...o.components},{Code:t,Steps:i}=e;return t||d(\"Code\",!0),i||d(\"Steps\",!0),(0,n.jsxs)(i,{children:[(0,n.jsxs)(e.h3,{id:\"create-a-new-project\",children:[(0,n.jsx)(e.a,{className:\"subheading-anchor\",\"aria-label\":\"Link to section\",href:\"#create-a-new-project\",children:(0,n.jsx)(e.span,{className:\"icon icon-link\"})}),\"Create a new project\"]}),(0,n.jsx)(t,{children:\"npm create t3-app@latest\"}),(0,n.jsxs)(e.h3,{id:\"configure-your-project\",children:[(0,n.jsx)(e.a,{className:\"subheading-anchor\",\"aria-label\":\"Link to section\",href:\"#configure-your-project\",children:(0,n.jsx)(e.span,{className:\"icon icon-link\"})}),\"Configure your project\"]}),(0,n.jsx)(e.p,{children:\"You will be asked a few questions to configure your project:\"}),(0,n.jsx)(e.pre,{children:(0,n.jsx)(e.code,{className:\"language-text\",children:`1. What will your project be called? \\u203A example\\r\n2. Will you be using TypeScript or JavaScript? \\u203A TypeScript\\r\n3. Will you be using Tailwind CSS for styling? \\u203A Yes\\r\n4. Will you like to use tRPC? \\u203A Yes / No\\r\n5. What authentication provider would you like to use? \\u203A None / NextAuth.js\\r\n6. What database ORM would you like to use? \\u203A None / Prisma / Drizzle\\r\n7. Would you like to use Next.js App Router? \\u203A Yes\\r\n8. Should we initialize a Git repository and stage the changes? \\u203A Yes / No\\r\n9. Should we run 'npm install' for you? \\u203A Yes\\r\n10. What import alias would you like to use? \\u203A @/\n`})}),(0,n.jsxs)(e.h3,{id:\"add-shadcnui\",children:[(0,n.jsx)(e.a,{className:\"subheading-anchor\",\"aria-label\":\"Link to section\",href:\"#add-shadcnui\",children:(0,n.jsx)(e.span,{className:\"icon icon-link\"})}),\"Add shadcn/ui\"]}),(0,n.jsx)(t,{children:\"npx shadcn@latest init\"}),(0,n.jsx)(e.p,{children:\"You will be asked a few questions to configure your project:\"}),(0,n.jsx)(e.pre,{children:(0,n.jsx)(e.code,{className:\"language-plaintext\",children:`1. Which style would you like to use? \\u203A New York\\r\n2. Which color would you like to use as base color? \\u203A Zinc\\r\n3. Do you want to use CSS variables for colors? \\u203A no / yes\n`})}),(0,n.jsxs)(e.h3,{id:\"thats-it\",children:[(0,n.jsx)(e.a,{className:\"subheading-anchor\",\"aria-label\":\"Link to section\",href:\"#thats-it\",children:(0,n.jsx)(e.span,{className:\"icon icon-link\"})}),\"That's it\"]}),(0,n.jsx)(e.p,{children:\"You can now begin integrating new components.\"})]})}function h(o={}){let{wrapper:e}=o.components||{};return e?(0,n.jsx)(e,{...o,children:(0,n.jsx)(u,{...o})}):u(o)}function d(o,e){throw new Error(\"Expected \"+(e?\"component\":\"object\")+\" `\"+o+\"` to be defined: you likely forgot to import, pass, or provide it.\")}return k(N);})();\n;return Component;"
+    },
+    "_id": "installation.mdx",
+    "_raw": {
+      "sourceFilePath": "installation.mdx",
+      "sourceFileName": "installation.mdx",
+      "sourceFileDir": ".",
+      "contentType": "mdx",
+      "flattenedPath": "installation"
+    },
+    "type": "Doc",
+    "slugAsParams": ""
+  },
+  {
+    "title": "Introduction",
+    "description": "A powerful collection of extended components, built by developers for developers, designed to seamlessly integrate into your application and streamline the development process.",
+    "slug": "/introduction",
+>>>>>>> 88a87e0be80b9b2d38596f5369d6dd3a14e984d3
     "featured": true,
     "component": true,
     "toc": true,
