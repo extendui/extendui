@@ -15,8 +15,8 @@ export default function HomePage() {
               </p>
               <p className="mx-2 mt-6 max-w-2xl text-base font-normal tracking-tight text-slate-600 sm:text-xl">
                 Reusable components built on{' '}
-                <p className="inline font-semibold">shadcn/ui</p> to increase
-                performance when building web applications.
+                <span className="inline font-semibold">shadcn/ui</span> to
+                increase performance when building web applications.
               </p>
               <div className="mt-6 flex items-center justify-center gap-3">
                 <Link href="docs/components/button" passHref>
