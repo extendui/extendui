@@ -11,13 +11,13 @@ type Props = {
 };
 
 export default function Sidebar({ config }: Props) {
-  const pathname = usePathname()
-  const items = config.sidebarNav
+  const pathname = usePathname();
+  const items = config.sidebarNav;
   return (
-    <ScrollArea className="h-full  mr-10 ">
+    <ScrollArea className="h-full">
       <div className="w-full">
         {items.map((item, index) => (
-          <div key={index} className={cn("pb-4")}>
+          <div key={index} className={cn('pb-4')}>
             <h4 className="mb-1 rounded-md px-2 py-1 text-lg font-semibold">
               {item.title}
             </h4>

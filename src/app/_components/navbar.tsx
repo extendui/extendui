@@ -32,12 +32,13 @@ export const Navbar = ({ navLinks, socialLinks }: Props) => {
   return (
     <header ref={ref}>
       <div
-        className={`fixed inset-x-0 top-0 z-50 h-16 backdrop-blur duration-200 ${isIntersecting
+        className={`fixed inset-x-0 top-0 z-50 h-16 backdrop-blur duration-200 ${
+          isIntersecting
             ? 'border-transparent bg-zinc-900/0'
             : 'bg-zinc-900/500 border-zinc-800'
-          }`}
+        }`}
       >
-        <div className="container mx-auto flex items-center justify-between p-5">
+        <div className="max-w-11xl mx-auto flex items-center justify-between p-5 px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between gap-4">
             <MobileSidebar navLinks={navLinks} />
             <Logo className={pathname === '/' ? '' : 'max-sm:hidden'} />
@@ -53,14 +54,6 @@ export const Navbar = ({ navLinks, socialLinks }: Props) => {
                   }
                 >
                   {link.name}
-                  {/* {link.name === 'Templates' && (
-                    <Badge
-                      variant="outline"
-                      className="absolute bottom-2 left-14 rotate-12 scale-75 border-emerald-800 bg-emerald-300 text-emerald-800"
-                    >
-                      Soon
-                    </Badge>
-                  )} */}
                 </Link>
               ))}
             </div>
