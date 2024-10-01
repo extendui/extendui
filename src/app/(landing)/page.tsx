@@ -1,3 +1,4 @@
+import { Icons } from '@/components/icons/icons';
 import { Button } from '@/components/ui/button';
 import { ChevronRight, Star } from 'lucide-react';
 import Link from 'next/link';
@@ -12,11 +13,12 @@ export default function HomePage() {
               <p className="bg-gradient-to-br from-black via-zinc-600 to-zinc-200 bg-clip-text text-center text-2xl font-bold tracking-tight text-transparent dark:from-white dark:via-neutral-200 dark:to-black/[0.6] sm:text-center sm:text-5xl">
                 Welcome to Extend UI
               </p>
-              <p className="text-md mx-2 font-normal tracking-tight text-slate-400 sm:text-xl">
-                Extend UI is a collection of React components that can be used
-                in any project that uses shadcn.
+              <p className="mx-2 mt-6 max-w-2xl text-base font-normal tracking-tight text-slate-600 sm:text-xl">
+                Reusable components built on{' '}
+                <p className="inline font-semibold">shadcn/ui</p> to increase
+                performance when building web applications.
               </p>
-              <div className="mt-4 flex items-center justify-center gap-2">
+              <div className="mt-6 flex items-center justify-center gap-3">
                 <Link href="docs/components/button" passHref>
                   <Button
                     variant={'default'}
@@ -38,6 +40,12 @@ export default function HomePage() {
                     <Star size={18} /> Star on GitHub
                   </Button>
                 </Link>
+              </div>
+              <div className="mt-6 flex items-center justify-center gap-3">
+                <Icons.react className="h-8 w-8" />
+                <Icons.tailwind className="h-8 w-8" />
+                <Icons.radix className="h-8 w-8" />
+                <Icons.motion className="h-8 w-8" />
               </div>
               <div className="gradient pointer-events-none absolute inset-0 -z-10 block opacity-30 blur-3xl"></div>
             </div>

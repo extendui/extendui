@@ -3,14 +3,7 @@
 import * as React from 'react';
 import { useRouter } from 'next/navigation';
 import { type DialogProps } from '@radix-ui/react-dialog';
-import {
-  CircleIcon,
-  FileIcon,
-  LaptopIcon,
-  MoonIcon,
-  SunIcon,
-} from '@radix-ui/react-icons';
-import { useTheme } from 'next-themes';
+import { CircleIcon, FileIcon } from '@radix-ui/react-icons';
 
 import { docsConfig } from '@/config/docs';
 import { cn } from '@/lib/utils';
@@ -22,13 +15,11 @@ import {
   CommandInput,
   CommandItem,
   CommandList,
-  CommandSeparator,
 } from './ui/command';
 
 export function CommandMenu({ ...props }: DialogProps) {
   const router = useRouter();
   const [open, setOpen] = React.useState(false);
-  const { setTheme } = useTheme();
 
   React.useEffect(() => {
     const down = (e: KeyboardEvent) => {
