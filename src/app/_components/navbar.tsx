@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button';
 import MobileSidebar from './mobile-sidebar';
 import Logo from './logo';
 import { usePathname } from 'next/navigation';
+import { CommandMenu } from '@/components/command-menu';
 
 type Props = {
   navLinks: { name: string; href: string }[];
@@ -59,6 +60,7 @@ export const Navbar = ({ navLinks, socialLinks }: Props) => {
             </div>
           </div>
           <div className="flex items-center gap-4">
+            <CommandMenu />
             {socialLinks.map((link) => (
               <Link key={link.name} href={link.href}>
                 <Button variant="ghost" size="icon">

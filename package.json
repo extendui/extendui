@@ -29,6 +29,7 @@
     "@types/mdx": "^2.0.13",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
+    "cmdk": "^1.0.0",
     "contentlayer": "^0.3.4",
     "framer-motion": "^11.7.0",
     "geist": "^1.3.0",
