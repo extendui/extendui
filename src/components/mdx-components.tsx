@@ -9,6 +9,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from './ui/tabs';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { gruvboxDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import { MDXComponents } from 'mdx/types';
+import CopyButton from './copy-button';
 
 const mdxComponents = {
   ButtonExample,
@@ -210,18 +211,28 @@ const mdxComponents = {
   },
   Code: ({
     className,
+    children,
     ...props
   }: React.ComponentProps<typeof SyntaxHighlighter>) => (
-    <SyntaxHighlighter
-      language="typescript"
-      style={gruvboxDark}
-      customStyle={{
-        maxHeight: 'none', // Adjusts max height; 'none' allows it to grow
-        overflow: 'auto', // Adds scrolling if needed
-        display: 'block', // Ensures block display
-      }}
-      {...props}
-    />
+    <div className="relative">
+      <SyntaxHighlighter
+        language="typescript"
+        style={gruvboxDark}
+        customStyle={{
+          maxHeight: 'none', // Adjusts max height; 'none' allows it to grow
+          overflow: 'auto', // Adds scrolling if needed
+          display: 'block', // Ensures block display
+        }}
+        {...props}
+      >
+        {children}
+      </SyntaxHighlighter>
+      <div className="absolute right-2 top-1/2 -translate-y-1/2">
+        <CopyButton
+          code={Array.isArray(children) ? children.join('') : children}
+        />
+      </div>
+    </div>
   ),
 };
 
@@ -233,7 +244,7 @@ export function Mdx({ code }: MdxProps) {
   const Component = useMDXComponent(code);
 
   return (
-    <div className="mdx">
+    <div className="mdx relative">
       <Component components={mdxComponents as MDXComponents} />
     </div>
   );

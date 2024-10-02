@@ -2,12 +2,11 @@
 
 import { cn } from '@/lib/utils';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from './ui/tabs';
-import { Code, Eye, Check, Clipboard } from 'lucide-react';
+import { Code, Eye } from 'lucide-react';
 import CopyButton from './copy-button';
 import { useEffect, useState } from 'react';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { gruvboxDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
-import { useToast } from '@/hooks/use-toast';
 
 type Props = {
   component: React.ReactNode;
@@ -21,28 +20,6 @@ export default function Preview({
   filename,
 }: Props) {
   const [code, setCode] = useState<string | null>(null);
-  const [btnIcon, setBtnIcon] = useState(<Clipboard size={16} />);
-  const { toast } = useToast();
-
-  const copyCode = () => {
-    navigator.clipboard
-      .writeText(code ?? '')
-      .then(() => {
-        setBtnIcon(<Check size={16} />);
-        setTimeout(() => {
-          setBtnIcon(<Clipboard size={16} />);
-        }, 1500);
-        toast({
-          description: 'Copied code to clipboard',
-          title: 'Copied',
-          duration: 4000,
-          variant: 'default',
-        });
-      })
-      .catch((err) => {
-        console.log(err.message);
-      });
-  };
 
   useEffect(() => {
     const fetchCode = async () => {
@@ -107,7 +84,7 @@ export default function Preview({
             </SyntaxHighlighter>
           )}
           <div className="absolute right-2 top-2">
-            <CopyButton icon={btnIcon} onClick={copyCode} />
+            <CopyButton code={code} />
           </div>
         </div>
       </TabsContent>
