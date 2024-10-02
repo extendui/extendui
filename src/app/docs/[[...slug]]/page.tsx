@@ -9,20 +9,22 @@ import { DashboardTableOfContents } from '@/components/toc';
 import { Mdx } from '@/components/mdx-components';
 
 type DocPageProps = {
-  params: { slug: string };
+  params: { slug: string[] };
 };
 
 export async function generateStaticParams(): Promise<
   DocPageProps['params'][]
 > {
   return allDocs.map((doc) => ({
-    slug: doc.slug,
+    slug: doc.slugAsParams.split('/'),
   }));
 }
 
 async function getDocFromParams({ params }: DocPageProps) {
-  const slug = params.slug;
-  const doc = allDocs.find((doc) => doc.slug === `/${slug}`);
+  const slug = params.slug?.join('/') || '';
+  const doc = allDocs.find((doc) => doc.slugAsParams === slug);
+
+  console.log(slug);
 
   if (!doc) {
     return null;
