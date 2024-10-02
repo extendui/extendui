@@ -8,6 +8,7 @@ import { cn } from '@/lib/utils';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from './ui/tabs';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { gruvboxDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import { MDXComponents } from 'mdx/types';
 
 const mdxComponents = {
   ButtonExample,
@@ -233,7 +234,7 @@ export function Mdx({ code }: MdxProps) {
 
   return (
     <div className="mdx">
-      <Component components={mdxComponents} />
+      <Component components={mdxComponents as MDXComponents} />
     </div>
   );
 }
