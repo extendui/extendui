@@ -2,6 +2,10 @@ import { Icons } from '@/components/icons/icons';
 import { Button } from '@/components/ui/button';
 import { ChevronRight, Star } from 'lucide-react';
 import Link from 'next/link';
+import Step from '@/components/step';
+import dynamic from 'next/dynamic';
+
+const DynamicSteps = dynamic(() => import('@/components/steps'));
 
 export default function HomePage() {
   return (
@@ -10,18 +14,18 @@ export default function HomePage() {
         <div className="min-h-[calc(100dvh-4rem)] md:h-[100dvh] md:space-y-24">
           <div className="mx-auto flex max-w-7xl flex-col items-center space-y-4 py-[32dvh] text-center">
             <div className="relative">
-              <p className="bg-gradient-to-br from-black via-zinc-600 to-zinc-200 bg-clip-text text-center text-2xl font-bold tracking-tight text-transparent dark:from-white dark:via-neutral-200 dark:to-black/[0.6] sm:text-center sm:text-5xl">
+              <h1 className="bg-gradient-to-br from-black via-zinc-600 to-zinc-200 bg-clip-text text-center text-4xl font-bold tracking-tight text-transparent dark:from-white dark:via-neutral-200 dark:to-black/[0.6] sm:text-center sm:text-6xl">
                 Welcome to Extend UI
-              </p>
+              </h1>
               <p className="mx-2 mt-6 max-w-2xl text-base font-normal tracking-tight text-slate-600 sm:text-xl">
                 Reusable components built on{' '}
                 <span className="inline font-semibold">shadcn/ui</span> to
                 increase performance when building web applications.
               </p>
               <div className="mt-6 flex items-center justify-center gap-3">
-                <Link href="docs/components/button" passHref>
+                <Link href="/docs/components" passHref>
                   <Button
-                    variant={'default'}
+                    variant="default"
                     className="flex items-center justify-center gap-1"
                   >
                     Get started
@@ -32,9 +36,10 @@ export default function HomePage() {
                   href="https://github.com/extendui/extendui"
                   passHref
                   target="_blank"
+                  rel="noopener noreferrer"
                 >
                   <Button
-                    variant={'outline'}
+                    variant="outline"
                     className="flex items-center justify-center gap-1"
                   >
                     <Star size={18} /> Star on GitHub
@@ -51,6 +56,27 @@ export default function HomePage() {
             </div>
           </div>
         </div>
+      </section>
+
+      <section id="features" className="container mx-auto px-4 py-16">
+        <h2 className="mb-8 text-3xl font-bold">Key Features</h2>
+        <DynamicSteps>
+          <Step>Reusable Components</Step>
+          <p className="mt-2">
+            Build your UI faster with our pre-built, customizable components.
+          </p>
+
+          <Step>Performance Optimized</Step>
+          <p className="mt-2">
+            Enjoy improved application performance with our optimized component
+            library.
+          </p>
+
+          <Step>Easy Integration</Step>
+          <p className="mt-2">
+            Seamlessly integrate with your existing React and Next.js projects.
+          </p>
+        </DynamicSteps>
       </section>
     </main>
   );

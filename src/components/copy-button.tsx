@@ -5,7 +5,7 @@ import { useToast } from '@/hooks/use-toast';
 import { useState } from 'react';
 import { Clipboard, Check } from 'lucide-react';
 
-export default function CopyButton({ code }: { code: string | null  }) {
+export default function CopyButton({ code }: { code: string | null }) {
   const [btnIcon, setBtnIcon] = useState(<Clipboard size={16} />);
   const { toast } = useToast();
 

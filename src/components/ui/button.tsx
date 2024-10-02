@@ -21,6 +21,8 @@ const buttonVariants = cva(
         link: 'text-primary underline-offset-4 hover:underline',
         ringHover:
           'bg-primary text-primary-foreground transition-all duration-300 hover:bg-primary/90 hover:ring-2 hover:ring-primary/80 hover:ring-offset-2 hover:ring-offset-background',
+        glowingRing:
+          'bg-primary text-primary-foreground relative overflow-hidden ring-2 ring-primary/50 animate-glow',
       },
       size: {
         default: 'h-9 px-4 py-2',

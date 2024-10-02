@@ -5,6 +5,7 @@ import { ScrollArea } from '@/components/ui/scroll-area';
 import { DocsConfig } from '@/config/docs';
 import { cn } from '@/lib/utils';
 import { usePathname } from 'next/navigation';
+import { useMemo } from 'react';
 
 type Props = {
   config: DocsConfig;
@@ -12,7 +13,8 @@ type Props = {
 
 export default function Sidebar({ config }: Props) {
   const pathname = usePathname();
-  const items = config.sidebarNav;
+  const items = useMemo(() => config.sidebarNav, [config.sidebarNav]);
+
   return (
     <ScrollArea className="h-full">
       <div className="w-full">

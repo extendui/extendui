@@ -29,7 +29,8 @@ export default function ButtonSettingsEngine() {
       | 'secondary'
       | 'ghost'
       | 'link'
-      | 'ringHover',
+      | 'ringHover'
+      | 'glowingRing',
   ) => {
     setVariant(value);
   };
@@ -59,6 +60,7 @@ export default function ButtonSettingsEngine() {
               <SelectItem value="ghost">Ghost</SelectItem>
               <SelectItem value="link">Link</SelectItem>
               <SelectItem value="ringHover">Ring Hover</SelectItem>
+              <SelectItem value="glowingRing">Glowing Ring</SelectItem>
             </SelectGroup>
           </SelectContent>
         </Select>

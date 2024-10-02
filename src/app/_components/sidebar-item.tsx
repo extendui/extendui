@@ -26,6 +26,7 @@ export default function SidebarItem({ items, pathname }: Props) {
             )}
             target={item.external ? '_blank' : ''}
             rel={item.external ? 'noreferrer' : ''}
+            aria-disabled={item.disabled}
           >
             {item.title}
             {item.label && (

@@ -2,12 +2,21 @@ import { Toaster } from '@/components/ui/toaster';
 import { ThemeProvider } from '@/providers/themeProvider';
 import '@/styles/globals.css';
 import { GeistSans } from 'geist/font/sans';
-import { type Metadata } from 'next';
+import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Extend UI',
-  description: 'Extend UI is design website',
-  icons: [{ rel: 'icon', url: '/favicon.ico' }],
+  description: 'Extend UI is a design system and component library',
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: 'https://your-website.com',
+    siteName: 'Extend UI',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    site: '@your_twitter_handle',
+  },
 };
 
 export default function RootLayout({

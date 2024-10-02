@@ -8,7 +8,8 @@ type Variant =
   | 'secondary'
   | 'ghost'
   | 'link'
-  | 'ringHover';
+  | 'ringHover'
+  | 'glowingRing';
 type Size = 'default' | 'sm' | 'lg' | 'icon';
 
 type EngineSettingsState = {
