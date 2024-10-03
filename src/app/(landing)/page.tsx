@@ -23,7 +23,7 @@ export default function HomePage() {
                 increase performance when building web applications.
               </p>
               <div className="mt-6 flex items-center justify-center gap-3">
-                <Link href="/docs/components" passHref>
+                <Link href="/docs/" passHref>
                   <Button
                     variant="default"
                     className="flex items-center justify-center gap-1"

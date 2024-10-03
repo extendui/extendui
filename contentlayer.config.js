@@ -3,19 +3,49 @@ import remarkGfm from 'remark-gfm';
 import rehypeSlug from 'rehype-slug';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 
-// ... existing code ...
+const computedFields = {
+  slug: {
+    type: 'string',
+    resolve: (doc) => `/${doc._raw.flattenedPath}`,
+  },
+  slugAsParams: {
+    type: 'string',
+    resolve: (doc) => doc._raw.flattenedPath.split('/').slice(1).join('/'),
+  },
+};
 
 export const Doc = defineDocumentType(() => ({
   name: 'Doc',
   filePathPattern: `docs/**/*.mdx`,
   contentType: 'mdx',
   fields: {
-    title: { type: 'string', required: true },
-    description: { type: 'string', required: true },
-    slug: { type: 'string', required: true },
-    featured: { type: 'boolean', default: false },
-    component: { type: 'boolean', default: false },
-    toc: { type: 'boolean', default: true },
+    title: {
+      type: 'string',
+      required: true,
+    },
+    description: {
+      type: 'string',
+      required: true,
+    },
+    slug: {
+      type: 'string',
+      required: true,
+    },
+    featured: {
+      type: 'boolean',
+      default: false,
+      required: false,
+    },
+    component: {
+      type: 'boolean',
+      default: false,
+      required: false,
+    },
+    toc: {
+      type: 'boolean',
+      default: true,
+      required: false,
+    },
   },
   computedFields,
 }));
