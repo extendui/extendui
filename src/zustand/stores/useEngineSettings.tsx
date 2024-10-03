@@ -19,12 +19,14 @@ type EngineSettingsState = {
   loading: boolean;
   variant: Variant;
   size: Size;
+  backgroundColor: string;
 };
 
 type EngineSettingsActions = {
   setLoading: (loading: boolean) => void;
   setVariant: (variant: Variant) => void;
   setSize: (size: Size) => void;
+  setBackgroundColor: (backgroundColor: string) => void;
 };
 
 export const useEngineSettingsStore = create(
@@ -32,6 +34,7 @@ export const useEngineSettingsStore = create(
     loading: false,
     variant: 'default',
     size: 'default',
+    backgroundColor: 'primary',
     setLoading: (loading) =>
       set((state) => {
         state.loading = loading;
@@ -44,8 +47,12 @@ export const useEngineSettingsStore = create(
       set((state) => {
         state.size = size;
       }),
+    setBackgroundColor: (backgroundColor) =>
+      set((state) => {
+        state.backgroundColor = backgroundColor;
+      }),
   })),
 );
 
-export const { setLoading, setVariant, setSize } =
+export const { setLoading, setVariant, setSize, setBackgroundColor } =
   useEngineSettingsStore.getState();

@@ -13,13 +13,18 @@ import {
   setLoading,
   setSize,
   setVariant,
+  setBackgroundColor,
   useEngineSettingsStore,
 } from '@/zustand/stores/useEngineSettings';
 import { Checkbox } from '@/components/ui/checkbox';
 import React from 'react';
+import { cn } from '@/lib/utils';
 
 export default function ButtonSettingsEngine() {
   const loading = useEngineSettingsStore((state) => state.loading);
+  const backgroundColor = useEngineSettingsStore(
+    (state) => state.backgroundColor,
+  );
 
   const handleChangeVariant = (
     value:
@@ -44,6 +49,18 @@ export default function ButtonSettingsEngine() {
   const handleChangeLoading = (loading: boolean) => {
     setLoading(loading);
   };
+
+  const handleChangeBackgroundColor = (value: string) => {
+    setBackgroundColor(value);
+  };
+
+  const colorOptions = [
+    { value: 'primary', label: 'Default', class: 'bg-primary' },
+    { value: 'red', label: 'Red', class: 'bg-red-500' },
+    { value: 'blue', label: 'Blue', class: 'bg-blue-500' },
+    { value: 'green', label: 'Green', class: 'bg-green-500' },
+    { value: 'yellow', label: 'Yellow', class: 'bg-yellow-500' },
+  ];
 
   return (
     <>
@@ -86,6 +103,23 @@ export default function ButtonSettingsEngine() {
             </SelectGroup>
           </SelectContent>
         </Select>
+      </div>
+      <div className="mx-auto mt-4">
+        <h3 className="mb-2 text-sm font-medium">Background Color</h3>
+        <div className="grid grid-cols-5 gap-1">
+          {colorOptions.map((color) => (
+            <label key={color.value} className="flex items-center space-x-2">
+              <Checkbox
+                checked={backgroundColor === color.value}
+                onCheckedChange={() => handleChangeBackgroundColor(color.value)}
+                className={cn(
+                  `h-6 w-6 rounded-lg border-none data-[state=checked]:bg-${color.class}`,
+                  color.class,
+                )}
+              />
+            </label>
+          ))}
+        </div>
       </div>
       <div className="mx-auto mt-4">
         <div className="items-top flex space-x-2">
