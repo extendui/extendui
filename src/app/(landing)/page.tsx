@@ -14,10 +14,10 @@ export default function HomePage() {
         <div className="min-h-[calc(100dvh-4rem)] md:h-[100dvh] md:space-y-24">
           <div className="mx-auto flex max-w-7xl flex-col items-center space-y-4 py-[32dvh] text-center">
             <div className="relative">
-              <h1 className="bg-gradient-to-br from-black via-zinc-600 to-zinc-200 bg-clip-text text-center text-4xl font-bold tracking-tight text-transparent dark:from-white dark:via-neutral-200 dark:to-black/[0.6] sm:text-center sm:text-6xl">
+              <h1 className="bg-gradient-to-br from-black via-zinc-600 to-zinc-400 bg-clip-text text-center text-4xl font-bold tracking-tight text-transparent dark:from-white dark:via-neutral-200 dark:to-black/[0.6] sm:text-center sm:text-6xl">
                 Welcome to Extend UI
               </h1>
-              <p className="mx-2 mt-6 max-w-2xl text-base font-normal tracking-tight text-slate-600 sm:text-xl">
+              <p className="mx-2 mt-6 max-w-2xl text-base font-light tracking-tight dark:text-zinc-300 sm:text-xl">
                 Reusable components built on{' '}
                 <span className="inline font-semibold">shadcn/ui</span> to
                 increase performance when building web applications.
