@@ -23,7 +23,8 @@ export default function Logo({ className }: { className?: string }) {
           className="h-8 w-8"
         />
         <span className="text-md font-bold">
-          Extend <span className="text-emerald-400">UI</span>
+          Extend{' '}
+          <span className="text-emerald-600 dark:text-emerald-500">UI</span>
         </span>
         <Badge variant="outline" className="bg-muted">
           Alpha
