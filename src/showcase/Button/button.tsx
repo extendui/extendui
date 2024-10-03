@@ -32,8 +32,13 @@ export default function ButtonExample() {
           bgColorClasses[backgroundColor as keyof typeof bgColorClasses],
       )}
     >
-      {size === 'icon' ? <ChevronRight /> : 'Button'}
-      {loading && <Loader2Icon className="ml-2 h-4 w-4 animate-spin" />}
+      {loading ? '' : size === 'icon' ? <ChevronRight /> : 'Button'}
+      {loading && (
+        <div className="flex items-center">
+          <span>Loading...</span>
+          <Loader2Icon className="ml-2 h-4 w-4 animate-spin" />
+        </div>
+      )}
     </Button>
   );
 }

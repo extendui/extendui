@@ -25,6 +25,7 @@ export default function ButtonSettingsEngine() {
   const backgroundColor = useEngineSettingsStore(
     (state) => state.backgroundColor,
   );
+  const variant = useEngineSettingsStore((state) => state.variant);
 
   const handleChangeVariant = (
     value:
@@ -106,7 +107,12 @@ export default function ButtonSettingsEngine() {
       </div>
       <div className="mx-auto mt-4">
         <h3 className="mb-2 text-sm font-medium">Background Color</h3>
-        <div className="grid grid-cols-5 gap-1">
+        <div
+          className={cn(
+            'grid grid-cols-5 gap-1',
+            variant !== 'default' && 'pointer-events-none opacity-50',
+          )}
+        >
           {colorOptions.map((color) => (
             <label key={color.value} className="flex items-center space-x-2">
               <Checkbox
@@ -116,9 +122,17 @@ export default function ButtonSettingsEngine() {
                   `h-6 w-6 rounded-lg border-none data-[state=checked]:bg-${color.class}`,
                   color.class,
                 )}
+                disabled={variant !== 'default'}
               />
             </label>
           ))}
+        </div>
+        <div>
+          {variant !== 'default' && (
+            <p className="mt-2 text-xs text-muted-foreground">
+              Background color is only available for the default variant.
+            </p>
+          )}
         </div>
       </div>
       <div className="mx-auto mt-4">
