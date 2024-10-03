@@ -9,7 +9,10 @@ type Variant =
   | 'ghost'
   | 'link'
   | 'ringHover'
-  | 'glowingRing';
+  | 'glowingRing'
+  | 'shimmer'
+  | 'perimeterShimmer';
+
 type Size = 'default' | 'sm' | 'lg' | 'icon';
 
 type EngineSettingsState = {

@@ -37,8 +37,47 @@ slug: button
 
 ### Example of example
 
+You'll need to add the following CSS to your global styles (usually in globals.css or a similar file):
+
+```text
+.animate-shimmer {
+  animation: shimmer 3s linear infinite;
+}
+
+.animate-perimeterShimmer {
+animation: perimeterShimmer 4s linear infinite;
+}
+
+@keyframes shimmer {
+0% {
+background-position: 200% 0;
+}
+100% {
+background-position: -200% 0;
+}
+}
+
+@keyframes perimeterShimmer {
+0%,
+100% {
+clip-path: inset(0 0 calc(100% - 2px) 0);
+}
+25% {
+clip-path: inset(0 0 0 calc(100% - 2px));
+}
+50% {
+clip-path: inset(calc(100% - 2px) 0 0 0);
+}
+75% {
+clip-path: inset(0 calc(100% - 2px) 0 0);
+}
+}
+
+```
+
 <div className="h-[50vh]" />
 
 ## Example2
 
 <div className="h-[50vh]" />
+```
