@@ -1,31 +1,23 @@
-'use client';
 import {
   Sheet,
   SheetContent,
-  SheetDescription,
   SheetTitle,
   SheetTrigger,
 } from '@/components/ui/sheet';
 import { Button } from '@/components/ui/button';
 import { Menu } from 'lucide-react';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
 import Sidebar from './sidebar';
 import Logo from './logo';
 import { docsConfig } from '@/config/docs';
-
 
 type Props = {
   navLinks: { name: string; href: string }[];
 };
 export default function MobileSidebar({ navLinks }: Props) {
-  const pathname = usePathname();
-
-  if (pathname === '/') return null;
-
   return (
     <Sheet>
-      <SheetTrigger asChild className="xl:hidden">
+      <SheetTrigger asChild className="md:hidden">
         <Button size="icon" variant={null} className="justify-start">
           <Menu className="h-5 w-5" />
           <span className="sr-only">Toggle Menu</span>
@@ -36,11 +28,10 @@ export default function MobileSidebar({ navLinks }: Props) {
         className="h-full sm:max-w-xs xl:hidden"
         aria-describedby={undefined}
       >
-        <SheetTitle>
+        <SheetTitle className="flex items-center justify-between">
           <Logo />
         </SheetTitle>
-
-        <div className="ml-8 mt-6 flex flex-col items-start justify-start gap-6">
+        <div className="mt-6 flex flex-col items-start justify-start gap-4 px-2 pb-4">
           {navLinks.map((link) => (
             <Link
               key={link.name}
@@ -52,14 +43,6 @@ export default function MobileSidebar({ navLinks }: Props) {
               }
             >
               {link.name}
-              {/* {link.name === 'Templates' && (
-                <Badge
-                  variant="outline"
-                  className="absolute bottom-2 left-16 rotate-12 border-zinc-500 bg-emerald-400 text-zinc-800"
-                >
-                  Soon
-                </Badge>
-              )} */}
             </Link>
           ))}
         </div>

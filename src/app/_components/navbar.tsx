@@ -6,7 +6,6 @@ import { ModeToggle } from './mode-toggle';
 import { Button } from '@/components/ui/button';
 import MobileSidebar from './mobile-sidebar';
 import Logo from './logo';
-import { usePathname } from 'next/navigation';
 import { CommandMenu } from '@/components/command-menu';
 
 type Props = {
@@ -16,7 +15,6 @@ type Props = {
 
 export const Navbar = ({ navLinks, socialLinks }: Props) => {
   const ref = useRef<HTMLElement>(null);
-  const pathname = usePathname();
 
   const [isIntersecting, setIntersecting] = useState<boolean | undefined>(true);
 
@@ -39,11 +37,11 @@ export const Navbar = ({ navLinks, socialLinks }: Props) => {
             : 'bg-zinc-900/500 border-zinc-800'
         }`}
       >
-        <div className="max-w-11xl mx-auto flex items-center justify-between p-5 px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto flex max-w-11xl items-center justify-between p-5 px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between gap-4">
             <MobileSidebar navLinks={navLinks} />
-            <Logo className={pathname === '/' ? '' : 'max-sm:hidden'} />
-            <div className="flex items-center justify-center gap-4 max-sm:hidden">
+            <Logo className="max-md:hidden" />
+            <div className="flex items-center justify-center gap-4 max-md:hidden">
               {navLinks.map((link) => (
                 <Link
                   key={link.name}
@@ -59,7 +57,7 @@ export const Navbar = ({ navLinks, socialLinks }: Props) => {
               ))}
             </div>
           </div>
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 max-md:w-full">
             <CommandMenu />
             {socialLinks.map((link) => (
               <Link key={link.name} href={link.href}>
