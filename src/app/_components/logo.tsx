@@ -1,7 +1,9 @@
 import { Badge } from '@/components/ui/badge';
 import { cn } from '@/lib/utils';
 import { CodeXml } from 'lucide-react';
+import Image from 'next/image';
 import Link from 'next/link';
+import LogoImage from '../../../public/icon.png';
 
 export default function Logo({ className }: { className?: string }) {
   return (
@@ -12,11 +14,19 @@ export default function Logo({ className }: { className?: string }) {
         className,
       )}
     >
-      <CodeXml className="text-emerald-400" />
       <div className="mr-4 flex items-center justify-center gap-1 font-bold">
-        Extend <span className="text-emerald-400">UI</span>
+        <Image
+          src={LogoImage}
+          alt="Logo"
+          width={600}
+          height={600}
+          className="h-8 w-8"
+        />
+        <span className="text-md font-bold">
+          Extend <span className="text-emerald-400">UI</span>
+        </span>
         <Badge variant="outline" className="bg-muted">
-          Beta
+          Alpha
         </Badge>
       </div>
     </Link>
