@@ -4,7 +4,6 @@ import { createContentlayerPlugin } from "next-contentlayer2"
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
-  pageExtensions: ["js", "jsx", "ts", "tsx", "md", "mdx"], // Add MDX to page extensions
   images: {
     remotePatterns: [
       {

@@ -4,7 +4,6 @@ import { Navbar } from '../_components/navbar';
 import { docsConfig } from '@/config/docs';
 import Sidebar from '../_components/sidebar';
 import Layout from '../_components/layout';
-
 export default function DocsLayout({
   children,
 }: {

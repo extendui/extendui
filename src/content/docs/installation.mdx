@@ -1,41 +1,42 @@
 ---
 title: Installation
 description: Install and configure your Next.js project with t3.gg
-featured: true
-component: false
-slug: installation
 ---
 
 <Steps>
 
 ### Create a new project
 
-<Code>npm create t3-app@latest</Code>
+```bash
+npm create t3-app@latest
+```
 
 ### Configure your project
 
 You will be asked a few questions to configure your project:
 
-```text
-1. What will your project be called? › example
-2. Will you be using TypeScript or JavaScript? › TypeScript
-3. Will you be using Tailwind CSS for styling? › Yes
-4. Will you like to use tRPC? › Yes / No
-5. What authentication provider would you like to use? › None / NextAuth.js
-6. What database ORM would you like to use? › None / Prisma / Drizzle
-7. Would you like to use Next.js App Router? › Yes
-8. Should we initialize a Git repository and stage the changes? › Yes / No
-9. Should we run 'npm install' for you? › Yes
-10. What import alias would you like to use? › @/
+```txt showLineNumbers
+What will your project be called? › example
+Will you be using TypeScript or JavaScript? › TypeScript
+Will you be using Tailwind CSS for styling? › Yes
+Will you like to use tRPC? › Yes / No
+What authentication provider would you like to use? › None / NextAuth.js
+What database ORM would you like to use? › None / Prisma / Drizzle
+Would you like to use Next.js App Router? › Yes
+Should we initialize a Git repository and stage the changes? › Yes / No
+Should we run 'npm install' for you? › Yes
+What import alias would you like to use? › @/
 ```
 
 ### Add shadcn/ui
 
-<Code>npx shadcn@latest init</Code>
+```bash
+npx shadcn@latest init
+```
 
 You will be asked a few questions to configure your project:
 
-```plaintext
+```txt
 1. Which style would you like to use? › New York
 2. Which color would you like to use as base color? › Zinc
 3. Do you want to use CSS variables for colors? › no / yes

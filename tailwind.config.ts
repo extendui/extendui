@@ -1,9 +1,14 @@
 import { type Config } from 'tailwindcss';
 import { fontFamily } from 'tailwindcss/defaultTheme';
 
-export default {
+const config: Config = {
   darkMode: ['class'],
-  content: ['./src/**/*.tsx'],
+  content: [
+    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/content/**/*.{md,mdx}', // Add this line if your MDX files are in the content directory
+  ],
   theme: {
     extend: {
       maxWidth: {
@@ -95,7 +100,26 @@ export default {
         'accordion-up': 'accordion-up 0.2s ease-out',
         glow: 'glow 2s ease-in-out infinite',
       },
+      backgroundImage: {
+        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+        'gradient-conic':
+          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+      },
+      typography: (theme: any) => ({
+        DEFAULT: {
+          css: {
+            'code::before': {
+              content: '""',
+            },
+            'code::after': {
+              content: '""',
+            },
+          },
+        },
+      }),
     },
   },
-  plugins: [require('tailwindcss-animate')],
-} satisfies Config;
+  plugins: [require('tailwindcss-animate'), require('@tailwindcss/typography')],
+};
+
+export default config;

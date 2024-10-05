@@ -1,75 +1,78 @@
+/* eslint-disable ts/ban-ts-comment */
+// @ts-nocheck
+'use client';
+
+import * as React from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+import { useMDXComponent } from 'next-contentlayer2/hooks';
+import type { NpmCommands } from '../types/unist.type';
+
+import type { Event } from '@/lib/events';
+import { cn } from '@/lib/utils';
+import { useConfig } from '@/hooks/use-config';
+import { Callout } from '@/components/callout';
+import { CodeBlockWrapper } from '@/components/code-block-wrapper';
+import { ComponentExample } from '@/components/component-example';
+import { ComponentSource } from '@/components/component-source';
+import { CopyButton, CopyNpmCommandButton } from '@/components/copy-button';
+import { FrameworkDocs } from '@/components/framework-docs';
+import { StyleWrapper } from '@/components/style-wrapper';
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from '@/components/ui/accordion';
+import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
+import { AspectRatio } from '@/components/ui/aspect-ratio';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import type { Style } from '@/registry/styles';
+import { PropsTable } from '@/components/props-table';
+import TemplatePreview from '@/components/template-preview';
+import Preview from './preview';
 import ButtonExample from '@/showcase/Button/button';
 import ButtonSettingsEngine from '@/showcase/Button/settings-engine';
-import Preview from '@/components/preview';
-import { Component } from '@/app/_components/toc';
-import { useMDXComponent } from 'next-contentlayer2/hooks';
-import React from 'react';
-import { cn } from '@/lib/utils';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from './ui/tabs';
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { gruvboxDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
-import { MDXComponents } from 'mdx/types';
-import CopyButton from './copy-button';
 
-const mdxComponents = {
+import '@/styles/mdx.css'; // Import the MDX styles
+
+function CustomLink(props: any) {
+  const href = props.href;
+
+  if (href.startsWith('/')) {
+    return (
+      <Link {...props} href={href}>
+        {props.children}
+      </Link>
+    );
+  }
+
+  if (href.startsWith('#')) return <a {...props} />;
+
+  return <a target="_blank" rel="noopener noreferrer" {...props} />;
+}
+
+const components = {
+  Preview,
+  TemplatePreview,
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+  Alert,
+  AlertTitle,
+  AlertDescription,
+  Callout,
+  PropsTable,
+  ComponentExample,
+  ComponentSource,
+  FrameworkDocs,
+  StyleWrapper,
+  Image,
   ButtonExample,
   ButtonSettingsEngine,
-  Preview,
-  Component,
-  Step: ({ className, ...props }: React.ComponentProps<'h3'>) => (
-    <h3
-      className={cn(
-        'font-heading mt-8 scroll-m-20 text-xl font-semibold tracking-tight',
-        className,
-      )}
-      {...props}
-    />
-  ),
-  Steps: ({ ...props }) => (
-    <div
-      className="[&>h3]:step steps mb-12 ml-4 border-l pl-8 [counter-reset:step]"
-      {...props}
-    />
-  ),
-  Tabs: ({ className, ...props }: React.ComponentProps<typeof Tabs>) => (
-    <Tabs className={cn('relative mt-6 w-full', className)} {...props} />
-  ),
-  TabsList: ({
-    className,
-    ...props
-  }: React.ComponentProps<typeof TabsList>) => (
-    <TabsList
-      className={cn(
-        'w-full justify-start rounded-none border-b bg-transparent p-0',
-        className,
-      )}
-      {...props}
-    />
-  ),
-  TabsTrigger: ({
-    className,
-    ...props
-  }: React.ComponentProps<typeof TabsTrigger>) => (
-    <TabsTrigger
-      className={cn(
-        'relative h-9 rounded-none border-b-2 border-b-transparent bg-transparent px-4 pb-3 pt-2 font-semibold text-muted-foreground shadow-none transition-none data-[state=active]:border-b-primary data-[state=active]:text-foreground data-[state=active]:shadow-none',
-        className,
-      )}
-      {...props}
-    />
-  ),
-  TabsContent: ({
-    className,
-    ...props
-  }: React.ComponentProps<typeof TabsContent>) => (
-    <TabsContent
-      className={cn(
-        'relative [&_h3.font-heading]:text-base [&_h3.font-heading]:font-semibold',
-        className,
-      )}
-      {...props}
-    />
-  ),
+  ComponentInstallation: (props: any) => <ComponentInstallation {...props} />,
+  ComponentSource: (props: any) => <ComponentSource {...props} />,
   h1: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h1
       className={cn(
@@ -124,10 +127,10 @@ const mdxComponents = {
       {...props}
     />
   ),
-  a: ({ className, ...props }: React.HTMLAttributes<HTMLAnchorElement>) => (
-    <a
-      className={cn('font-medium underline underline-offset-4', className)}
+  a: (props: any) => (
+    <CustomLink
       {...props}
+      className="font-medium underline underline-offset-4"
     />
   ),
   p: ({ className, ...props }: React.HTMLAttributes<HTMLParagraphElement>) => (
@@ -137,10 +140,10 @@ const mdxComponents = {
     />
   ),
   ul: ({ className, ...props }: React.HTMLAttributes<HTMLUListElement>) => (
-    <ul className={cn('my-6 ml-6 list-disc', className)} {...props} />
+    <ul className={cn('my-6 list-disc', className)} {...props} />
   ),
   ol: ({ className, ...props }: React.HTMLAttributes<HTMLOListElement>) => (
-    <ol className={cn('my-6 ml-6 list-decimal', className)} {...props} />
+    <ol className={cn('my-6 list-decimal', className)} {...props} />
   ),
   li: ({ className, ...props }: React.HTMLAttributes<HTMLElement>) => (
     <li className={cn('mt-2', className)} {...props} />
@@ -151,23 +154,9 @@ const mdxComponents = {
       {...props}
     />
   ),
-  img: ({
-    className,
-    alt,
-    ...props
-  }: React.ImgHTMLAttributes<HTMLImageElement>) => (
-    // eslint-disable-next-line @next/next/no-img-element
-    <img className={cn('rounded-md', className)} alt={alt} {...props} />
-  ),
-  hr: ({ ...props }: React.HTMLAttributes<HTMLHRElement>) => (
-    <hr className="my-4 md:my-8" {...props} />
-  ),
   table: ({ className, ...props }: React.HTMLAttributes<HTMLTableElement>) => (
-    <div className="my-6 w-full overflow-y-auto rounded-lg">
-      <table
-        className={cn('w-full overflow-hidden rounded-lg', className)}
-        {...props}
-      />
+    <div className="w-full overflow-y-auto">
+      <table className={cn('w-full', className)} {...props} />
     </div>
   ),
   tr: ({ className, ...props }: React.HTMLAttributes<HTMLTableRowElement>) => (
@@ -185,67 +174,179 @@ const mdxComponents = {
   td: ({ className, ...props }: React.HTMLAttributes<HTMLTableCellElement>) => (
     <td
       className={cn(
-        'border px-4 py-2 text-left [&[align=center]]:text-center [&[align=right]]:text-right',
+        'whitespace-pre border px-4 py-2 text-left [&[align=center]]:text-center [&[align=right]]:text-right',
         className,
       )}
       {...props}
     />
   ),
-  code: ({
+  pre: ({
     className,
+    __rawString__,
+    __npmCommand__,
+    __yarnCommand__,
+    __pnpmCommand__,
+    __bunCommand__,
+    __withMeta__,
+    __src__,
+    __event__,
+    __style__,
     ...props
-  }: React.ComponentProps<typeof SyntaxHighlighter>) => {
-    const match = /language-(\w+)/.exec(className || '');
+  }: React.HTMLAttributes<HTMLPreElement> & {
+    __style__?: Style['name'];
+    __rawString__?: string;
+    __withMeta__?: boolean;
+    __src__?: string;
+    __event__?: Event['name'];
+  } & NpmCommands) => {
+    console.log(__rawString__);
     return (
-      <SyntaxHighlighter
-        language={match ? match[1] : 'plaintext'}
-        style={gruvboxDark}
-        customStyle={{
-          maxHeight: 'none', // Adjusts max height; 'none' allows it to grow
-          overflow: 'auto', // Adds scrolling if needed
-          display: 'block', // Ensures block display
-        }}
-        {...props}
-      />
+      <StyleWrapper styleName={__style__}>
+        <pre
+          className={cn(
+            'mb-4 mt-6 max-h-[650px] overflow-x-auto rounded-lg border bg-zinc-950 py-4 dark:bg-zinc-900',
+            className,
+          )}
+          {...props}
+        />
+        {__rawString__ && !__npmCommand__ && (
+          <CopyButton
+            value={__rawString__}
+            src={__src__}
+            event={__event__}
+            className={cn('absolute right-4 top-4', __withMeta__ && 'top-16')}
+          />
+        )}
+        {__npmCommand__ &&
+          __yarnCommand__ &&
+          __pnpmCommand__ &&
+          __bunCommand__ && (
+            <CopyNpmCommandButton
+              commands={{
+                __npmCommand__,
+                __yarnCommand__,
+                __pnpmCommand__,
+                __bunCommand__,
+              }}
+              className={cn('absolute right-4 top-4', __withMeta__ && 'top-16')}
+            />
+          )}
+      </StyleWrapper>
     );
   },
-  Code: ({
+  code: ({ className, ...props }: React.HTMLAttributes<HTMLElement>) => (
+    <code
+      className={cn(
+        'dark relative rounded px-[0.3rem] py-[0.2rem] font-mono text-sm',
+        className,
+      )}
+      {...props}
+    />
+  ),
+  AspectRatio,
+  CodeBlockWrapper: ({ ...props }) => (
+    <CodeBlockWrapper className="rounded-md border" {...props} />
+  ),
+  Step: ({ className, ...props }: React.ComponentProps<'h3'>) => (
+    <h3
+      className={cn(
+        'font-heading mt-8 scroll-m-20 text-xl font-semibold tracking-tight',
+        className,
+      )}
+      {...props}
+    />
+  ),
+  Steps: ({ ...props }) => (
+    <div
+      className="[&>h3]:step steps mb-12 ml-4 border-l pl-8 [counter-reset:step]"
+      {...props}
+    />
+  ),
+  Tabs: ({ className, ...props }: React.ComponentProps<typeof Tabs>) => (
+    <Tabs className={cn('relative mt-6 w-full', className)} {...props} />
+  ),
+  TabsList: ({
     className,
-    children,
     ...props
-  }: React.ComponentProps<typeof SyntaxHighlighter>) => (
-    <div className="relative">
-      <SyntaxHighlighter
-        language="typescript"
-        style={gruvboxDark}
-        customStyle={{
-          maxHeight: 'none', // Adjusts max height; 'none' allows it to grow
-          overflow: 'auto', // Adds scrolling if needed
-          display: 'block', // Ensures block display
-        }}
-        {...props}
-      >
-        {children}
-      </SyntaxHighlighter>
-      <div className="absolute right-2 top-1/2 -translate-y-1/2">
-        <CopyButton
-          code={Array.isArray(children) ? children.join('') : children}
-        />
-      </div>
-    </div>
+  }: React.ComponentProps<typeof TabsList>) => (
+    <TabsList
+      className={cn(
+        'w-full justify-start rounded-none border-b bg-transparent p-0',
+        className,
+      )}
+      {...props}
+    />
+  ),
+  TabsTrigger: ({
+    className,
+    ...props
+  }: React.ComponentProps<typeof TabsTrigger>) => (
+    <TabsTrigger
+      className={cn(
+        'relative h-9 rounded-none border-b-2 border-b-transparent bg-transparent px-4 pb-3 pt-2 font-semibold text-muted-foreground shadow-none transition-none data-[state=active]:border-b-primary data-[state=active]:text-foreground data-[state=active]:shadow-none',
+        className,
+      )}
+      {...props}
+    />
+  ),
+  TabsContent: ({
+    className,
+    ...props
+  }: React.ComponentProps<typeof TabsContent>) => (
+    <TabsContent
+      className={cn(
+        'relative [&_h3.font-heading]:text-base [&_h3.font-heading]:font-semibold',
+        className,
+      )}
+      {...props}
+    />
+  ),
+  FrameworkDocs: ({
+    className,
+    ...props
+  }: React.ComponentProps<typeof FrameworkDocs>) => (
+    <FrameworkDocs className={cn(className)} {...props} />
+  ),
+  Link: ({ className, ...props }: React.ComponentProps<typeof Link>) => (
+    <Link
+      className={cn('font-medium underline underline-offset-4', className)}
+      {...props}
+    />
+  ),
+  LinkedCard: ({ className, ...props }: React.ComponentProps<typeof Link>) => (
+    <Link
+      className={cn(
+        'flex w-full flex-col items-center rounded-xl border bg-card p-6 text-card-foreground shadow transition-colors hover:bg-muted/50 sm:p-10',
+        className,
+      )}
+      {...props}
+    />
+  ),
+  img: ({
+    className,
+    alt,
+    ...props
+  }: React.ImgHTMLAttributes<HTMLImageElement>) => (
+    <img className={cn('rounded-md', className)} alt={alt} {...props} />
+  ),
+  hr: ({ ...props }: React.HTMLAttributes<HTMLHRElement>) => (
+    <hr className="my-4 md:my-8" {...props} />
   ),
 };
 
-type MdxProps = {
+interface MDXProps {
   code: string;
-};
+}
 
-export function Mdx({ code }: MdxProps) {
-  const Component = useMDXComponent(code);
+export function Mdx({ code }: MDXProps) {
+  const [config] = useConfig();
+  const Component = useMDXComponent(code, {
+    style: config.style,
+  });
 
   return (
-    <div className="mdx relative">
-      <Component components={mdxComponents as MDXComponents} />
+    <div className="mdx prose max-w-none dark:prose-invert">
+      <Component components={components} />
     </div>
   );
 }

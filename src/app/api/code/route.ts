@@ -8,10 +8,17 @@ export async function GET(request: Request) {
   const filename = searchParams.get('filename');
 
   if (!filename) {
-    return NextResponse.json({ error: 'Filename is required' }, { status: 400 });
+    return NextResponse.json(
+      { error: 'Filename is required' },
+      { status: 400 },
+    );
   }
 
-  const filePath = path.join(process.cwd(), 'src/components/ui', `${filename}.tsx`);
+  const filePath = path.join(
+    process.cwd(),
+    'src/components/ui',
+    `${filename}.tsx`,
+  );
 
   try {
     const code = fs.readFileSync(filePath, 'utf8');

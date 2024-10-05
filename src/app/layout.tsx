@@ -1,6 +1,7 @@
 import { Toaster } from '@/components/ui/toaster';
 import { ThemeProvider } from '@/providers/themeProvider';
 import '@/styles/globals.css';
+import '@/styles/mdx.css';
 import { GeistSans } from 'geist/font/sans';
 import { Metadata } from 'next';
 

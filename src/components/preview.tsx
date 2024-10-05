@@ -3,10 +3,8 @@
 import { cn } from '@/lib/utils';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from './ui/tabs';
 import { Code, Eye } from 'lucide-react';
-import CopyButton from './copy-button';
 import { useEffect, useState } from 'react';
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { gruvboxDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import { ComponentSource } from './component-source';
 
 type Props = {
   component: React.ReactNode;
@@ -38,56 +36,47 @@ export default function Preview({
   }, [filename]);
 
   return (
-    <Tabs defaultValue="preview">
-      <TabsList className={cn('flex items-center justify-end bg-inherit')}>
-        <TabsTrigger
-          value="preview"
-          className={cn(
-            'data-[state=active]:bg-zinc-900 data-[state=active]:text-zinc-100 data-[state=active]:shadow dark:data-[state=active]:bg-zinc-100 dark:data-[state=active]:text-zinc-900',
-          )}
-        >
-          <Eye size={16} />
-          <span className="ml-1">Preview</span>
-        </TabsTrigger>
-        <TabsTrigger
-          value="code"
-          className={cn(
-            'data-[state=active]:bg-zinc-900 data-[state=active]:text-zinc-100 data-[state=active]:shadow dark:data-[state=active]:bg-zinc-100 dark:data-[state=active]:text-zinc-900',
-          )}
-        >
-          <Code size={16} />
-          <span className="ml-1">Code</span>
-        </TabsTrigger>
-      </TabsList>
-      <div className="flex flex-col lg:flex-row">
-        <div className="w-full">
-          <TabsContent
+    <div className="mx-auto">
+      <Tabs defaultValue="preview" className="w-full">
+        <TabsList className={cn('flex items-center justify-end bg-inherit')}>
+          <TabsTrigger
             value="preview"
-            className="relative h-[250px] w-full content-center rounded-lg shadow-[inset_0_0_2px_rgba(0,0,0,0.1)] shadow-slate-300"
+            className={cn(
+              'data-[state=active]:bg-zinc-900 data-[state=active]:text-zinc-100 data-[state=active]:shadow dark:data-[state=active]:bg-zinc-100 dark:data-[state=active]:text-zinc-900',
+            )}
           >
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-              <div className="flex items-center justify-center">
-                {component}
-              </div>
-              <div className="flex flex-col items-center justify-center">
-                {settingsEngine}
-              </div>
+            <Eye size={16} />
+            <span className="ml-1">Preview</span>
+          </TabsTrigger>
+          <TabsTrigger
+            value="code"
+            className={cn(
+              'data-[state=active]:bg-zinc-900 data-[state=active]:text-zinc-100 data-[state=active]:shadow dark:data-[state=active]:bg-zinc-100 dark:data-[state=active]:text-zinc-900',
+            )}
+          >
+            <Code size={16} />
+            <span className="ml-1">Code</span>
+          </TabsTrigger>
+        </TabsList>
+        <TabsContent
+          value="preview"
+          className="relative w-full content-center rounded-lg py-4 shadow-[inset_0_0_2px_rgba(0,0,0,0.1)] shadow-slate-300"
+        >
+          <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
+            <div className="flex items-center justify-center p-4">
+              {component}
             </div>
-          </TabsContent>
-        </div>
-      </div>
-      <TabsContent value="code" className="rounded-lg">
-        <div className="relative mx-auto max-w-7xl">
-          {code && (
-            <SyntaxHighlighter language="typescript" style={gruvboxDark}>
-              {code}
-            </SyntaxHighlighter>
-          )}
-          <div className="absolute right-2 top-2">
-            <CopyButton code={code} />
+            <div className="flex flex-col items-center justify-center p-4">
+              {settingsEngine}
+            </div>
           </div>
-        </div>
-      </TabsContent>
-    </Tabs>
+        </TabsContent>
+        <TabsContent value="code" className="rounded-lg">
+          <div className="relative mx-auto w-full max-w-full overflow-auto">
+            <ComponentSource src={filename} />
+          </div>
+        </TabsContent>
+      </Tabs>
+    </div>
   );
 }

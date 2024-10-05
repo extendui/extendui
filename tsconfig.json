@@ -14,10 +14,10 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
-    "paths": { 
+    "paths": {
       "@/*": ["./src/*"],
       "contentlayer/generated": ["./.contentlayer/generated"]
-     },
+    },
     "plugins": [{ "name": "next" }],
     "baseUrl": "."
   },
@@ -30,8 +30,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    ".storybook/**/*.ts",
-    ".storybook/**/*.tsx"
+    ".contentlayer/generated"
   ],
   "exclude": ["node_modules", ".next"]
 }
