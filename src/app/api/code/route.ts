@@ -1,16 +1,4 @@
-// app/api/code/route.ts
 import { NextResponse } from 'next/server';
-
-// Import all your UI components here
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-// ... import other components as needed
-
-const componentMap: Record<string, string> = {
-  button: Button.toString(),
-  input: Input.toString(),
-  // Add other components here
-};
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
@@ -23,12 +11,17 @@ export async function GET(request: Request) {
     );
   }
 
-  const componentName = filename.replace('.tsx', '');
-  const code = componentMap[componentName];
+  // Replace with your GitHub repo URL
+  const fileUrl = `https://raw.githubusercontent.com/extendui/extendui/main/src/components/ui/${filename}.tsx`;
 
-  if (code) {
+  try {
+    const response = await fetch(fileUrl);
+    if (!response.ok) {
+      return NextResponse.json({ error: 'File not found' }, { status: 404 });
+    }
+    const code = await response.text();
     return NextResponse.json({ code });
-  } else {
-    return NextResponse.json({ error: 'Component not found' }, { status: 404 });
+  } catch (error) {
+    return NextResponse.json({ error: 'File not found' }, { status: 404 });
   }
 }
