@@ -345,7 +345,7 @@ export function Mdx({ code }: MDXProps) {
   });
 
   return (
-    <div className="mdx prose max-w-none dark:prose-invert">
+    <div className="mdx max-w-none dark:prose-invert">
       <Component components={components} />
     </div>
   );

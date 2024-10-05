@@ -59,7 +59,6 @@ export default function ButtonSettingsEngine() {
     setBackgroundColor(color);
     setCustomColor(color);
   };
-  console.log(backgroundColor);
 
   const colorOptions = [
     { value: 'primary', label: 'Default', color: 'hsl(var(--primary))' },
@@ -70,7 +69,7 @@ export default function ButtonSettingsEngine() {
 
   return (
     <div className="flex flex-col space-y-4 sm:space-y-6">
-      <div className="w-auto">
+      <div className="w-full sm:w-auto">
         <Select onValueChange={handleChangeVariant} value={variant}>
           <SelectTrigger className="w-full bg-secondary text-secondary-foreground sm:w-[180px]">
             <SelectValue placeholder="Select variant" />
@@ -94,7 +93,7 @@ export default function ButtonSettingsEngine() {
           </SelectContent>
         </Select>
       </div>
-      <div className="w-auto">
+      <div className="w-full sm:w-auto">
         <Select onValueChange={handleChangeSize} value={size}>
           <SelectTrigger className="w-full bg-secondary text-secondary-foreground sm:w-[180px]">
             <SelectValue placeholder="Select size" />
