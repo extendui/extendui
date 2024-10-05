@@ -1,6 +1,6 @@
 // app/api/code/route.ts
 import { NextResponse } from 'next/server';
-import fs from 'fs';
+import { promises as fs } from 'fs';
 import path from 'path';
 
 export async function GET(request: Request) {
@@ -16,14 +16,17 @@ export async function GET(request: Request) {
 
   const filePath = path.join(
     process.cwd(),
-    'src/components/ui',
+    'src',
+    'components',
+    'ui',
     `${filename}.tsx`,
   );
 
   try {
-    const code = fs.readFileSync(filePath, 'utf8');
+    const code = await fs.readFile(filePath, 'utf8');
     return NextResponse.json({ code });
   } catch (error) {
+    console.error('Error reading file:', error);
     return NextResponse.json({ error: 'File not found' }, { status: 404 });
   }
 }
