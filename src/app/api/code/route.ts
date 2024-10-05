@@ -1,7 +1,16 @@
 // app/api/code/route.ts
 import { NextResponse } from 'next/server';
-import { promises as fs } from 'fs';
-import path from 'path';
+
+// Import all your UI components here
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+// ... import other components as needed
+
+const componentMap: Record<string, string> = {
+  button: Button.toString(),
+  input: Input.toString(),
+  // Add other components here
+};
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
@@ -14,19 +23,12 @@ export async function GET(request: Request) {
     );
   }
 
-  const filePath = path.join(
-    process.cwd(),
-    'src',
-    'components',
-    'ui',
-    `${filename}.tsx`,
-  );
+  const componentName = filename.replace('.tsx', '');
+  const code = componentMap[componentName];
 
-  try {
-    const code = await fs.readFile(filePath, 'utf8');
+  if (code) {
     return NextResponse.json({ code });
-  } catch (error) {
-    console.error('Error reading file:', error);
-    return NextResponse.json({ error: 'File not found' }, { status: 404 });
+  } else {
+    return NextResponse.json({ error: 'Component not found' }, { status: 404 });
   }
 }
