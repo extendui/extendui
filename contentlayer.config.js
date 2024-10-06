@@ -6,8 +6,6 @@ import {
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypePrettyCode from 'rehype-pretty-code';
 import rehypeSlug from 'rehype-slug';
-
-import type { BlogPosting, WithContext } from 'schema-dts';
 import { visit } from 'unist-util-visit';
 
 import { rehypeComponent } from './src/lib/rehype-component';
@@ -17,24 +15,24 @@ import { rehypeNpmCommand } from './src/lib/rehype-npm-command';
 const computedFields = {
   url: {
     type: 'string',
-    resolve: (post: any) => `/${post._raw.flattenedPath}`,
+    resolve: (post) => `/${post._raw.flattenedPath}`,
   },
   image: {
     type: 'string',
-    resolve: (post: any) =>
+    resolve: (post) =>
       `${process.env.NEXT_PUBLIC_APP_URL}/api/og?title=${encodeURI(post.title)}`,
   },
   slug: {
     type: 'string',
-    resolve: (doc: any) => `/${doc._raw.flattenedPath}`,
+    resolve: (doc) => `/${doc._raw.flattenedPath}`,
   },
   slugAsParams: {
     type: 'string',
-    resolve: (doc: any) => doc._raw.flattenedPath.split('/').slice(1).join('/'),
+    resolve: (doc) => doc._raw.flattenedPath.split('/').slice(1).join('/'),
   },
   structuredData: {
     type: 'json',
-    resolve: (doc: any) =>
+    resolve: (doc) =>
       ({
         '@context': 'https://schema.org',
         '@type': `BlogPosting`,
@@ -49,7 +47,7 @@ const computedFields = {
           name: doc.author,
           url: `https://twitter.com/${doc.author}`,
         },
-      }) as WithContext<BlogPosting>,
+      }),
   },
 };
 
@@ -107,94 +105,46 @@ export default makeSource({
   mdx: {
     remarkPlugins: [],
     rehypePlugins: [
-      rehypeSlug,
-      rehypeComponent,
       () => (tree) => {
         visit(tree, (node) => {
-          if (node?.type === 'element' && node?.tagName === 'pre') {
+          if (node?.type === "element" && node?.tagName === "pre") {
             const [codeEl] = node.children;
 
-            if (codeEl.tagName !== 'code') {
-              return;
-            }
-
-            if (codeEl.data?.meta) {
-              // Extract event from meta and pass it down the tree.
-              const regex = /event="([^"]*)"/;
-              const match = codeEl.data?.meta.match(regex);
-              if (match) {
-                node.__event__ = match ? match[1] : null;
-                codeEl.data.meta = codeEl.data.meta.replace(regex, '');
-              }
-            }
-
-            console.log(codeEl.children?.[0].value);
+            if (codeEl.tagName !== "code") return;
 
             node.__rawString__ = codeEl.children?.[0].value;
-            node.__src__ = node.properties?.__src__;
-            node.__style__ = node.properties?.__style__;
           }
         });
       },
       [
-        rehypePrettyCode as any,
+        // @ts-ignore
+        rehypePrettyCode,
         {
-          theme: 'github-dark',
-          onVisitLine(node: any) {
-            // Prevent lines from collapsing in `display: grid` mode, and allow empty
-            // lines to be copy/pasted
+          theme: "github-dark",
+          keepBackground: false,
+          onVisitLine(node) {
             if (node.children.length === 0) {
-              node.children = [{ type: 'text', value: ' ' }];
+              node.children = [{ type: "text", value: " " }];
             }
-          },
-          onVisitHighlightedLine(node: any) {
-            node.properties.className.push('line--highlighted');
-          },
-          onVisitHighlightedWord(node: any) {
-            node.properties.className = ['word--highlighted'];
           },
         },
       ],
       () => (tree) => {
         visit(tree, (node) => {
-          if (node?.type === 'element' && node?.tagName === 'div') {
-            if (!('data-rehype-pretty-code-fragment' in node.properties)) {
+          if (node?.type === "element" && node?.tagName === "figure") {
+            if (!("data-rehype-pretty-code-figure" in node.properties)) {
               return;
             }
 
             const preElement = node.children.at(-1);
-            if (preElement.tagName !== 'pre') {
+            if (preElement.tagName !== "pre") {
               return;
             }
 
-            preElement.properties.__withMeta__ =
-              node.children.at(0).tagName === 'div';
-            preElement.properties.__rawString__ = node.__rawString__;
-
-            if (node.__src__) {
-              preElement.properties.__src__ = node.__src__;
-            }
-
-            if (node.__event__) {
-              preElement.properties.__event__ = node.__event__;
-            }
-
-            if (node.__style__) {
-              preElement.properties.__style__ = node.__style__;
-            }
+            preElement.properties["__rawString__"] = node.__rawString__;
           }
         });
       },
-      rehypeNpmCommand,
-      [
-        rehypeAutolinkHeadings,
-        {
-          properties: {
-            className: ['anchor'],
-            ariaLabel: 'Link to section',
-          },
-        },
-      ],
     ],
   },
 });

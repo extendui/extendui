@@ -109,7 +109,7 @@ export default function ButtonSettingsEngine() {
           </SelectContent>
         </Select>
       </div>
-      <div className="w-full">
+      <div className="w-full sm:w-auto">
         <div className="flex flex-wrap gap-2">
           {colorOptions.map((color) => (
             <Button
@@ -117,14 +117,14 @@ export default function ButtonSettingsEngine() {
               variant="ghost"
               style={{ backgroundColor: color.color }}
               onClick={() => handleChangeBackgroundColor(color.value)}
-              className="size-10 flex-[0_0_calc(33.333%-0.5rem)]"
+              className="h-8 w-8 flex items-center justify-center"
             />
           ))}
           <Popover>
             <PopoverTrigger asChild>
               <Button
                 variant="ghost"
-                className="size-12 flex-[0_0_calc(33.333%-0.5rem)]"
+                className="h-8 w-8 flex items-center justify-center"
                 style={{ backgroundColor: customColor }}
               >
                 {customColor === backgroundColor ? '✓' : '+'}

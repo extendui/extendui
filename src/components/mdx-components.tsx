@@ -35,6 +35,7 @@ import ButtonExample from '@/showcase/Button/button';
 import ButtonSettingsEngine from '@/showcase/Button/settings-engine';
 
 import '@/styles/mdx.css'; // Import the MDX styles
+import { PreCustom } from './pre-custom';
 
 function CustomLink(props: any) {
   const href = props.href;
@@ -180,60 +181,7 @@ const components = {
       {...props}
     />
   ),
-  pre: ({
-    className,
-    __rawString__,
-    __npmCommand__,
-    __yarnCommand__,
-    __pnpmCommand__,
-    __bunCommand__,
-    __withMeta__,
-    __src__,
-    __event__,
-    __style__,
-    ...props
-  }: React.HTMLAttributes<HTMLPreElement> & {
-    __style__?: Style['name'];
-    __rawString__?: string;
-    __withMeta__?: boolean;
-    __src__?: string;
-    __event__?: Event['name'];
-  } & NpmCommands) => {
-    console.log(__rawString__);
-    return (
-      <StyleWrapper styleName={__style__}>
-        <pre
-          className={cn(
-            'mb-4 mt-6 max-h-[650px] overflow-x-auto rounded-lg border bg-zinc-950 py-4 dark:bg-zinc-900',
-            className,
-          )}
-          {...props}
-        />
-        {__rawString__ && !__npmCommand__ && (
-          <CopyButton
-            value={__rawString__}
-            src={__src__}
-            event={__event__}
-            className={cn('absolute right-4 top-4', __withMeta__ && 'top-16')}
-          />
-        )}
-        {__npmCommand__ &&
-          __yarnCommand__ &&
-          __pnpmCommand__ &&
-          __bunCommand__ && (
-            <CopyNpmCommandButton
-              commands={{
-                __npmCommand__,
-                __yarnCommand__,
-                __pnpmCommand__,
-                __bunCommand__,
-              }}
-              className={cn('absolute right-4 top-4', __withMeta__ && 'top-16')}
-            />
-          )}
-      </StyleWrapper>
-    );
-  },
+  pre: PreCustom,
   code: ({ className, ...props }: React.HTMLAttributes<HTMLElement>) => (
     <code
       className={cn(
