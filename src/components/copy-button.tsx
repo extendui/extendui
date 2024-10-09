@@ -41,8 +41,6 @@ export function CopyButton({
     }, 2000);
   }, [hasCopied]);
 
-
-  console.log(1)
   return (
     <Button
       size="icon"
@@ -56,11 +54,11 @@ export function CopyButton({
           value,
           event
             ? {
-              name: event,
-              properties: {
-                code: value,
-              },
-            }
+                name: event,
+                properties: {
+                  code: value,
+                },
+              }
             : undefined,
         );
         setHasCopied(true);

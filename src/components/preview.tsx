@@ -36,7 +36,7 @@ export default function Preview({
   }, [filename]);
 
   return (
-    <div className="mx-auto max-sm:w-96">
+    <div className="mx-auto">
       <Tabs defaultValue="preview" className="w-full">
         <TabsList className={cn('flex items-center justify-end bg-inherit')}>
           <TabsTrigger

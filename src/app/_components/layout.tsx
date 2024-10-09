@@ -9,7 +9,7 @@ export default function Layout({ sidebar, children }: Props) {
       <aside className="sticky top-24 mb-8 hidden h-[calc(100vh-5rem)] self-start overflow-y-auto pr-12 md:block xl:w-1/5">
         {sidebar}
       </aside>
-      <main className="mb-4 flex-1">{children}</main>
+      <main className="mx-auto mb-4 w-full flex-1">{children}</main>
     </div>
   );
 }
