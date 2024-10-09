@@ -37,7 +37,7 @@ export const Navbar = ({ navLinks, socialLinks }: Props) => {
             : 'bg-zinc-900/500 border-zinc-800'
         }`}
       >
-        <div className="mx-auto flex max-w-11xl items-center justify-between p-5 px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto flex w-screen max-w-11xl items-center justify-between p-5 px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between gap-4">
             <MobileSidebar navLinks={navLinks} />
             <Logo className="max-md:hidden" />

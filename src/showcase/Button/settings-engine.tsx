@@ -117,14 +117,14 @@ export default function ButtonSettingsEngine() {
               variant="ghost"
               style={{ backgroundColor: color.color }}
               onClick={() => handleChangeBackgroundColor(color.value)}
-              className="h-8 w-8 flex items-center justify-center"
+              className="flex h-8 w-8 items-center justify-center"
             />
           ))}
           <Popover>
             <PopoverTrigger asChild>
               <Button
                 variant="ghost"
-                className="h-8 w-8 flex items-center justify-center"
+                className="flex h-8 w-8 items-center justify-center"
                 style={{ backgroundColor: customColor }}
               >
                 {customColor === backgroundColor ? '✓' : '+'}
