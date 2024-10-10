@@ -4,6 +4,8 @@ import { ChevronRight, Star } from 'lucide-react';
 import Link from 'next/link';
 import Step from '@/components/step';
 import dynamic from 'next/dynamic';
+import ButtonExample from '@/showcase/Button/button';
+import ButtonSettingsEngine from '@/showcase/Button/settings-engine';
 
 const DynamicSteps = dynamic(() => import('@/components/steps'));
 
@@ -77,6 +79,24 @@ export default function HomePage() {
             Seamlessly integrate with your existing React and Next.js projects.
           </p>
         </DynamicSteps>
+      </section>
+      <section
+        id="components-showcase"
+        className="container mx-auto px-4 py-16"
+      >
+        <h2 className="mb-8 text-3xl font-bold">Components</h2>
+        <div className="relative w-full content-center rounded-lg py-4 shadow-[inset_0_0_2px_rgba(0,0,0,0.1)] shadow-slate-300">
+          <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
+            <div className="flex items-center justify-center p-4">
+              <Link href={'/docs/components/button'}>
+                <ButtonExample />
+              </Link>
+            </div>
+            <div className="flex flex-col items-center justify-center p-4">
+              <ButtonSettingsEngine />
+            </div>
+          </div>
+        </div>
       </section>
     </main>
   );
