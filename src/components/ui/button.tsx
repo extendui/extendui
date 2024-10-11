@@ -27,6 +27,8 @@ const buttonVariants = cva(
           'bg-gradient-to-r from-primary via-primary/50 to-primary bg-[length:200%_100%] text-primary-foreground animate-shimmer transition-all',
         perimeterShimmer:
           'bg-primary text-primary-foreground relative overflow-hidden before:absolute before:inset-0 before:rounded-md before:border-2 before:border-emerald-500/50 before:bg-transparent before:animate-perimeterShimmer transition-all',
+        bouncing:
+          'bg-primary text-primary-foreground shadow hover:bg-primary/90 transition-all animate-bounce-custom',
       },
       size: {
         default: 'h-9 px-4 py-2',

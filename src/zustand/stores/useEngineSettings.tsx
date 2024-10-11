@@ -11,7 +11,8 @@ type Variant =
   | 'ringHover'
   | 'glowingRing'
   | 'shimmer'
-  | 'perimeterShimmer';
+  | 'perimeterShimmer'
+  | 'bouncing';
 
 type Size = 'default' | 'sm' | 'lg' | 'icon';
 

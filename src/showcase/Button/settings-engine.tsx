@@ -41,7 +41,8 @@ export default function ButtonSettingsEngine() {
       | 'ringHover'
       | 'glowingRing'
       | 'shimmer'
-      | 'perimeterShimmer',
+      | 'perimeterShimmer'
+      | 'bouncing',
   ) => {
     setVariant(value);
   };
@@ -89,6 +90,7 @@ export default function ButtonSettingsEngine() {
               <SelectItem value="perimeterShimmer">
                 Perimeter Shimmer
               </SelectItem>
+              <SelectItem value="bouncing">Bouncing</SelectItem>
             </SelectGroup>
           </SelectContent>
         </Select>
