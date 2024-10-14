@@ -13,7 +13,7 @@ import { DocsPager } from '@/components/pager';
 import { badgeVariants } from '@/components/ui/badge';
 import { ScrollArea } from '@/components/ui/scroll-area';
 
-interface DocPageProps {
+type DocPageProps = {
   params: {
     slug: string[];
   };

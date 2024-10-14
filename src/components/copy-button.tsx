@@ -14,7 +14,7 @@ import {
 import { cn } from '@/lib/utils';
 import { NpmCommands } from '@/types/unist.type';
 
-interface CopyButtonProps extends ButtonProps {
+type Props = ButtonProps & {
   value: string;
   src?: string;
   event?: Event['name'];
@@ -32,7 +32,7 @@ export function CopyButton({
   variant = 'ghost',
   event,
   ...props
-}: CopyButtonProps) {
+}: Props) {
   const [hasCopied, setHasCopied] = React.useState(false);
 
   React.useEffect(() => {
@@ -54,11 +54,11 @@ export function CopyButton({
           value,
           event
             ? {
-                name: event,
-                properties: {
-                  code: value,
-                },
-              }
+              name: event,
+              properties: {
+                code: value,
+              },
+            }
             : undefined,
         );
         setHasCopied(true);
@@ -71,7 +71,7 @@ export function CopyButton({
   );
 }
 
-interface CopyWithClassNamesProps extends DropdownMenuTriggerProps {
+type CopyWithClassNamesProps = DropdownMenuTriggerProps & {
   value: string;
   classNames: string;
   className?: string;
@@ -127,7 +127,7 @@ export function CopyWithClassNames({
   );
 }
 
-interface CopyNpmCommandButtonProps extends DropdownMenuTriggerProps {
+type CopyNpmCommandButtonProps = DropdownMenuTriggerProps & {
   commands: Required<NpmCommands>;
 }
 

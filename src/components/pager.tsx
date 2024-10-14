@@ -3,8 +3,8 @@ import { ChevronLeftIcon, ChevronRightIcon } from '@radix-ui/react-icons';
 import type { Doc } from 'contentlayer/generated';
 import { docsConfig } from '@/config/docs';
 import { cn } from '@/lib/utils';
-import { buttonVariants } from '@/registry/default/ui/button';
 import { NavItem, NavItemWithChildren } from '@/types/nav.types';
+import { buttonVariants } from './ui/button';
 
 interface DocsPagerProps {
   doc: Doc;

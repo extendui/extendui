@@ -13,7 +13,6 @@ import { cn } from '@/lib/utils';
 import { useConfig } from '@/hooks/use-config';
 import { Callout } from '@/components/callout';
 import { CodeBlockWrapper } from '@/components/code-block-wrapper';
-import { ComponentExample } from '@/components/component-example';
 import { ComponentSource } from '@/components/component-source';
 import { CopyButton, CopyNpmCommandButton } from '@/components/copy-button';
 import { FrameworkDocs } from '@/components/framework-docs';
@@ -29,7 +28,6 @@ import { AspectRatio } from '@/components/ui/aspect-ratio';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import type { Style } from '@/registry/styles';
 import { PropsTable } from '@/components/props-table';
-import TemplatePreview from '@/components/template-preview';
 import Preview from './preview';
 import ButtonExample from '@/showcase/Button/button';
 import ButtonSettingsEngine from '@/showcase/Button/settings-engine';
@@ -55,7 +53,6 @@ function CustomLink(props: any) {
 
 const components = {
   Preview,
-  TemplatePreview,
   Accordion,
   AccordionContent,
   AccordionItem,
@@ -65,7 +62,6 @@ const components = {
   AlertDescription,
   Callout,
   PropsTable,
-  ComponentExample,
   ComponentSource,
   FrameworkDocs,
   StyleWrapper,

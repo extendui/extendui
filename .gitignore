@@ -45,4 +45,5 @@ yarn-error.log*
 # idea files
 .idea
 
-.contentlayer
+.contentlayer/
+

@@ -17,24 +17,6 @@ export default function Preview({
   settingsEngine,
   filename,
 }: Props) {
-  const [code, setCode] = useState<string | null>(null);
-
-  useEffect(() => {
-    const fetchCode = async () => {
-      try {
-        const response = await fetch(`/api/code?filename=${filename}`);
-        if (!response.ok) throw new Error('File not found');
-        const data = await response.json();
-        setCode(data.code);
-      } catch (error) {
-        console.error(error);
-        setCode('Error loading code');
-      }
-    };
-
-    fetchCode();
-  }, [filename]);
-
   return (
     <div className="mx-auto">
       <Tabs defaultValue="preview" className="w-full">

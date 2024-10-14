@@ -11,7 +11,6 @@ export async function GET(request: Request) {
     );
   }
 
-  // Replace with your GitHub repo URL
   const fileUrl = `https://raw.githubusercontent.com/extendui/extendui/main/src/components/ui/${filename}.tsx`;
 
   try {

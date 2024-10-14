@@ -1,4 +1,5 @@
 import { Toaster } from '@/components/ui/toaster';
+import { siteConfig } from '@/config/site';
 import { ThemeProvider } from '@/providers/themeProvider';
 import '@/styles/globals.css';
 import '@/styles/mdx.css';
@@ -6,19 +7,49 @@ import { GeistSans } from 'geist/font/sans';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Extend UI',
-  description: 'Extend UI is a design system and component library',
+  title: {
+    default: siteConfig.name,
+    template: `%s | ${siteConfig.name}`,
+  },
+  description: siteConfig.description,
+  keywords: siteConfig.keywords,
+  authors: [
+    {
+      name: 'extendui',
+      url: siteConfig.links.github,
+    },
+  ],
+  creator: 'extendui',
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://your-website.com',
-    siteName: 'Extend UI',
+    url: siteConfig.url,
+    title: siteConfig.name,
+    description: siteConfig.description,
+    siteName: siteConfig.name,
+    images: [
+      {
+        url: siteConfig.ogImage,
+        width: 1200,
+        height: 630,
+        alt: siteConfig.name,
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
-    site: '@your_twitter_handle',
+    title: siteConfig.name,
+    description: siteConfig.description,
+    images: [siteConfig.ogImage],
+    creator: '@extendui',
   },
-};
+  icons: {
+    icon: '/favicon.ico',
+    shortcut: '/favicon-16x16.png',
+    apple: '/apple-touch-icon.png',
+  },
+  manifest: '/site.webmanifest',
+}
 
 export default function RootLayout({
   children,

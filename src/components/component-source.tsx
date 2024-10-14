@@ -7,7 +7,7 @@ import { CodeBlockWrapper } from './code-block-wrapper';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { oneDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
-interface ComponentSourceProps extends React.HTMLAttributes<HTMLDivElement> {
+type Props = React.HTMLAttributes<HTMLDivElement> & {
   src?: string;
   children?: React.ReactNode;
 }
@@ -17,7 +17,7 @@ export function ComponentSource({
   children,
   className,
   ...props
-}: ComponentSourceProps) {
+}: Props) {
   const [code, setCode] = useState<string | null>(null);
 
   useEffect(() => {
@@ -44,7 +44,8 @@ export function ComponentSource({
     <div className="relative w-full max-w-full overflow-auto">
       <CodeBlockWrapper
         expandButtonTitle="Expand"
-        className={cn(' overflow-hidden rounded-md', className)}
+        className={cn('overflow-hidden rounded-md', className)}
+        disabled={!content}
         {...props}
       >
         <div className="max-w-full overflow-auto">
@@ -56,6 +57,7 @@ export function ComponentSource({
               borderRadius: '0.375rem',
               fontSize: '0.875rem',
               lineHeight: '1.5rem',
+              minHeight: '18rem',
             }}
             wrapLines={true}
             wrapLongLines={true}

@@ -9,16 +9,18 @@ import {
 } from './ui/collapsible';
 import { Button } from './ui/button';
 
-interface CodeBlockProps extends React.HTMLAttributes<HTMLDivElement> {
+type Props = React.HTMLAttributes<HTMLDivElement> & {
   expandButtonTitle?: string;
+  disabled?: boolean;
 }
 
 export function CodeBlockWrapper({
   expandButtonTitle = 'View Code',
+  disabled = false,
   className,
   children,
   ...props
-}: CodeBlockProps) {
+}: Props) {
   const [isOpened, setIsOpened] = React.useState(false);
 
   return (
@@ -39,12 +41,12 @@ export function CodeBlockWrapper({
         </CollapsibleContent>
         <div
           className={cn(
-            'absolute flex items-center justify-center bg-gradient-to-b from-background/10 to-background to-90% p-2',
-            isOpened ? 'inset-x-0 bottom-0 h-12 from-gray-900/30' : 'inset-0',
+            'absolute flex items-center justify-center  p-2',
+            isOpened ? 'inset-x-0 bottom-0' : 'inset-0 bg-black/40',
           )}
         >
           <CollapsibleTrigger asChild>
-            <Button variant="secondary" className="mb-8 h-8 text-xs">
+            <Button variant="secondary" className="mb-8 h-8 text-xs" disabled={disabled}>
               {isOpened ? 'Collapse' : expandButtonTitle}
             </Button>
           </CollapsibleTrigger>

@@ -1,13 +1,12 @@
 export const siteConfig = {
-  name: 'Nyxb UI',
-  url: 'https://nyxb.design',
+  name: 'Extend UI',
+  url: 'https://extendui.vercel.app/',
   ogImage: 'https://nyxb.design/api/og',
   description:
     'Beautifully designed landing page components built with React & Tailwind CSS.',
   links: {
-    twitter: 'https://twitter.com/nyxb0',
-    discord: 'https://discord.gg/aBxNpG7fMP',
-    github: 'https://github.com/nyxb-ui',
+    twitter: 'https://x.com/extendui_pro',
+    github: 'https://github.com/extendui/extendui',
   },
   keywords: [
     'React',

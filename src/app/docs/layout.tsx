@@ -4,6 +4,20 @@ import { Navbar } from '../_components/navbar';
 import { docsConfig } from '@/config/docs';
 import Sidebar from '../_components/sidebar';
 import Layout from '../_components/layout';
+import { Metadata } from 'next'
+import { siteConfig } from '@/config/site';
+
+export const metadata: Metadata = {
+  title: `Docs | ${siteConfig.name}`,
+  description: `Read docs about ${siteConfig.keywords.join(', ')}`,
+  openGraph: {
+    title: `Dpcs | ${siteConfig.name}`,
+    description: `Read docs about ${siteConfig.keywords.join(', ')}`,
+    type: 'website',
+    url: `${siteConfig.url}/docs`,
+  },
+}
+
 export default function DocsLayout({
   children,
 }: {
@@ -19,14 +33,14 @@ export default function DocsLayout({
         socialLinks={[
           {
             name: 'GitHub',
-            href: 'https://github.com/extendui/extendui',
+            href: siteConfig.links.github,
             icon: (
               <Icons.gitHub className="fill-dark h-4 w-4 dark:fill-white" />
             ),
           },
           {
             name: 'Twitter',
-            href: 'https://x.com/extendui_pro',
+            href: siteConfig.links.twitter,
             icon: (
               <Icons.twitter className="fill-dark h-4 w-4 dark:fill-white" />
             ),
