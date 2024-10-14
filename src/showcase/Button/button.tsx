@@ -5,6 +5,7 @@ import { getContrastYIQ } from '@/hooks/use-getContrast';
 import { cn } from '@/lib/utils';
 import { useEngineSettingsStore } from '@/zustand/stores/useEngineSettings';
 import { ChevronRight, Loader2 } from 'lucide-react';
+import { useEffect } from 'react';
 
 export default function ButtonExample() {
   const loading = useEngineSettingsStore((state) => state.loading);
@@ -19,7 +20,7 @@ export default function ButtonExample() {
       return {};
     }
 
-    if (backgroundColor === 'hsl(var(--primary))' || 'primary') return {};
+    if (backgroundColor === 'hsl(var(--primary))') return {};
 
     const textColor = getContrastYIQ(backgroundColor);
 
@@ -27,6 +28,7 @@ export default function ButtonExample() {
       style: {
         backgroundColor,
         color: textColor,
+        borderColor: 'transparent',
       },
     };
   };
