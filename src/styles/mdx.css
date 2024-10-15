@@ -85,7 +85,7 @@ code[data-line-numbers] > [data-line]::before {
   /* Other styling */
   display: inline-block;
   width: 0.75rem;
-  margin-right: 2rem;
+  margin-right: 1rem;
   text-align: right;
   color: gray;
 }
@@ -100,4 +100,8 @@ code[data-line-numbers-max-digits='3'] > [data-line]::before {
 
 code[data-line-numbers-max-digits='4'] > [data-line]::before {
   width: 2.25rem;
+}
+
+pre {
+  padding-left: 0.5rem;
 }
