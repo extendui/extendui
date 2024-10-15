@@ -1,3 +1,5 @@
+'use client';
+
 import {
   Sheet,
   SheetContent,
@@ -10,13 +12,19 @@ import Link from 'next/link';
 import Sidebar from './sidebar';
 import Logo from './logo';
 import { docsConfig } from '@/config/docs';
+import { useState } from 'react';
 
 type Props = {
   navLinks: { name: string; href: string }[];
 };
 export default function MobileSidebar({ navLinks }: Props) {
+  const [isOpen, setIsOpen] = useState(false); // Add state for sheet open/close
+
+  const handleLinkClick = () => {
+    setIsOpen(false); // Close the sheet on link click
+  };
   return (
-    <Sheet>
+    <Sheet open={isOpen} onOpenChange={setIsOpen}>
       <SheetTrigger asChild className="md:hidden">
         <Button size="icon" variant={null} className="justify-start">
           <Menu className="h-5 w-5" />
@@ -41,12 +49,13 @@ export default function MobileSidebar({ navLinks }: Props) {
                   ? 'relative cursor-not-allowed text-muted-foreground'
                   : 'relative text-zinc-600 duration-200 hover:text-zinc-900 dark:text-zinc-200'
               }
+              onClick={handleLinkClick}
             >
               {link.name}
             </Link>
           ))}
         </div>
-        <Sidebar config={docsConfig} />
+        <Sidebar config={docsConfig} props={handleLinkClick} />
       </SheetContent>
     </Sheet>
   );

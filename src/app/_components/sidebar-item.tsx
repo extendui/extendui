@@ -7,9 +7,10 @@ import Link from 'next/link';
 type Props = {
   items: SidebarNavItem[];
   pathname: string | null;
+  onClickProp?: () => void;
 };
 
-export default function SidebarItem({ items, pathname }: Props) {
+export default function SidebarItem({ items, pathname, onClickProp }: Props) {
   return items?.length ? (
     <div className="text-md grid grid-flow-row auto-rows-max">
       {items.map((item, index) =>
@@ -27,6 +28,7 @@ export default function SidebarItem({ items, pathname }: Props) {
             target={item.external ? '_blank' : ''}
             rel={item.external ? 'noreferrer' : ''}
             aria-disabled={item.disabled}
+            onClick={onClickProp}
           >
             {item.title}
             {item.label && (

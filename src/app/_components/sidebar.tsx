@@ -9,9 +9,10 @@ import { useMemo } from 'react';
 
 type Props = {
   config: DocsConfig;
+  props?: () => void;
 };
 
-export default function Sidebar({ config }: Props) {
+export default function Sidebar({ config, props }: Props) {
   const pathname = usePathname();
   const items = useMemo(() => config.sidebarNav, [config.sidebarNav]);
 
@@ -24,7 +25,11 @@ export default function Sidebar({ config }: Props) {
               {item.title}
             </h4>
             {item?.items?.length && (
-              <SidebarItem items={item.items} pathname={pathname} />
+              <SidebarItem
+                items={item.items}
+                pathname={pathname}
+                onClickProp={props}
+              />
             )}
           </div>
         ))}
