@@ -18,55 +18,22 @@ description: A versatile component designed to mimic the appearance and function
   </TabsList>
   <TabsContent value="cli">
     ```bash 
-    npx extendui@latest add button
+    npx extendui@latest add button 
     ```
   </TabsContent>
   <TabsContent value="manual">
     <Steps>
-      <Step>Install the following dependencies:</Step>
-      <Step>Copy and paste the following code into your project.</Step>
+      <Step>
+        Install the following dependencies: 
+        ```bash 
+        npm install @radix-ui/react-slot 
+        ```
+      </Step>
+      <Step>
+        Copy and paste the following code into your project.
+        <ComponentSource src={'button'} />
+      </Step>
       <Step>Update the import paths to match your project setup.</Step>
     </Steps>
   </TabsContent>
 </Tabs>
-
-## Example
-
-### Example of example
-
-You'll need to add the following CSS to your global styles (usually in globals.css or a similar file):
-
-```css showLineNumbers
-.animate-shimmer {
-  animation: shimmer 3s linear infinite;
-}
-
-.animate-perimeterShimmer {
-  animation: perimeterShimmer 4s linear infinite;
-}
-
-@keyframes shimmer {
-  0% {
-    background-position: 200% 0;
-  }
-  100% {
-    background-position: -200% 0;
-  }
-}
-
-@keyframes perimeterShimmer {
-  0%,
-  100% {
-    clip-path: inset(0 0 calc(100% - 2px) 0);
-  }
-  25% {
-    clip-path: inset(0 0 0 calc(100% - 2px));
-  }
-  50% {
-    clip-path: inset(calc(100% - 2px) 0 0 0);
-  }
-  75% {
-    clip-path: inset(0 calc(100% - 2px) 0 0);
-  }
-}
-```
