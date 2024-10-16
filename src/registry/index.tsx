@@ -1,5 +1,6 @@
 // @ts-nocheck
 import * as React from 'react';
+import { ui } from "./registry-components"
 
 export const Index: Record<string, any> = {
   default: {
@@ -16,3 +17,7 @@ export const Index: Record<string, any> = {
     },
   },
 };
+
+export const registryComponents = [
+  ...ui
+]
