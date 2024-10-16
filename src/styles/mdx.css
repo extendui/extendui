@@ -1,17 +1,17 @@
 [data-theme='light'] {
-  display: block;
+  @apply block;
 }
 
 [data-theme='dark'] {
-  display: none;
+  @apply hidden;
 }
 
 .dark [data-theme='light'] {
-  display: none;
+  @apply hidden;
 }
 
 .dark [data-theme='dark'] {
-  display: block;
+  @apply block;
 }
 
 [data-rehype-pretty-code-fragment] {
@@ -36,10 +36,7 @@
   @apply text-xs text-zinc-50/40;
   counter-increment: line;
   content: counter(line);
-  display: inline-block;
-  width: 1.8rem;
-  margin-right: 1.4rem;
-  text-align: right;
+  @apply inline-block w-[1.8rem] mr-[1.4rem] text-right;
 }
 
 [data-rehype-pretty-code-fragment] .line--highlighted {
@@ -81,90 +78,67 @@ code[data-line-numbers] {
 code[data-line-numbers] > [data-line]::before {
   counter-increment: line;
   content: counter(line);
-
-  /* Other styling */
-  display: inline-block;
-  width: 0.75rem;
-  margin-right: 1rem;
-  text-align: right;
-  color: gray;
+  @apply inline-block w-3 mr-4 text-right text-gray-500;
 }
 
 code[data-line-numbers-max-digits='2'] > [data-line]::before {
-  width: 1.25rem;
+  @apply w-5;
 }
 
 code[data-line-numbers-max-digits='3'] > [data-line]::before {
-  width: 1.75rem;
+  @apply w-7;
 }
 
 code[data-line-numbers-max-digits='4'] > [data-line]::before {
-  width: 2.25rem;
+  @apply w-9;
 }
 
 pre {
-  padding-left: 0.5rem;
+  @apply pl-2;
 }
-
 
 /* Table Styles */
 .mdx table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 0.5rem 0;
-  border-radius: 0.45rem; /* Increased border radius */
-  overflow: hidden; /* Ensure border radius applies correctly */
-  font-size: small;
-  border: none
+  @apply w-full border-collapse my-2 rounded-[0.45rem] overflow-hidden text-sm border-none;
 }
 
 /* Header Styles */
 .mdx th,
 .mdx td {
-    border: 1px solid #ddd; /* Light gray border for cells */
-    padding: 1rem; /* Increased padding for better spacing */
-    text-align: left; /* Default left alignment */
-    font-weight: normal;
+  @apply border border-gray-300 p-4 text-left font-normal;
 }
 
 /* Header Background */
 .mdx th {
-    background-color: #001626; /* Slightly darker gray for headers */
-    font-weight: 500; /* Bold text for headers */
-    color: #fff; /* Darker text color for headers */
+  @apply bg-[#001626] font-medium text-white;
 }
 
 /* Row Styles */
 .mdx tr {
-    transition: background-color 0.2s ease; /* Smooth transition for hover effect */
+  @apply transition-colors duration-200;
 }
 
 /* Responsive Table */
 @media (max-width: 768px) {
-    .mdx table {
-        display: block; /* Allow horizontal scrolling */
-        overflow-x: auto; /* Enable horizontal scrolling */
-        white-space: nowrap; /* Prevent line breaks within table cells */
-    }
+  .mdx table {
+    @apply block overflow-x-auto whitespace-nowrap;
+  }
 }
 
 /* Additional Styling */
 .mdx th {
-    position: sticky; /* Sticky header for better readability on scroll */
-    top: 0; /* Stick to the top */
-    z-index: 10; /* Ensure it stays above other content */
+  @apply sticky top-0 z-10;
 }
 
 .dark .mdx tr {
-    background-color: #1a202c; /* Dark background for odd rows in dark mode */
+  @apply bg-gray-800;
 }
 
 .dark .mdx th,
 .dark .mdx td {
-    border: 1px solid #4a5568; /* Darker gray border for cells */
-    color: #e2e8f0; /* Light text color for dark mode */
+  @apply border-gray-600 text-gray-200;
 }
 
 .dark .mdx th {
-    background-color: #2d3748; /* Dark background for headers */
+  @apply bg-gray-700;
 }
