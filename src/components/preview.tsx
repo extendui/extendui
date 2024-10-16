@@ -1,9 +1,6 @@
-'use client';
-
 import { cn } from '@/lib/utils';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from './ui/tabs';
 import { Code, Eye } from 'lucide-react';
-import { useEffect, useState } from 'react';
 import { ComponentSource } from './component-source';
 
 type Props = {

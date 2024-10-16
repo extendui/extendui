@@ -17,7 +17,7 @@ type DocPageProps = {
   params: {
     slug: string[];
   };
-}
+};
 
 async function getDocFromParams({ params }: DocPageProps) {
   const slug = params.slug?.join('/') || '';
