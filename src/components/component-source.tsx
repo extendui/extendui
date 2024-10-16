@@ -6,6 +6,7 @@ import { cn } from '@/lib/utils';
 import { CodeBlockWrapper } from './code-block-wrapper';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { nightOwl } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import { CopyButton } from './copy-button';
 
 type Props = React.HTMLAttributes<HTMLDivElement> & {
   src?: string;
@@ -37,6 +38,11 @@ export function ComponentSource({ src, children, className, ...props }: Props) {
 
   return (
     <div className="relative w-full max-w-full overflow-auto">
+      <CopyButton
+        src={src}
+        value={content}
+        className={cn('absolute right-4 top-4 z-10')}
+      />
       <CodeBlockWrapper
         expandButtonTitle="Expand"
         className={cn('overflow-hidden rounded-md', className)}
