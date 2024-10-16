@@ -99,23 +99,29 @@ pre {
 
 /* Table Styles */
 .mdx table {
-  @apply w-full border-collapse my-2 rounded-[0.45rem] overflow-hidden text-sm border-none;
+  @apply w-full border-collapse my-4 rounded-lg overflow-hidden text-sm;
+  @apply border border-gray-200 dark:border-gray-700;
 }
 
-/* Header Styles */
+/* Header and Cell Styles */
 .mdx th,
 .mdx td {
-  @apply border border-gray-300 p-4 text-left font-normal;
+  @apply border border-gray-200 dark:border-gray-700 p-4 text-left;
 }
 
 /* Header Background */
 .mdx th {
-  @apply bg-[#001626] font-medium text-white;
+  @apply bg-gray-100 dark:bg-gray-800 font-semibold text-gray-700 dark:text-gray-200;
 }
 
 /* Row Styles */
 .mdx tr {
-  @apply transition-colors duration-200;
+  @apply bg-white dark:bg-gray-900 transition-colors duration-200;
+}
+
+/* Hover effect for rows */
+.mdx tr:hover {
+  @apply bg-gray-50 dark:bg-gray-800;
 }
 
 /* Responsive Table */
@@ -125,20 +131,21 @@ pre {
   }
 }
 
-/* Additional Styling */
-.mdx th {
-  @apply sticky top-0 z-10;
+/* Ensure borders are visible on all sides */
+.mdx table {
+  @apply border-separate border-spacing-0;
 }
 
-.dark .mdx tr {
-  @apply bg-gray-800;
+/* Apply rounded corners to the first and last cells in the first and last rows */
+.mdx thead tr:first-child th:first-child {
+  @apply rounded-tl-lg;
 }
-
-.dark .mdx th,
-.dark .mdx td {
-  @apply border-gray-600 text-gray-200;
+.mdx thead tr:first-child th:last-child {
+  @apply rounded-tr-lg;
 }
-
-.dark .mdx th {
-  @apply bg-gray-700;
+.mdx tbody tr:last-child td:first-child {
+  @apply rounded-bl-lg;
+}
+.mdx tbody tr:last-child td:last-child {
+  @apply rounded-br-lg;
 }
