@@ -7,8 +7,6 @@ import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypePrettyCode from 'rehype-pretty-code';
 import rehypeSlug from 'rehype-slug';
 import { visit } from 'unist-util-visit';
-
-import { rehypeComponent } from './src/lib/rehype-component';
 import { rehypeNpmCommand } from './src/lib/rehype-npm-command';
 
 /** @type {import('contentlayer/source-files').ComputedFields} */

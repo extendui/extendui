@@ -1,14 +1,11 @@
-import { get } from "http";
 import { registryComponents } from "../registry";
 import { promises as fs } from "fs";
 import { z } from "zod";
 import path from "path";
-import React from 'react';
 import { registryItemFileSchema } from "@/registry/schema";
 
-const REGISTRY_BASE_PATH = "src/registry";
+const REGISTRY_BASE_PATH = "registry";
 const PUBLIC_FOLDER_BASE_PATH = "public/registry";
-const COMPONENT_FOLDER_PATH = "src/components";
 
 type File = z.infer<typeof registryItemFileSchema>;
 const FolderToComponentTypeMap = {
@@ -22,10 +19,7 @@ async function writeFileRecursive(filePath: string, data: string) {
   const dir = path.dirname(filePath); // Extract the directory path
 
   try {
-    // Ensure the directory exists, recursively creating directories as needed
     await fs.mkdir(dir, { recursive: true });
-
-    // Write the file
     await fs.writeFile(filePath, data, "utf-8");
     console.log(`File written to ${filePath}`);
   } catch (error) {
@@ -37,15 +31,15 @@ async function writeFileRecursive(filePath: string, data: string) {
 const getComponentFiles = async (files: File[]) => {
   const filesArrayPromises = (files ?? []).map(async (file) => {
     if (typeof file === "string") {
-      const filePath = `${REGISTRY_BASE_PATH}/${file}`;
+      const filePath = `src/${REGISTRY_BASE_PATH}/${file}`;
       const fileContent = await fs.readFile(filePath, "utf-8");
       return {
         type: FolderToComponentTypeMap[
-          file.split("/")[0] as keyof typeof FolderToComponentTypeMap
+          file.split("/")[1] as keyof typeof FolderToComponentTypeMap
         ],
         content: fileContent,
         path: file,
-        target: `${COMPONENT_FOLDER_PATH}/${file}`,
+        target: `${file}`,
       };
     }
   });
