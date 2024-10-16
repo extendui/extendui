@@ -151,32 +151,6 @@ const components = {
       {...props}
     />
   ),
-  table: ({ className, ...props }: React.HTMLAttributes<HTMLTableElement>) => (
-    <div className="w-full overflow-y-auto">
-      <table className={cn('w-full', className)} {...props} />
-    </div>
-  ),
-  tr: ({ className, ...props }: React.HTMLAttributes<HTMLTableRowElement>) => (
-    <tr className={cn('m-0 border-t p-0', className)} {...props} />
-  ),
-  th: ({ className, ...props }: React.HTMLAttributes<HTMLTableCellElement>) => (
-    <th
-      className={cn(
-        'border px-4 py-2 text-left font-bold [&[align=center]]:text-center [&[align=right]]:text-right',
-        className,
-      )}
-      {...props}
-    />
-  ),
-  td: ({ className, ...props }: React.HTMLAttributes<HTMLTableCellElement>) => (
-    <td
-      className={cn(
-        'whitespace-pre border px-4 py-2 text-left [&[align=center]]:text-center [&[align=right]]:text-right',
-        className,
-      )}
-      {...props}
-    />
-  ),
   pre: PreCustom,
   code: ({ className, ...props }: React.HTMLAttributes<HTMLElement>) => (
     <code

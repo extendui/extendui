@@ -105,3 +105,66 @@ code[data-line-numbers-max-digits='4'] > [data-line]::before {
 pre {
   padding-left: 0.5rem;
 }
+
+
+/* Table Styles */
+.mdx table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0.5rem 0;
+  border-radius: 0.45rem; /* Increased border radius */
+  overflow: hidden; /* Ensure border radius applies correctly */
+  font-size: small;
+  border: none
+}
+
+/* Header Styles */
+.mdx th,
+.mdx td {
+    border: 1px solid #ddd; /* Light gray border for cells */
+    padding: 1rem; /* Increased padding for better spacing */
+    text-align: left; /* Default left alignment */
+    font-weight: normal;
+}
+
+/* Header Background */
+.mdx th {
+    background-color: #001626; /* Slightly darker gray for headers */
+    font-weight: 500; /* Bold text for headers */
+    color: #fff; /* Darker text color for headers */
+}
+
+/* Row Styles */
+.mdx tr {
+    transition: background-color 0.2s ease; /* Smooth transition for hover effect */
+}
+
+/* Responsive Table */
+@media (max-width: 768px) {
+    .mdx table {
+        display: block; /* Allow horizontal scrolling */
+        overflow-x: auto; /* Enable horizontal scrolling */
+        white-space: nowrap; /* Prevent line breaks within table cells */
+    }
+}
+
+/* Additional Styling */
+.mdx th {
+    position: sticky; /* Sticky header for better readability on scroll */
+    top: 0; /* Stick to the top */
+    z-index: 10; /* Ensure it stays above other content */
+}
+
+.dark .mdx tr {
+    background-color: #1a202c; /* Dark background for odd rows in dark mode */
+}
+
+.dark .mdx th,
+.dark .mdx td {
+    border: 1px solid #4a5568; /* Darker gray border for cells */
+    color: #e2e8f0; /* Light text color for dark mode */
+}
+
+.dark .mdx th {
+    background-color: #2d3748; /* Dark background for headers */
+}

@@ -2,10 +2,8 @@
 
 import { Button } from '@/components/ui/button';
 import { getContrastYIQ } from '@/hooks/use-getContrast';
-import { cn } from '@/lib/utils';
 import { useEngineSettingsStore } from '@/zustand/stores/useEngineSettings';
-import { ChevronRight, Loader2 } from 'lucide-react';
-import { useEffect } from 'react';
+import { ChevronRight } from 'lucide-react';
 
 export default function ButtonExample() {
   const loading = useEngineSettingsStore((state) => state.loading);
@@ -14,6 +12,7 @@ export default function ButtonExample() {
   const backgroundColor = useEngineSettingsStore(
     (state) => state.backgroundColor,
   );
+  const tooltipText = useEngineSettingsStore((state) => state.tooltipText);
 
   const getButtonStyle = () => {
     if (variant !== 'default' || !backgroundColor) {
@@ -41,18 +40,16 @@ export default function ButtonExample() {
       size={size}
       onClick={() => console.log('clicked')}
       disabled={loading}
+      loading={loading}
+      tooltipText={tooltipText}
       {...buttonStyle}
     >
-      {loading ? (
-        <div className="flex items-center">
-          <span>Loading...</span>
-          <Loader2 className={cn('ml-2 h-4 w-4 animate-spin')} />
-        </div>
-      ) : size === 'icon' ? (
+      {size === 'icon' ? (
         <ChevronRight />
       ) : (
         'Button'
       )}
     </Button>
+
   );
 }

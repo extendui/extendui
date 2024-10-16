@@ -17,6 +17,7 @@ import {
   setVariant,
   setBackgroundColor,
   useEngineSettingsStore,
+  setTooltipText,
 } from '@/zustand/stores/useEngineSettings';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Button } from '@/components/ui/button';
@@ -25,11 +26,12 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from '@/components/ui/popover';
+import { Input } from '@/components/ui/input';
 
 export default function ButtonSettingsEngine() {
   const { loading, backgroundColor, variant, size } = useEngineSettingsStore();
   const [customColor, setCustomColor] = useState(backgroundColor || '#000000');
-
+  const tooltipText = useEngineSettingsStore((state) => state.tooltipText);
   const handleChangeVariant = (
     value:
       | 'default'
@@ -59,6 +61,10 @@ export default function ButtonSettingsEngine() {
     const color = colorOptions.find((c) => c.value === value)?.color || value;
     setBackgroundColor(color);
     setCustomColor(color);
+  };
+
+  const handleChangeTooltipText = (tooltipText: string) => {
+    setTooltipText(tooltipText);
   };
 
   const colorOptions = [
@@ -143,6 +149,14 @@ export default function ButtonSettingsEngine() {
             </PopoverContent>
           </Popover>
         </div>
+      </div>
+      <div className="w-full sm:w-auto">
+        <Input
+          placeholder="Tooltip text"
+          value={tooltipText}
+          onChange={(e) => handleChangeTooltipText(e.target.value)}
+          className="w-[180px]"
+        />
       </div>
       <div className="w-full">
         <div className="flex items-center space-x-2">

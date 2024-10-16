@@ -21,6 +21,7 @@ type EngineSettingsState = {
   variant: Variant;
   size: Size;
   backgroundColor: string;
+  tooltipText: string;
 };
 
 type EngineSettingsActions = {
@@ -28,6 +29,7 @@ type EngineSettingsActions = {
   setVariant: (variant: Variant) => void;
   setSize: (size: Size) => void;
   setBackgroundColor: (backgroundColor: string) => void;
+  setTooltipText: (tooltipText: string) => void;
 };
 
 export const useEngineSettingsStore = create(
@@ -36,6 +38,7 @@ export const useEngineSettingsStore = create(
     variant: 'default',
     size: 'default',
     backgroundColor: 'primary',
+    tooltipText: '',
     setLoading: (loading) =>
       set((state) => {
         state.loading = loading;
@@ -52,8 +55,12 @@ export const useEngineSettingsStore = create(
       set((state) => {
         state.backgroundColor = backgroundColor;
       }),
+    setTooltipText: (tooltipText) =>
+      set((state) => {
+        state.tooltipText = tooltipText;
+      }),
   })),
 );
 
-export const { setLoading, setVariant, setSize, setBackgroundColor } =
+export const { setLoading, setVariant, setSize, setBackgroundColor, setTooltipText } =
   useEngineSettingsStore.getState();
