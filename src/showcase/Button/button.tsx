@@ -19,7 +19,9 @@ export default function ButtonExample() {
       return {};
     }
 
-    if (backgroundColor === 'hsl(var(--primary))') return {};
+    if (backgroundColor === 'hsl(var(--primary))' || 'primary') return {};
+
+    console.log(backgroundColor)
 
     const textColor = getContrastYIQ(backgroundColor);
 
