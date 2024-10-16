@@ -117,12 +117,12 @@ export function DashboardTableOfContents({ toc }: TocProps) {
     () =>
       toc.items
         ? toc.items
-            .flatMap((item) => [
-              item.url,
-              ...(item.items?.map((subItem) => subItem.url) || []),
-            ])
-            .filter(Boolean)
-            .map((id) => id?.split('#')[1])
+          .flatMap((item) => [
+            item.url,
+            ...(item.items?.map((subItem) => subItem.url) || []),
+          ])
+          .filter(Boolean)
+          .map((id) => id?.split('#')[1])
         : [],
     [toc],
   );
@@ -135,7 +135,7 @@ export function DashboardTableOfContents({ toc }: TocProps) {
   }
 
   return (
-    <aside className="sticky top-24 ml-8 h-[calc(100vh-14rem)] w-64">
+    <aside className="sticky top-5 ml-8 h-[calc(100vh-14rem)] w-64">
       <ScrollArea className="h-full pb-4">
         <nav aria-label="Table of contents">
           <p className="mb-2 text-lg font-semibold">On This Page</p>

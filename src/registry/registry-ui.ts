@@ -4,7 +4,9 @@ export const ui: Registry = [
   {
     name: "button",
     type: "registry:ui",
-    dependencies: [],
+    dependencies: [
+      '@radix-ui/react-slot'
+    ],
     files: [
       "components/ui/button.tsx"
     ],
