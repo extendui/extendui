@@ -5,19 +5,14 @@ import { useEffect, useState } from 'react';
 import { cn } from '@/lib/utils';
 import { CodeBlockWrapper } from './code-block-wrapper';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { oneDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import { nightOwl } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
 type Props = React.HTMLAttributes<HTMLDivElement> & {
   src?: string;
   children?: React.ReactNode;
-}
+};
 
-export function ComponentSource({
-  src,
-  children,
-  className,
-  ...props
-}: Props) {
+export function ComponentSource({ src, children, className, ...props }: Props) {
   const [code, setCode] = useState<string | null>(null);
 
   useEffect(() => {
@@ -51,7 +46,7 @@ export function ComponentSource({
         <div className="max-w-full overflow-auto">
           <SyntaxHighlighter
             language="typescript"
-            style={oneDark}
+            style={nightOwl}
             customStyle={{
               margin: 0,
               borderRadius: '0.375rem',

@@ -32,22 +32,21 @@ const computedFields = {
   },
   structuredData: {
     type: 'json',
-    resolve: (doc) =>
-      ({
-        '@context': 'https://schema.org',
-        '@type': `BlogPosting`,
-        headline: doc.title,
-        datePublished: doc.date,
-        dateModified: doc.date,
-        description: doc.summary,
-        image: doc.image,
-        url: `https://magicui.design/${doc._raw.flattenedPath}`,
-        author: {
-          '@type': 'Person',
-          name: doc.author,
-          url: `https://twitter.com/${doc.author}`,
-        },
-      }),
+    resolve: (doc) => ({
+      '@context': 'https://schema.org',
+      '@type': `BlogPosting`,
+      headline: doc.title,
+      datePublished: doc.date,
+      dateModified: doc.date,
+      description: doc.summary,
+      image: doc.image,
+      url: `https://magicui.design/${doc._raw.flattenedPath}`,
+      author: {
+        '@type': 'Person',
+        name: doc.author,
+        url: `https://twitter.com/${doc.author}`,
+      },
+    }),
   },
 };
 
@@ -107,10 +106,10 @@ export default makeSource({
     rehypePlugins: [
       () => (tree) => {
         visit(tree, (node) => {
-          if (node?.type === "element" && node?.tagName === "pre") {
+          if (node?.type === 'element' && node?.tagName === 'pre') {
             const [codeEl] = node.children;
 
-            if (codeEl.tagName !== "code") return;
+            if (codeEl.tagName !== 'code') return;
 
             node.__rawString__ = codeEl.children?.[0].value;
           }
@@ -120,28 +119,28 @@ export default makeSource({
         // @ts-ignore
         rehypePrettyCode,
         {
-          theme: "github-dark",
+          theme: 'night-owl',
           keepBackground: false,
           onVisitLine(node) {
             if (node.children.length === 0) {
-              node.children = [{ type: "text", value: " " }];
+              node.children = [{ type: 'text', value: ' ' }];
             }
           },
         },
       ],
       () => (tree) => {
         visit(tree, (node) => {
-          if (node?.type === "element" && node?.tagName === "figure") {
-            if (!("data-rehype-pretty-code-figure" in node.properties)) {
+          if (node?.type === 'element' && node?.tagName === 'figure') {
+            if (!('data-rehype-pretty-code-figure' in node.properties)) {
               return;
             }
 
             const preElement = node.children.at(-1);
-            if (preElement.tagName !== "pre") {
+            if (preElement.tagName !== 'pre') {
               return;
             }
 
-            preElement.properties["__rawString__"] = node.__rawString__;
+            preElement.properties['__rawString__'] = node.__rawString__;
           }
         });
       },
