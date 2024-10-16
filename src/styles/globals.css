@@ -50,6 +50,7 @@
 @layer base {
   * {
     @apply border-border;
+    scrollbar-width: auto;
   }
   body {
     @apply bg-background text-foreground;
@@ -57,6 +58,25 @@
 }
 
 @layer utilities {
+  ::-webkit-scrollbar {
+    width: 10px;
+    @apply transition-all duration-1000 ease-in-out;
+  }
+  /* Track */
+  ::-webkit-scrollbar-track {
+    @apply bg-gray-100 dark:bg-neutral-800;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    @apply rounded bg-gray-300 dark:bg-zinc-600;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    @apply rounded bg-gray-400 dark:bg-zinc-500;
+  }
+
   .sidebar {
     @apply transition-all duration-1000 ease-in-out; /* Slow down the transition */
   }
@@ -71,11 +91,11 @@
   }
 
   .sidebar::-webkit-scrollbar-thumb {
-    @apply rounded bg-gray-500;
+    @apply rounded bg-gray-300 dark:bg-zinc-600;
   }
 
   .sidebar::-webkit-scrollbar-track {
-    @apply bg-gray-200;
+    @apply bg-gray-100 dark:bg-neutral-800;
   }
 
   .bg-gradient {
