@@ -1,5 +1,6 @@
 import { Toaster } from '@/components/ui/toaster';
 import { siteConfig } from '@/config/site';
+import { ReactQueryProvider } from '@/providers/reactQueryProvider';
 import { ThemeProvider } from '@/providers/themeProvider';
 import '@/styles/globals.css';
 import '@/styles/mdx.css';
@@ -61,8 +62,10 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body>
-        <ThemeProvider>{children}</ThemeProvider>
-        <Toaster />
+        <ReactQueryProvider>
+          <ThemeProvider>{children}</ThemeProvider>
+          <Toaster />
+        </ReactQueryProvider>
       </body>
     </html>
   );

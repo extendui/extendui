@@ -1,40 +1,38 @@
 'use client';
 
 import * as React from 'react';
-import { useEffect, useState } from 'react';
 import { cn } from '@/lib/utils';
 import { CodeBlockWrapper } from './code-block-wrapper';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { nightOwl } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import { CopyButton } from './copy-button';
+import { useQuery } from '@tanstack/react-query';
+
+interface CodeResponse {
+  code: string;
+}
 
 type Props = React.HTMLAttributes<HTMLDivElement> & {
   src?: string;
   children?: React.ReactNode;
 };
 
+const fetchCode = async (src: string): Promise<CodeResponse> => {
+  const response = await fetch(`/api/code?filename=${src}`);
+  if (!response.ok) throw new Error('File not found');
+  return response.json();
+};
+
 export function ComponentSource({ src, children, className, ...props }: Props) {
-  const [code, setCode] = useState<string | null>(null);
+  const { data } = useQuery({
+    queryKey: ['code', src],
+    queryFn: () => fetchCode(src as string),
+    enabled: !!src,
+    staleTime: 1000 * 60 * 60 * 24,
+  }
+  );
 
-  useEffect(() => {
-    if (src) {
-      const fetchCode = async () => {
-        try {
-          const response = await fetch(`/api/code?filename=${src}`);
-          if (!response.ok) throw new Error('File not found');
-          const data = await response.json();
-          setCode(data.code);
-        } catch (error) {
-          console.error(error);
-          setCode('Error loading code');
-        }
-      };
-
-      fetchCode();
-    }
-  }, [src]);
-
-  const content = code || (children as string) || '';
+  const content = data?.code || (children as string) || '';
 
   return (
     <div className="relative w-full max-w-full overflow-auto">
