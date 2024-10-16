@@ -34,6 +34,9 @@ import ButtonSettingsEngine from '@/showcase/Button/settings-engine';
 
 import '@/styles/mdx.css'; // Import the MDX styles
 import { PreCustom } from './pre-custom';
+import ButtonAnimated, { AnimatedButton, RotatingButton } from '@/showcase/Button/button-rotating';
+import { ScalingButton } from '@/showcase/Button/button-scaling';
+import { BouncingButton } from '@/showcase/Button/button-bouncing';
 
 function CustomLink(props: any) {
   const href = props.href;
@@ -67,6 +70,9 @@ const components = {
   StyleWrapper,
   Image,
   ButtonExample,
+  ScalingButton,
+  BouncingButton,
+  RotatingButton,
   ButtonSettingsEngine,
   ComponentInstallation: (props: any) => <ComponentInstallation {...props} />,
   ComponentSource: (props: any) => <ComponentSource {...props} />,

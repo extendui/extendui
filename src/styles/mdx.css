@@ -100,7 +100,7 @@ pre {
 /* Table Styles */
 .mdx table {
   @apply w-full border-collapse my-4 rounded-lg overflow-hidden text-sm;
-  @apply border border-gray-200 dark:border-gray-700;
+  @apply border border-gray-200 dark:border-zinc-700;
 }
 
 /* Header and Cell Styles */

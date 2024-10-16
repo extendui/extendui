@@ -41,13 +41,17 @@ export default function Preview({
           value="preview"
           className="relative w-full content-center rounded-lg py-4 shadow-[inset_0_0_2px_rgba(0,0,0,0.1)] shadow-slate-300"
         >
-          <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
+          <div className={`grid grid-cols-1 gap-4 lg:${settingsEngine ? 'grid-cols-2' : 'grid-cols-1'}`}>
             <div className="flex items-center justify-center p-4">
               {component}
             </div>
-            <div className="flex flex-col items-center justify-center p-4">
-              {settingsEngine}
-            </div>
+            {
+              settingsEngine && (
+                <div className="flex flex-col items-center justify-center p-4">
+                  {settingsEngine}
+                </div>
+              )
+            }
           </div>
         </TabsContent>
         <TabsContent value="code" className="rounded-lg">

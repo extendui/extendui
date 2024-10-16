@@ -1,6 +1,5 @@
 import { Icons } from "@/components/icons/icons"
 
-
 export type NavItem = {
   title: string
   href?: string
@@ -16,4 +15,11 @@ export type NavItemWithChildren = {
 
 export type MainNavItem = NavItem
 
-export type SidebarNavItem = NavItemWithChildren 
+export type SidebarNavItem = NavItemWithChildren & {
+  items: (NavItemWithChildren & {
+    items?: {
+      title: string
+      href: string
+    }[]
+  })[]
+}

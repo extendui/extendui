@@ -11,7 +11,17 @@ export async function GET(request: Request) {
     );
   }
 
-  const fileUrl = `https://raw.githubusercontent.com/extendui/extendui/main/src/components/ui/${filename}.tsx`;
+  let fileUrl = '';
+
+  if (filename.includes('showcase')){
+    fileUrl = `https://raw.githubusercontent.com/extendui/extendui/main/src/${filename}.tsx`;
+  }else{
+    fileUrl = `https://raw.githubusercontent.com/extendui/extendui/main/src/components/ui/${filename}.tsx`;
+  }
+
+
+
+
 
   try {
     const response = await fetch(fileUrl);

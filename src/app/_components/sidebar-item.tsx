@@ -1,59 +1,101 @@
-'use client';
+'use client'
 
-import { cn } from '@/lib/utils';
-import { SidebarNavItem } from '@/types/nav.types';
-import Link from 'next/link';
+import { cn } from '@/lib/utils'
+import { NavItemWithChildren, SidebarNavItem } from '@/types/nav.types'
+import Link from 'next/link'
+import { useState } from 'react'
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
 
 type Props = {
-  items: SidebarNavItem[];
-  pathname: string | null;
-  onClickProp?: () => void;
-};
+  items: SidebarNavItem['items']
+  pathname: string | null
+  onClickProp?: () => void
+}
 
 export default function SidebarItem({ items, pathname, onClickProp }: Props) {
+  const [openItems, setOpenItems] = useState<string[]>([])
+
+  const toggleAccordion = (value: string) => {
+    setOpenItems((prev) =>
+      prev.includes(value) ? prev.filter((item) => item !== value) : [...prev, value]
+    )
+  }
+
+  const renderItem = (item: NavItemWithChildren, index: number) => {
+    const hasSubItems = item.items && item.items.length > 0
+
+    const itemClasses = cn(
+      ' group flex w-full items-center rounded-md border border-transparent px-2 py-1 hover:bg-muted hover:no-underline hover:text-foreground',
+      item.disabled && 'cursor-not-allowed opacity-60',
+      pathname === item.href
+        ? 'font-medium text-foreground'
+        : 'text-muted-foreground'
+    )
+
+    if (hasSubItems) {
+      return (
+        <Accordion
+          key={index}
+          type="multiple"
+          value={openItems}
+          onValueChange={setOpenItems}
+
+        >
+          <AccordionItem value={`item-${index}`} className='border-none'>
+            <AccordionTrigger
+              onClick={() => toggleAccordion(`item-${index}`)}
+              className={itemClasses}
+            >
+              {item.title}
+              {item.label && (
+                <span className="ml-2 rounded-md bg-emerald-400 px-1.5 py-0.5 text-xs leading-none text-white no-underline group-hover:no-underline dark:text-black">
+                  {item.label}
+                </span>
+              )}
+            </AccordionTrigger>
+            <AccordionContent>
+              {item.items?.map((subItem, subIndex) => (
+                <Link
+                  key={subIndex}
+                  href={subItem.href as string}
+                  className={cn(
+                    'group flex w-full items-center rounded-md border border-transparent px-4 py-1 hover:bg-muted hover:text-foreground',
+                    subItem.disabled && 'cursor-not-allowed opacity-60',
+                    pathname === subItem.href
+                      ? 'font-medium text-foreground'
+                      : 'text-muted-foreground'
+                  )}
+                  onClick={onClickProp}
+                >
+                  {subItem.title}
+                </Link>
+              ))}
+            </AccordionContent>
+          </AccordionItem>
+        </Accordion>
+      )
+    } else {
+      return (
+        <Link
+          key={index}
+          href={item.href || '#'}
+          className={itemClasses}
+          onClick={onClickProp}
+        >
+          {item.title}
+          {item.label && (
+            <span className="ml-2 rounded-md bg-emerald-400 px-1.5 py-0.5 text-xs leading-none text-white no-underline group-hover:no-underline dark:text-black">
+              {item.label}
+            </span>
+          )}
+        </Link>
+      )
+    }
+  }
+
   return items?.length ? (
     <div className="text-md grid grid-flow-row auto-rows-max">
-      {items.map((item, index) =>
-        item.href && !item.disabled ? (
-          <Link
-            key={index}
-            href={item.href}
-            className={cn(
-              'group flex w-full items-center rounded-md border border-transparent px-2 py-1 hover:bg-muted hover:text-foreground',
-              item.disabled && 'cursor-not-allowed opacity-60',
-              pathname === item.href
-                ? 'font-medium text-foreground'
-                : 'text-muted-foreground',
-            )}
-            target={item.external ? '_blank' : ''}
-            rel={item.external ? 'noreferrer' : ''}
-            aria-disabled={item.disabled}
-            onClick={onClickProp}
-          >
-            {item.title}
-            {item.label && (
-              <span className="ml-2 rounded-md bg-emerald-400 px-1.5 py-0.5 text-xs leading-none text-white no-underline group-hover:no-underline dark:text-black">
-                {item.label}
-              </span>
-            )}
-          </Link>
-        ) : (
-          <span
-            key={index}
-            className={cn(
-              'group flex w-full items-center rounded-md border border-transparent px-2 py-1 text-muted-foreground hover:bg-muted hover:text-foreground',
-              item.disabled && 'cursor-not-allowed opacity-60',
-            )}
-          >
-            {item.title}
-            {item.label && (
-              <span className="ml-2 rounded-md bg-emerald-400 px-1.5 py-0.5 text-xs leading-none text-white no-underline group-hover:no-underline dark:text-black">
-                {item.label}
-              </span>
-            )}
-          </span>
-        ),
-      )}
+      {items.map((item, index) => renderItem(item, index))}
     </div>
-  ) : null;
+  ) : null
 }

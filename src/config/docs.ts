@@ -53,6 +53,7 @@ export const docsConfig: DocsConfig = {
           href: '/docs/components/button',
           items: [
             { title: 'Base', href: '/docs/components/button', items: [] },
+            { title: 'Extended', href: '/docs/components/button-extended', items: [] },
           ],
         },
       ],
