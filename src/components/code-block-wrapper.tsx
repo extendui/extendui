@@ -8,11 +8,12 @@ import {
   CollapsibleTrigger,
 } from './ui/collapsible';
 import { Button } from './ui/button';
+import { motion, AnimatePresence } from 'framer-motion';
 
 type Props = React.HTMLAttributes<HTMLDivElement> & {
   expandButtonTitle?: string;
   disabled?: boolean;
-}
+};
 
 export function CodeBlockWrapper({
   expandButtonTitle = 'View Code',
@@ -26,27 +27,56 @@ export function CodeBlockWrapper({
   return (
     <Collapsible open={isOpened} onOpenChange={setIsOpened}>
       <div className={cn('relative overflow-hidden', className)} {...props}>
-        <CollapsibleContent
-          forceMount
-          className={cn('overflow-hidden', !isOpened && 'max-h-72')}
-        >
-          <div
-            className={cn(
-              '[&_pre]:my-0 [&_pre]:max-h-[650px] [&_pre]:pb-[100px]',
-              !isOpened ? '[&_pre]:overflow-hidden' : '[&_pre]:overflow-auto]',
-            )}
+        <AnimatePresence initial={false}>
+          <motion.div
+            key="content"
+            initial="collapsed"
+            animate={isOpened ? 'expanded' : 'collapsed'}
+            exit="collapsed"
+            variants={{
+              expanded: { height: 'auto', opacity: 1 },
+              collapsed: { height: '288px', opacity: 1 },
+            }}
+            transition={{ duration: 0.3, ease: 'easeInOut' }}
           >
-            {children}
-          </div>
-        </CollapsibleContent>
+            <CollapsibleContent forceMount className="overflow-hidden">
+              <div
+                className={cn(
+                  '[&_pre]:my-0 [&_pre]:max-h-[650px] [&_pre]:pb-[100px]',
+                  !isOpened
+                    ? '[&_pre]:overflow-hidden'
+                    : '[&_pre]:overflow-auto]',
+                )}
+              >
+                {children}
+              </div>
+            </CollapsibleContent>
+          </motion.div>
+        </AnimatePresence>
+        <AnimatePresence>
+          {!isOpened && (
+            <motion.div
+              key="overlay"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className="absolute inset-0 bg-black/40"
+            />
+          )}
+        </AnimatePresence>
         <div
           className={cn(
-            'absolute flex items-center justify-center  p-2',
-            isOpened ? 'inset-x-0 bottom-0' : 'inset-0 bg-black/40',
+            'absolute flex items-center justify-center p-2',
+            isOpened ? 'inset-x-0 bottom-0' : 'inset-0',
           )}
         >
           <CollapsibleTrigger asChild>
-            <Button variant="secondary" className="mb-8 h-8 text-xs" disabled={disabled}>
+            <Button
+              variant="secondary"
+              className="h-8 text-xs"
+              disabled={disabled}
+            >
               {isOpened ? 'Collapse' : expandButtonTitle}
             </Button>
           </CollapsibleTrigger>
