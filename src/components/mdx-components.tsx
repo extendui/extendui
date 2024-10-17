@@ -37,6 +37,7 @@ import { PreCustom } from './pre-custom';
 import ButtonAnimated, { AnimatedButton, RotatingButton } from '@/showcase/Button/button-rotating';
 import { ScalingButton } from '@/showcase/Button/button-scaling';
 import { BouncingButton } from '@/showcase/Button/button-bouncing';
+import { PulsatingShadowButton } from '@/showcase/Button/button-pulsating';
 
 function CustomLink(props: any) {
   const href = props.href;
@@ -72,6 +73,7 @@ const components = {
   ButtonExample,
   ScalingButton,
   BouncingButton,
+  PulsatingShadowButton,
   RotatingButton,
   ButtonSettingsEngine,
   ComponentInstallation: (props: any) => <ComponentInstallation {...props} />,
