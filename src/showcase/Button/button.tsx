@@ -15,15 +15,13 @@ export default function ButtonExample() {
   );
   const tooltipText = useEngineSettingsStore((state) => state.tooltipText);
 
+
   const getButtonStyle = () => {
-    if (variant !== 'default' || !backgroundColor) {
+    if (variant !== 'default') {
       return {};
     }
 
-    if (backgroundColor === 'hsl(var(--primary))' || 'primary') return {};
-
-    console.log(backgroundColor);
-
+    if (backgroundColor === 'hsl(var(--primary))' || backgroundColor === 'primary') return {};
     const textColor = getContrastYIQ(backgroundColor);
 
     return {
@@ -35,7 +33,6 @@ export default function ButtonExample() {
     };
   };
 
-  const buttonStyle = getButtonStyle();
 
   const buttonExampleCode = `
 import { Button } from '@/components/ui/button';
@@ -53,7 +50,7 @@ return <Button variant={'${variant}'} size={'${size}'} loading={${loading}} disa
       disabled={loading}
       loading={loading}
       tooltipText={tooltipText}
-      {...buttonStyle}
+      {...getButtonStyle()}
     >
       {size === 'icon' ? <ChevronRight /> : 'Button'}
     </Button>
