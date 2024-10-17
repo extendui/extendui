@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { getContrastYIQ } from '@/hooks/use-getContrast';
 import { useEngineSettingsStore } from '@/zustand/stores/useEngineSettings';
 import { ChevronRight } from 'lucide-react';
+import { toast } from 'sonner';
 
 export default function ButtonExample() {
   const loading = useEngineSettingsStore((state) => state.loading);
@@ -21,7 +22,7 @@ export default function ButtonExample() {
 
     if (backgroundColor === 'hsl(var(--primary))' || 'primary') return {};
 
-    console.log(backgroundColor)
+    console.log(backgroundColor);
 
     const textColor = getContrastYIQ(backgroundColor);
 
@@ -36,22 +37,25 @@ export default function ButtonExample() {
 
   const buttonStyle = getButtonStyle();
 
+  const buttonExampleCode = `
+import { Button } from '@/components/ui/button';
+
+function ExampleButton() {
+return <Button variant={'${variant}'} size={'${size}'} loading={${loading}} disabled={${loading}} tooltipText={'${tooltipText}'}>Button</Button>;
+}
+`;
+
   return (
     <Button
       variant={variant}
       size={size}
-      onClick={() => console.log('clicked')}
+      onClick={() => toast.success('Clicked')}
       disabled={loading}
       loading={loading}
       tooltipText={tooltipText}
       {...buttonStyle}
     >
-      {size === 'icon' ? (
-        <ChevronRight />
-      ) : (
-        'Button'
-      )}
+      {size === 'icon' ? <ChevronRight /> : 'Button'}
     </Button>
-
   );
 }

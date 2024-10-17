@@ -1,4 +1,3 @@
-import { Toaster } from '@/components/ui/toaster';
 import { siteConfig } from '@/config/site';
 import { ReactQueryProvider } from '@/providers/reactQueryProvider';
 import { ThemeProvider } from '@/providers/themeProvider';
@@ -6,6 +5,7 @@ import '@/styles/globals.css';
 import '@/styles/mdx.css';
 import { GeistSans } from 'geist/font/sans';
 import { Metadata } from 'next';
+import { Toaster } from 'sonner';
 
 export const metadata: Metadata = {
   title: {
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     apple: '/apple-touch-icon.png',
   },
   manifest: '/site.webmanifest',
-}
+};
 
 export default function RootLayout({
   children,
@@ -64,7 +64,7 @@ export default function RootLayout({
       <body>
         <ReactQueryProvider>
           <ThemeProvider>{children}</ThemeProvider>
-          <Toaster />
+          <Toaster richColors />
         </ReactQueryProvider>
       </body>
     </html>
