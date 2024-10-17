@@ -4,8 +4,8 @@ import { ChevronRight, Star } from 'lucide-react';
 import Link from 'next/link';
 import Step from '@/components/step';
 import dynamic from 'next/dynamic';
-import ButtonExample from '@/showcase/Button/button';
-import ButtonSettingsEngine from '@/showcase/Button/settings-engine';
+import ButtonExample from '@/showcase/components/Button/button';
+import ButtonSettingsEngine from '@/showcase/components/Button/settings-engine';
 import FadeUp from '@/components/fadeup';
 
 const DynamicSteps = dynamic(() => import('@/components/steps'));

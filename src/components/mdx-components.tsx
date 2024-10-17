@@ -29,15 +29,15 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import type { Style } from '@/registry/styles';
 import { PropsTable } from '@/components/props-table';
 import Preview from './preview';
-import ButtonExample from '@/showcase/Button/button';
-import ButtonSettingsEngine from '@/showcase/Button/settings-engine';
+import ButtonExample from '@/showcase/components/Button/button';
+import ButtonSettingsEngine from '@/showcase/components/Button/settings-engine';
 
 import '@/styles/mdx.css'; // Import the MDX styles
 import { PreCustom } from './pre-custom';
-import ButtonAnimated, { AnimatedButton, RotatingButton } from '@/showcase/Button/button-rotating';
-import { ScalingButton } from '@/showcase/Button/button-scaling';
-import { BouncingButton } from '@/showcase/Button/button-bouncing';
-import { PulsatingShadowButton } from '@/showcase/Button/button-pulsating';
+import ButtonAnimated, { AnimatedButton, RotatingButton } from '@/showcase/components/Button/button-rotating';
+import { ScalingButton } from '@/showcase/components/Button/button-scaling';
+import { BouncingButton } from '@/showcase/components/Button/button-bouncing';
+import { PulsatingShadowButton } from '@/showcase/components/Button/button-pulsating';
 
 function CustomLink(props: any) {
   const href = props.href;

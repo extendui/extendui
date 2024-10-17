@@ -2,17 +2,20 @@ import { cn } from '@/lib/utils';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from './ui/tabs';
 import { Code, Eye } from 'lucide-react';
 import { ComponentSource } from './component-source';
+import { ComponentSourceLive } from './component-source-live';
 
 type Props = {
   component: React.ReactNode;
   settingsEngine: React.ReactNode;
-  filename: string;
+  filename?: string;
+  componentName?: string;
 };
 
 export default function Preview({
   component,
   settingsEngine,
   filename,
+  componentName,
 }: Props) {
   return (
     <div className="mx-auto">
@@ -56,7 +59,7 @@ export default function Preview({
         </TabsContent>
         <TabsContent value="code" className="rounded-lg">
           <div className="relative mx-auto w-full max-w-full overflow-auto">
-            <ComponentSource src={filename} />
+            {componentName ? <ComponentSourceLive componentName={componentName} /> : <ComponentSource src={filename} />}
           </div>
         </TabsContent>
       </Tabs>

@@ -33,15 +33,6 @@ export default function ButtonExample() {
     };
   };
 
-
-  const buttonExampleCode = `
-import { Button } from '@/components/ui/button';
-
-function ExampleButton() {
-return <Button variant={'${variant}'} size={'${size}'} loading={${loading}} disabled={${loading}} tooltipText={'${tooltipText}'}>Button</Button>;
-}
-`;
-
   return (
     <Button
       variant={variant}
@@ -56,3 +47,4 @@ return <Button variant={'${variant}'} size={'${size}'} loading={${loading}} disa
     </Button>
   );
 }
+
