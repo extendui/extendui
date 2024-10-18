@@ -134,5 +134,39 @@
         "url": "https://twitter.com/undefined"
       }
     }
+  },
+  {
+    "title": "Button",
+    "description": "A versatile component designed to mimic the appearance and functionality of a traditional button, offering a range of customization options for various use cases.\r",
+    "published": true,
+    "featured": false,
+    "toc": true,
+    "body": {
+      "raw": "\r\n<Preview\r\n  component={<InputExample />}\r\n  settingsEngine={<InputSettingsEngine />}\r\n  componentName={'InputExample'}\r\n/>\r\n\r\n## Installation\r\n\r\n<Tabs defaultValue=\"cli\">\r\n  <TabsList>\r\n    <TabsTrigger value=\"cli\">CLI</TabsTrigger>\r\n    <TabsTrigger value=\"manual\">Manual</TabsTrigger>\r\n  </TabsList>\r\n  <TabsContent value=\"cli\">\r\n    ```bash \r\n    npx shadcn add https://extendui.vercel.app/registry/input.json\r\n    ```\r\n  </TabsContent>\r\n  <TabsContent value=\"manual\">\r\n    <Steps>\r\n      <Step>\r\n        Install the following dependencies: \r\n        ```bash \r\n        npm install @radix-ui/react-slot \r\n        ```\r\n      </Step>\r\n      <Step>\r\n        Copy and paste the following code into your project.\r\n        <ComponentSource src={'input'} />\r\n      </Step>\r\n      <Step>Update the import paths to match your project setup.</Step>\r\n    </Steps>\r\n  </TabsContent>\r\n</Tabs>\r\n\r\n## Input example usage\r\n\r\n\r\n## Input component props\r\n\r\n ",
+      "code": "var Component=(()=>{var b=Object.create;var s=Object.defineProperty;var _=Object.getOwnPropertyDescriptor;var E=Object.getOwnPropertyNames;var w=Object.getPrototypeOf,I=Object.prototype.hasOwnProperty;var S=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),v=(n,e)=>{for(var a in e)s(n,a,{get:e[a],enumerable:!0})},f=(n,e,a,o)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let r of E(e))!I.call(n,r)&&r!==a&&s(n,r,{get:()=>e[r],enumerable:!(o=_(e,r))||o.enumerable});return n};var j=(n,e,a)=>(a=n!=null?b(w(n)):{},f(e||!n||!n.__esModule?s(a,\"default\",{value:n,enumerable:!0}):a,n)),T=n=>f(s({},\"__esModule\",{value:!0}),n);var y=S((M,m)=>{m.exports=_jsx_runtime});var F={};v(F,{default:()=>C,frontmatter:()=>D});var t=j(y()),D={title:\"Button\",description:\"A versatile component designed to mimic the appearance and functionality of a traditional button, offering a range of customization options for various use cases.\"};function x(n){let e={code:\"code\",figure:\"figure\",h2:\"h2\",p:\"p\",pre:\"pre\",span:\"span\",...n.components},{ComponentSource:a,InputExample:o,InputSettingsEngine:r,Preview:p,Step:l,Steps:u,Tabs:h,TabsContent:c,TabsList:g,TabsTrigger:d}=e;return a||i(\"ComponentSource\",!0),o||i(\"InputExample\",!0),r||i(\"InputSettingsEngine\",!0),p||i(\"Preview\",!0),l||i(\"Step\",!0),u||i(\"Steps\",!0),h||i(\"Tabs\",!0),c||i(\"TabsContent\",!0),g||i(\"TabsList\",!0),d||i(\"TabsTrigger\",!0),(0,t.jsxs)(t.Fragment,{children:[(0,t.jsx)(p,{component:(0,t.jsx)(o,{}),settingsEngine:(0,t.jsx)(r,{}),componentName:\"InputExample\"}),`\n`,(0,t.jsx)(e.h2,{children:\"Installation\"}),`\n`,(0,t.jsxs)(h,{defaultValue:\"cli\",children:[(0,t.jsxs)(g,{children:[(0,t.jsx)(d,{value:\"cli\",children:\"CLI\"}),(0,t.jsx)(d,{value:\"manual\",children:\"Manual\"})]}),(0,t.jsx)(c,{value:\"cli\",children:(0,t.jsx)(e.figure,{\"data-rehype-pretty-code-figure\":\"\",children:(0,t.jsx)(e.pre,{tabIndex:\"0\",\"data-language\":\"bash\",\"data-theme\":\"night-owl\",__rawString__:`npx shadcn add https://extendui.vercel.app/registry/input.json\n`,children:(0,t.jsx)(e.code,{\"data-language\":\"bash\",\"data-theme\":\"night-owl\",style:{display:\"grid\"},children:(0,t.jsxs)(e.span,{\"data-line\":\"\",children:[(0,t.jsx)(e.span,{style:{color:\"#82AAFF\",fontStyle:\"italic\"},children:\"npx\"}),(0,t.jsx)(e.span,{style:{color:\"#ECC48D\"},children:\" shadcn\"}),(0,t.jsx)(e.span,{style:{color:\"#ECC48D\"},children:\" add\"}),(0,t.jsx)(e.span,{style:{color:\"#ECC48D\"},children:\" https://extendui.vercel.app/registry/input.json\"})]})})})})}),(0,t.jsx)(c,{value:\"manual\",children:(0,t.jsxs)(u,{children:[(0,t.jsxs)(l,{children:[(0,t.jsx)(e.p,{children:\"Install the following dependencies:\"}),(0,t.jsx)(e.figure,{\"data-rehype-pretty-code-figure\":\"\",children:(0,t.jsx)(e.pre,{tabIndex:\"0\",\"data-language\":\"bash\",\"data-theme\":\"night-owl\",__rawString__:`npm install @radix-ui/react-slot \n`,children:(0,t.jsx)(e.code,{\"data-language\":\"bash\",\"data-theme\":\"night-owl\",style:{display:\"grid\"},children:(0,t.jsxs)(e.span,{\"data-line\":\"\",children:[(0,t.jsx)(e.span,{style:{color:\"#82AAFF\",fontStyle:\"italic\"},children:\"npm\"}),(0,t.jsx)(e.span,{style:{color:\"#ECC48D\"},children:\" install\"}),(0,t.jsx)(e.span,{style:{color:\"#ECC48D\"},children:\" @radix-ui/react-slot\"}),(0,t.jsx)(e.span,{style:{color:\"#D6DEEB\"},children:\" \"})]})})})})]}),(0,t.jsxs)(l,{children:[(0,t.jsx)(e.p,{children:\"Copy and paste the following code into your project.\"}),(0,t.jsx)(a,{src:\"input\"})]}),(0,t.jsx)(l,{children:\"Update the import paths to match your project setup.\"})]})})]}),`\n`,(0,t.jsx)(e.h2,{children:\"Input example usage\"}),`\n`,(0,t.jsx)(e.h2,{children:\"Input component props\"})]})}function C(n={}){let{wrapper:e}=n.components||{};return e?(0,t.jsx)(e,{...n,children:(0,t.jsx)(x,{...n})}):x(n)}function i(n,e){throw new Error(\"Expected \"+(e?\"component\":\"object\")+\" `\"+n+\"` to be defined: you likely forgot to import, pass, or provide it.\")}return T(F);})();\n;return Component;"
+    },
+    "_id": "docs/components/input.mdx",
+    "_raw": {
+      "sourceFilePath": "docs/components/input.mdx",
+      "sourceFileName": "input.mdx",
+      "sourceFileDir": "docs/components",
+      "contentType": "mdx",
+      "flattenedPath": "docs/components/input"
+    },
+    "type": "Doc",
+    "url": "/docs/components/input",
+    "image": "undefined/api/og?title=Button",
+    "slug": "/docs/components/input",
+    "slugAsParams": "components/input",
+    "structuredData": {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Button",
+      "url": "https://magicui.design/docs/components/input",
+      "author": {
+        "@type": "Person",
+        "url": "https://twitter.com/undefined"
+      }
+    }
   }
 ]

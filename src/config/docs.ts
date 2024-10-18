@@ -56,6 +56,13 @@ export const docsConfig: DocsConfig = {
             { title: 'Extended', href: '/docs/components/button-extended', items: [] },
           ],
         },
+        {
+          title: 'Input',
+          href: '/docs/components/input',
+          items: [
+            { title: 'Base', href: '/docs/components/input', items: [] },
+          ],
+        },
       ],
     },
   ],

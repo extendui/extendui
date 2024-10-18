@@ -38,6 +38,8 @@ import ButtonAnimated, { AnimatedButton, RotatingButton } from '@/showcase/compo
 import { ScalingButton } from '@/showcase/components/Button/button-scaling';
 import { BouncingButton } from '@/showcase/components/Button/button-bouncing';
 import { PulsatingShadowButton } from '@/showcase/components/Button/button-pulsating';
+import InputExample from '@/showcase/components/Input/input';
+import InputSettingsEngine from '@/showcase/components/Input/settings-engine';
 
 function CustomLink(props: any) {
   const href = props.href;
@@ -76,6 +78,8 @@ const components = {
   PulsatingShadowButton,
   RotatingButton,
   ButtonSettingsEngine,
+  InputExample,
+  InputSettingsEngine,
   ComponentInstallation: (props: any) => <ComponentInstallation {...props} />,
   ComponentSource: (props: any) => <ComponentSource {...props} />,
   h1: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
