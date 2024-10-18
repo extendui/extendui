@@ -6,6 +6,7 @@ import '@/styles/mdx.css';
 import { GeistSans } from 'geist/font/sans';
 import { Metadata } from 'next';
 import { Toaster } from 'sonner';
+import Footer from './_components/footer';
 
 export const metadata: Metadata = {
   title: {
@@ -63,7 +64,10 @@ export default function RootLayout({
     >
       <body>
         <ReactQueryProvider>
-          <ThemeProvider>{children}</ThemeProvider>
+          <ThemeProvider>
+            {children}
+            <Footer />
+          </ThemeProvider>
           <Toaster richColors />
         </ReactQueryProvider>
       </body>

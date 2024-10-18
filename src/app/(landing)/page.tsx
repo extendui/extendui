@@ -7,6 +7,8 @@ import ButtonExample from '@/showcase/components/Button/button';
 import ButtonSettingsEngine from '@/showcase/components/Button/settings-engine';
 import FadeUp from '@/components/fadeup';
 import { Card, CardContent } from '@/components/ui/card';
+import InputExample from '@/showcase/components/Input/input';
+import InputSettingsEngine from '@/showcase/components/Input/settings-engine';
 
 const DynamicSteps = dynamic(() => import('@/components/steps'));
 
@@ -66,18 +68,15 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-      <section
-        id="features"
-        className="container mx-auto px-4 py-16 md:py-24 lg:py-32"
-      >
+      <section id="features" className="container mx-auto px-4 py-16">
         <FadeUp delay={0.1} duration={0.8}>
           <h2 className="mb-8 text-center text-3xl font-bold">Key Features</h2>
         </FadeUp>
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
           <FadeUp delay={0.2} duration={0.8}>
             <Card className="border-none shadow-none">
               <CardContent className="flex flex-col items-center space-y-2 p-6">
-                <Recycle className="h-12 w-12" />
+                <Recycle className="h-12 w-12 text-emerald-600" />
                 <h3 className="text-xl font-bold"> Reusable Components</h3>
                 <p className="text-center text-gray-600">
                   Build your UI faster with our pre-built, customizable
@@ -89,7 +88,7 @@ export default function HomePage() {
           <FadeUp delay={0.4} duration={0.8}>
             <Card className="border-none shadow-none">
               <CardContent className="flex flex-col items-center space-y-2 p-6">
-                <Zap className="h-12 w-12" />
+                <Zap className="h-12 w-12 text-emerald-600" />
                 <h3 className="text-xl font-bold"> Performance Optimized</h3>
                 <p className="text-center text-gray-600">
                   Enjoy improved application performance with our optimized
@@ -101,7 +100,7 @@ export default function HomePage() {
           <FadeUp delay={0.6} duration={0.8}>
             <Card className="border-none shadow-none">
               <CardContent className="flex flex-col items-center space-y-2 p-6">
-                <Globe className="h-12 w-12" />
+                <Globe className="h-12 w-12 text-emerald-600" />
                 <h3 className="text-xl font-bold"> Easy Integration</h3>
                 <p className="text-center text-gray-600">
                   Seamlessly integrate with your existing React and Next.js
@@ -116,18 +115,38 @@ export default function HomePage() {
         id="components-showcase"
         className="container mx-auto px-4 py-16"
       >
-        <h2 className="mb-8 text-center text-3xl font-bold">Components</h2>
-        <div className="relative w-full content-center rounded-lg py-4 shadow-[inset_0_0_2px_rgba(0,0,0,0.1)] shadow-slate-300">
-          <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
-            <div className="flex items-center justify-center p-4">
-              <Link href={'/docs/components/button'}>
-                <ButtonExample />
-              </Link>
+        <FadeUp delay={0.1} duration={0.8}>
+          <h2 className="mb-8 text-center text-3xl font-bold">Components</h2>
+        </FadeUp>
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
+          <FadeUp delay={0.2} duration={0.8}>
+            <div className="relative min-h-80 w-full content-center rounded-lg py-4 shadow-[inset_0_0_2px_rgba(0,0,0,0.1)] shadow-slate-300">
+              <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
+                <div className="flex items-center justify-center p-4">
+                  <Link href={'/docs/components/button'}>
+                    <ButtonExample />
+                  </Link>
+                </div>
+                <div className="flex flex-col items-center justify-center p-4">
+                  <ButtonSettingsEngine />
+                </div>
+              </div>
             </div>
-            <div className="flex flex-col items-center justify-center p-4">
-              <ButtonSettingsEngine />
+          </FadeUp>
+          <FadeUp delay={0.4} duration={0.8}>
+            <div className="relative min-h-80 w-full content-center rounded-lg py-4 shadow-[inset_0_0_2px_rgba(0,0,0,0.1)] shadow-slate-300">
+              <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
+                <div className="flex items-center justify-center p-4">
+                  <Link href={'/docs/components/button'}>
+                    <InputExample />
+                  </Link>
+                </div>
+                <div className="flex flex-col items-center justify-center p-4">
+                  <InputSettingsEngine />
+                </div>
+              </div>
             </div>
-          </div>
+          </FadeUp>
         </div>
       </section>
     </main>

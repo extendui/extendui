@@ -1,9 +1,7 @@
 import { Badge } from '@/components/ui/badge';
 import { cn } from '@/lib/utils';
-import { CodeXml } from 'lucide-react';
-import Image from 'next/image';
+import { Blocks } from 'lucide-react';
 import Link from 'next/link';
-import LogoImage from '../../../public/icon.png';
 
 export default function Logo({ className }: { className?: string }) {
   return (
@@ -14,16 +12,10 @@ export default function Logo({ className }: { className?: string }) {
         className,
       )}
     >
-      <div className="mr-4 flex items-center justify-center gap-1 font-bold">
-        <Image
-          src={LogoImage}
-          alt="Logo"
-          width={600}
-          height={600}
-          className="h-8 w-8"
-        />
-        <span className="text-md font-bold">
-          Extend{' '}
+      <div className="mr-4 flex items-center justify-center gap-2 font-bold">
+        <Blocks className="h-6 w-6 text-emerald-600" />
+        <span className="text-base font-bold">
+          Extend
           <span className="text-emerald-600 dark:text-emerald-500">UI</span>
         </span>
         <Badge variant="outline" className="bg-muted">
