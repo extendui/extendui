@@ -1,16 +1,30 @@
-"use client"
+'use client';
 
-import * as React from 'react'
-import { motion } from 'framer-motion'
-import { Button } from "@/components/ui/button"
+import * as React from 'react';
+import { motion } from 'framer-motion';
+import { Button } from '@/components/ui/button';
+import { cn } from '@/lib/utils';
 
-interface PulsatingShadowButtonProps extends React.ComponentPropsWithoutRef<typeof Button> {
-  glowColor?: string
-  pulseDuration?: number
+interface PulsatingShadowButtonProps
+  extends React.ComponentPropsWithoutRef<typeof Button> {
+  glowColor?: string;
+  pulseDuration?: number;
 }
 
-export const PulsatingShadowButton = React.forwardRef<HTMLButtonElement, PulsatingShadowButtonProps>(
-  ({ children, glowColor = "#059669", pulseDuration = 2.5, className, ...props }, ref) => {
+export const PulsatingShadowButton = React.forwardRef<
+  HTMLButtonElement,
+  PulsatingShadowButtonProps
+>(
+  (
+    {
+      children,
+      glowColor = '#059669',
+      pulseDuration = 2.5,
+      className,
+      ...props
+    },
+    ref,
+  ) => {
     return (
       <motion.div
         className={`relative inline-block ${className}`}
@@ -36,7 +50,7 @@ export const PulsatingShadowButton = React.forwardRef<HTMLButtonElement, Pulsati
               transition: {
                 duration: pulseDuration,
                 repeat: Infinity,
-                ease: "easeInOut",
+                ease: 'easeInOut',
               },
             },
             hover: {
@@ -49,12 +63,20 @@ export const PulsatingShadowButton = React.forwardRef<HTMLButtonElement, Pulsati
             filter: 'blur(8px)',
           }}
         />
-        <Button ref={ref} className="relative z-10 shadow-none" {...props}>
+        <Button
+          variant={'default'}
+          ref={ref}
+          className={cn(
+            'relative z-10 bg-emerald-600 shadow-none hover:bg-emerald-600/90',
+            className,
+          )}
+          {...props}
+        >
           {children}
         </Button>
       </motion.div>
-    )
-  }
-)
+    );
+  },
+);
 
-PulsatingShadowButton.displayName = 'PulsatingShadowButton'
+PulsatingShadowButton.displayName = 'PulsatingShadowButton';

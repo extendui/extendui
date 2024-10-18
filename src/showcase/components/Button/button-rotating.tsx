@@ -1,7 +1,12 @@
 'use client';
 
 import * as React from 'react';
-import { motion, useMotionValue, useTransform } from 'framer-motion';
+import {
+  motion,
+  useMotionValue,
+  useTransform,
+  useAnimation,
+} from 'framer-motion';
 import { Button, ButtonProps } from '@/components/ui/button';
 
 export const RotatingButton: React.FC<ButtonProps> = React.forwardRef<
@@ -10,6 +15,7 @@ export const RotatingButton: React.FC<ButtonProps> = React.forwardRef<
 >(({ children, ...props }, ref) => {
   const x = useMotionValue(0);
   const rotate = useTransform(x, [-50, 50], [-15, 15]);
+  const controls = useAnimation();
 
   const handleMouseMove = (event: React.MouseEvent<HTMLDivElement>) => {
     const rect = event.currentTarget.getBoundingClientRect();
@@ -18,7 +24,7 @@ export const RotatingButton: React.FC<ButtonProps> = React.forwardRef<
   };
 
   const handleMouseLeave = () => {
-    x.set(0);
+    controls.start({ rotate: 0 });
   };
 
   return (
@@ -30,9 +36,8 @@ export const RotatingButton: React.FC<ButtonProps> = React.forwardRef<
       onMouseLeave={handleMouseLeave}
     >
       <motion.div
-        style={{
-          rotate,
-        }}
+        style={{ rotate }}
+        animate={controls}
         transition={{ type: 'spring', stiffness: 300, damping: 20 }}
       >
         <Button ref={ref} {...props}>
