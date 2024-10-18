@@ -2,12 +2,15 @@
 
 import { Input } from '@/components/ui/input';
 import { useEngineSettingsInputStore } from '@/zustand/stores/useEngineSettingsInput';
+import { useState } from 'react';
 
 export default function InputExample() {
   const { variant, label } = useEngineSettingsInputStore();
-
+  const [value, setValue] = useState('');
   return (
-    <Input type="text" placeholder="Type here..." variant={variant} label={label} />
+    <Input
+      value={value} onChange={(e) => setValue(e.target.value)}
+      type="text" placeholder="Type here..." variant={variant} label={label} />
   );
 }
 

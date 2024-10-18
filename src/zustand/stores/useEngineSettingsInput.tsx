@@ -3,7 +3,9 @@ import { immer } from 'zustand/middleware/immer';
 
 type Variant =
   | 'default'
-  | 'outline'
+  | 'filled'
+  | 'flushed'
+  | 'dashed'
 
 
 type EngineSettingsInputState = {

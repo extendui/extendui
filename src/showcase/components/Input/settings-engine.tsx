@@ -12,7 +12,9 @@ export default function InputSettingsEngine() {
   const handleChangeVariant = (
     value:
       | 'default'
-      | 'outline'
+      | 'flushed'
+      | 'filled'
+      | 'dashed'
   ) => {
     setVariant(value);
   }
@@ -32,7 +34,9 @@ export default function InputSettingsEngine() {
             <SelectGroup>
               <SelectLabel>Variants</SelectLabel>
               <SelectItem value="default">Default</SelectItem>
-              <SelectItem value="outline">Outline</SelectItem>
+              <SelectItem value="flushed">Flushed</SelectItem>
+              <SelectItem value="filled">Filled</SelectItem>
+              <SelectItem value="dashed">Dashed</SelectItem>
             </SelectGroup>
           </SelectContent>
         </Select>
