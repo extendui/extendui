@@ -4,12 +4,12 @@ import * as React from 'react';
 import { motion, useMotionValue, useTransform } from 'framer-motion';
 import { Button, ButtonProps } from '@/components/ui/button';
 
-export const RotatingButton: React.FC<ButtonProps> = React.forwardRef<
+export const Rotating3DButton: React.FC<ButtonProps> = React.forwardRef<
   HTMLButtonElement,
   ButtonProps
 >(({ children, ...props }, ref) => {
   const x = useMotionValue(0);
-  const rotate = useTransform(x, [-50, 50], [-15, 15]);
+  const rotateY = useTransform(x, [-50, 50], [-15, 15]);
 
   const handleMouseMove = (event: React.MouseEvent<HTMLDivElement>) => {
     const rect = event.currentTarget.getBoundingClientRect();
@@ -24,6 +24,7 @@ export const RotatingButton: React.FC<ButtonProps> = React.forwardRef<
   return (
     <motion.div
       style={{
+        perspective: 400,
         display: 'inline-block',
       }}
       onMouseMove={handleMouseMove}
@@ -31,7 +32,7 @@ export const RotatingButton: React.FC<ButtonProps> = React.forwardRef<
     >
       <motion.div
         style={{
-          rotate,
+          rotateY,
         }}
         transition={{ type: 'spring', stiffness: 300, damping: 20 }}
       >
@@ -43,4 +44,4 @@ export const RotatingButton: React.FC<ButtonProps> = React.forwardRef<
   );
 });
 
-RotatingButton.displayName = 'RotatingButton';
+Rotating3DButton.displayName = 'RotatingButton';
