@@ -19,14 +19,15 @@ export function ComponentSourceLive({ componentName, className, ...props }: Prop
   const relevantStates = componentStateConfig[componentName]
 
   const state = React.useMemo(() => {
-    const storeState: any = useEngineSettingsStore.getState()
-    const componentState: Record<string, any> = {}
-    relevantStates.forEach((stateKey) => {
+
+    const storeState: any = relevantStates.store.getState()
+    const componentState: any = {}
+    relevantStates.state.forEach((stateKey) => {
       componentState[stateKey] = storeState[stateKey]
     })
 
     return componentState
-  }, [relevantStates])
+  }, [relevantStates.state])
 
   React.useEffect(() => {
     const loadComponent = async () => {
