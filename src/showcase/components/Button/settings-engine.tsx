@@ -117,39 +117,41 @@ export default function ButtonSettingsEngine() {
           </SelectContent>
         </Select>
       </div>
-      <div className="w-full sm:w-auto">
-        <div className="flex flex-wrap gap-2">
-          {colorOptions.map((color) => (
-            <Button
-              key={color.value}
-              variant="ghost"
-              style={{ backgroundColor: color.color }}
-              onClick={() => handleChangeBackgroundColor(color.value)}
-              className="flex h-8 w-8 items-center justify-center"
-            />
-          ))}
-          <Popover>
-            <PopoverTrigger asChild>
+      {variant === 'default' && (
+        <div className="w-full sm:w-auto">
+          <div className="flex flex-wrap gap-2">
+            {colorOptions.map((color) => (
               <Button
+                key={color.value}
                 variant="ghost"
+                style={{ backgroundColor: color.color }}
+                onClick={() => handleChangeBackgroundColor(color.value)}
                 className="flex h-8 w-8 items-center justify-center"
-                style={{ backgroundColor: customColor }}
-              >
-                {customColor === backgroundColor ? '✓' : '+'}
-              </Button>
-            </PopoverTrigger>
-            <PopoverContent className="w-auto p-0">
-              <HexColorPicker
-                color={customColor}
-                onChange={(color) => {
-                  setCustomColor(color);
-                  handleChangeBackgroundColor(color);
-                }}
               />
-            </PopoverContent>
-          </Popover>
+            ))}
+            <Popover>
+              <PopoverTrigger asChild>
+                <Button
+                  variant="ghost"
+                  className="flex h-8 w-8 items-center justify-center"
+                  style={{ backgroundColor: customColor }}
+                >
+                  {customColor === backgroundColor ? '✓' : '+'}
+                </Button>
+              </PopoverTrigger>
+              <PopoverContent className="w-auto p-0">
+                <HexColorPicker
+                  color={customColor}
+                  onChange={(color) => {
+                    setCustomColor(color);
+                    handleChangeBackgroundColor(color);
+                  }}
+                />
+              </PopoverContent>
+            </Popover>
+          </div>
         </div>
-      </div>
+      )}
       <div className="w-full sm:w-auto">
         <Input
           placeholder="Tooltip text"

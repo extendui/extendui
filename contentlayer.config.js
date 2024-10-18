@@ -102,6 +102,7 @@ export default makeSource({
   mdx: {
     remarkPlugins: [],
     rehypePlugins: [
+      rehypeSlug,
       () => (tree) => {
         visit(tree, (node) => {
           if (node?.type === 'element' && node?.tagName === 'pre') {
@@ -142,6 +143,16 @@ export default makeSource({
           }
         });
       },
+      rehypeNpmCommand,
+      [
+        rehypeAutolinkHeadings,
+        {
+          properties: {
+            className: ['subheading-anchor'],
+            ariaLabel: 'Link to section',
+          },
+        },
+      ],
     ],
   },
 });

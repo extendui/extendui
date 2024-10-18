@@ -7,7 +7,8 @@ const config: Config = {
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/content/**/*.{md,mdx}', // Add this line if your MDX files are in the content directory
+    './src/content/**/*.{md,mdx}',
+    './src/showcase/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
     extend: {
@@ -124,7 +125,11 @@ const config: Config = {
       }),
     },
   },
-  plugins: [require('tailwindcss-animate'), require('@tailwindcss/typography')],
+  plugins: [
+    require('tailwindcss-animate'),
+    require('@tailwindcss/typography'),
+    require('tailwindcss/colors'),
+  ],
 };
 
 export default config;

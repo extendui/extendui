@@ -34,8 +34,12 @@ import ButtonSettingsEngine from '@/showcase/components/Button/settings-engine';
 
 import '@/styles/mdx.css'; // Import the MDX styles
 import { PreCustom } from './pre-custom';
-import ButtonAnimated, { AnimatedButton, RotatingButton } from '@/showcase/components/Button/button-rotating';
+import ButtonAnimated, {
+  AnimatedButton,
+  RotatingButton,
+} from '@/showcase/components/Button/button-rotating';
 import { ScalingButton } from '@/showcase/components/Button/button-scaling';
+import { Rotating3DButton } from '@/showcase/components/Button/button-3d-rotating';
 import { BouncingButton } from '@/showcase/components/Button/button-bouncing';
 import { PulsatingShadowButton } from '@/showcase/components/Button/button-pulsating';
 import InputExample from '@/showcase/components/Input/input';
@@ -77,6 +81,7 @@ const components = {
   BouncingButton,
   PulsatingShadowButton,
   RotatingButton,
+  Rotating3DButton,
   ButtonSettingsEngine,
   InputExample,
   InputSettingsEngine,

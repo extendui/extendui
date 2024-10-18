@@ -9,6 +9,7 @@ type Props = {
   settingsEngine: React.ReactNode;
   filename?: string;
   componentName?: string;
+  className?: string;
 };
 
 export default function Preview({
@@ -16,6 +17,7 @@ export default function Preview({
   settingsEngine,
   filename,
   componentName,
+  className,
 }: Props) {
   return (
     <div className="mx-auto">
@@ -42,24 +44,31 @@ export default function Preview({
         </TabsList>
         <TabsContent
           value="preview"
-          className="relative w-full content-center rounded-lg py-4 shadow-[inset_0_0_2px_rgba(0,0,0,0.1)] shadow-slate-300"
+          className={cn(
+            'relative w-full content-center rounded-lg py-4 shadow-[inset_0_0_2px_rgba(0,0,0,0.1)] shadow-slate-300',
+            className,
+          )}
         >
-          <div className={`grid grid-cols-1 gap-4 lg:${settingsEngine ? 'grid-cols-2' : 'grid-cols-1'}`}>
+          <div
+            className={`grid grid-cols-1 gap-4 lg:${settingsEngine ? 'grid-cols-2' : 'grid-cols-1'}`}
+          >
             <div className="flex items-center justify-center p-4">
               {component}
             </div>
-            {
-              settingsEngine && (
-                <div className="flex flex-col items-center justify-center p-4">
-                  {settingsEngine}
-                </div>
-              )
-            }
+            {settingsEngine && (
+              <div className="flex flex-col items-center justify-center p-4">
+                {settingsEngine}
+              </div>
+            )}
           </div>
         </TabsContent>
         <TabsContent value="code" className="rounded-lg">
           <div className="relative mx-auto w-full max-w-full overflow-auto">
-            {componentName ? <ComponentSourceLive componentName={componentName} /> : <ComponentSource src={filename} />}
+            {componentName ? (
+              <ComponentSourceLive componentName={componentName} />
+            ) : (
+              <ComponentSource src={filename} />
+            )}
           </div>
         </TabsContent>
       </Tabs>
