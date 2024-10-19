@@ -5,15 +5,15 @@ import { cva, type VariantProps } from "class-variance-authority"
 import * as React from "react"
 
 const inputVariants = cva(
-  "h-9 w-full rounded-md border border-input bg-background px-3 py-2 text-sm  transition-all",
+  "h-9 w-full rounded-md border border-input bg-background px-3 py-2 text-sm  transition-all   disabled:cursor-not-allowed disabled:opacity-50 placeholder:text-muted-foreground",
   {
     variants: {
       variant: {
-        default: "border-input",
-        filled: "border-transparent bg-muted",
-        flushed: "rounded-none border-x-0 border-t-0 px-1  outline-none focus:outline-none focus:ring-0 focus:ring-offset-0 focus-visible:ring-0 focus-visible:ring-offset-0 focus:bg-secondary",
-        flushedfilled: "rounded-none border-x-0 border-t-0 px-1  outline-none focus:outline-none focus:ring-0 focus:ring-offset-0 focus-visible:ring-0 focus-visible:ring-offset-0 focus:bg-secondary",
-        dashed: "border-dashed border-2",
+        default: "border-input focus:outline-primary",
+        filled: "border-transparent bg-muted focus:outline-primary",
+        flushed: "rounded-none border-x-0 border-t-0 px-1  outline-none focus:outline-none focus:ring-0 focus:ring-offset-0  focus-visible:ring-offset-0 focus:bg-secondary focus-visible:outnline-none",
+        flushedfilled: "rounded-none border-x-0 border-t-0 px-1  outline-none focus:outline-none focus:ring-0 focus:ring-offset-0  focus:bg-secondary",
+        dashed: "border-dashed border-2 focus:outline-primary",
       },
     },
     defaultVariants: {
@@ -78,6 +78,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
           <label
             className={cn(
               "absolute left-3 top-2 text-sm text-muted-foreground transition-all duration-200 ease-in-out cursor-text border-transparent",
+              (isFocused) && "font-medium",
               (isFocused || props.value) && `-translate-y-[calc(85%)] rounded-md scale-[0.85] bg-background px-1 text-primary border-2 left-1.5 ${(variant === 'flushed' || variant === 'flushedfilled') && "-left-1.5 pl-0"}`,
               ((isFocused || props.value) && (variant === 'flushed' || variant === 'filled' || variant === 'flushedfilled') && "-translate-y-[calc(95%)]")
             )}
