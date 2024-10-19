@@ -1,23 +1,17 @@
 import { Icons } from '@/components/icons/icons';
 import { Button } from '@/components/ui/button';
-import {
-  ArrowUpRightFromSquare,
-  ChevronRight,
-  Globe,
-  Recycle,
-  Star,
-  Zap,
-} from 'lucide-react';
+import { ChevronRight, Globe, Recycle, Star, Zap } from 'lucide-react';
 import Link from 'next/link';
-import dynamic from 'next/dynamic';
 import ButtonExample from '@/showcase/components/Button/button';
-import ButtonSettingsEngine from '@/showcase/components/Button/settings-engine';
 import FadeUp from '@/components/fadeup';
-import { Card, CardContent } from '@/components/ui/card';
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+} from '@/components/ui/card';
 import InputExample from '@/showcase/components/Input/input';
-import InputSettingsEngine from '@/showcase/components/Input/settings-engine';
-
-const DynamicSteps = dynamic(() => import('@/components/steps'));
+import ComponentShowcaseCard from '@/components/component-showcase-card';
 
 export default function HomePage() {
   return (
@@ -125,46 +119,39 @@ export default function HomePage() {
         <FadeUp delay={0.1} duration={0.8}>
           <h2 className="mb-8 text-center text-3xl font-bold">Components</h2>
         </FadeUp>
-        <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
           <FadeUp delay={0.2} duration={0.8}>
-            <div className="relative min-h-80 w-full content-center rounded-lg py-4 shadow-[inset_0_0_2px_rgba(0,0,0,0.1)] shadow-slate-300">
-              <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
-                <div className="flex items-center justify-center p-4">
-                  <Button asChild variant={'ghost'} size={'icon'}>
-                    <Link
-                      href={'/docs/components/button'}
-                      className="absolute right-4 top-4"
-                    >
-                      <ArrowUpRightFromSquare />
-                    </Link>
-                  </Button>
-                  <ButtonExample />
-                </div>
-                <div className="flex flex-col items-center justify-center p-4">
-                  <ButtonSettingsEngine />
-                </div>
-              </div>
-            </div>
+            <ComponentShowcaseCard
+              href="/docs/components/button"
+              title="Button"
+              description="16 variants"
+              component={<ButtonExample />}
+            />
           </FadeUp>
+
           <FadeUp delay={0.4} duration={0.8}>
-            <div className="relative min-h-80 w-full content-center rounded-lg py-4 shadow-[inset_0_0_2px_rgba(0,0,0,0.1)] shadow-slate-300">
-              <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
-                <div className="flex items-center justify-center p-4">
-                  <Button asChild variant={'ghost'} size={'icon'}>
-                    <Link
-                      href={'/docs/components/input'}
-                      className="absolute right-4 top-4"
-                    >
-                      <ArrowUpRightFromSquare />
-                    </Link>
-                  </Button>
-                  <InputExample />
-                </div>
-                <div className="flex flex-col items-center justify-center p-4">
-                  <InputSettingsEngine />
-                </div>
-              </div>
-            </div>
+            <ComponentShowcaseCard
+              href="/docs/components/input"
+              title="Input"
+              description="5 variants"
+              component={<InputExample />}
+            />
+          </FadeUp>
+          <FadeUp delay={0.6} duration={0.8}>
+            <ComponentShowcaseCard
+              href="/docs/blocks/pricing-card"
+              title="Cards"
+              description="3 variants"
+              component={
+                <Card className="w-1/2">
+                  <div className="space-y-3 p-6">
+                    <div className="h-2 w-full rounded-lg bg-gray-300"></div>
+                    <div className="h-8 w-full rounded-lg bg-gray-300"></div>
+                    <div className="h-4 w-full rounded-lg bg-gray-300"></div>
+                  </div>
+                </Card>
+              }
+            />
           </FadeUp>
         </div>
       </section>
