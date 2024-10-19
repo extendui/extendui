@@ -78,6 +78,11 @@ export const docsConfig: DocsConfig = {
               href: '/docs/blocks/credit-card',
               items: [],
             },
+            {
+              title: 'File Upload',
+              href: '/docs/blocks/file-upload',
+              items: [],
+            },
           ],
         },
       ],

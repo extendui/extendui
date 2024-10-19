@@ -46,6 +46,7 @@ import PricingCard from '@/showcase/blocks/cards/pricing-card';
 import CreditCard from '@/showcase/blocks/cards/credit-card';
 import InputExample from '@/showcase/components/Input/input';
 import InputSettingsEngine from '@/showcase/components/Input/settings-engine';
+import FileUpload from '@/showcase/blocks/cards/file-upload';
 
 function CustomLink(props: any) {
   const href = props.href;
@@ -86,6 +87,7 @@ const components = {
   Rotating3DButton,
   PricingCard,
   CreditCard,
+  FileUpload,
   ButtonSettingsEngine,
   InputExample,
   InputSettingsEngine,
