@@ -13,6 +13,7 @@ export default function InputSettingsEngine() {
     value:
       | 'default'
       | 'flushed'
+      | 'flushedfilled'
       | 'filled'
       | 'dashed'
   ) => {
@@ -35,6 +36,7 @@ export default function InputSettingsEngine() {
               <SelectLabel>Variants</SelectLabel>
               <SelectItem value="default">Default</SelectItem>
               <SelectItem value="flushed">Flushed</SelectItem>
+              <SelectItem value="flushedfilled">Flushed Filled</SelectItem>
               <SelectItem value="filled">Filled</SelectItem>
               <SelectItem value="dashed">Dashed</SelectItem>
             </SelectGroup>

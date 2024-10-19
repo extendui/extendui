@@ -11,7 +11,8 @@ const inputVariants = cva(
       variant: {
         default: "border-input",
         filled: "border-transparent bg-muted",
-        flushed: "rounded-none border-x-0 border-t-0",
+        flushed: "rounded-none border-x-0 border-t-0 px-1  outline-none focus:outline-none focus:ring-0 focus:ring-offset-0 focus-visible:ring-0 focus-visible:ring-offset-0 focus:bg-secondary",
+        flushedfilled: "rounded-none border-x-0 border-t-0 px-1  outline-none focus:outline-none focus:ring-0 focus:ring-offset-0 focus-visible:ring-0 focus-visible:ring-offset-0 focus:bg-secondary",
         dashed: "border-dashed border-2",
       },
     },
@@ -64,7 +65,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
         <input
           className={cn(
             inputVariants({ variant }),
-            isFocused,
+            (props.value && (variant === 'flushedfilled')) && "bg-secondary",
             label && "placeholder:text-transparent",
             className
           )}
@@ -76,16 +77,17 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
         {label && (
           <label
             className={cn(
-              "absolute left-3 top-2 text-sm text-muted-foreground transition-all duration-200 ease-in-out cursor-text",
-              (isFocused || props.value) &&
-              "-translate-y-[calc(90%)] rounded-md scale-[0.85] bg-background px-1 text-primary"
+              "absolute left-3 top-2 text-sm text-muted-foreground transition-all duration-200 ease-in-out cursor-text border-transparent",
+              (isFocused || props.value) && `-translate-y-[calc(85%)] rounded-md scale-[0.85] bg-background px-1 text-primary border-2 left-1.5 ${(variant === 'flushed' || variant === 'flushedfilled') && "-left-1.5 pl-0"}`,
+              ((isFocused || props.value) && (variant === 'flushed' || variant === 'filled' || variant === 'flushedfilled') && "-translate-y-[calc(95%)]")
             )}
             onClick={handleFocus}
           >
             {label}
           </label>
-        )}
-      </div>
+        )
+        }
+      </div >
     )
   }
 )

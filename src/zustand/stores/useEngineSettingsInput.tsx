@@ -5,6 +5,7 @@ type Variant =
   | 'default'
   | 'filled'
   | 'flushed'
+  | 'flushedfilled'
   | 'dashed'
 
 
