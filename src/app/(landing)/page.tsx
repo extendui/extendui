@@ -1,6 +1,13 @@
 import { Icons } from '@/components/icons/icons';
 import { Button } from '@/components/ui/button';
-import { ChevronRight, Globe, Recycle, Star, Zap } from 'lucide-react';
+import {
+  ArrowUpRightFromSquare,
+  ChevronRight,
+  Globe,
+  Recycle,
+  Star,
+  Zap,
+} from 'lucide-react';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
 import ButtonExample from '@/showcase/components/Button/button';
@@ -123,9 +130,15 @@ export default function HomePage() {
             <div className="relative min-h-80 w-full content-center rounded-lg py-4 shadow-[inset_0_0_2px_rgba(0,0,0,0.1)] shadow-slate-300">
               <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
                 <div className="flex items-center justify-center p-4">
-                  <Link href={'/docs/components/button'}>
-                    <ButtonExample />
-                  </Link>
+                  <Button asChild variant={'ghost'} size={'icon'}>
+                    <Link
+                      href={'/docs/components/button'}
+                      className="absolute right-4 top-4"
+                    >
+                      <ArrowUpRightFromSquare />
+                    </Link>
+                  </Button>
+                  <ButtonExample />
                 </div>
                 <div className="flex flex-col items-center justify-center p-4">
                   <ButtonSettingsEngine />
@@ -137,9 +150,15 @@ export default function HomePage() {
             <div className="relative min-h-80 w-full content-center rounded-lg py-4 shadow-[inset_0_0_2px_rgba(0,0,0,0.1)] shadow-slate-300">
               <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
                 <div className="flex items-center justify-center p-4">
-                  <Link href={'/docs/components/button'}>
-                    <InputExample />
-                  </Link>
+                  <Button asChild variant={'ghost'} size={'icon'}>
+                    <Link
+                      href={'/docs/components/input'}
+                      className="absolute right-4 top-4"
+                    >
+                      <ArrowUpRightFromSquare />
+                    </Link>
+                  </Button>
+                  <InputExample />
                 </div>
                 <div className="flex flex-col items-center justify-center p-4">
                   <InputSettingsEngine />
