@@ -42,6 +42,8 @@ import { ScalingButton } from '@/showcase/components/Button/button-scaling';
 import { Rotating3DButton } from '@/showcase/components/Button/button-3d-rotating';
 import { BouncingButton } from '@/showcase/components/Button/button-bouncing';
 import { PulsatingShadowButton } from '@/showcase/components/Button/button-pulsating';
+import PricingCard from '@/showcase/blocks/cards/pricing-card';
+import CreditCard from '@/showcase/blocks/cards/credit-card';
 import InputExample from '@/showcase/components/Input/input';
 import InputSettingsEngine from '@/showcase/components/Input/settings-engine';
 
@@ -82,6 +84,8 @@ const components = {
   PulsatingShadowButton,
   RotatingButton,
   Rotating3DButton,
+  PricingCard,
+  CreditCard,
   ButtonSettingsEngine,
   InputExample,
   InputSettingsEngine,

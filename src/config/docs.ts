@@ -32,7 +32,7 @@ export const docsConfig: DocsConfig = {
         },
         {
           title: 'CLI',
-          href: '/docs/cli',
+          href: '/docs/#',
           label: 'soon',
           disabled: true,
           items: [],
@@ -43,24 +43,41 @@ export const docsConfig: DocsConfig = {
       title: 'Components',
       items: [
         {
-          title: 'Accordion',
-          href: '/docs/components/accordion',
-          disabled: true,
-          items: [],
-        },
-        {
           title: 'Button',
           href: '/docs/components/button',
           items: [
             { title: 'Base', href: '/docs/components/button', items: [] },
-            { title: 'Extended', href: '/docs/components/button-extended', items: [] },
+            {
+              title: 'Extended',
+              href: '/docs/components/button-extended',
+              items: [],
+            },
           ],
         },
         {
           title: 'Input',
           href: '/docs/components/input',
+          items: [{ title: 'Base', href: '/docs/components/input', items: [] }],
+        },
+      ],
+    },
+    {
+      title: 'Blocks',
+      items: [
+        {
+          title: 'Cards',
+          href: '/docs/blocks/cards',
           items: [
-            { title: 'Base', href: '/docs/components/input', items: [] },
+            {
+              title: 'Pricing Card',
+              href: '/docs/blocks/pricing-card',
+              items: [],
+            },
+            {
+              title: 'Credit Card',
+              href: '/docs/blocks/credit-card',
+              items: [],
+            },
           ],
         },
       ],
