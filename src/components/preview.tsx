@@ -1,8 +1,11 @@
+'use client';
 import { cn } from '@/lib/utils';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from './ui/tabs';
-import { Code, Eye } from 'lucide-react';
+import { Code, Eye, Loader2, RotateCcw } from 'lucide-react';
 import { ComponentSource } from './component-source';
 import { ComponentSourceLive } from './component-source-live';
+import { Suspense, useState } from 'react';
+import { Button } from './ui/button';
 
 type Props = {
   component: React.ReactNode;
@@ -19,6 +22,7 @@ export default function Preview({
   componentName,
   className,
 }: Props) {
+  const [key, setKey] = useState(0);
   return (
     <div className="mx-auto">
       <Tabs defaultValue="preview" className="w-full">
@@ -48,13 +52,30 @@ export default function Preview({
             'relative w-full content-center rounded-lg py-4 shadow-[inset_0_0_2px_rgba(0,0,0,0.1)] shadow-slate-300',
             className,
           )}
+          key={key}
         >
           <div
             className={`grid grid-cols-1 gap-4 lg:${settingsEngine ? 'grid-cols-2' : 'grid-cols-1'}`}
           >
-            <div className="flex items-center justify-center p-4">
-              {component}
-            </div>
+            <Button
+              onClick={() => setKey((prev) => prev + 1)}
+              className="absolute right-1.5 top-1.5 z-10 ml-4 flex items-center rounded-lg px-3 py-1"
+              variant="ghost"
+            >
+              <RotateCcw aria-label="restart-btn" size={16} />
+            </Button>
+            <Suspense
+              fallback={
+                <div className="flex items-center text-sm text-muted-foreground">
+                  <Loader2 className="mr-2 size-4 animate-spin" />
+                  Loading...
+                </div>
+              }
+            >
+              <div className="flex items-center justify-center p-4">
+                {component}
+              </div>
+            </Suspense>
             {settingsEngine && (
               <div className="flex flex-col items-center justify-center p-4">
                 {settingsEngine}
