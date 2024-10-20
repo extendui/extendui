@@ -1,17 +1,19 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
-import { X } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { X, Check } from 'lucide-react';
 
-export default function FileUpload() {
+export default function Component() {
   const [progress, setProgress] = useState(0);
+  const [status, setStatus] = useState('Uploading...');
 
   useEffect(() => {
     const timer = setInterval(() => {
       setProgress((prevProgress) => {
         if (prevProgress >= 100) {
           clearInterval(timer);
+          setStatus('Uploaded');
           return 100;
         }
         return prevProgress + 1;
@@ -38,20 +40,40 @@ export default function FileUpload() {
               <h3 className="text-sm font-medium">my-cv.pdf</h3>
               <p className="text-xs text-gray-500">
                 {Math.round((progress / 100) * 120)} KB of 120 KB
-                <span className="ml-2 flex items-center text-blue-500">
-                  <motion.span
-                    className="inline-block"
-                    animate={{ rotate: 360 }}
-                    transition={{
-                      duration: 1,
-                      repeat: Infinity,
-                      ease: 'linear',
-                    }}
-                  >
-                    ◌
-                  </motion.span>
-                  <span className="ml-1">Uploading...</span>
-                </span>
+                <AnimatePresence mode="wait">
+                  {status === 'Uploading...' ? (
+                    <motion.span
+                      key="uploading"
+                      className="ml-2 flex items-center text-blue-500"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                    >
+                      <motion.span
+                        className="inline-block"
+                        animate={{ rotate: 360 }}
+                        transition={{
+                          duration: 1,
+                          repeat: Infinity,
+                          ease: 'linear',
+                        }}
+                      >
+                        ◌
+                      </motion.span>
+                      <span className="ml-1">Uploading...</span>
+                    </motion.span>
+                  ) : (
+                    <motion.span
+                      key="uploaded"
+                      className="ml-2 flex items-center text-green-500"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                    >
+                      <Check className="mr-1 h-4 w-4" />
+                      <span>Uploaded</span>
+                    </motion.span>
+                  )}
+                </AnimatePresence>
               </p>
             </div>
           </div>
