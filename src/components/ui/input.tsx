@@ -11,7 +11,7 @@ const inputVariants = cva(
       variant: {
         default: "border-input focus:outline-primary",
         filled: "border-transparent bg-muted focus:outline-primary",
-        flushed: "rounded-none border-x-0 border-t-0 px-1 outline-none focus:outline-none focus:ring-0 focus:ring-offset-0 focus:bg-secondary focus-visible:outnline-none",
+        flushed: "rounded-none border-x-0 border-t-0 px-1 outline-none focus:outline-none focus:ring-0 focus:ring-offset-0 focus:bg-secondary focus-visible:outline-none",
         flushedfilled: "rounded-none border-x-0 border-t-0 px-1 outline-none focus:outline-none focus:ring-0 focus:ring-offset-0 focus:bg-secondary",
         dashed: "border-dashed border-2 focus:outline-primary",
       },
@@ -71,7 +71,8 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
             inputVariants({ variant }),
             (props.value && (variant === 'flushedfilled')) && "bg-secondary",
             label && "placeholder:text-transparent",
-            error && "border-red-500 focus:outline-red-500",
+            error && "border-red-500",
+            error && variant !== 'flushedfilled' && variant !== 'flushed' && "focus:outline-red-500",
             props.disabled && "opacity-50 cursor-not-allowed",
             className
           )}
