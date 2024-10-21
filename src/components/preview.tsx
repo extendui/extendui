@@ -59,10 +59,11 @@ export default function Preview({
           >
             <Button
               onClick={() => setKey((prev) => prev + 1)}
-              className="absolute right-1.5 top-1.5 z-10 ml-4 flex items-center rounded-lg px-3 py-1"
+              className="absolute right-4 top-4 z-10 flex size-6 items-center"
               variant="ghost"
+              size={'icon'}
             >
-              <RotateCcw aria-label="restart-btn" size={16} />
+              <RotateCcw className="size-3" />
             </Button>
             <Suspense
               fallback={
