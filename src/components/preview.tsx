@@ -55,7 +55,7 @@ export default function Preview({
           key={key}
         >
           <div
-            className={`grid grid-cols-1 gap-4 lg:${settingsEngine ? 'grid-cols-2' : 'grid-cols-1'}`}
+            className={`grid grid-cols-1 gap-4 ${settingsEngine ? 'lg:grid-cols-2' : 'lg:grid-cols-1'}`}
           >
             <Button
               onClick={() => setKey((prev) => prev + 1)}
