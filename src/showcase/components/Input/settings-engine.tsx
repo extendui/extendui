@@ -2,12 +2,13 @@
 
 import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { setLabel, setVariant, useEngineSettingsInputStore } from '@/zustand/stores/useEngineSettingsInput';
+import { Switch } from '@/components/ui/switch';
+import { setDisabled, setError, setLabel, setRequired, setVariant, useEngineSettingsInputStore } from '@/zustand/stores/useEngineSettingsInput';
 import React from 'react';
 
 export default function InputSettingsEngine() {
 
-  const { variant, label } = useEngineSettingsInputStore();
+  const { variant, label, disabled, error, required } = useEngineSettingsInputStore();
 
   const handleChangeVariant = (
     value:
@@ -22,6 +23,18 @@ export default function InputSettingsEngine() {
 
   const handleChangeLabel = (value: string) => {
     setLabel(value);
+  }
+
+  const handleChangeError = (value: boolean) => {
+    setError(value);
+  }
+
+  const handleChangeDisabled = (value: boolean) => {
+    setDisabled(value);
+  }
+
+  const handleChangeRequired = (value: boolean) => {
+    setRequired(value);
   }
 
   return (
@@ -50,6 +63,18 @@ export default function InputSettingsEngine() {
           onChange={(e) => handleChangeLabel(e.target.value)}
           className="w-[180px]"
         />
+      </div>
+      <div className="w-full sm:w-auto flex items-center space-x-2">
+        <Switch checked={disabled} onCheckedChange={handleChangeDisabled} />
+        <span className="text-sm">Disabled</span>
+      </div>
+      <div className="w-full sm:w-auto flex items-center space-x-2">
+        <Switch checked={error} onCheckedChange={handleChangeError} />
+        <span className="text-sm">Error</span>
+      </div>
+      <div className="w-full sm:w-auto flex items-center space-x-2">
+        <Switch checked={required} onCheckedChange={handleChangeRequired} />
+        <span className="text-sm">Required</span>
       </div>
     </div>
   );

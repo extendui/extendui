@@ -57,7 +57,14 @@ export const docsConfig: DocsConfig = {
         {
           title: 'Input',
           href: '/docs/components/input',
-          items: [{ title: 'Base', href: '/docs/components/input', items: [] }],
+          items: [
+            { title: 'Base', href: '/docs/components/input', items: [] },
+            {
+              title: 'Extended',
+              href: '/docs/components/input-extended',
+              items: [],
+            },
+          ],
         },
       ],
     },
