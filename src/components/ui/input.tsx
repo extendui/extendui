@@ -5,14 +5,14 @@ import { cva, type VariantProps } from "class-variance-authority"
 import * as React from "react"
 
 const inputVariants = cva(
-  "h-9 w-full rounded-md border border-input bg-background px-3 py-2 text-sm  transition-all   disabled:cursor-not-allowed disabled:opacity-50 placeholder:text-muted-foreground",
+  "h-9 w-full rounded-md border border-input bg-background px-3 py-2 text-sm transition-all disabled:cursor-not-allowed disabled:opacity-50 placeholder:text-muted-foreground",
   {
     variants: {
       variant: {
         default: "border-input focus:outline-primary",
         filled: "border-transparent bg-muted focus:outline-primary",
-        flushed: "rounded-none border-x-0 border-t-0 px-1  outline-none focus:outline-none focus:ring-0 focus:ring-offset-0  focus-visible:ring-offset-0 focus:bg-secondary focus-visible:outnline-none",
-        flushedfilled: "rounded-none border-x-0 border-t-0 px-1  outline-none focus:outline-none focus:ring-0 focus:ring-offset-0  focus:bg-secondary",
+        flushed: "rounded-none border-x-0 border-t-0 px-1 outline-none focus:outline-none focus:ring-0 focus:ring-offset-0 focus:bg-secondary focus-visible:outnline-none",
+        flushedfilled: "rounded-none border-x-0 border-t-0 px-1 outline-none focus:outline-none focus:ring-0 focus:ring-offset-0 focus:bg-secondary",
         dashed: "border-dashed border-2 focus:outline-primary",
       },
     },
@@ -26,10 +26,12 @@ export interface InputProps
   extends React.InputHTMLAttributes<HTMLInputElement>,
   VariantProps<typeof inputVariants> {
   label?: string
+  error?: boolean
+  textError?: string
 }
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
-  ({ className, variant, label, type, ...props }, ref) => {
+  ({ className, variant, label, type, error, textError, ...props }, ref) => {
     const [isFocused, setIsFocused] = React.useState(false)
     const inputRef = React.useRef<HTMLInputElement>(null)
     const wrapperRef = React.useRef<HTMLDivElement>(null)
@@ -37,8 +39,10 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
     React.useImperativeHandle(ref, () => inputRef.current!)
 
     const handleFocus = () => {
-      setIsFocused(true)
-      inputRef.current?.focus()
+      if (!props.disabled) {
+        setIsFocused(true)
+        inputRef.current?.focus()
+      }
     }
 
     const handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
@@ -67,6 +71,8 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
             inputVariants({ variant }),
             (props.value && (variant === 'flushedfilled')) && "bg-secondary",
             label && "placeholder:text-transparent",
+            error && "border-red-500 focus:outline-red-500",
+            props.disabled && "opacity-50 cursor-not-allowed",
             className
           )}
           ref={inputRef}
@@ -80,15 +86,20 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
               "absolute left-3 top-2 text-sm text-muted-foreground transition-all duration-200 ease-in-out cursor-text border-transparent",
               (isFocused) && "font-medium",
               (isFocused || props.value) && `-translate-y-[calc(85%)] rounded-md scale-[0.85] bg-background px-1 text-primary border-2 left-1.5 ${(variant === 'flushed' || variant === 'flushedfilled') && "-left-1.5 pl-0"}`,
-              ((isFocused || props.value) && (variant === 'flushed' || variant === 'filled' || variant === 'flushedfilled') && "-translate-y-[calc(95%)]")
+              ((isFocused || props.value) && (variant === 'flushed' || variant === 'filled' || variant === 'flushedfilled') && "-translate-y-[calc(95%)]"),
+              error && "text-red-500",
+              props.disabled && "opacity-50 cursor-not-allowed"
             )}
-            onClick={handleFocus}
+            onClick={props.disabled ? undefined : handleFocus}
           >
             {label}
+            {props.required && <span className="text-red-500 ml-1">*</span>}
           </label>
-        )
-        }
-      </div >
+        )}
+        {error && textError && (
+          <p className="mt-1 text-xs text-red-500">{textError}</p>
+        )}
+      </div>
     )
   }
 )

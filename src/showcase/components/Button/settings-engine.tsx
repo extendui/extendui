@@ -27,6 +27,8 @@ import {
   PopoverTrigger,
 } from '@/components/ui/popover';
 import { Input } from '@/components/ui/input';
+import { Switch } from '@/components/ui/switch';
+
 
 export default function ButtonSettingsEngine() {
   const { loading, backgroundColor, variant, size } = useEngineSettingsStore();
@@ -160,20 +162,12 @@ export default function ButtonSettingsEngine() {
           className="w-[180px]"
         />
       </div>
-      <div className="w-full">
-        <div className="flex items-center space-x-2">
-          <Checkbox
-            id="loading"
-            checked={loading}
-            onCheckedChange={handleChangeLoading}
-          />
-          <label
-            htmlFor="loading"
-            className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-          >
-            Loading
-          </label>
-        </div>
+      <div className="w-full sm:w-auto flex items-center space-x-2">
+        <Switch
+          id="loading"
+          checked={loading}
+          onCheckedChange={handleChangeLoading} />
+        <label htmlFor="loading" className="text-sm">Loading</label>
       </div>
     </div>
   );

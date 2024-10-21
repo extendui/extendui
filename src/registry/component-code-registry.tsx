@@ -28,7 +28,7 @@ export const componentStateConfig: ComponentStateConfigProps = {
         store: useEngineSettingsStore
     },
     InputExample: {
-        state: ['variant', 'label'],
+        state: ['variant', 'label', 'error', 'disabled', 'required'],
         store: useEngineSettingsInputStore
     },
 }

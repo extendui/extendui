@@ -69,7 +69,7 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-      <section id="features" className="container mx-auto px-4 py-16">
+      <section id="features" className="container max-w-7xl f mx-auto px-4 py-16">
         <FadeUp delay={0.1} duration={0.8}>
           <h2 className="mb-8 text-center text-3xl font-bold">Key Features</h2>
         </FadeUp>
@@ -114,7 +114,7 @@ export default function HomePage() {
       </section>
       <section
         id="components-showcase"
-        className="container mx-auto px-4 py-16"
+        className="container max-w-7xl mx-auto px-4 py-16"
       >
         <FadeUp delay={0.1} duration={0.8}>
           <h2 className="mb-8 text-center text-3xl font-bold">Components</h2>
