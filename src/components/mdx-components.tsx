@@ -47,6 +47,13 @@ import CreditCard from '@/showcase/blocks/cards/credit-card';
 import InputExample from '@/showcase/components/Input/input';
 import InputSettingsEngine from '@/showcase/components/Input/settings-engine';
 import FileUpload from '@/showcase/blocks/cards/file-upload';
+import { Input } from './ui/input';
+import { Icons } from './icons/icons';
+import { InputIconLeft } from '@/showcase/components/Input/input-iconLeft';
+import { InputIconRight } from '@/showcase/components/Input/input-iconRight';
+import { InputAddonLeft } from '@/showcase/components/Input/input-addonLeft';
+import { InputAddonRight } from '@/showcase/components/Input/input-addonRight';
+
 
 function CustomLink(props: any) {
   const href = props.href;
@@ -87,10 +94,16 @@ const components = {
   Rotating3DButton,
   PricingCard,
   CreditCard,
+  Icons,
   FileUpload,
   ButtonSettingsEngine,
   InputExample,
   InputSettingsEngine,
+  Input,
+  InputIconLeft,
+  InputIconRight,
+  InputAddonLeft,
+  InputAddonRight,
   ComponentInstallation: (props: any) => <ComponentInstallation {...props} />,
   ComponentSource: (props: any) => <ComponentSource {...props} />,
   h1: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (

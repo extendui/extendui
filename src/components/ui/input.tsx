@@ -3,6 +3,7 @@
 import { cn } from "@/lib/utils"
 import { cva, type VariantProps } from "class-variance-authority"
 import * as React from "react"
+import { Eye, EyeOff, X } from 'lucide-react'
 
 const inputVariants = cva(
   "h-9 w-full rounded-md border border-input bg-background px-3 py-2 text-sm transition-all disabled:cursor-not-allowed disabled:opacity-50 placeholder:text-muted-foreground",
@@ -28,11 +29,18 @@ export interface InputProps
   label?: string
   error?: boolean
   textError?: string
+  leftIcon?: React.ReactNode
+  rightIcon?: React.ReactNode
+  leftAddon?: React.ReactNode
+  rightAddon?: React.ReactNode
+  clearable?: boolean
+  onClear?: () => void
 }
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
-  ({ className, variant, label, type, error, textError, ...props }, ref) => {
+  ({ className, variant, label, type, error, textError, leftIcon, rightIcon, leftAddon, rightAddon, clearable, onClear, ...props }, ref) => {
     const [isFocused, setIsFocused] = React.useState(false)
+    const [showPassword, setShowPassword] = React.useState(false)
     const inputRef = React.useRef<HTMLInputElement>(null)
     const wrapperRef = React.useRef<HTMLDivElement>(null)
 
@@ -51,6 +59,17 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
       }
     }
 
+    const togglePasswordVisibility = () => {
+      setShowPassword(!showPassword)
+    }
+
+    const handleClear = () => {
+      if (inputRef.current) {
+        inputRef.current.value = ''
+      }
+      onClear?.()
+    }
+
     React.useEffect(() => {
       const handleClickOutside = (event: MouseEvent) => {
         if (wrapperRef.current && !wrapperRef.current.contains(event.target as Node)) {
@@ -64,8 +83,21 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
       }
     }, [])
 
+    console.log(props.value)
+
+
     return (
       <div ref={wrapperRef} className="relative">
+        {leftAddon && (
+          <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+            {leftAddon}
+          </div>
+        )}
+        {leftIcon && (
+          <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+            {leftIcon}
+          </div>
+        )}
         <input
           className={cn(
             inputVariants({ variant }),
@@ -74,11 +106,17 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
             error && "border-red-500",
             error && variant !== 'flushedfilled' && variant !== 'flushed' && "focus:outline-red-500",
             props.disabled && "opacity-50 cursor-not-allowed",
+            leftIcon && "pl-10",
+            rightIcon && "pr-10",
+            leftAddon && "pl-36",
+            rightAddon && "pr-10",
+            clearable && "pr-10",
             className
           )}
           ref={inputRef}
           onFocus={handleFocus}
           onBlur={handleBlur}
+          type={type === 'password' && showPassword ? 'text' : type}
           {...props}
         />
         {label && (
@@ -96,6 +134,34 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
             {label}
             {props.required && <span className="text-red-500 ml-1">*</span>}
           </label>
+        )}
+        {rightIcon && (
+          <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+            {rightIcon}
+          </div>
+        )}
+        {rightAddon && (
+          <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+            {rightAddon}
+          </div>
+        )}
+        {type === 'password' && (
+          <button
+            type="button"
+            onClick={togglePasswordVisibility}
+            className="absolute inset-y-0 right-0 flex items-center pr-3"
+          >
+            {showPassword ? <EyeOff className="h-4 w-4 text-gray-400" /> : <Eye className="h-4 w-4 text-gray-400" />}
+          </button>
+        )}
+        {clearable && props.value && (
+          <button
+            type="button"
+            onClick={handleClear}
+            className="absolute inset-y-0 right-0 flex items-center pr-3"
+          >
+            <X className="h-4 w-4 text-gray-400" />
+          </button>
         )}
         {error && textError && (
           <p className="mt-1 text-xs text-red-500">{textError}</p>
