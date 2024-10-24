@@ -10,19 +10,18 @@ import { Button } from './ui/button';
 type Props = {
   component: React.ReactNode;
   settingsEngine: React.ReactNode;
-  filename?: string;
-  componentName?: string;
+  componentName: string;
   className?: string;
 };
 
-export default function Preview({
+export default async function Preview({
   component,
   settingsEngine,
-  filename,
   componentName,
   className,
 }: Props) {
   const [key, setKey] = useState(0);
+
   return (
     <div className="mx-auto">
       <Tabs defaultValue="preview" className="w-full">
@@ -86,11 +85,7 @@ export default function Preview({
         </TabsContent>
         <TabsContent value="code" className="rounded-lg">
           <div className="relative mx-auto w-full max-w-full overflow-auto">
-            {componentName ? (
-              <ComponentSourceLive componentName={componentName} />
-            ) : (
-              <ComponentSource src={filename} />
-            )}
+            <ComponentSourceLive componentName={componentName} />
           </div>
         </TabsContent>
       </Tabs>

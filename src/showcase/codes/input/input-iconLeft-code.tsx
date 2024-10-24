@@ -1,7 +1,8 @@
+export function getInputIconLeftCode() {
+  return `
 'use client'
 
 import * as React from 'react'
-import { motion } from 'framer-motion'
 import { Input } from "@/components/ui/input"
 import { Search } from 'lucide-react'
 
@@ -14,7 +15,7 @@ export const InputIconLeft = React.forwardRef<HTMLInputElement, InputIconLeftPro
     return (
       <Input
         ref={ref}
-        className={`${className}`}
+        className={\`\${className}\`}
         type="text"
         placeholder="Type here..."
         leftIcon={<Search className="h-4 w-4" />}
@@ -25,3 +26,9 @@ export const InputIconLeft = React.forwardRef<HTMLInputElement, InputIconLeftPro
 )
 
 InputIconLeft.displayName = 'InputIconLeft'
+
+  `
+}
+
+
+

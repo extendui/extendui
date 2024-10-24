@@ -5,7 +5,6 @@ import { cn } from '@/lib/utils'
 import { CodeBlockWrapper } from './code-block-wrapper'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { nightOwl } from 'react-syntax-highlighter/dist/esm/styles/prism'
-import { useEngineSettingsStore } from "@/zustand/stores/useEngineSettings"
 import { componentStateConfig, loadComponentCode } from '@/registry/component-code-registry'
 
 
@@ -19,21 +18,21 @@ export function ComponentSourceLive({ componentName, className, ...props }: Prop
   const relevantStates = componentStateConfig[componentName]
 
   const state = React.useMemo(() => {
-
-    const storeState: any = relevantStates.store.getState()
+    const storeState: any = relevantStates?.store?.getState()
     const componentState: any = {}
-    relevantStates.state.forEach((stateKey) => {
+    relevantStates?.state?.forEach((stateKey) => {
       componentState[stateKey] = storeState[stateKey]
     })
 
     return componentState
-  }, [relevantStates.state])
+  }, [relevantStates?.state])
+
 
   React.useEffect(() => {
     const loadComponent = async () => {
       try {
         setIsLoading(true)
-        const codeString = await loadComponentCode(componentName, state)
+        const codeString = await loadComponentCode({ componentName, state })
         setContent(codeString)
       } catch (error) {
         setContent(null)

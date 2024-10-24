@@ -1,6 +1,6 @@
 'use client';
 
-import { ScalingButton } from '@/showcase/components/Button/button-scaling';
+import { ScalingButton } from '@/components/extendedui/button/button-scaling';
 import { motion } from 'framer-motion';
 import { Check } from 'lucide-react';
 

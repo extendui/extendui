@@ -2,7 +2,7 @@ import { Icons } from '@/components/icons/icons';
 import { Button } from '@/components/ui/button';
 import { ChevronRight, Globe, Recycle, Star, Zap } from 'lucide-react';
 import Link from 'next/link';
-import ButtonExample from '@/showcase/components/Button/button';
+import ButtonExample from '@/showcase/components/button/button';
 import FadeUp from '@/components/fadeup';
 import {
   Card,
@@ -10,7 +10,7 @@ import {
   CardFooter,
   CardHeader,
 } from '@/components/ui/card';
-import InputExample from '@/showcase/components/Input/input';
+import InputExample from '@/showcase/components/input/input';
 import ComponentShowcaseCard from '@/components/component-showcase-card';
 
 export default function HomePage() {

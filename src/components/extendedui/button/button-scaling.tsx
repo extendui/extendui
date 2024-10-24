@@ -6,9 +6,9 @@ export const ScalingButton: React.FC<ButtonProps> = React.forwardRef<HTMLButtonE
   ({ children, ...props }, ref) => {
     return (
       <motion.div
-        whileHover={{ scale: 1.1 }}  // Button scales up slightly on hover
-        whileTap={{ scale: 0.9 }}    // Button shrinks slightly on tap/click
-        transition={{ type: 'spring', stiffness: 400, damping: 12 }} // Spring transition for smoothness
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}
+        transition={{ type: 'spring', stiffness: 400, damping: 12 }}
       >
         <Button ref={ref} {...props}>
           {children}

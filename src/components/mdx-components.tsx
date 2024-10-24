@@ -29,30 +29,28 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import type { Style } from '@/registry/styles';
 import { PropsTable } from '@/components/props-table';
 import Preview from './preview';
-import ButtonExample from '@/showcase/components/Button/button';
-import ButtonSettingsEngine from '@/showcase/components/Button/settings-engine';
+import ButtonExample from '@/showcase/components/button/button';
+import ButtonSettingsEngine from '@/showcase/components/button/settings-engine';
 
 import '@/styles/mdx.css'; // Import the MDX styles
 import { PreCustom } from './pre-custom';
 import ButtonAnimated, {
   AnimatedButton,
   RotatingButton,
-} from '@/showcase/components/Button/button-rotating';
-import { ScalingButton } from '@/showcase/components/Button/button-scaling';
-import { Rotating3DButton } from '@/showcase/components/Button/button-3d-rotating';
-import { BouncingButton } from '@/showcase/components/Button/button-bouncing';
-import { PulsatingShadowButton } from '@/showcase/components/Button/button-pulsating';
+} from '@/components/extendedui/button/button-rotating';
+import { ScalingButton } from '@/components/extendedui/button/button-scaling';
+import { Rotating3DButton } from '@/components/extendedui/button/button-3d-rotating';
+import { BouncingButton } from '@/components/extendedui/button/button-bouncing';
+import { PulsatingShadowButton } from '@/components/extendedui/button/button-pulsating';
 import PricingCard from '@/showcase/blocks/cards/pricing-card';
 import CreditCard from '@/showcase/blocks/cards/credit-card';
-import InputExample from '@/showcase/components/Input/input';
-import InputSettingsEngine from '@/showcase/components/Input/settings-engine';
+import InputExample from '@/showcase/components/input/input';
+import InputSettingsEngine from '@/showcase/components/input/settings-engine';
 import FileUpload from '@/showcase/blocks/cards/file-upload';
 import { Input } from './ui/input';
 import { Icons } from './icons/icons';
-import { InputIconLeft } from '@/showcase/components/Input/input-iconLeft';
-import { InputIconRight } from '@/showcase/components/Input/input-iconRight';
-import { InputAddonLeft } from '@/showcase/components/Input/input-addonLeft';
-import { InputAddonRight } from '@/showcase/components/Input/input-addonRight';
+import { InputIconLeft } from '@/components/extendedui/input/input-iconLeft';
+import { InputIconRight } from '@/components/extendedui/input/input-iconRight';
 
 
 function CustomLink(props: any) {
@@ -102,8 +100,6 @@ const components = {
   Input,
   InputIconLeft,
   InputIconRight,
-  InputAddonLeft,
-  InputAddonRight,
   ComponentInstallation: (props: any) => <ComponentInstallation {...props} />,
   ComponentSource: (props: any) => <ComponentSource {...props} />,
   h1: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
