@@ -14,7 +14,7 @@ type Props = {
   className?: string;
 };
 
-export default async function Preview({
+export default function Preview({
   component,
   settingsEngine,
   componentName,

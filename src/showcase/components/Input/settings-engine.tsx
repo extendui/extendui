@@ -57,7 +57,7 @@ export default function InputSettingsEngine() {
         </Select>
       </div>
       <div className="w-full sm:w-auto">
-        <Input
+        <Input.Root
           placeholder="Label text"
           value={label}
           onChange={(e) => handleChangeLabel(e.target.value)}
