@@ -1,6 +1,6 @@
 'use client';
 
-import { Input } from '@/components/ui/input';
+import { Input, InputClearButton, InputGroup, InputLabel, InputLeftElement, InputPasswordToggle } from '@/components/ui/input';
 import { useEngineSettingsInputStore } from '@/zustand/stores/useEngineSettingsInput';
 import { useState } from 'react';
 import { User } from 'lucide-react';
@@ -14,7 +14,7 @@ export default function InputExample() {
   };
 
   return (
-    <Input.Root
+    <Input
       variant={variant}
       error={error}
       textError="Username is required"
@@ -24,14 +24,14 @@ export default function InputExample() {
       onChange={(e) => setValue(e.target.value)}
       disabled={disabled}
     >
-      <Input.Group>
-        <Input.Label>{label}</Input.Label>
-        <Input.LeftElement>
+      <InputGroup>
+        <InputLabel>{label}</InputLabel>
+        <InputLeftElement>
           <User />
-        </Input.LeftElement>
-        <Input.PasswordToggle />
-        <Input.ClearButton onClick={handleClear} />
-      </Input.Group>
-    </Input.Root>
+        </InputLeftElement>
+        <InputPasswordToggle />
+        <InputClearButton onClick={handleClear} />
+      </InputGroup>
+    </Input>
   );
 }

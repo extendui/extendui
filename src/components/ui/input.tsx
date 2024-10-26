@@ -58,7 +58,7 @@ interface InputRootProps
   children?: React.ReactNode
 }
 
-const InputRoot = React.forwardRef<HTMLInputElement, InputRootProps>((props, ref) => {
+const Input = React.forwardRef<HTMLInputElement, InputRootProps>((props, ref) => {
   const {
     className,
     id,
@@ -91,7 +91,7 @@ const InputRoot = React.forwardRef<HTMLInputElement, InputRootProps>((props, ref
 
   const hasLeft = hasNestedElementOfType(children, [InputLeftElement])
   const hasLabel = hasNestedElementOfType(children, [InputLabel])
-  const hasPassword = hasNestedElementOfType(children, [PasswordToggle])
+  const hasPassword = hasNestedElementOfType(children, [InputPasswordToggle])
 
   const contextValue: InputContextType = {
     id: id || '',
@@ -141,12 +141,12 @@ const InputRoot = React.forwardRef<HTMLInputElement, InputRootProps>((props, ref
     </InputContext.Provider>
   )
 })
-InputRoot.displayName = "Input.Root"
+Input.displayName = "Input"
 
 const InputGroup = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>((props, ref) => (
   <div ref={ref} className={cn("relative", props.className)} {...props} />
 ))
-InputGroup.displayName = "Input.Group"
+InputGroup.displayName = "InputGroup"
 
 const InputLabel = React.forwardRef<HTMLLabelElement, React.LabelHTMLAttributes<HTMLLabelElement>>((props, ref) => {
   const { className, children, ...rest } = props
@@ -180,7 +180,7 @@ const InputLabel = React.forwardRef<HTMLLabelElement, React.LabelHTMLAttributes<
     </label>
   )
 })
-InputLabel.displayName = "Input.Label"
+InputLabel.displayName = "InputLabel"
 
 const InputLeftElement = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>((props, ref) => {
   const { className, children, ...rest } = props
@@ -201,7 +201,7 @@ const InputLeftElement = React.forwardRef<HTMLDivElement, React.HTMLAttributes<H
     </div>
   )
 })
-InputLeftElement.displayName = "Input.LeftElement"
+InputLeftElement.displayName = "InputLeftElement"
 
 const InputRightElement = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>((props, ref) => {
   const { className, children, ...rest } = props
@@ -222,9 +222,9 @@ const InputRightElement = React.forwardRef<HTMLDivElement, React.HTMLAttributes<
     </div>
   )
 })
-InputRightElement.displayName = "Input.RightElement"
+InputRightElement.displayName = "InputRightElement"
 
-const PasswordToggle = React.forwardRef<HTMLButtonElement, React.ButtonHTMLAttributes<HTMLButtonElement>>((props, ref) => {
+const InputPasswordToggle = React.forwardRef<HTMLButtonElement, React.ButtonHTMLAttributes<HTMLButtonElement>>((props, ref) => {
   const { className, ...rest } = props
   const { showPassword, setShowPassword } = useInputContext()
 
@@ -240,9 +240,9 @@ const PasswordToggle = React.forwardRef<HTMLButtonElement, React.ButtonHTMLAttri
     </button>
   )
 })
-PasswordToggle.displayName = "Input.PasswordToggle"
+InputPasswordToggle.displayName = "InputPasswordToggle"
 
-const ClearButton = React.forwardRef<HTMLButtonElement, React.ButtonHTMLAttributes<HTMLButtonElement>>((props, ref) => {
+const InputClearButton = React.forwardRef<HTMLButtonElement, React.ButtonHTMLAttributes<HTMLButtonElement>>((props, ref) => {
   const { className, onClick, ...rest } = props
   const { value, hasPassword } = useInputContext()
 
@@ -260,16 +260,14 @@ const ClearButton = React.forwardRef<HTMLButtonElement, React.ButtonHTMLAttribut
     </button>
   )
 })
-ClearButton.displayName = "Input.ClearButton"
+InputClearButton.displayName = "InputClearButton"
 
-const Input = {
-  Root: InputRoot,
-  Group: InputGroup,
-  Label: InputLabel,
-  LeftElement: InputLeftElement,
-  RightElement: InputRightElement,
-  PasswordToggle: PasswordToggle,
-  ClearButton: ClearButton,
+export {
+  Input,
+  InputGroup,
+  InputLabel,
+  InputLeftElement,
+  InputRightElement,
+  InputPasswordToggle,
+  InputClearButton,
 }
-
-export { Input }
