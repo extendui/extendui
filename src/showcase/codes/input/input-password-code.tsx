@@ -5,18 +5,19 @@ export function getInputPasswordCode() {
 import * as React from 'react'
 import { Input } from "@/components/ui/input"
 
-interface InputPasswordProps extends React.InputHTMLAttributes<HTMLInputElement> {
-  icon?: React.ReactNode
-}
+interface InputPasswordProps extends React.InputHTMLAttributes<HTMLInputElement> { }
 
 export const InputPassword = React.forwardRef<HTMLInputElement, InputPasswordProps>(
   ({ className, ...props }, ref) => {
+    const [value, setValue] = React.useState('')
     return (
       <Input
         ref={ref}
         className={\`\${className}\`}
-        type="text"
-        placeholder="Type here..."
+        type="password"
+        value={value}
+        onChange={(e) => setValue(e.target.value)}
+        placeholder="Type password here..."
         {...props}
       >
         <Input.Group>
@@ -28,7 +29,6 @@ export const InputPassword = React.forwardRef<HTMLInputElement, InputPasswordPro
 )
 
 InputPassword.displayName = 'InputPassword'
-
   `
 }
 

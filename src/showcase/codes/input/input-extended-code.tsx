@@ -6,9 +6,7 @@ import * as React from 'react'
 import { Input } from "@/components/ui/input"
 import { User } from 'lucide-react'
 
-interface InputExtendedProps extends React.InputHTMLAttributes<HTMLInputElement> {
-  icon?: React.ReactNode
-}
+interface InputExtendedProps extends React.InputHTMLAttributes<HTMLInputElement> { }
 
 export const InputExtended = React.forwardRef<HTMLInputElement, InputExtendedProps>(
   ({ className, ...props }, ref) => {
@@ -23,7 +21,7 @@ export const InputExtended = React.forwardRef<HTMLInputElement, InputExtendedPro
         value={value}
         onChange={(e) => setValue(e.target.value)}
         type="text"
-        required
+        required={true}
         {...props}
       >
         <Input.Group>

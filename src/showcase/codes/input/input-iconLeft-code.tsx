@@ -4,29 +4,34 @@ export function getInputIconLeftCode() {
 
 import * as React from 'react'
 import { Input } from "@/components/ui/input"
-import { Search } from 'lucide-react'
+import { User } from 'lucide-react'
 
-interface InputIconLeftProps extends React.InputHTMLAttributes<HTMLInputElement> {
-  icon?: React.ReactNode
-}
+interface InputIconLeftProps extends React.InputHTMLAttributes<HTMLInputElement> { }
 
 export const InputIconLeft = React.forwardRef<HTMLInputElement, InputIconLeftProps>(
   ({ className, ...props }, ref) => {
+    const [value, setValue] = React.useState('');
     return (
       <Input
         ref={ref}
         className={\`\${className}\`}
+        value={value}
+        onChange={(e) => setValue(e.target.value)}
         type="text"
         placeholder="Type here..."
-        leftIcon={<Search className="h-4 w-4" />}
         {...props}
-      />
+      >
+        <Input.Group>
+          <Input.LeftIcon>
+            <User />
+          </Input.LeftIcon>
+        </Input.Group>
+      </Input>
     )
   }
 )
 
 InputIconLeft.displayName = 'InputIconLeft'
-
   `
 }
 

@@ -1,13 +1,10 @@
 'use client'
 
 import * as React from 'react'
-import { motion } from 'framer-motion'
 import { Input } from "@/components/ui/input"
-import { Search, User } from 'lucide-react'
+import { User } from 'lucide-react'
 
-interface InputIconRightProps extends React.InputHTMLAttributes<HTMLInputElement> {
-  icon?: React.ReactNode
-}
+interface InputIconRightProps extends React.InputHTMLAttributes<HTMLInputElement> { }
 
 export const InputIconRight = React.forwardRef<HTMLInputElement, InputIconRightProps>(
   ({ className, ...props }, ref) => {

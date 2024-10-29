@@ -4,13 +4,12 @@ import * as React from 'react'
 import { useState } from 'react';
 import { Input } from "@/components/ui/input"
 
-interface InputClearProps extends React.InputHTMLAttributes<HTMLInputElement> {
-  icon?: React.ReactNode
-}
+interface InputClearProps extends React.InputHTMLAttributes<HTMLInputElement> { }
 
 export const InputClear = React.forwardRef<HTMLInputElement, InputClearProps>(
   ({ className, ...props }, ref) => {
     const [value, setValue] = useState('');
+
     const handleClear = () => {
       setValue('');
     };
