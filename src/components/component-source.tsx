@@ -1,12 +1,14 @@
 'use client';
 
+import { useQuery } from '@tanstack/react-query';
 import * as React from 'react';
-import { cn } from '@/lib/utils';
-import { CodeBlockWrapper } from './code-block-wrapper';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { nightOwl } from 'react-syntax-highlighter/dist/esm/styles/prism';
+
+import { cn } from '@/lib/utils';
+
+import { CodeBlockWrapper } from './code-block-wrapper';
 import { CopyButton } from './copy-button';
-import { useQuery } from '@tanstack/react-query';
 
 interface CodeResponse {
   code: string;
@@ -26,11 +28,10 @@ const fetchCode = async (src: string): Promise<CodeResponse> => {
 export function ComponentSource({ src, children, className, ...props }: Props) {
   const { data } = useQuery({
     queryKey: ['code', src],
-    queryFn: () => fetchCode(src as string),
+    queryFn: () => fetchCode(src!),
     enabled: !!src,
     staleTime: 1000 * 60 * 60 * 24,
-  }
-  );
+  });
 
   const content = data?.code || (children as string) || '';
 

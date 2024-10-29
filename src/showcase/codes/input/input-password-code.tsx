@@ -29,8 +29,5 @@ export const InputPassword = React.forwardRef<HTMLInputElement, InputPasswordPro
 )
 
 InputPassword.displayName = 'InputPassword'
-  `
+  `;
 }
-
-
-

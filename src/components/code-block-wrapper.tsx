@@ -1,14 +1,16 @@
 'use client';
 
-import { cn } from '@/lib/utils';
+import { motion, AnimatePresence } from 'framer-motion';
 import * as React from 'react';
+
+import { cn } from '@/lib/utils';
+
+import { Button } from './ui/button';
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
 } from './ui/collapsible';
-import { Button } from './ui/button';
-import { motion, AnimatePresence } from 'framer-motion';
 
 type Props = React.HTMLAttributes<HTMLDivElement> & {
   expandButtonTitle?: string;

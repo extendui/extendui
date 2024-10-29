@@ -1,24 +1,26 @@
 'use client';
 
-import * as React from 'react';
 import type { DropdownMenuTriggerProps } from '@radix-ui/react-dropdown-menu';
 import { CheckIcon, ClipboardIcon } from 'lucide-react';
-import { Button, ButtonProps } from './ui/button';
-import { Event, trackEvent } from '@/lib/events';
+import * as React from 'react';
+
+import { type Event, trackEvent } from '@/lib/events';
+import { cn } from '@/lib/utils';
+import { type NpmCommands } from '@/types/unist.type';
+
+import { Button, type ButtonProps } from './ui/button';
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from './ui/dropdown-menu';
-import { cn } from '@/lib/utils';
-import { NpmCommands } from '@/types/unist.type';
 
 type Props = ButtonProps & {
   value: string;
   src?: string;
   event?: Event['name'];
-}
+};
 
 export function copyToClipboardWithMeta(value: string, event?: Event) {
   navigator.clipboard.writeText(value);
@@ -54,11 +56,11 @@ export function CopyButton({
           value,
           event
             ? {
-              name: event,
-              properties: {
-                code: value,
-              },
-            }
+                name: event,
+                properties: {
+                  code: value,
+                },
+              }
             : undefined,
         );
         setHasCopied(true);
@@ -75,7 +77,7 @@ type CopyWithClassNamesProps = DropdownMenuTriggerProps & {
   value: string;
   classNames: string;
   className?: string;
-}
+};
 
 export function CopyWithClassNames({
   value,
@@ -129,7 +131,7 @@ export function CopyWithClassNames({
 
 type CopyNpmCommandButtonProps = DropdownMenuTriggerProps & {
   commands: Required<NpmCommands>;
-}
+};
 
 export function CopyNpmCommandButton({
   commands,

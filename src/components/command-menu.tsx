@@ -1,12 +1,13 @@
 'use client';
 
-import * as React from 'react';
-import { useRouter } from 'next/navigation';
 import { type DialogProps } from '@radix-ui/react-dialog';
 import { CircleIcon, FileIcon } from '@radix-ui/react-icons';
+import { useRouter } from 'next/navigation';
+import * as React from 'react';
 
 import { docsConfig } from '@/config/docs';
 import { cn } from '@/lib/utils';
+
 import { Button } from './ui/button';
 import {
   CommandDialog,
@@ -75,7 +76,7 @@ export function CommandMenu({ ...props }: DialogProps) {
                   key={navItem.href}
                   value={navItem.title}
                   onSelect={() => {
-                    runCommand(() => router.push(navItem.href as string));
+                    runCommand(() => router.push(navItem.href!));
                   }}
                 >
                   <FileIcon className="mr-2 h-4 w-4" />
@@ -90,7 +91,7 @@ export function CommandMenu({ ...props }: DialogProps) {
                   key={navItem.href}
                   value={navItem.title}
                   onSelect={() => {
-                    runCommand(() => router.push(navItem.href as string));
+                    runCommand(() => router.push(navItem.href!));
                   }}
                 >
                   <div className="mr-2 flex h-4 w-4 items-center justify-center">

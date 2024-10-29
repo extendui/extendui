@@ -1,8 +1,9 @@
 'use client';
 
+import { useState } from 'react';
+
 import { Input } from '@/components/ui/input';
 import { useEngineSettingsInputStore } from '@/zustand/stores/useEngineSettingsInput';
-import { useState } from 'react';
 
 export default function InputExample() {
   const { variant, error, disabled } = useEngineSettingsInputStore();
@@ -21,4 +22,3 @@ export default function InputExample() {
     />
   );
 }
-

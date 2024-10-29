@@ -1,12 +1,14 @@
 'use client';
 
 import Link from 'next/link';
-import React, { ReactNode, useEffect, useRef, useState } from 'react';
-import { ModeToggle } from './mode-toggle';
-import { Button } from '@/components/ui/button';
-import MobileSidebar from './mobile-sidebar';
-import Logo from './logo';
+import React, { type ReactNode, useEffect, useRef, useState } from 'react';
+
 import { CommandMenu } from '@/components/command-menu';
+import { Button } from '@/components/ui/button';
+
+import Logo from './logo';
+import MobileSidebar from './mobile-sidebar';
+import { ModeToggle } from './mode-toggle';
 
 type Props = {
   navLinks: { name: string; href: string }[];

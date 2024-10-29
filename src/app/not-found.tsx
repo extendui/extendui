@@ -1,14 +1,15 @@
-import { Button } from '@/components/ui/button'
-import Link from 'next/link'
+import Link from 'next/link';
+
+import { Button } from '@/components/ui/button';
 
 export default function NotFound() {
-    return (
-        <div className="flex flex-col items-center justify-center min-h-[calc(100vh-12rem)]">
-            <p className="text-4xl font-bold mb-4">404 Not Found</p>
-            <p className="text-lg mb-4">Could not find requested resource</p>
-            <Link href="/">
-                <Button>Return Home</Button>
-            </Link>
-        </div>
-    )
+  return (
+    <div className="flex min-h-[calc(100vh-12rem)] flex-col items-center justify-center">
+      <p className="mb-4 text-4xl font-bold">404 Not Found</p>
+      <p className="mb-4 text-lg">Could not find requested resource</p>
+      <Link href="/">
+        <Button>Return Home</Button>
+      </Link>
+    </div>
+  );
 }

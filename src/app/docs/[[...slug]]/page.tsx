@@ -1,17 +1,18 @@
-import { notFound } from 'next/navigation';
-import { allDocs } from 'contentlayer/generated';
+import { ChevronRightIcon, ExternalLinkIcon } from '@radix-ui/react-icons';
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { ChevronRightIcon, ExternalLinkIcon } from '@radix-ui/react-icons';
+import { notFound } from 'next/navigation';
 import Balancer from 'react-wrap-balancer';
+
+import { Mdx } from '@/components/mdx-components';
+import { DocsPager } from '@/components/pager';
+import { DashboardTableOfContents } from '@/components/toc';
+import { badgeVariants } from '@/components/ui/badge';
+import { ScrollArea } from '@/components/ui/scroll-area';
 import { siteConfig } from '@/config/site';
 import { getTableOfContents } from '@/lib/toc';
 import { absoluteUrl, cn } from '@/lib/utils';
-import { Mdx } from '@/components/mdx-components';
-import { DashboardTableOfContents } from '@/components/toc';
-import { DocsPager } from '@/components/pager';
-import { badgeVariants } from '@/components/ui/badge';
-import { ScrollArea } from '@/components/ui/scroll-area';
+import { allDocs } from 'contentlayer/generated';
 
 type DocPageProps = {
   params: {

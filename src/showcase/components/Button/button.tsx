@@ -1,10 +1,11 @@
 'use client';
 
+import { ChevronRight } from 'lucide-react';
+import { toast } from 'sonner';
+
 import { Button } from '@/components/ui/button';
 import { getContrastYIQ } from '@/hooks/use-getContrast';
 import { useEngineSettingsStore } from '@/zustand/stores/useEngineSettings';
-import { ChevronRight } from 'lucide-react';
-import { toast } from 'sonner';
 
 export default function ButtonExample() {
   const loading = useEngineSettingsStore((state) => state.loading);
@@ -15,13 +16,16 @@ export default function ButtonExample() {
   );
   const tooltipText = useEngineSettingsStore((state) => state.tooltipText);
 
-
   const getButtonStyle = () => {
     if (variant !== 'default') {
       return {};
     }
 
-    if (backgroundColor === 'hsl(var(--primary))' || backgroundColor === 'primary') return {};
+    if (
+      backgroundColor === 'hsl(var(--primary))' ||
+      backgroundColor === 'primary'
+    )
+      return {};
     const textColor = getContrastYIQ(backgroundColor);
 
     return {
@@ -47,4 +51,3 @@ export default function ButtonExample() {
     </Button>
   );
 }
-

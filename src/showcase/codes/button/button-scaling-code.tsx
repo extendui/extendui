@@ -21,5 +21,5 @@ export const ScalingButton: React.FC<ButtonProps> = React.forwardRef<HTMLButtonE
 );
 
 ScalingButton.displayName = 'ScalingButton';
-`
+`;
 }

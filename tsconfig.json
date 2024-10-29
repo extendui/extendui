@@ -30,7 +30,9 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    ".contentlayer/generated"
-, "contentlayer.config.js"  ],
+    ".contentlayer/generated",
+    "contentlayer.config.js",
+    "prettier.config.js"
+  ],
   "exclude": ["node_modules", ".next"]
 }

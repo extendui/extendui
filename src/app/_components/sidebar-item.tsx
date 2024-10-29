@@ -1,15 +1,19 @@
 'use client';
 
-import { cn } from '@/lib/utils';
-import { NavItemWithChildren, SidebarNavItem } from '@/types/nav.types';
 import Link from 'next/link';
 import { useState } from 'react';
+
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion';
+import { cn } from '@/lib/utils';
+import {
+  type NavItemWithChildren,
+  type SidebarNavItem,
+} from '@/types/nav.types';
 
 type Props = {
   items: SidebarNavItem['items'];
@@ -63,7 +67,7 @@ export default function SidebarItem({ items, pathname, onClickProp }: Props) {
               {item.items?.map((subItem, subIndex) => (
                 <Link
                   key={subIndex}
-                  href={subItem.href as string}
+                  href={subItem.href!}
                   className={cn(
                     'group flex w-full items-center rounded-md border border-transparent px-4 py-1 text-base hover:bg-muted hover:text-foreground',
                     subItem.disabled && 'cursor-not-allowed opacity-60',

@@ -32,8 +32,5 @@ export const InputIconLeft = React.forwardRef<HTMLInputElement, InputIconLeftPro
 )
 
 InputIconLeft.displayName = 'InputIconLeft'
-  `
+  `;
 }
-
-
-

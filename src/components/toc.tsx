@@ -1,10 +1,12 @@
 'use client';
 
-import * as React from 'react';
 import { motion } from 'framer-motion';
-import { TableOfContents } from '@/lib/toc';
-import { cn } from '@/lib/utils';
+import * as React from 'react';
+
 import { useMounted } from '@/hooks/use-mounted';
+import { type TableOfContents } from '@/lib/toc';
+import { cn } from '@/lib/utils';
+
 import { ScrollArea } from './ui/scroll-area';
 type TocProps = {
   toc: TableOfContents;
@@ -85,7 +87,7 @@ function Tree({ tree, level = 1, activeItem, itemIds }: TreeProps) {
                 )}
                 onClick={(e) => {
                   e.preventDefault();
-                  const element = document.getElementById(itemId!);
+                  const element = document.getElementById(itemId);
                   if (element) {
                     element.scrollIntoView({
                       behavior: 'smooth',
@@ -117,12 +119,12 @@ export function DashboardTableOfContents({ toc }: TocProps) {
     () =>
       toc.items
         ? toc.items
-          .flatMap((item) => [
-            item.url,
-            ...(item.items?.map((subItem) => subItem.url) || []),
-          ])
-          .filter(Boolean)
-          .map((id) => id?.split('#')[1])
+            .flatMap((item) => [
+              item.url,
+              ...(item.items?.map((subItem) => subItem.url) || []),
+            ])
+            .filter(Boolean)
+            .map((id) => id?.split('#')[1])
         : [],
     [toc],
   );

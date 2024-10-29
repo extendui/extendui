@@ -1,11 +1,13 @@
 import { siteConfig } from '@/config/site';
 import { ReactQueryProvider } from '@/providers/reactQueryProvider';
 import { ThemeProvider } from '@/providers/themeProvider';
+
 import '@/styles/globals.css';
 import '@/styles/mdx.css';
 import { GeistSans } from 'geist/font/sans';
-import { Metadata } from 'next';
+import { type Metadata } from 'next';
 import { Toaster } from 'sonner';
+
 import Footer from './_components/footer';
 
 export const metadata: Metadata = {

@@ -1,10 +1,11 @@
-'use client'
+'use client';
 
-import * as React from 'react'
+import * as React from 'react';
 import { useState } from 'react';
-import { Input } from "@/components/ui/input"
 
-interface InputClearProps extends React.InputHTMLAttributes<HTMLInputElement> { }
+import { Input } from '@/components/ui/input';
+
+interface InputClearProps extends React.InputHTMLAttributes<HTMLInputElement> {}
 
 export const InputClear = React.forwardRef<HTMLInputElement, InputClearProps>(
   ({ className, ...props }, ref) => {
@@ -28,8 +29,8 @@ export const InputClear = React.forwardRef<HTMLInputElement, InputClearProps>(
           <Input.ClearButton onClick={handleClear} />
         </Input.Group>
       </Input>
-    )
-  }
-)
+    );
+  },
+);
 
-InputClear.displayName = 'InputClear'
+InputClear.displayName = 'InputClear';

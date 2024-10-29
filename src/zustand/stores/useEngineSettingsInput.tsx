@@ -1,13 +1,7 @@
 import { create } from 'zustand';
 import { immer } from 'zustand/middleware/immer';
 
-type Variant =
-  | 'default'
-  | 'filled'
-  | 'flushed'
-  | 'flushedfilled'
-  | 'dashed'
-
+type Variant = 'default' | 'filled' | 'flushed' | 'flushedfilled' | 'dashed';
 
 type EngineSettingsInputState = {
   variant: Variant;
@@ -48,9 +42,10 @@ export const useEngineSettingsInputStore = create(
       set((state) => {
         state.error = error;
       }),
-    setRequired: (required) => set((state) => {
-      state.required = required
-    })
+    setRequired: (required) =>
+      set((state) => {
+        state.required = required;
+      }),
   })),
 );
 

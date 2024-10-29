@@ -1,4 +1,4 @@
-import { Search } from "lucide-react";
+import { Search } from 'lucide-react';
 
 type IconProps = React.HTMLAttributes<SVGElement>;
 

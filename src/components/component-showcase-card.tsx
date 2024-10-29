@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 import {
   Card,
   CardContent,
@@ -5,7 +7,6 @@ import {
   CardFooter,
   CardTitle,
 } from '@/components/ui/card';
-import Link from 'next/link';
 export default function ComponentShowcaseCard({
   title,
   description,

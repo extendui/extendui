@@ -36,7 +36,7 @@
   @apply text-xs text-zinc-50/40;
   counter-increment: line;
   content: counter(line);
-  @apply inline-block w-[1.8rem] mr-[1.4rem] text-right;
+  @apply mr-[1.4rem] inline-block w-[1.8rem] text-right;
 }
 
 [data-rehype-pretty-code-fragment] .line--highlighted {
@@ -78,7 +78,7 @@ code[data-line-numbers] {
 code[data-line-numbers] > [data-line]::before {
   counter-increment: line;
   content: counter(line);
-  @apply inline-block w-3 mr-4 text-right text-gray-500;
+  @apply mr-4 inline-block w-3 text-right text-gray-500;
 }
 
 code[data-line-numbers-max-digits='2'] > [data-line]::before {
@@ -99,24 +99,24 @@ pre {
 
 /* Table Styles */
 .mdx table {
-  @apply w-full border-collapse my-4 rounded-lg overflow-hidden text-sm;
+  @apply my-4 w-full border-collapse overflow-hidden rounded-lg text-sm;
   @apply border border-gray-200 dark:border-zinc-700;
 }
 
 /* Header and Cell Styles */
 .mdx th,
 .mdx td {
-  @apply border border-gray-200 dark:border-gray-700 p-4 text-left;
+  @apply border border-gray-200 p-4 text-left dark:border-gray-700;
 }
 
 /* Header Background */
 .mdx th {
-  @apply bg-gray-100 dark:bg-gray-800 font-semibold text-gray-700 dark:text-gray-200;
+  @apply bg-gray-100 font-semibold text-gray-700 dark:bg-gray-800 dark:text-gray-200;
 }
 
 /* Row Styles */
 .mdx tr {
-  @apply bg-white dark:bg-gray-900 transition-colors duration-200;
+  @apply bg-white transition-colors duration-200 dark:bg-gray-900;
 }
 
 /* Hover effect for rows */

@@ -1,36 +1,46 @@
 'use client';
 
-import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Switch } from '@/components/ui/switch';
-import { setDisabled, setError, setLabel, setRequired, setVariant, useEngineSettingsInputStore } from '@/zustand/stores/useEngineSettingsInput';
 import React from 'react';
 
-export default function InputSettingsEngine() {
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select';
+import { Switch } from '@/components/ui/switch';
+import {
+  setDisabled,
+  setError,
+  setLabel,
+  setRequired,
+  setVariant,
+  useEngineSettingsInputStore,
+} from '@/zustand/stores/useEngineSettingsInput';
 
+export default function InputSettingsEngine() {
   const { variant, disabled, error, required } = useEngineSettingsInputStore();
 
   const handleChangeVariant = (
-    value:
-      | 'default'
-      | 'flushed'
-      | 'flushedfilled'
-      | 'filled'
-      | 'dashed'
+    value: 'default' | 'flushed' | 'flushedfilled' | 'filled' | 'dashed',
   ) => {
     setVariant(value);
-  }
+  };
 
   const handleChangeError = (value: boolean) => {
     setError(value);
-  }
+  };
 
   const handleChangeDisabled = (value: boolean) => {
     setDisabled(value);
-  }
+  };
 
   const handleChangeRequired = (value: boolean) => {
     setRequired(value);
-  }
+  };
 
   return (
     <div className="flex flex-col space-y-4 sm:space-y-6">
@@ -51,15 +61,15 @@ export default function InputSettingsEngine() {
           </SelectContent>
         </Select>
       </div>
-      <div className="w-full sm:w-auto flex items-center space-x-2">
+      <div className="flex w-full items-center space-x-2 sm:w-auto">
         <Switch checked={disabled} onCheckedChange={handleChangeDisabled} />
         <span className="text-sm">Disabled</span>
       </div>
-      <div className="w-full sm:w-auto flex items-center space-x-2">
+      <div className="flex w-full items-center space-x-2 sm:w-auto">
         <Switch checked={error} onCheckedChange={handleChangeError} />
         <span className="text-sm">Error</span>
       </div>
-      <div className="w-full sm:w-auto flex items-center space-x-2">
+      <div className="flex w-full items-center space-x-2 sm:w-auto">
         <Switch checked={required} onCheckedChange={handleChangeRequired} />
         <span className="text-sm">Required</span>
       </div>

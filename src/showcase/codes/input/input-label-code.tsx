@@ -30,8 +30,5 @@ export const InputLabel = React.forwardRef<HTMLInputElement, InputLabelProps>(
 )
 
 InputLabel.displayName = 'InputLabel'
-  `
+  `;
 }
-
-
-

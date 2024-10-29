@@ -1,6 +1,7 @@
-import * as React from 'react';
 import { motion } from 'framer-motion';
-import { Button, ButtonProps } from '@/components/ui/button';
+import * as React from 'react';
+
+import { Button, type ButtonProps } from '@/components/ui/button';
 
 export const BouncingButton: React.FC<ButtonProps> = React.forwardRef<
   HTMLButtonElement,

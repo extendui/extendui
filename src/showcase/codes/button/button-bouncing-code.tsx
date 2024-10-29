@@ -22,5 +22,5 @@ export const BouncingButton: React.FC<ButtonProps> = React.forwardRef<
 });
 
 BouncingButton.displayName = 'BouncingButton';
-`
+`;
 }

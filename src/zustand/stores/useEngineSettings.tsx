@@ -62,5 +62,10 @@ export const useEngineSettingsStore = create(
   })),
 );
 
-export const { setLoading, setVariant, setSize, setBackgroundColor, setTooltipText } =
-  useEngineSettingsStore.getState();
+export const {
+  setLoading,
+  setVariant,
+  setSize,
+  setBackgroundColor,
+  setTooltipText,
+} = useEngineSettingsStore.getState();

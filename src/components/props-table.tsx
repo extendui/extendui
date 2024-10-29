@@ -1,5 +1,9 @@
-import React from 'react';
 import { DividerHorizontalIcon, InfoCircledIcon } from '@radix-ui/react-icons';
+import React from 'react';
+
+import { Button } from './ui/button';
+import { Popover, PopoverContent, PopoverTrigger } from './ui/popover';
+import { ScrollArea } from './ui/scroll-area';
 import {
   TableBody,
   TableCell,
@@ -7,9 +11,6 @@ import {
   TableHeader,
   TableRow,
 } from './ui/table';
-import { Popover, PopoverContent, PopoverTrigger } from './ui/popover';
-import { Button } from './ui/button';
-import { ScrollArea } from './ui/scroll-area';
 
 export interface PropDef {
   name: string;

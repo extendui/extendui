@@ -1,5 +1,5 @@
 export function getButtonExampleCode(state: Record<string, any>) {
-  const { variant, size, loading, tooltipText } = state
+  const { variant, size, loading, tooltipText } = state;
 
   return `
 import { Button } from '@/components/ui/button';
@@ -17,5 +17,5 @@ function ExampleButton() {
     </Button>
   );
 }
-`
+`;
 }

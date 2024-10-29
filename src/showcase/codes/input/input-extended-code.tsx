@@ -39,8 +39,5 @@ export const InputExtended = React.forwardRef<HTMLInputElement, InputExtendedPro
 )
 
 InputExtended.displayName = 'InputExtended'
-  `
+  `;
 }
-
-
-

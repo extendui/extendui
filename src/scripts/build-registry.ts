@@ -1,18 +1,20 @@
-import { registryComponents } from "../registry";
-import { promises as fs } from "fs";
-import { z } from "zod";
-import path from "path";
-import { registryItemFileSchema } from "@/registry/schema";
+import { promises as fs } from 'fs';
+import path from 'path';
+import { type z } from 'zod';
 
-const REGISTRY_BASE_PATH = "registry";
-const PUBLIC_FOLDER_BASE_PATH = "public/registry";
+import { type registryItemFileSchema } from '@/registry/schema';
+
+import { registryComponents } from '../registry';
+
+const REGISTRY_BASE_PATH = 'registry';
+const PUBLIC_FOLDER_BASE_PATH = 'public/registry';
 
 type File = z.infer<typeof registryItemFileSchema>;
 const FolderToComponentTypeMap = {
-  block: "registry:block",
-  component: "registry:component",
-  hooks: "registry:hook",
-  ui: "registry:ui",
+  block: 'registry:block',
+  component: 'registry:component',
+  hooks: 'registry:hook',
+  ui: 'registry:ui',
 };
 
 async function writeFileRecursive(filePath: string, data: string) {
@@ -20,7 +22,7 @@ async function writeFileRecursive(filePath: string, data: string) {
 
   try {
     await fs.mkdir(dir, { recursive: true });
-    await fs.writeFile(filePath, data, "utf-8");
+    await fs.writeFile(filePath, data, 'utf-8');
     console.log(`File written to ${filePath}`);
   } catch (error) {
     console.error(`Error writing file`);
@@ -30,12 +32,12 @@ async function writeFileRecursive(filePath: string, data: string) {
 
 const getComponentFiles = async (files: File[]) => {
   const filesArrayPromises = (files ?? []).map(async (file) => {
-    if (typeof file === "string") {
+    if (typeof file === 'string') {
       const filePath = `src/${REGISTRY_BASE_PATH}/${file}`;
-      const fileContent = await fs.readFile(filePath, "utf-8");
+      const fileContent = await fs.readFile(filePath, 'utf-8');
       return {
         type: FolderToComponentTypeMap[
-          file.split("/")[1] as keyof typeof FolderToComponentTypeMap
+          file.split('/')[1] as keyof typeof FolderToComponentTypeMap
         ],
         content: fileContent,
         path: file,
@@ -53,7 +55,7 @@ const main = async () => {
   for (let i = 0; i < registryComponents.length; i++) {
     const component = registryComponents[i];
     const files = component.files;
-    if (!files) throw new Error("No files found for component");
+    if (!files) throw new Error('No files found for component');
 
     const filesArray = await getComponentFiles(files);
 
@@ -63,7 +65,7 @@ const main = async () => {
         files: filesArray,
       },
       null,
-      2
+      2,
     );
     const jsonPath = `${PUBLIC_FOLDER_BASE_PATH}/${component.name}.json`;
     await writeFileRecursive(jsonPath, json);
@@ -73,7 +75,7 @@ const main = async () => {
 
 main()
   .then(() => {
-    console.log("done");
+    console.log('done');
   })
   .catch((err) => {
     console.error(err);

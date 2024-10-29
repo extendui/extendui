@@ -1,32 +1,35 @@
-'use client'
+'use client';
 
-import * as React from 'react'
-import { Input } from "@/components/ui/input"
-import { User } from 'lucide-react'
+import { User } from 'lucide-react';
+import * as React from 'react';
 
-interface InputIconLeftProps extends React.InputHTMLAttributes<HTMLInputElement> { }
+import { Input } from '@/components/ui/input';
 
-export const InputIconLeft = React.forwardRef<HTMLInputElement, InputIconLeftProps>(
-  ({ className, ...props }, ref) => {
-    const [value, setValue] = React.useState('');
-    return (
-      <Input
-        ref={ref}
-        className={`${className}`}
-        value={value}
-        onChange={(e) => setValue(e.target.value)}
-        type="text"
-        placeholder="Type here..."
-        {...props}
-      >
-        <Input.Group>
-          <Input.LeftIcon>
-            <User />
-          </Input.LeftIcon>
-        </Input.Group>
-      </Input>
-    )
-  }
-)
+interface InputIconLeftProps
+  extends React.InputHTMLAttributes<HTMLInputElement> {}
 
-InputIconLeft.displayName = 'InputIconLeft'
+export const InputIconLeft = React.forwardRef<
+  HTMLInputElement,
+  InputIconLeftProps
+>(({ className, ...props }, ref) => {
+  const [value, setValue] = React.useState('');
+  return (
+    <Input
+      ref={ref}
+      className={`${className}`}
+      value={value}
+      onChange={(e) => setValue(e.target.value)}
+      type="text"
+      placeholder="Type here..."
+      {...props}
+    >
+      <Input.Group>
+        <Input.LeftIcon>
+          <User />
+        </Input.LeftIcon>
+      </Input.Group>
+    </Input>
+  );
+});
+
+InputIconLeft.displayName = 'InputIconLeft';

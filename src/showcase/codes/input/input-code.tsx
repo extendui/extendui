@@ -1,5 +1,5 @@
 export function getInputExampleCode(state: Record<string, any>) {
-  const { variant, label, error, disabled, required } = state
+  const { variant, label, error, disabled, required } = state;
 
   return `
   import { Input } from '@/components/ui/input';
@@ -18,8 +18,5 @@ export function getInputExampleCode(state: Record<string, any>) {
       />
     );
   }
-  `
+  `;
 }
-
-
-

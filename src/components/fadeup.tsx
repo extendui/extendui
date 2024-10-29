@@ -1,6 +1,6 @@
 'use client';
 import { useInView, motion } from 'framer-motion';
-import { ReactNode, useEffect, useRef, useState } from 'react';
+import { type ReactNode, useEffect, useRef, useState } from 'react';
 
 export default function FadeUp({
   children,

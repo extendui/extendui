@@ -1,11 +1,13 @@
+import { type Metadata } from 'next';
 import React from 'react';
+
 import { Icons } from '@/components/icons/icons';
-import { Navbar } from '../_components/navbar';
 import { docsConfig } from '@/config/docs';
-import Sidebar from '../_components/sidebar';
-import Layout from '../_components/layout';
-import { Metadata } from 'next'
 import { siteConfig } from '@/config/site';
+
+import Layout from '../_components/layout';
+import { Navbar } from '../_components/navbar';
+import Sidebar from '../_components/sidebar';
 
 export const metadata: Metadata = {
   title: `Docs | ${siteConfig.name}`,
@@ -16,7 +18,7 @@ export const metadata: Metadata = {
     type: 'website',
     url: `${siteConfig.url}/docs`,
   },
-}
+};
 
 export default function DocsLayout({
   children,
@@ -47,7 +49,7 @@ export default function DocsLayout({
           },
         ]}
       />
-      <Layout sidebar={<Sidebar config={docsConfig} />} children={children} />
+      <Layout sidebar={<Sidebar config={docsConfig} />}>{children}</Layout>
     </>
   );
 }

@@ -2,6 +2,14 @@
 
 import React, { useState } from 'react';
 import { HexColorPicker } from 'react-colorful';
+
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from '@/components/ui/popover';
 import {
   Select,
   SelectContent,
@@ -11,6 +19,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
+import { Switch } from '@/components/ui/switch';
 import {
   setLoading,
   setSize,
@@ -19,16 +28,6 @@ import {
   useEngineSettingsStore,
   setTooltipText,
 } from '@/zustand/stores/useEngineSettings';
-import { Checkbox } from '@/components/ui/checkbox';
-import { Button } from '@/components/ui/button';
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from '@/components/ui/popover';
-import { Input } from '@/components/ui/input';
-import { Switch } from '@/components/ui/switch';
-
 
 export default function ButtonSettingsEngine() {
   const { loading, backgroundColor, variant, size } = useEngineSettingsStore();
@@ -162,12 +161,15 @@ export default function ButtonSettingsEngine() {
           className="w-[180px]"
         />
       </div>
-      <div className="w-full sm:w-auto flex items-center space-x-2">
+      <div className="flex w-full items-center space-x-2 sm:w-auto">
         <Switch
           id="loading"
           checked={loading}
-          onCheckedChange={handleChangeLoading} />
-        <label htmlFor="loading" className="text-sm">Loading</label>
+          onCheckedChange={handleChangeLoading}
+        />
+        <label htmlFor="loading" className="text-sm">
+          Loading
+        </label>
       </div>
     </div>
   );

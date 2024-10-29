@@ -13,15 +13,11 @@ export async function GET(request: Request) {
 
   let fileUrl = '';
 
-  if (filename.includes('showcase')){
+  if (filename.includes('showcase')) {
     fileUrl = `https://raw.githubusercontent.com/extendui/extendui/main/src/${filename}.tsx`;
-  }else{
+  } else {
     fileUrl = `https://raw.githubusercontent.com/extendui/extendui/main/src/components/ui/${filename}.tsx`;
   }
-
-
-
-
 
   try {
     const response = await fetch(fileUrl);

@@ -1,47 +1,54 @@
-'use client'
+'use client';
 
-import * as React from 'react'
-import { cn } from '@/lib/utils'
-import { CodeBlockWrapper } from './code-block-wrapper'
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
-import { nightOwl } from 'react-syntax-highlighter/dist/esm/styles/prism'
-import { componentStateConfig, loadComponentCode } from '@/registry/component-code-registry'
+import * as React from 'react';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { nightOwl } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
+import { cn } from '@/lib/utils';
+import {
+  componentStateConfig,
+  loadComponentCode,
+} from '@/registry/component-code-registry';
+
+import { CodeBlockWrapper } from './code-block-wrapper';
 
 type Props = React.HTMLAttributes<HTMLDivElement> & {
   componentName: string;
-}
+};
 
-export function ComponentSourceLive({ componentName, className, ...props }: Props) {
-  const [content, setContent] = React.useState<string | null>(null)
-  const [isLoading, setIsLoading] = React.useState(true)
-  const relevantStates = componentStateConfig[componentName]
+export function ComponentSourceLive({
+  componentName,
+  className,
+  ...props
+}: Props) {
+  const [content, setContent] = React.useState<string | null>(null);
+  const [isLoading, setIsLoading] = React.useState(true);
+  const relevantStates = componentStateConfig[componentName];
 
   const state = React.useMemo(() => {
-    const storeState: any = relevantStates?.store?.getState()
-    const componentState: any = {}
+    const storeState: any = relevantStates?.store?.getState();
+    const componentState: any = {};
     relevantStates?.state?.forEach((stateKey) => {
-      componentState[stateKey] = storeState[stateKey]
-    })
+      componentState[stateKey] = storeState[stateKey];
+    });
 
-    return componentState
-  }, [relevantStates?.state])
-
+    return componentState;
+  }, [relevantStates?.state]);
 
   React.useEffect(() => {
     const loadComponent = async () => {
       try {
-        setIsLoading(true)
-        const codeString = await loadComponentCode({ componentName, state })
-        setContent(codeString)
+        setIsLoading(true);
+        const codeString = await loadComponentCode({ componentName, state });
+        setContent(codeString);
       } catch (error) {
-        setContent(null)
+        setContent(null);
       } finally {
-        setIsLoading(false)
+        setIsLoading(false);
       }
-    }
-    loadComponent()
-  }, [componentName, state])
+    };
+    loadComponent();
+  }, [componentName, state]);
 
   return (
     <div className="relative w-full max-w-full overflow-auto">
@@ -53,8 +60,15 @@ export function ComponentSourceLive({ componentName, className, ...props }: Prop
       >
         <div className="max-w-full overflow-auto">
           {isLoading ? (
-            <div className="flex items-center justify-center h-72" aria-live="polite" aria-busy="true">
-              <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-primary" role="status">
+            <div
+              className="flex h-72 items-center justify-center"
+              aria-live="polite"
+              aria-busy="true"
+            >
+              <div
+                className="h-8 w-8 animate-spin rounded-full border-b-2 border-t-2 border-primary"
+                role="status"
+              >
                 <span className="sr-only">Loading...</span>
               </div>
             </div>
@@ -75,12 +89,12 @@ export function ComponentSourceLive({ componentName, className, ...props }: Prop
               {content}
             </SyntaxHighlighter>
           ) : (
-            <div className="flex items-center justify-center h-72 text-muted-foreground">
+            <div className="flex h-72 items-center justify-center text-muted-foreground">
               Failed to load component
             </div>
           )}
         </div>
       </CodeBlockWrapper>
     </div>
-  )
+  );
 }

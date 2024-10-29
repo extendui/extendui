@@ -1,14 +1,10 @@
-import { Registry } from "./schema";
+import { type Registry } from './schema';
 
 export const ui: Registry = [
   {
-    name: "button",
-    type: "registry:ui",
-    dependencies: [
-      '@radix-ui/react-slot'
-    ],
-    files: [
-      "components/ui/button.tsx"
-    ],
+    name: 'button',
+    type: 'registry:ui',
+    dependencies: ['@radix-ui/react-slot'],
+    files: ['components/ui/button.tsx'],
   },
 ];

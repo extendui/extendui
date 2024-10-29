@@ -1,11 +1,13 @@
 'use client';
 
-import SidebarItem from './sidebar-item';
-import { ScrollArea } from '@/components/ui/scroll-area';
-import { DocsConfig } from '@/config/docs';
-import { cn } from '@/lib/utils';
 import { usePathname } from 'next/navigation';
 import { useMemo } from 'react';
+
+import { ScrollArea } from '@/components/ui/scroll-area';
+import { type DocsConfig } from '@/config/docs';
+import { cn } from '@/lib/utils';
+
+import SidebarItem from './sidebar-item';
 
 type Props = {
   config: DocsConfig;

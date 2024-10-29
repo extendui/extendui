@@ -1,29 +1,32 @@
-'use client'
+'use client';
 
-import * as React from 'react'
-import { Input } from "@/components/ui/input"
+import * as React from 'react';
 
-interface InputPasswordProps extends React.InputHTMLAttributes<HTMLInputElement> { }
+import { Input } from '@/components/ui/input';
 
-export const InputPassword = React.forwardRef<HTMLInputElement, InputPasswordProps>(
-  ({ className, ...props }, ref) => {
-    const [value, setValue] = React.useState('')
-    return (
-      <Input
-        ref={ref}
-        className={`${className}`}
-        type="password"
-        value={value}
-        onChange={(e) => setValue(e.target.value)}
-        placeholder="Type password here..."
-        {...props}
-      >
-        <Input.Group>
-          <Input.PasswordToggle />
-        </Input.Group>
-      </Input>
-    )
-  }
-)
+interface InputPasswordProps
+  extends React.InputHTMLAttributes<HTMLInputElement> {}
 
-InputPassword.displayName = 'InputPassword'
+export const InputPassword = React.forwardRef<
+  HTMLInputElement,
+  InputPasswordProps
+>(({ className, ...props }, ref) => {
+  const [value, setValue] = React.useState('');
+  return (
+    <Input
+      ref={ref}
+      className={`${className}`}
+      type="password"
+      value={value}
+      onChange={(e) => setValue(e.target.value)}
+      placeholder="Type password here..."
+      {...props}
+    >
+      <Input.Group>
+        <Input.PasswordToggle />
+      </Input.Group>
+    </Input>
+  );
+});
+
+InputPassword.displayName = 'InputPassword';

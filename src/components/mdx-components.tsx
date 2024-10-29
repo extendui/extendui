@@ -1,21 +1,22 @@
-/* eslint-disable ts/ban-ts-comment */
 // @ts-nocheck
 'use client';
 
-import * as React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useMDXComponent } from 'next-contentlayer2/hooks';
-import type { NpmCommands } from '../types/unist.type';
+import * as React from 'react';
 
-import type { Event } from '@/lib/events';
-import { cn } from '@/lib/utils';
-import { useConfig } from '@/hooks/use-config';
 import { Callout } from '@/components/callout';
 import { CodeBlockWrapper } from '@/components/code-block-wrapper';
 import { ComponentSource } from '@/components/component-source';
 import { CopyButton, CopyNpmCommandButton } from '@/components/copy-button';
+import { Rotating3DButton } from '@/components/extendedui/button/button-3d-rotating';
+import ButtonAnimated, {
+  AnimatedButton,
+  RotatingButton,
+} from '@/components/extendedui/button/button-rotating';
 import { FrameworkDocs } from '@/components/framework-docs';
+import { PropsTable } from '@/components/props-table';
 import { StyleWrapper } from '@/components/style-wrapper';
 import {
   Accordion,
@@ -27,19 +28,15 @@ import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import type { Style } from '@/registry/styles';
-import { PropsTable } from '@/components/props-table';
-import Preview from './preview';
 import ButtonExample from '@/showcase/components/button/button';
 import ButtonSettingsEngine from '@/showcase/components/button/settings-engine';
 
+import Preview from './preview';
+
 import '@/styles/mdx.css'; // Import the MDX styles
 import { PreCustom } from './pre-custom';
-import ButtonAnimated, {
-  AnimatedButton,
-  RotatingButton,
-} from '@/components/extendedui/button/button-rotating';
+
 import { ScalingButton } from '@/components/extendedui/button/button-scaling';
-import { Rotating3DButton } from '@/components/extendedui/button/button-3d-rotating';
 import { BouncingButton } from '@/components/extendedui/button/button-bouncing';
 import { PulsatingShadowButton } from '@/components/extendedui/button/button-pulsating';
 import PricingCard from '@/showcase/blocks/cards/pricing-card';
@@ -47,8 +44,10 @@ import CreditCard from '@/showcase/blocks/cards/credit-card';
 import InputExample from '@/showcase/components/input/input';
 import InputSettingsEngine from '@/showcase/components/input/settings-engine';
 import FileUpload from '@/showcase/blocks/cards/file-upload';
+
 import { Input } from './ui/input';
 import { Icons } from './icons/icons';
+
 import { InputIconLeft } from '@/components/extendedui/input/input-iconLeft';
 import { InputIconRight } from '@/components/extendedui/input/input-iconRight';
 import { InputPassword } from '@/components/extendedui/input/input-password';
@@ -57,6 +56,11 @@ import { InputLabel } from '@/components/extendedui/input/input-label';
 import { InputExtended } from '@/components/extendedui/input/input-extended';
 import { InputSelectRight } from '@/components/extendedui/input/input-selectRight';
 import { InputSelectLeft } from '@/components/extendedui/input/input-selectLeft';
+import { useConfig } from '@/hooks/use-config';
+import type { Event } from '@/lib/events';
+import { cn } from '@/lib/utils';
+
+import type { NpmCommands } from '../types/unist.type';
 
 function CustomLink(props: any) {
   const href = props.href;

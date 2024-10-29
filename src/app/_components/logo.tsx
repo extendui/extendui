@@ -1,7 +1,8 @@
-import { Badge } from '@/components/ui/badge';
-import { cn } from '@/lib/utils';
 import { Blocks } from 'lucide-react';
 import Link from 'next/link';
+
+import { Badge } from '@/components/ui/badge';
+import { cn } from '@/lib/utils';
 
 export default function Logo({ className }: { className?: string }) {
   return (

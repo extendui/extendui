@@ -1,18 +1,20 @@
 'use client';
 
+import { Menu } from 'lucide-react';
+import Link from 'next/link';
+import { useState } from 'react';
+
+import { Button } from '@/components/ui/button';
 import {
   Sheet,
   SheetContent,
   SheetTitle,
   SheetTrigger,
 } from '@/components/ui/sheet';
-import { Button } from '@/components/ui/button';
-import { Menu } from 'lucide-react';
-import Link from 'next/link';
-import Sidebar from './sidebar';
-import Logo from './logo';
 import { docsConfig } from '@/config/docs';
-import { useState } from 'react';
+
+import Logo from './logo';
+import Sidebar from './sidebar';
 
 type Props = {
   navLinks: { name: string; href: string }[];

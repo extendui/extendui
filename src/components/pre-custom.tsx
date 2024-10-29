@@ -1,9 +1,10 @@
-import { Event } from '@/lib/events';
+import { type Event } from '@/lib/events';
+import { cn } from '@/lib/utils';
+import { type Style } from '@/registry/styles';
+import { type NpmCommands } from '@/types/unist.type';
+
 import { CopyButton, CopyNpmCommandButton } from './copy-button';
 import { StyleWrapper } from './style-wrapper';
-import { cn } from '@/lib/utils';
-import { Style } from '@/registry/styles';
-import { NpmCommands } from '@/types/unist.type';
 
 type PreProps = React.HTMLProps<HTMLPreElement> & {
   __style__?: Style['name'];

@@ -36,8 +36,5 @@ export const InputClear = React.forwardRef<HTMLInputElement, InputClearProps>(
 
 InputClear.displayName = 'InputClear'
 
-  `
+  `;
 }
-
-
-

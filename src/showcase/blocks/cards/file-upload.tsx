@@ -1,8 +1,8 @@
 'use client';
 
-import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Check } from 'lucide-react';
+import { useState, useEffect } from 'react';
 
 export default function Component() {
   const [progress, setProgress] = useState(0);

@@ -1,17 +1,18 @@
-import { Icons } from '@/components/icons/icons';
-import { Button } from '@/components/ui/button';
 import { ChevronRight, Globe, Recycle, Star, Zap } from 'lucide-react';
 import Link from 'next/link';
-import ButtonExample from '@/showcase/components/button/button';
+
+import ComponentShowcaseCard from '@/components/component-showcase-card';
 import FadeUp from '@/components/fadeup';
+import { Icons } from '@/components/icons/icons';
+import { Button } from '@/components/ui/button';
 import {
   Card,
   CardContent,
   CardFooter,
   CardHeader,
 } from '@/components/ui/card';
+import ButtonExample from '@/showcase/components/button/button';
 import InputExample from '@/showcase/components/input/input';
-import ComponentShowcaseCard from '@/components/component-showcase-card';
 
 export default function HomePage() {
   return (
@@ -69,7 +70,10 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-      <section id="features" className="container max-w-7xl f mx-auto px-4 py-16">
+      <section
+        id="features"
+        className="f container mx-auto max-w-7xl px-4 py-16"
+      >
         <FadeUp delay={0.1} duration={0.8}>
           <h2 className="mb-8 text-center text-3xl font-bold">Key Features</h2>
         </FadeUp>
@@ -114,7 +118,7 @@ export default function HomePage() {
       </section>
       <section
         id="components-showcase"
-        className="container max-w-7xl mx-auto px-4 py-16"
+        className="container mx-auto max-w-7xl px-4 py-16"
       >
         <FadeUp delay={0.1} duration={0.8}>
           <h2 className="mb-8 text-center text-3xl font-bold">Components</h2>

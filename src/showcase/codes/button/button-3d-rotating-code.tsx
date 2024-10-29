@@ -47,5 +47,5 @@ export const Rotating3DButton: React.FC<ButtonProps> = React.forwardRef<
 });
 
 Rotating3DButton.displayName = 'RotatingButton';
-`
+`;
 }

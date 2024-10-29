@@ -1,8 +1,9 @@
 'use client';
 
-import { useConfig } from '@/hooks/use-config';
-import { Style } from '@/registry/styles';
 import * as React from 'react';
+
+import { useConfig } from '@/hooks/use-config';
+import { type Style } from '@/registry/styles';
 
 interface StyleWrapperProps extends React.HTMLAttributes<HTMLDivElement> {
   styleName?: Style['name'];

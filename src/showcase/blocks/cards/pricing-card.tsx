@@ -1,8 +1,9 @@
 'use client';
 
-import { ScalingButton } from '@/components/extendedui/button/button-scaling';
 import { motion } from 'framer-motion';
 import { Check } from 'lucide-react';
+
+import { ScalingButton } from '@/components/extendedui/button/button-scaling';
 
 export default function PricingCard() {
   const features = [

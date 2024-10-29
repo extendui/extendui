@@ -1,11 +1,13 @@
 'use client';
-import { cn } from '@/lib/utils';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from './ui/tabs';
 import { Code, Eye, Loader2, RotateCcw } from 'lucide-react';
+import { Suspense, useState } from 'react';
+
+import { cn } from '@/lib/utils';
+
 import { ComponentSource } from './component-source';
 import { ComponentSourceLive } from './component-source-live';
-import { Suspense, useState } from 'react';
 import { Button } from './ui/button';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from './ui/tabs';
 
 type Props = {
   component: React.ReactNode;

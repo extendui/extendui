@@ -40,8 +40,5 @@ export const InputSelectLeft = React.forwardRef<HTMLInputElement, InputSelectLef
 )
 
 InputSelectLeft.displayName = 'InputSelectLeft'
-  `
+  `;
 }
-
-
-
