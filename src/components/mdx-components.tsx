@@ -55,6 +55,8 @@ import { InputPassword } from '@/components/extendedui/input/input-password';
 import { InputClear } from '@/components/extendedui/input/input-clear';
 import { InputLabel } from '@/components/extendedui/input/input-label';
 import { InputExtended } from '@/components/extendedui/input/input-extended';
+import { InputSelectRight } from '@/components/extendedui/input/input-selectRight';
+import { InputSelectLeft } from '@/components/extendedui/input/input-selectLeft';
 
 function CustomLink(props: any) {
   const href = props.href;
@@ -107,6 +109,8 @@ const components = {
   InputLabel,
   InputClear,
   InputExtended,
+  InputSelectRight,
+  InputSelectLeft,
   ComponentInstallation: (props: any) => <ComponentInstallation {...props} />,
   ComponentSource: (props: any) => <ComponentSource {...props} />,
   h1: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (

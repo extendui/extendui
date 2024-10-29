@@ -49,6 +49,12 @@ export async function loadComponentCode({ componentName, state }: Props) {
         case 'InputExtended':
             const { getInputExtendedCode } = await import('@/showcase/codes/input/input-extended-code')
             return getInputExtendedCode()
+        case 'InputSelectRight':
+            const { getInputSelectRightCode } = await import('@/showcase/codes/input/input-selectRight-code')
+            return getInputSelectRightCode()
+        case 'InputSelectLeft':
+            const { getInputSelectLeftCode } = await import('@/showcase/codes/input/input-selectLeft-code')
+            return getInputSelectLeftCode()
         default:
             throw new Error(`Component "${componentName}" not supported.`)
     }
