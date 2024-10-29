@@ -1,35 +1,31 @@
 'use client'
 
 import * as React from 'react'
-import { motion } from 'framer-motion'
 import { Input } from "@/components/ui/input"
-import { Search, User } from 'lucide-react'
 
-interface InputIconRightProps extends React.InputHTMLAttributes<HTMLInputElement> {
+interface InputPasswordProps extends React.InputHTMLAttributes<HTMLInputElement> {
   icon?: React.ReactNode
 }
 
-export const InputIconRight = React.forwardRef<HTMLInputElement, InputIconRightProps>(
+export const InputPassword = React.forwardRef<HTMLInputElement, InputPasswordProps>(
   ({ className, ...props }, ref) => {
     const [value, setValue] = React.useState('')
     return (
       <Input
         ref={ref}
         className={`${className}`}
+        type="password"
         value={value}
         onChange={(e) => setValue(e.target.value)}
-        type="text"
-        placeholder="Type here..."
+        placeholder="Type password here..."
         {...props}
       >
         <Input.Group>
-          <Input.RightIcon>
-            <User />
-          </Input.RightIcon>
+          <Input.PasswordToggle />
         </Input.Group>
       </Input>
     )
   }
 )
 
-InputIconRight.displayName = 'InputIconRight'
+InputPassword.displayName = 'InputPassword'

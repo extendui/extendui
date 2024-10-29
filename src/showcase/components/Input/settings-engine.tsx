@@ -1,6 +1,5 @@
 'use client';
 
-import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Switch } from '@/components/ui/switch';
 import { setDisabled, setError, setLabel, setRequired, setVariant, useEngineSettingsInputStore } from '@/zustand/stores/useEngineSettingsInput';
@@ -8,7 +7,7 @@ import React from 'react';
 
 export default function InputSettingsEngine() {
 
-  const { variant, label, disabled, error, required } = useEngineSettingsInputStore();
+  const { variant, disabled, error, required } = useEngineSettingsInputStore();
 
   const handleChangeVariant = (
     value:
@@ -19,10 +18,6 @@ export default function InputSettingsEngine() {
       | 'dashed'
   ) => {
     setVariant(value);
-  }
-
-  const handleChangeLabel = (value: string) => {
-    setLabel(value);
   }
 
   const handleChangeError = (value: boolean) => {
@@ -55,14 +50,6 @@ export default function InputSettingsEngine() {
             </SelectGroup>
           </SelectContent>
         </Select>
-      </div>
-      <div className="w-full sm:w-auto">
-        <Input.Root
-          placeholder="Label text"
-          value={label}
-          onChange={(e) => handleChangeLabel(e.target.value)}
-          className="w-[180px]"
-        />
       </div>
       <div className="w-full sm:w-auto flex items-center space-x-2">
         <Switch checked={disabled} onCheckedChange={handleChangeDisabled} />

@@ -37,6 +37,18 @@ export async function loadComponentCode({ componentName, state }: Props) {
         case 'InputIconRight':
             const { getInputIconRightCode } = await import('@/showcase/codes/input/input-iconRight-code')
             return getInputIconRightCode()
+        case 'InputPassword':
+            const { getInputPasswordCode } = await import('@/showcase/codes/input/input-password-code')
+            return getInputPasswordCode()
+        case 'InputClear':
+            const { getInputClearCode } = await import('@/showcase/codes/input/input-clear-code')
+            return getInputClearCode()
+        case 'InputLabel':
+            const { getInputLabelCode } = await import('@/showcase/codes/input/input-label-code')
+            return getInputLabelCode()
+        case 'InputExtended':
+            const { getInputExtendedCode } = await import('@/showcase/codes/input/input-extended-code')
+            return getInputExtendedCode()
         default:
             throw new Error(`Component "${componentName}" not supported.`)
     }

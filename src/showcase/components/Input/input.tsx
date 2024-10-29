@@ -1,17 +1,12 @@
 'use client';
 
-import { Input, InputClearButton, InputGroup, InputLabel, InputLeftElement, InputPasswordToggle } from '@/components/ui/input';
+import { Input } from '@/components/ui/input';
 import { useEngineSettingsInputStore } from '@/zustand/stores/useEngineSettingsInput';
 import { useState } from 'react';
-import { User } from 'lucide-react';
 
 export default function InputExample() {
-  const { variant, label, error, disabled, required } = useEngineSettingsInputStore();
+  const { variant, error, disabled } = useEngineSettingsInputStore();
   const [value, setValue] = useState('');
-
-  const handleClear = () => {
-    setValue('');
-  };
 
   return (
     <Input
@@ -23,15 +18,7 @@ export default function InputExample() {
       value={value}
       onChange={(e) => setValue(e.target.value)}
       disabled={disabled}
-    >
-      <InputGroup>
-        <InputLabel>{label}</InputLabel>
-        <InputLeftElement>
-          <User />
-        </InputLeftElement>
-        <InputPasswordToggle />
-        <InputClearButton onClick={handleClear} />
-      </InputGroup>
-    </Input>
+    />
   );
 }
+

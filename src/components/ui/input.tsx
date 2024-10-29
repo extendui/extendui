@@ -30,9 +30,11 @@ type InputContextType = {
   error?: boolean
   isFocused: boolean
   showPassword: boolean
+  required?: boolean
   value?: string | number | readonly string[]
   variant?: VariantProps<typeof inputVariants>["variant"]
-  hasLeftElement: boolean
+  hasLeftIcon: boolean
+  hasRightIcon: boolean
   hasLabel: boolean
   hasPassword: boolean
   onFocus: (e: React.FocusEvent<HTMLInputElement>) => void
@@ -58,7 +60,7 @@ interface InputRootProps
   children?: React.ReactNode
 }
 
-const Input = React.forwardRef<HTMLInputElement, InputRootProps>((props, ref) => {
+const InputComponent = React.forwardRef<HTMLInputElement, InputRootProps>((props, ref) => {
   const {
     className,
     id,
@@ -67,6 +69,7 @@ const Input = React.forwardRef<HTMLInputElement, InputRootProps>((props, ref) =>
     error,
     textError,
     disabled,
+    required,
     value,
     children,
     onFocus: propOnFocus,
@@ -89,7 +92,8 @@ const Input = React.forwardRef<HTMLInputElement, InputRootProps>((props, ref) =>
     propOnBlur?.(e)
   }
 
-  const hasLeft = hasNestedElementOfType(children, [InputLeftElement])
+  const hasLeft = hasNestedElementOfType(children, [InputLeftIcon])
+  const hasRight = hasNestedElementOfType(children, [InputRightIcon])
   const hasLabel = hasNestedElementOfType(children, [InputLabel])
   const hasPassword = hasNestedElementOfType(children, [InputPasswordToggle])
 
@@ -101,7 +105,9 @@ const Input = React.forwardRef<HTMLInputElement, InputRootProps>((props, ref) =>
     showPassword,
     value,
     variant,
-    hasLeftElement: hasLeft,
+    required,
+    hasLeftIcon: hasLeft,
+    hasRightIcon: hasRight,
     hasLabel,
     hasPassword,
     onFocus: handleFocus,
@@ -141,7 +147,18 @@ const Input = React.forwardRef<HTMLInputElement, InputRootProps>((props, ref) =>
     </InputContext.Provider>
   )
 })
-Input.displayName = "Input"
+InputComponent.displayName = "InputComponent"
+
+type InputType = typeof InputComponent & {
+  Group: typeof InputGroup
+  Label: typeof InputLabel
+  LeftIcon: typeof InputLeftIcon
+  RightIcon: typeof InputRightIcon
+  PasswordToggle: typeof InputPasswordToggle
+  ClearButton: typeof InputClearButton
+}
+
+const Input = InputComponent as InputType
 
 const InputGroup = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>((props, ref) => (
   <div ref={ref} className={cn("relative", props.className)} {...props} />
@@ -150,11 +167,11 @@ InputGroup.displayName = "InputGroup"
 
 const InputLabel = React.forwardRef<HTMLLabelElement, React.LabelHTMLAttributes<HTMLLabelElement>>((props, ref) => {
   const { className, children, ...rest } = props
-  const { id, isFocused, value, disabled, error, variant, hasLeftElement } = useInputContext()
+  const { id, isFocused, required, value, disabled, error, variant, hasLeftIcon } = useInputContext()
 
   const labelClassName = cn(
     "absolute top-2 text-sm text-muted-foreground transition-all duration-200 ease-in-out cursor-text border-transparent",
-    hasLeftElement ? "left-9" : "left-3",
+    hasLeftIcon ? "left-9" : "left-3",
     isFocused && "font-medium",
     (isFocused || value) && [
       "-translate-y-[calc(85%)] scale-[0.85] bg-background px-1 text-primary",
@@ -177,12 +194,13 @@ const InputLabel = React.forwardRef<HTMLLabelElement, React.LabelHTMLAttributes<
       {...rest}
     >
       {children}
+      {required && <span className="text-red-500 ml-0.5">*</span>}
     </label>
   )
 })
 InputLabel.displayName = "InputLabel"
 
-const InputLeftElement = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>((props, ref) => {
+const InputLeftIcon = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>((props, ref) => {
   const { className, children, ...rest } = props
   const { disabled, error } = useInputContext()
 
@@ -201,19 +219,20 @@ const InputLeftElement = React.forwardRef<HTMLDivElement, React.HTMLAttributes<H
     </div>
   )
 })
-InputLeftElement.displayName = "InputLeftElement"
+InputLeftIcon.displayName = "InputLeftIcon"
 
-const InputRightElement = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>((props, ref) => {
+const InputRightIcon = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>((props, ref) => {
   const { className, children, ...rest } = props
-  const { disabled, error } = useInputContext()
+  const { disabled, error, hasPassword } = useInputContext()
 
   return (
     <div
       ref={ref}
       className={cn(
-        "absolute right-3 flex items-center top-2.5",
+        "absolute right-3 flex items-center top-2.5 h-4 w-4",
         disabled && "opacity-50",
         error && "text-red-500",
+        hasPassword && "hidden",
         className
       )}
       {...rest}
@@ -222,7 +241,7 @@ const InputRightElement = React.forwardRef<HTMLDivElement, React.HTMLAttributes<
     </div>
   )
 })
-InputRightElement.displayName = "InputRightElement"
+InputRightIcon.displayName = "InputRightIcon"
 
 const InputPasswordToggle = React.forwardRef<HTMLButtonElement, React.ButtonHTMLAttributes<HTMLButtonElement>>((props, ref) => {
   const { className, ...rest } = props
@@ -244,7 +263,7 @@ InputPasswordToggle.displayName = "InputPasswordToggle"
 
 const InputClearButton = React.forwardRef<HTMLButtonElement, React.ButtonHTMLAttributes<HTMLButtonElement>>((props, ref) => {
   const { className, onClick, ...rest } = props
-  const { value, hasPassword } = useInputContext()
+  const { value, hasPassword, hasRightIcon } = useInputContext()
 
   if (!value) return null
 
@@ -252,7 +271,7 @@ const InputClearButton = React.forwardRef<HTMLButtonElement, React.ButtonHTMLAtt
     <button
       ref={ref}
       type="button"
-      className={cn("absolute right-3 top-2 flex items-center", hasPassword && "right-8", className)}
+      className={cn("absolute right-3 top-2 flex items-center", (hasPassword || hasRightIcon) && "right-8", className)}
       onClick={onClick}
       {...rest}
     >
@@ -262,12 +281,11 @@ const InputClearButton = React.forwardRef<HTMLButtonElement, React.ButtonHTMLAtt
 })
 InputClearButton.displayName = "InputClearButton"
 
-export {
-  Input,
-  InputGroup,
-  InputLabel,
-  InputLeftElement,
-  InputRightElement,
-  InputPasswordToggle,
-  InputClearButton,
-}
+Input.Group = InputGroup
+Input.Label = InputLabel
+Input.LeftIcon = InputLeftIcon
+Input.RightIcon = InputRightIcon
+Input.PasswordToggle = InputPasswordToggle
+Input.ClearButton = InputClearButton
+
+export { Input }

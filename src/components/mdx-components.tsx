@@ -51,7 +51,10 @@ import { Input } from './ui/input';
 import { Icons } from './icons/icons';
 import { InputIconLeft } from '@/components/extendedui/input/input-iconLeft';
 import { InputIconRight } from '@/components/extendedui/input/input-iconRight';
-
+import { InputPassword } from '@/components/extendedui/input/input-password';
+import { InputClear } from '@/components/extendedui/input/input-clear';
+import { InputLabel } from '@/components/extendedui/input/input-label';
+import { InputExtended } from '@/components/extendedui/input/input-extended';
 
 function CustomLink(props: any) {
   const href = props.href;
@@ -100,6 +103,10 @@ const components = {
   Input,
   InputIconLeft,
   InputIconRight,
+  InputPassword,
+  InputLabel,
+  InputClear,
+  InputExtended,
   ComponentInstallation: (props: any) => <ComponentInstallation {...props} />,
   ComponentSource: (props: any) => <ComponentSource {...props} />,
   h1: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (

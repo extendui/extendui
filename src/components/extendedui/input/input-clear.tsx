@@ -1,17 +1,20 @@
 'use client'
 
 import * as React from 'react'
-import { motion } from 'framer-motion'
+import { useState } from 'react';
 import { Input } from "@/components/ui/input"
-import { Search, User } from 'lucide-react'
 
-interface InputIconRightProps extends React.InputHTMLAttributes<HTMLInputElement> {
+interface InputClearProps extends React.InputHTMLAttributes<HTMLInputElement> {
   icon?: React.ReactNode
 }
 
-export const InputIconRight = React.forwardRef<HTMLInputElement, InputIconRightProps>(
+export const InputClear = React.forwardRef<HTMLInputElement, InputClearProps>(
   ({ className, ...props }, ref) => {
-    const [value, setValue] = React.useState('')
+    const [value, setValue] = useState('');
+    const handleClear = () => {
+      setValue('');
+    };
+
     return (
       <Input
         ref={ref}
@@ -23,13 +26,11 @@ export const InputIconRight = React.forwardRef<HTMLInputElement, InputIconRightP
         {...props}
       >
         <Input.Group>
-          <Input.RightIcon>
-            <User />
-          </Input.RightIcon>
+          <Input.ClearButton onClick={handleClear} />
         </Input.Group>
       </Input>
     )
   }
 )
 
-InputIconRight.displayName = 'InputIconRight'
+InputClear.displayName = 'InputClear'

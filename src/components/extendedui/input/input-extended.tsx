@@ -2,15 +2,18 @@
 
 import * as React from 'react'
 import { Input } from "@/components/ui/input"
-import { Search, User } from 'lucide-react'
+import { User } from 'lucide-react'
 
-interface InputIconLeftProps extends React.InputHTMLAttributes<HTMLInputElement> {
+interface InputExtendedProps extends React.InputHTMLAttributes<HTMLInputElement> {
   icon?: React.ReactNode
 }
 
-export const InputIconLeft = React.forwardRef<HTMLInputElement, InputIconLeftProps>(
+export const InputExtended = React.forwardRef<HTMLInputElement, InputExtendedProps>(
   ({ className, ...props }, ref) => {
     const [value, setValue] = React.useState('');
+    const handleClear = () => {
+      setValue('');
+    };
     return (
       <Input
         ref={ref}
@@ -18,17 +21,21 @@ export const InputIconLeft = React.forwardRef<HTMLInputElement, InputIconLeftPro
         value={value}
         onChange={(e) => setValue(e.target.value)}
         type="text"
-        placeholder="Type here..."
+        required={true}
         {...props}
       >
         <Input.Group>
+          <Input.Label>
+            Username
+          </Input.Label>
           <Input.LeftIcon>
             <User />
           </Input.LeftIcon>
+          <Input.ClearButton onClick={handleClear} />
         </Input.Group>
       </Input>
     )
   }
 )
 
-InputIconLeft.displayName = 'InputIconLeft'
+InputExtended.displayName = 'InputExtended'

@@ -2,15 +2,14 @@
 
 import * as React from 'react'
 import { Input } from "@/components/ui/input"
-import { Search, User } from 'lucide-react'
 
-interface InputIconLeftProps extends React.InputHTMLAttributes<HTMLInputElement> {
+interface InputLabelProps extends React.InputHTMLAttributes<HTMLInputElement> {
   icon?: React.ReactNode
 }
 
-export const InputIconLeft = React.forwardRef<HTMLInputElement, InputIconLeftProps>(
+export const InputLabel = React.forwardRef<HTMLInputElement, InputLabelProps>(
   ({ className, ...props }, ref) => {
-    const [value, setValue] = React.useState('');
+    const [value, setValue] = React.useState('Kicky')
     return (
       <Input
         ref={ref}
@@ -18,17 +17,16 @@ export const InputIconLeft = React.forwardRef<HTMLInputElement, InputIconLeftPro
         value={value}
         onChange={(e) => setValue(e.target.value)}
         type="text"
-        placeholder="Type here..."
         {...props}
       >
         <Input.Group>
-          <Input.LeftIcon>
-            <User />
-          </Input.LeftIcon>
+          <Input.Label>
+            Username
+          </Input.Label>
         </Input.Group>
       </Input>
     )
   }
 )
 
-InputIconLeft.displayName = 'InputIconLeft'
+InputLabel.displayName = 'InputLabel'
