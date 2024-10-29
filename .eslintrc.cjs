@@ -3,6 +3,7 @@ const config = {
   parser: '@typescript-eslint/parser',
   parserOptions: {
     project: './tsconfig.json',
+    tsconfigRootDir: __dirname,
   },
   plugins: ['@typescript-eslint', 'import', 'prettier'],
   extends: [
@@ -41,8 +42,6 @@ const config = {
       'error',
       { checksVoidReturn: { attributes: false } },
     ],
-
-
     // Prettier integration
     'prettier/prettier': ['error', { endOfLine: 'auto' }],
 
