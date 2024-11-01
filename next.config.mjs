@@ -16,6 +16,10 @@ const nextConfig = {
       },
     ],
   },
+  webpack: (config) => {
+    config.resolve.modules.push(process.cwd())
+    return config
+  },
 };
 
 const withContentlayer = createContentlayerPlugin({
