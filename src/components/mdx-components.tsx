@@ -34,9 +34,11 @@ import { RotatingButton } from '@/showcase/components/button/button-rotating';
 import { ScalingButton } from '@/showcase/components/button/button-scaling';
 import ButtonSettingsEngine from '@/showcase/components/button/settings-engine';
 import InputExample from '@/showcase/components/input/input';
-import { InputButtonRight } from '@/showcase/components/input/input-buttonRight';
+import { InputButton } from '@/showcase/components/input/input-button';
 import { InputClear } from '@/showcase/components/input/input-clear';
+import { InputDecreaseIncrease } from '@/showcase/components/input/input-decrease-increase';
 import { InputExtended } from '@/showcase/components/input/input-extended';
+import FileInput from '@/showcase/components/input/input-file';
 import { InputIconLeft } from '@/showcase/components/input/input-iconLeft';
 import { InputIconRight } from '@/showcase/components/input/input-iconRight';
 import { InputLabel } from '@/showcase/components/input/input-label';
@@ -103,7 +105,9 @@ const components = {
   InputExtended,
   InputSelectRight,
   InputSelectLeft,
-  InputButtonRight,
+  InputButton,
+  InputDecreaseIncrease,
+  FileInput,
   h1: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h1
       className={cn(

@@ -35,11 +35,15 @@ type InputContextType = {
   showPassword: boolean;
   required?: boolean;
   value?: string | number | readonly string[];
+  maxLength?: number;
   variant?: VariantProps<typeof inputVariants>['variant'];
-  hasLeftIcon: boolean;
-  hasRightIcon: boolean;
-  hasLabel: boolean;
-  hasPassword: boolean;
+  elementChecks: {
+    hasLeftIcon: boolean;
+    hasRightIcon: boolean;
+    hasLabel: boolean;
+    hasPassword: boolean;
+    hasClearButton: boolean
+  }
   onFocus: (e: React.FocusEvent<HTMLInputElement>) => void;
   onBlur: (e: React.FocusEvent<HTMLInputElement>) => void;
   setShowPassword: (show: boolean) => void;
@@ -61,9 +65,10 @@ const useInputContext = () => {
 
 interface InputRootProps
   extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size'>,
-    VariantProps<typeof inputVariants> {
+  VariantProps<typeof inputVariants> {
   error?: boolean;
   textError?: string;
+  maxLength?: number;
   children?: React.ReactNode;
 }
 
@@ -79,6 +84,7 @@ const InputComponent = React.forwardRef<HTMLInputElement, InputRootProps>(
       disabled,
       required,
       value,
+      maxLength,
       children,
       onFocus: propOnFocus,
       onBlur: propOnBlur,
@@ -100,10 +106,18 @@ const InputComponent = React.forwardRef<HTMLInputElement, InputRootProps>(
       propOnBlur?.(e);
     };
 
-    const hasLeft = hasNestedElementOfType(children, [InputLeftIcon]);
-    const hasRight = hasNestedElementOfType(children, [InputRightIcon]);
-    const hasLabel = hasNestedElementOfType(children, [InputLabel]);
-    const hasPassword = hasNestedElementOfType(children, [InputPasswordToggle]);
+
+    const elementChecks = React.useMemo(() => ({
+      hasLeftIcon: hasNestedElementOfType(children, [InputLeftIcon]),
+      hasRightIcon: hasNestedElementOfType(children, [InputRightIcon]),
+      hasLabel: hasNestedElementOfType(children, [InputLabel]),
+      hasPassword: hasNestedElementOfType(children, [InputPasswordToggle]),
+      hasClearButton: hasNestedElementOfType(children, [InputClearButton])
+    }), [children]);
+
+    console.log(elementChecks)
+
+
 
     const contextValue: InputContextType = {
       id: id || '',
@@ -112,27 +126,43 @@ const InputComponent = React.forwardRef<HTMLInputElement, InputRootProps>(
       isFocused,
       showPassword,
       value,
+      maxLength,
       variant,
       required,
-      hasLeftIcon: hasLeft,
-      hasRightIcon: hasRight,
-      hasLabel,
-      hasPassword,
+      elementChecks,
       onFocus: handleFocus,
       onBlur: handleBlur,
       setShowPassword,
     };
 
+    const currentValue = String(value || '');
+    const hasValue = currentValue.length > 0;
+
+    const getCounterPosition = React.useCallback(() => {
+      if (elementChecks.hasClearButton && hasValue && elementChecks.hasPassword) return 'right-[3.2rem]';
+      if (elementChecks.hasPassword || elementChecks.hasRightIcon) return 'right-8';
+      if (elementChecks.hasClearButton && hasValue) return 'right-8';
+      return 'right-3';
+    }, [elementChecks.hasClearButton, hasValue, elementChecks.hasPassword, elementChecks.hasRightIcon]);
+
+    const getLabelPadding = React.useCallback(() => {
+      if (elementChecks.hasClearButton && hasValue && elementChecks.hasPassword) return 'pe-24';
+      if (elementChecks.hasPassword || elementChecks.hasRightIcon) return 'pe-20';
+      if (elementChecks.hasClearButton && hasValue) return 'pe-20';
+      return 'pe-16';
+    }, [elementChecks.hasClearButton, hasValue, elementChecks.hasPassword, elementChecks.hasRightIcon]);
+
     const inputClassName = cn(
       inputVariants({ variant }),
-      hasLeft ? 'pl-9' : 'px-3',
-      hasLabel && 'placeholder:text-transparent',
+      elementChecks.hasLeftIcon ? 'pl-9' : 'px-3',
+      elementChecks.hasLabel && 'placeholder:text-transparent',
       value && variant === 'flushedfilled' && 'bg-secondary',
       error && 'border-red-500',
       error &&
-        !['flushedfilled', 'flushed'].includes(variant as string) &&
-        'focus:outline-red-500',
+      !['flushedfilled', 'flushed'].includes(variant as string) &&
+      'focus:outline-red-500',
       disabled && 'opacity-50 cursor-not-allowed',
+      maxLength && getLabelPadding(),
       className,
     );
 
@@ -148,8 +178,17 @@ const InputComponent = React.forwardRef<HTMLInputElement, InputRootProps>(
             onFocus={handleFocus}
             onBlur={handleBlur}
             value={value}
+            maxLength={maxLength}
             {...inputProps}
           />
+          {maxLength && (
+            <div className={cn(
+              "absolute top-2.5 text-xs text-muted-foreground",
+              getCounterPosition()
+            )}>
+              {currentValue.length}/{maxLength}
+            </div>
+          )}
           {error && textError && (
             <p className="mt-1 text-xs text-red-500">{textError}</p>
           )}
@@ -159,6 +198,7 @@ const InputComponent = React.forwardRef<HTMLInputElement, InputRootProps>(
   },
 );
 InputComponent.displayName = 'InputComponent';
+
 
 type InputType = typeof InputComponent & {
   Group: typeof InputGroup;
@@ -192,12 +232,12 @@ const InputLabel = React.forwardRef<
     disabled,
     error,
     variant,
-    hasLeftIcon,
+    elementChecks,
   } = useInputContext();
 
   const labelClassName = cn(
     'absolute top-2 text-sm text-muted-foreground transition-all duration-200 ease-in-out cursor-text border-transparent',
-    hasLeftIcon ? 'left-9' : 'left-3',
+    elementChecks.hasLeftIcon ? 'left-9' : 'left-3',
     isFocused && 'font-medium',
     (isFocused || value) && [
       '-translate-y-[calc(85%)] scale-[0.85] bg-background px-1 text-primary',
@@ -207,17 +247,17 @@ const InputLabel = React.forwardRef<
       (variant === 'flushed' ||
         variant === 'filled' ||
         variant === 'flushedfilled') &&
-        '-translate-y-[calc(95%)]',
+      '-translate-y-[calc(95%)]',
     ],
     error && 'text-red-500',
     disabled && 'opacity-50 cursor-not-allowed',
+    required && `after:content-['*'] after:ml-0.5 after:text-red-500`,
     className,
   );
 
   return (
     <label ref={ref} htmlFor={id} className={labelClassName} {...rest}>
       {children}
-      {required && <span className="ml-0.5 text-red-500">*</span>}
     </label>
   );
 });
@@ -252,7 +292,7 @@ const InputRightIcon = React.forwardRef<
   React.HTMLAttributes<HTMLDivElement>
 >((props, ref) => {
   const { className, children, ...rest } = props;
-  const { disabled, error, hasPassword } = useInputContext();
+  const { disabled, error, elementChecks } = useInputContext();
 
   return (
     <div
@@ -261,7 +301,7 @@ const InputRightIcon = React.forwardRef<
         'absolute right-3 top-2.5 flex h-4 w-4 items-center',
         disabled && 'opacity-50',
         error && 'text-red-500',
-        hasPassword && 'hidden',
+        elementChecks.hasPassword && 'hidden',
         className,
       )}
       {...rest}
@@ -283,7 +323,7 @@ const InputPasswordToggle = React.forwardRef<
     <button
       ref={ref}
       type="button"
-      className={cn('absolute right-3 top-2 flex items-center', className)}
+      className={cn('absolute right-3 top-2.5 flex items-center', className)}
       onClick={() => setShowPassword(!showPassword)}
       {...rest}
     >
@@ -302,7 +342,7 @@ const InputClearButton = React.forwardRef<
   React.ButtonHTMLAttributes<HTMLButtonElement>
 >((props, ref) => {
   const { className, onClick, ...rest } = props;
-  const { value, hasPassword, hasRightIcon } = useInputContext();
+  const { value, elementChecks } = useInputContext();
 
   if (!value) return null;
 
@@ -311,8 +351,8 @@ const InputClearButton = React.forwardRef<
       ref={ref}
       type="button"
       className={cn(
-        'absolute right-3 top-2 flex items-center',
-        (hasPassword || hasRightIcon) && 'right-8',
+        'absolute right-3 top-2.5 flex items-center',
+        (elementChecks.hasPassword || elementChecks.hasRightIcon) && 'right-8',
         className,
       )}
       onClick={onClick}

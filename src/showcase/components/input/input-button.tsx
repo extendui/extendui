@@ -7,7 +7,7 @@ import { toast } from 'sonner';
 import { Button } from '@/components/extendedui/button/button';
 import { Input } from '@/components/extendedui/input/input';
 
-export const InputButtonRight = () => {
+export const InputButton = () => {
   const [value, setValue] = React.useState('');
   const [isPressed, setIsPressed] = React.useState(false);
   return (
