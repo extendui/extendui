@@ -85,6 +85,11 @@ export async function loadComponentCode({ componentName, state }: Props) {
         '@/showcase/codes/input/input-selectLeft-code'
       );
       return getInputSelectLeftCode();
+    case 'InputButtonRight':
+      const { getInputButtonRightCode } = await import(
+        '@/showcase/codes/input/input-buttonRight-code'
+      );
+      return getInputButtonRightCode();
     default:
       throw new Error(`Component "${componentName}" not supported.`);
   }
