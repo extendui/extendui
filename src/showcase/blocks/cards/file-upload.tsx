@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { X, Check } from 'lucide-react';
 import { useState, useEffect } from 'react';
 
-export default function Component() {
+export default function FileUpload() {
   const [progress, setProgress] = useState(0);
   const [status, setStatus] = useState('Uploading...');
 
