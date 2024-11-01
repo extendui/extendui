@@ -1,4 +1,3 @@
-// @ts-nocheck
 'use client';
 
 import Image from 'next/image';
@@ -9,7 +8,6 @@ import * as React from 'react';
 import { Callout } from '@/components/callout';
 import { CodeBlockWrapper } from '@/components/code-block-wrapper';
 import { ComponentSource } from '@/components/component-source';
-import { Rotating3DButton } from '@/components/extendedui/button/button-3d-rotating';
 import { FrameworkDocs } from '@/components/framework-docs';
 import { PropsTable } from '@/components/props-table';
 import { StyleWrapper } from '@/components/style-wrapper';
@@ -22,38 +20,34 @@ import {
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import type { Style } from '@/registry/styles';
-
-import Preview from './preview';
-
-import '@/styles/mdx.css'; // Import the MDX styles
-import { PreCustom } from './pre-custom';
-
-import { ScalingButton } from '@/components/extendedui/button/button-scaling';
-import { BouncingButton } from '@/components/extendedui/button/button-bouncing';
-import { PulsatingShadowButton } from '@/components/extendedui/button/button-pulsating';
-import PricingCard from '@/showcase/blocks/cards/pricing-card';
+import '@/styles/mdx.css';
+import { useConfig } from '@/hooks/use-config';
+import { cn } from '@/lib/utils';
 import CreditCard from '@/showcase/blocks/cards/credit-card';
 import FileUpload from '@/showcase/blocks/cards/file-upload';
-import { Input } from './ui/input';
-import { Icons } from './icons/icons';
-import { InputIconLeft } from '@/components/extendedui/input/input-iconLeft';
-import { InputIconRight } from '@/components/extendedui/input/input-iconRight';
-import { InputPassword } from '@/components/extendedui/input/input-password';
-import { InputClear } from '@/components/extendedui/input/input-clear';
-import { InputLabel } from '@/components/extendedui/input/input-label';
-import { InputExtended } from '@/components/extendedui/input/input-extended';
-import { InputSelectRight } from '@/components/extendedui/input/input-selectRight';
-import { InputSelectLeft } from '@/components/extendedui/input/input-selectLeft';
-import { useConfig } from '@/hooks/use-config';
-import type { Event } from '@/lib/events';
-import { cn } from '@/lib/utils';
-
-import type { NpmCommands } from '../types/unist.type';
+import PricingCard from '@/showcase/blocks/cards/pricing-card';
+import ButtonExample from '@/showcase/components/button/button';
+import { Rotating3DButton } from '@/showcase/components/button/button-3d-rotating';
+import { BouncingButton } from '@/showcase/components/button/button-bouncing';
+import { PulsatingShadowButton } from '@/showcase/components/button/button-pulsating';
+import { ScalingButton } from '@/showcase/components/button/button-scaling';
 import ButtonSettingsEngine from '@/showcase/components/button/settings-engine';
 import InputExample from '@/showcase/components/input/input';
+import { InputClear } from '@/showcase/components/input/input-clear';
+import { InputExtended } from '@/showcase/components/input/input-extended';
+import { InputIconLeft } from '@/showcase/components/input/input-iconLeft';
+import { InputIconRight } from '@/showcase/components/input/input-iconRight';
+import { InputLabel } from '@/showcase/components/input/input-label';
+import { InputPassword } from '@/showcase/components/input/input-password';
+import { InputSelectLeft } from '@/showcase/components/input/input-selectLeft';
+import { InputSelectRight } from '@/showcase/components/input/input-selectRight';
 import InputSettingsEngine from '@/showcase/components/input/settings-engine';
-import ButtonExample from '@/showcase/components/button/button';
+
+import { Input } from './extendedui/input/input';
+import { Icons } from './icons/icons';
+import { PreCustom } from './pre-custom';
+import Preview from './preview';
+import { RotatingButton } from '@/showcase/components/button/button-rotating';
 
 function CustomLink(props: any) {
   const href = props.href;
@@ -86,16 +80,16 @@ const components = {
   FrameworkDocs,
   StyleWrapper,
   Image,
-  ButtonExample,
   ScalingButton,
   BouncingButton,
   PulsatingShadowButton,
-  RotatingButton,
   Rotating3DButton,
+  RotatingButton,
   PricingCard,
   CreditCard,
   Icons,
   FileUpload,
+  ButtonExample,
   ButtonSettingsEngine,
   InputExample,
   InputSettingsEngine,
@@ -108,8 +102,6 @@ const components = {
   InputExtended,
   InputSelectRight,
   InputSelectLeft,
-  ComponentInstallation: (props: any) => <ComponentInstallation {...props} />,
-  ComponentSource: (props: any) => <ComponentSource {...props} />,
   h1: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h1
       className={cn(
@@ -259,12 +251,6 @@ const components = {
       {...props}
     />
   ),
-  FrameworkDocs: ({
-    className,
-    ...props
-  }: React.ComponentProps<typeof FrameworkDocs>) => (
-    <FrameworkDocs className={cn(className)} {...props} />
-  ),
   Link: ({ className, ...props }: React.ComponentProps<typeof Link>) => (
     <Link
       className={cn('font-medium underline underline-offset-4', className)}
@@ -285,6 +271,7 @@ const components = {
     alt,
     ...props
   }: React.ImgHTMLAttributes<HTMLImageElement>) => (
+    // eslint-disable-next-line @next/next/no-img-element
     <img className={cn('rounded-md', className)} alt={alt} {...props} />
   ),
   hr: ({ ...props }: React.HTMLAttributes<HTMLHRElement>) => (

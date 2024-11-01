@@ -4,9 +4,8 @@ import { Suspense, useState } from 'react';
 
 import { cn } from '@/lib/utils';
 
-import { ComponentSource } from './component-source';
 import { ComponentSourceLive } from './component-source-live';
-import { Button } from './ui/button';
+import { Button } from './extendedui/button/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from './ui/tabs';
 
 type Props = {

@@ -27,6 +27,6 @@ export async function GET(request: Request) {
     const code = await response.text();
     return NextResponse.json({ code });
   } catch (error) {
-    return NextResponse.json({ error: 'File not found' }, { status: 404 });
+    return NextResponse.json({ error: error }, { status: 404 });
   }
 }

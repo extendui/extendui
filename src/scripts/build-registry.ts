@@ -1,5 +1,6 @@
 import { promises as fs } from 'fs';
 import path from 'path';
+
 import { type z } from 'zod';
 
 import { type registryItemFileSchema } from '@/registry/schema';

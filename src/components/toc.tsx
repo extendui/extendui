@@ -15,13 +15,11 @@ type TocProps = {
 function useActiveItem(itemIds: string[]) {
   const [activeId, setActiveId] = React.useState<string | null>(null);
   const observer = React.useRef<IntersectionObserver | null>(null);
-  const [headings, setHeadings] = React.useState<HTMLElement[]>([]);
 
   React.useEffect(() => {
     const elements = itemIds
       .map((id) => document.getElementById(id))
       .filter((el): el is HTMLElement => !!el);
-    setHeadings(elements);
 
     observer.current = new IntersectionObserver(
       (entries) => {
@@ -119,12 +117,12 @@ export function DashboardTableOfContents({ toc }: TocProps) {
     () =>
       toc.items
         ? toc.items
-            .flatMap((item) => [
-              item.url,
-              ...(item.items?.map((subItem) => subItem.url) || []),
-            ])
-            .filter(Boolean)
-            .map((id) => id?.split('#')[1])
+          .flatMap((item) => [
+            item.url,
+            ...(item.items?.map((subItem) => subItem.url) || []),
+          ])
+          .filter(Boolean)
+          .map((id) => id?.split('#')[1])
         : [],
     [toc],
   );

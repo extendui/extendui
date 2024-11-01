@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import * as React from 'react';
 
-import { Button } from '@/components/ui/button';
+import { Button } from '@/components/extendedui/button/button';
 import { cn } from '@/lib/utils';
 
 interface PulsatingShadowButtonProps

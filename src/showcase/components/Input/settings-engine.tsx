@@ -15,7 +15,6 @@ import { Switch } from '@/components/ui/switch';
 import {
   setDisabled,
   setError,
-  setLabel,
   setRequired,
   setVariant,
   useEngineSettingsInputStore,

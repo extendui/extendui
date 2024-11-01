@@ -1,5 +1,4 @@
 import { ChevronRightIcon, ExternalLinkIcon } from '@radix-ui/react-icons';
-import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import Balancer from 'react-wrap-balancer';
@@ -13,6 +12,8 @@ import { siteConfig } from '@/config/site';
 import { getTableOfContents } from '@/lib/toc';
 import { absoluteUrl, cn } from '@/lib/utils';
 import { allDocs } from 'contentlayer/generated';
+
+import type { Metadata } from 'next';
 
 type DocPageProps = {
   params: {

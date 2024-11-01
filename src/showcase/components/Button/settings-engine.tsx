@@ -3,8 +3,8 @@
 import React, { useState } from 'react';
 import { HexColorPicker } from 'react-colorful';
 
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
+import { Button } from '@/components/extendedui/button/button';
+import { Input } from '@/components/extendedui/input/input';
 import {
   Popover,
   PopoverContent,

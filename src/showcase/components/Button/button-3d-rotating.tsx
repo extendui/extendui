@@ -1,22 +1,16 @@
 'use client';
 
-import {
-  motion,
-  useMotionValue,
-  useTransform,
-  useAnimation,
-} from 'framer-motion';
+import { motion, useMotionValue, useTransform } from 'framer-motion';
 import * as React from 'react';
 
-import { Button, type ButtonProps } from '@/components/ui/button';
+import { Button, type ButtonProps } from '@/components/extendedui/button/button';
 
-export const RotatingButton: React.FC<ButtonProps> = React.forwardRef<
+export const Rotating3DButton: React.FC<ButtonProps> = React.forwardRef<
   HTMLButtonElement,
   ButtonProps
 >(({ children, ...props }, ref) => {
   const x = useMotionValue(0);
-  const rotate = useTransform(x, [-50, 50], [-15, 15]);
-  const controls = useAnimation();
+  const rotateY = useTransform(x, [-50, 50], [-15, 15]);
 
   const handleMouseMove = (event: React.MouseEvent<HTMLDivElement>) => {
     const rect = event.currentTarget.getBoundingClientRect();
@@ -25,20 +19,22 @@ export const RotatingButton: React.FC<ButtonProps> = React.forwardRef<
   };
 
   const handleMouseLeave = () => {
-    controls.start({ rotate: 0 });
+    x.set(0);
   };
 
   return (
     <motion.div
       style={{
+        perspective: 400,
         display: 'inline-block',
       }}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
     >
       <motion.div
-        style={{ rotate }}
-        animate={controls}
+        style={{
+          rotateY,
+        }}
         transition={{ type: 'spring', stiffness: 300, damping: 20 }}
       >
         <Button ref={ref} {...props}>
@@ -49,4 +45,4 @@ export const RotatingButton: React.FC<ButtonProps> = React.forwardRef<
   );
 });
 
-RotatingButton.displayName = 'RotatingButton';
+Rotating3DButton.displayName = 'Rotating3DButton';

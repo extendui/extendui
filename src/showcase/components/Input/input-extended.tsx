@@ -3,10 +3,10 @@
 import { User } from 'lucide-react';
 import * as React from 'react';
 
-import { Input } from '@/components/ui/input';
+import { Input } from '@/components/extendedui/input/input';
 
 interface InputExtendedProps
-  extends React.InputHTMLAttributes<HTMLInputElement> {}
+  extends React.InputHTMLAttributes<HTMLInputElement> { }
 
 export const InputExtended = React.forwardRef<
   HTMLInputElement,

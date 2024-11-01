@@ -33,7 +33,7 @@ export function ComponentSourceLive({
     });
 
     return componentState;
-  }, [relevantStates?.state]);
+  }, [relevantStates?.state, relevantStates?.store]);
 
   React.useEffect(() => {
     const loadComponent = async () => {
@@ -41,7 +41,8 @@ export function ComponentSourceLive({
         setIsLoading(true);
         const codeString = await loadComponentCode({ componentName, state });
         setContent(codeString);
-      } catch (error) {
+      } catch (e) {
+        console.error(e);
         setContent(null);
       } finally {
         setIsLoading(false);

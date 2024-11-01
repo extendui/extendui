@@ -2,9 +2,9 @@
 
 import * as React from 'react';
 
-import { Input } from '@/components/ui/input';
+import { Input } from '@/components/extendedui/input/input';
 
-interface InputLabelProps extends React.InputHTMLAttributes<HTMLInputElement> {}
+interface InputLabelProps extends React.InputHTMLAttributes<HTMLInputElement> { }
 
 export const InputLabel = React.forwardRef<HTMLInputElement, InputLabelProps>(
   ({ className, ...props }, ref) => {

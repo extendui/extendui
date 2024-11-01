@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 
-import { Input } from '@/components/ui/input';
+import { Input } from '@/components/extendedui/input/input';
 import {
   Select,
   SelectContent,
@@ -12,7 +12,7 @@ import {
 } from '@/components/ui/select';
 
 interface InputSelectLeftProps
-  extends React.InputHTMLAttributes<HTMLInputElement> {}
+  extends React.InputHTMLAttributes<HTMLInputElement> { }
 
 export const InputSelectLeft = React.forwardRef<
   HTMLInputElement,

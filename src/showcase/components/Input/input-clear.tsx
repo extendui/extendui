@@ -3,9 +3,9 @@
 import * as React from 'react';
 import { useState } from 'react';
 
-import { Input } from '@/components/ui/input';
+import { Input } from '@/components/extendedui/input/input';
 
-interface InputClearProps extends React.InputHTMLAttributes<HTMLInputElement> {}
+interface InputClearProps extends React.InputHTMLAttributes<HTMLInputElement> { }
 
 export const InputClear = React.forwardRef<HTMLInputElement, InputClearProps>(
   ({ className, ...props }, ref) => {

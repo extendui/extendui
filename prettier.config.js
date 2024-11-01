@@ -1,5 +1,6 @@
+// prettier.config.js
 /** @type {import('prettier').Config & import('prettier-plugin-tailwindcss').PluginOptions} */
-const config = {
+const prettierConfig = {
   plugins: ['prettier-plugin-tailwindcss'],
   semi: true,
   singleQuote: true,
@@ -9,4 +10,4 @@ const config = {
   endOfLine: 'auto',
 };
 
-export default config;
+module.exports = prettierConfig;
