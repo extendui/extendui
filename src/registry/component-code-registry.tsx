@@ -90,6 +90,16 @@ export async function loadComponentCode({ componentName, state }: Props) {
         '@/showcase/codes/input/input-buttonRight-code'
       );
       return getInputButtonCode();
+    case 'InputDecreaseIncrease':
+      const { getInputDecreaseIncreaseCode } = await import(
+        '@/showcase/codes/input/input-decrease-increase-code'
+      );
+      return getInputDecreaseIncreaseCode();
+    case 'FileInput':
+      const { getInputFileCode } = await import(
+        '@/showcase/codes/input/input-file-code'
+      );
+      return getInputFileCode();
     default:
       throw new Error(`Component "${componentName}" not supported.`);
   }

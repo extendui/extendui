@@ -115,10 +115,6 @@ const InputComponent = React.forwardRef<HTMLInputElement, InputRootProps>(
       hasClearButton: hasNestedElementOfType(children, [InputClearButton])
     }), [children]);
 
-    console.log(elementChecks)
-
-
-
     const contextValue: InputContextType = {
       id: id || '',
       disabled,
