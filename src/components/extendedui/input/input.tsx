@@ -142,11 +142,11 @@ const InputComponent = React.forwardRef<HTMLInputElement, InputRootProps>(
     }, [elementChecks.hasClearButton, hasValue, elementChecks.hasPassword, elementChecks.hasRightIcon]);
 
     const getLabelPadding = React.useCallback(() => {
-      if (elementChecks.hasClearButton && hasValue && elementChecks.hasPassword) return 'pe-24';
-      if (elementChecks.hasPassword || elementChecks.hasRightIcon) return 'pe-20';
-      if (elementChecks.hasClearButton && hasValue) return 'pe-20';
-      return 'pe-16';
-    }, [elementChecks.hasClearButton, hasValue, elementChecks.hasPassword, elementChecks.hasRightIcon]);
+      if (elementChecks.hasClearButton && hasValue && elementChecks.hasPassword && maxLength) return 'pe-24';
+      if ((elementChecks.hasPassword || elementChecks.hasRightIcon) && maxLength) return 'pe-20';
+      if (elementChecks.hasClearButton && hasValue && maxLength) return 'pe-20';
+      return 'pe-8';
+    }, [elementChecks.hasClearButton, hasValue, elementChecks.hasPassword, elementChecks.hasRightIcon, maxLength]);
 
     const inputClassName = cn(
       inputVariants({ variant }),
@@ -158,7 +158,7 @@ const InputComponent = React.forwardRef<HTMLInputElement, InputRootProps>(
       !['flushedfilled', 'flushed'].includes(variant as string) &&
       'focus:outline-red-500',
       disabled && 'opacity-50 cursor-not-allowed',
-      maxLength && getLabelPadding(),
+      getLabelPadding(),
       className,
     );
 
