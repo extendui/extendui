@@ -1,7 +1,6 @@
 export const siteConfig = {
   name: 'Extend UI',
-  url: 'https://extendui.vercel.app/',
-  ogImage: 'https://nyxb.design/api/og',
+  url: 'https://www.extend-ui.com/',
   description:
     'Beautifully designed landing page components built with React & Tailwind CSS.',
   links: {
