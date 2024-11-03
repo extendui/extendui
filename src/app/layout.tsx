@@ -45,6 +45,27 @@ export const metadata: Metadata = {
   manifest: '/site.webmanifest',
 };
 
+function generateSiteStructure() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'ExtendUI',
+    url: 'https://extend-ui.com',
+    potentialAction: {
+      '@type': 'SearchAction',
+      target: {
+        '@type': 'EntryPoint',
+        urlTemplate: 'https://extend-ui.com/search?q={search_term_string}'
+      },
+      'query-input': 'required name=search_term_string'
+    },
+    sameAs: [
+      'https://github.com/extendui',
+      'https://x.com/extendui_pro',
+    ]
+  }
+}
+
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
@@ -54,6 +75,14 @@ export default function RootLayout({
       className={`${GeistSans.variable}`}
       suppressHydrationWarning
     >
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(generateSiteStructure())
+          }}
+        />
+      </head>
       <body>
         <ReactQueryProvider>
           <ThemeProvider>
