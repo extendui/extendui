@@ -4,8 +4,6 @@ import { format } from "date-fns"
 import { Calendar as CalendarIcon } from "lucide-react"
 import * as React from "react"
 
-
-import { Input } from "@/components/extendedui/input/input"
 import { Calendar } from "@/components/ui/calendar"
 import {
     Popover,
@@ -42,10 +40,8 @@ export function DatePickerExample() {
                         onMonthChange={setMonth}
                         selected={date}
                         onSelect={setDate}
-                        initialFocus
                         variant={"default"}
-                        disabled={{ dayOfWeek: [0, 6] }}
-                        captionLayout="dropdown"
+                    // disabled={{ dayOfWeek: [0, 6] }}
                     />
                 </PopoverContent>
             </Popover>
