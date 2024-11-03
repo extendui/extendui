@@ -46,6 +46,7 @@ import { InputPassword } from '@/showcase/components/input/input-password';
 import { InputSelectLeft } from '@/showcase/components/input/input-selectLeft';
 import { InputSelectRight } from '@/showcase/components/input/input-selectRight';
 import InputSettingsEngine from '@/showcase/components/input/settings-engine';
+import { DatePickerExample } from '@/showcase/date-picker/date-picker';
 
 import { Input } from './extendedui/input/input';
 import { Icons } from './icons/icons';
@@ -108,6 +109,7 @@ const components = {
   InputButton,
   InputDecreaseIncrease,
   FileInput,
+  DatePickerExample,
   h1: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h1
       className={cn(

@@ -13,6 +13,7 @@ type Props = {
   settingsEngine: React.ReactNode;
   componentName: string;
   className?: string;
+  animated?: boolean;
 };
 
 export default function Preview({
@@ -20,6 +21,7 @@ export default function Preview({
   settingsEngine,
   componentName,
   className,
+  animated,
 }: Props) {
   const [key, setKey] = useState(0);
 
@@ -57,14 +59,18 @@ export default function Preview({
           <div
             className={`grid grid-cols-1 gap-4 ${settingsEngine ? 'lg:grid-cols-2' : 'lg:grid-cols-1'}`}
           >
-            <Button
-              onClick={() => setKey((prev) => prev + 1)}
-              className="absolute right-4 top-4 z-10 flex size-6 items-center"
-              variant="ghost"
-              size={'icon'}
-            >
-              <RotateCcw className="size-3" />
-            </Button>
+            {animated &&
+              (
+                <Button
+                  onClick={() => setKey((prev) => prev + 1)}
+                  className="absolute right-4 top-4 z-10 flex size-6 items-center"
+                  variant="ghost"
+                  size={'icon'}
+                >
+                  <RotateCcw className="size-3" />
+                </Button>
+              )
+            }
             <Suspense
               fallback={
                 <div className="flex items-center text-sm text-muted-foreground">

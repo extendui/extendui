@@ -66,6 +66,13 @@ export const docsConfig: DocsConfig = {
             },
           ],
         },
+        {
+          title: 'Date Picker',
+          href: '/docs/components/date-picker',
+          items: [
+            { title: 'Base', href: '/docs/components/date-picker', items: [] },
+          ],
+        },
       ],
     },
     {
