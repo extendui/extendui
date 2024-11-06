@@ -64,7 +64,7 @@ export function CommandMenu({ ...props }: DialogProps) {
           <span className="text-xs">⌘</span>K
         </kbd>
       </Button>
-      <CommandDialog open={open} onOpenChange={setOpen}>
+      <CommandDialog open={open} onOpenChange={setOpen} >
         <CommandInput placeholder="Type a command or search..." />
         <CommandList>
           <CommandEmpty>No results found.</CommandEmpty>
@@ -73,7 +73,7 @@ export function CommandMenu({ ...props }: DialogProps) {
               .filter((navitem) => !navitem.external)
               .map((navItem) => (
                 <CommandItem
-                  key={navItem.href}
+                  key={navItem.title}
                   value={navItem.title}
                   onSelect={() => {
                     runCommand(() => router.push(navItem.href!));
@@ -88,7 +88,7 @@ export function CommandMenu({ ...props }: DialogProps) {
             <CommandGroup key={group.title} heading={group.title}>
               {group.items.map((navItem) => (
                 <CommandItem
-                  key={navItem.href}
+                  key={navItem.title}
                   value={navItem.title}
                   onSelect={() => {
                     runCommand(() => router.push(navItem.href!));
