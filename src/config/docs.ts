@@ -30,13 +30,13 @@ export const docsConfig: DocsConfig = {
           href: '/docs/installation',
           items: [],
         },
-        {
-          title: 'CLI',
-          href: '/docs',
-          label: 'soon',
-          disabled: true,
-          items: [],
-        },
+        // {
+        //   title: 'CLI',
+        //   href: '/docs',
+        //   label: 'soon',
+        //   disabled: true,
+        //   items: [],
+        // },
       ],
     },
     {

@@ -1,36 +1,35 @@
 import { type MetadataRoute } from 'next'
 
+import { docsConfig } from '@/config/docs'
+
+
+
 export default function sitemap(): MetadataRoute.Sitemap {
+
+  const baseUrl = 'https://www.extend-ui.com'
+
+  const pages = docsConfig.sidebarNav.map((page) => 
+      page.items.map((item) => {
+        return {
+          url: `${baseUrl}${item.href}`,
+          lastModified: new Date(),
+        }
+      })
+  )
+  
+  
+
+  console.log(pages);
+  
+
+
   return [
     {
-      url: 'https://www.extend-ui.com',
+      url: baseUrl,
       lastModified: new Date(),
       changeFrequency: 'yearly',
       priority: 1,
     },
-    {
-      url: 'https://www.extend-ui.com/docs',
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: 'https://www.extend-ui.com/docs/installation',
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-    {
-      url: 'https://www.extend-ui.com/docs/blocks/pricing-card',
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.5,
-    },
-    {
-      url: 'https://www.extend-ui.com/docs/components/button',
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.5,
-    },
+
   ]
 }

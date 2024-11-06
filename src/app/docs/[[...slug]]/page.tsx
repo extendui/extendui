@@ -8,7 +8,6 @@ import { DocsPager } from '@/components/pager';
 import { DashboardTableOfContents } from '@/components/toc';
 import { badgeVariants } from '@/components/ui/badge';
 import { ScrollArea } from '@/components/ui/scroll-area';
-import { siteConfig } from '@/config/site';
 import { getTableOfContents } from '@/lib/toc';
 import { absoluteUrl, cn } from '@/lib/utils';
 import { allDocs } from 'contentlayer/generated';

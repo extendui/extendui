@@ -12,6 +12,7 @@ import '@/styles/mdx.css';
 import Footer from './_components/footer';
 
 export const metadata: Metadata = {
+  metadataBase: new URL(siteConfig.url),
   title: {
     default: siteConfig.name,
     template: `%s | ${siteConfig.name}`,
@@ -42,7 +43,6 @@ export const metadata: Metadata = {
     shortcut: '/favicon-16x16.png',
     apple: '/apple-touch-icon.png',
   },
-  manifest: '/manifest.webmanifest',
 };
 
 function generateSiteStructure() {
