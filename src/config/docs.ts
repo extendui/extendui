@@ -80,7 +80,6 @@ export const docsConfig: DocsConfig = {
       items: [
         {
           title: 'Cards',
-          href: '/docs/blocks/cards',
           items: [
             {
               title: 'Pricing Card',
