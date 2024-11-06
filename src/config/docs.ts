@@ -32,7 +32,7 @@ export const docsConfig: DocsConfig = {
         },
         {
           title: 'CLI',
-          href: '/docs/#',
+          href: '/docs',
           label: 'soon',
           disabled: true,
           items: [],

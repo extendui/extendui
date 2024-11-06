@@ -33,7 +33,7 @@ export default function HomePage() {
               </FadeUp>
               <FadeUp delay={0.6} duration={1}>
                 <div className="mt-6 flex items-center justify-center gap-3">
-                  <Link href="/docs/" passHref>
+                  <Link href="/docs" passHref>
                     <Button
                       variant="default"
                       className="flex items-center justify-center gap-1"
