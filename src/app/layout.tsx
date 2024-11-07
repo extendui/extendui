@@ -44,6 +44,7 @@ export const metadata: Metadata = {
     apple: '/apple-touch-icon.png',
   },
   manifest: `${siteConfig.url}/site.webmanifest`,
+
 };
 
 function generateSiteStructure() {

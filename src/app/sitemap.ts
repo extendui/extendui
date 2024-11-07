@@ -30,6 +30,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'yearly',
       priority: 1,
     },
-
+ {
+      url: `${baseUrl}/docs/introduction`,
+      lastModified: new Date(),
+    },
   ]
 }

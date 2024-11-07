@@ -6,7 +6,6 @@ export default function manifest(): MetadataRoute.Manifest {
     short_name: 'Extend UI',
     description:
       'Beautifully designed landing page components built with React & Tailwind CSS.',
-
     start_url: '/',
     display: 'standalone',
     background_color: '#fff',
