@@ -62,6 +62,7 @@ function generateSiteStructure() {
       'query-input': 'required name=search_term_string'
     },
     sameAs: [
+      'https://www.extend-ui.com/docs/installation' ,
       'https://github.com/extendui',
       'https://x.com/extendui_pro',
     ]
