@@ -80,21 +80,21 @@ export const docsConfig: DocsConfig = {
       items: [
         {
           title: 'Cards',
-          href: '/docs/blocks/cards/pricing-card',
+          href: '/docs/blocks/pricing-card',
           items: [
             {
               title: 'Pricing Card',
-              href: '/docs/blocks/cards/pricing-card',
+              href: '/docs/blocks/pricing-card',
               items: [],
             },
             {
               title: 'Credit Card',
-              href: '/docs/blocks/cards/credit-card',
+              href: '/docs/blocks/credit-card',
               items: [],
             },
             {
               title: 'File Upload',
-              href: '/docs/blocks/cards/file-upload',
+              href: '/docs/blocks/file-upload',
               items: [],
             },
           ],

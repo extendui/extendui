@@ -21,7 +21,8 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import '@/styles/mdx.css';
 import { useConfig } from '@/hooks/use-config';
 import { cn } from '@/lib/utils';
-import CreditCard from '@/showcase/blocks/cards/credit-card';
+import CreditCard2 from '@/showcase/blocks/cards/credit-card-02';
+import CreditCard from '@/showcase/blocks/cards/credit-card-01';
 import FileUpload from '@/showcase/blocks/cards/file-upload';
 import PricingCard from '@/showcase/blocks/cards/pricing-card';
 import ButtonExample from '@/showcase/components/button/button';
@@ -88,6 +89,7 @@ const components = {
   RotatingButton,
   PricingCard,
   CreditCard,
+  CreditCard2,
   Icons,
   FileUpload,
   ButtonExample,
@@ -199,6 +201,7 @@ const components = {
     />
   ),
   AspectRatio,
+  Spacer: ({ ...props }) => <div className="h-6" {...props} />,
   CodeBlockWrapper: ({ ...props }) => (
     <CodeBlockWrapper className="rounded-md border" {...props} />
   ),

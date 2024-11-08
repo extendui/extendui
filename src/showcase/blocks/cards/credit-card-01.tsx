@@ -33,9 +33,9 @@ export default function CreditCard() {
           onClick={() => setIsCardNumberVisible(!isCardNumberVisible)}
         >
           {isCardNumberVisible ? (
-            <EyeOff className="h-4 w-4" />
+            <EyeOff className="h-4 w-4 text-blue-900" />
           ) : (
-            <Eye className="h-4 w-4" />
+            <Eye className="h-4 w-4 text-blue-900" />
           )}
         </motion.div>
 
