@@ -8,6 +8,12 @@ export const siteConfig = {
     github: 'https://github.com/extendui/extendui',
   },
   keywords: [
+    'Extend UI',
+    'extendui',
+    'extend',
+    'ui',
+    'landing page',
+    'react components',
     'React',
     'Tailwind CSS',
     'Framer Motion',
