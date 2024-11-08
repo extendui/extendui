@@ -4,8 +4,8 @@ import { SendHorizonal } from 'lucide-react';
 import * as React from 'react';
 import { toast } from 'sonner';
 
-import { Button } from '@/components/extendui/button/button';
-import { Input } from '@/components/extendui/input/input';
+import { Button } from '@/components/extendui/button';
+import { Input } from '@/components/extendui/input';
 
 export const InputButton = () => {
   const [value, setValue] = React.useState('');

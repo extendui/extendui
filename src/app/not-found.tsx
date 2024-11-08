@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-import { Button } from '@/components/extendui/button/button';
+import { Button } from '@/components/extendui/button';
 
 export default function NotFound() {
   return (

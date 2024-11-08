@@ -7,7 +7,7 @@ import { type Event, trackEvent } from '@/lib/events';
 import { cn } from '@/lib/utils';
 import { type NpmCommands } from '@/types/unist.type';
 
-import { Button, type ButtonProps } from './extendui/button/button';
+import { Button, type ButtonProps } from './extendui/button';
 import {
   DropdownMenu,
   DropdownMenuContent,

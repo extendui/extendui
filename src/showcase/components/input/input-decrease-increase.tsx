@@ -3,8 +3,8 @@
 import { Minus, Plus } from 'lucide-react';
 import * as React from 'react';
 
-import { Button } from '@/components/extendui/button/button';
-import { Input } from '@/components/extendui/input/input';
+import { Button } from '@/components/extendui/button';
+import { Input } from '@/components/extendui/input';
 
 export const InputDecreaseIncrease = ({ min = 0, max = 100, step = 1 }: { min?: number; max?: number; step?: number }) => {
   const [value, setValue] = React.useState(min);

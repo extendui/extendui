@@ -5,7 +5,7 @@ import * as React from 'react';
 
 import { cn } from '@/lib/utils';
 
-import { Button } from './extendui/button/button';
+import { Button } from './extendui/button';
 import {
   Collapsible,
   CollapsibleContent,

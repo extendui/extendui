@@ -3,7 +3,7 @@
 import { User } from 'lucide-react';
 import * as React from 'react';
 
-import { Input } from '@/components/extendui/input/input';
+import { Input } from '@/components/extendui/input';
 
 interface InputIconRightProps
   extends React.InputHTMLAttributes<HTMLInputElement> { }

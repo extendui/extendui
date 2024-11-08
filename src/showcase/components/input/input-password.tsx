@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 
-import { Input } from '@/components/extendui/input/input';
+import { Input } from '@/components/extendui/input';
 
 interface InputPasswordProps
   extends React.InputHTMLAttributes<HTMLInputElement> { }

@@ -13,7 +13,7 @@ import {
 } from '@/components/ui/popover';
 import { cn } from '@/lib/utils';
 
-import { buttonVariants } from '../extendui/button/button';
+import { buttonVariants } from '../extendui/button';
 
 import { Button } from './button';
 

@@ -4,7 +4,7 @@ import Link from 'next/link';
 import React, { type ReactNode, useEffect, useRef, useState } from 'react';
 
 import { CommandMenu } from '@/components/command-menu';
-import { Button } from '@/components/extendui/button/button';
+import { Button } from '@/components/extendui/button';
 
 import Logo from './logo';
 import MobileSidebar from './mobile-sidebar';

@@ -1,7 +1,7 @@
 import { DividerHorizontalIcon, InfoCircledIcon } from '@radix-ui/react-icons';
 import React from 'react';
 
-import { Button } from './extendui/button/button';
+import { Button } from './extendui/button';
 import { Popover, PopoverContent, PopoverTrigger } from './ui/popover';
 import { ScrollArea } from './ui/scroll-area';
 import {

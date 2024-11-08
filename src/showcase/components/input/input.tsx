@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 
-import { Input } from '@/components/extendui/input/input';
+import { Input } from '@/components/extendui/input';
 import { useEngineSettingsInputStore } from '@/zustand/stores/useEngineSettingsInput';
 
 export default function InputExample() {

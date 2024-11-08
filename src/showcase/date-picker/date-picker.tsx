@@ -12,7 +12,7 @@ import {
 } from "@/components/ui/popover"
 import { cn } from "@/lib/utils"
 
-import { Button } from "../../components/extendui/button/button"
+import { Button } from "../../components/extendui/button"
 
 export function DatePickerExample() {
     const [date, setDate] = React.useState<Date>()
