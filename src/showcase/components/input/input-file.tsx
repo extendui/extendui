@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 
-import { Input } from '@/components/extendedui/input/input';
+import { Input } from '@/components/extendui/input/input';
 
 export default function FileInput() {
 

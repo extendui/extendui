@@ -4,7 +4,7 @@ import { Menu } from 'lucide-react';
 import Link from 'next/link';
 import { useState } from 'react';
 
-import { Button } from '@/components/extendedui/button/button';
+import { Button } from '@/components/extendui/button/button';
 import {
   Sheet,
   SheetContent,

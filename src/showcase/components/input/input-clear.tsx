@@ -3,7 +3,7 @@
 import * as React from 'react';
 import { useState } from 'react';
 
-import { Input } from '@/components/extendedui/input/input';
+import { Input } from '@/components/extendui/input/input';
 
 interface InputClearProps extends React.InputHTMLAttributes<HTMLInputElement> { }
 

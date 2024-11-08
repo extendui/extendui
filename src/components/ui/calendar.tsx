@@ -13,7 +13,7 @@ import {
 } from '@/components/ui/popover';
 import { cn } from '@/lib/utils';
 
-import { buttonVariants } from '../extendedui/button/button';
+import { buttonVariants } from '../extendui/button/button';
 
 import { Button } from './button';
 
@@ -101,8 +101,8 @@ function Calendar({
             buttonVariants({ variant: 'ghost' }),
             'w-full px-2 py-1 text-sm',
             month &&
-              month.getMonth() === index &&
-              'bg-primary text-primary-foreground',
+            month.getMonth() === index &&
+            'bg-primary text-primary-foreground',
           )}
         >
           {format(new Date(2024, index), 'MMM')}
@@ -121,8 +121,8 @@ function Calendar({
             buttonVariants({ variant: 'ghost' }),
             'w-full px-2 py-1 text-sm',
             month &&
-              month.getFullYear() === year &&
-              'bg-primary text-primary-foreground',
+            month.getFullYear() === year &&
+            'bg-primary text-primary-foreground',
           )}
         >
           {year}

@@ -48,7 +48,7 @@ import { InputSelectRight } from '@/showcase/components/input/input-selectRight'
 import InputSettingsEngine from '@/showcase/components/input/settings-engine';
 import { DatePickerExample } from '@/showcase/date-picker/date-picker';
 
-import { Input } from './extendedui/input/input';
+import { Input } from './extendui/input/input';
 import { Icons } from './icons/icons';
 import { PreCustom } from './pre-custom';
 import Preview from './preview';

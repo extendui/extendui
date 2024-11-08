@@ -3,7 +3,7 @@
 import { ChevronRight } from 'lucide-react';
 import { toast } from 'sonner';
 
-import { Button } from '@/components/extendedui/button/button';
+import { Button } from '@/components/extendui/button/button';
 import { getContrastYIQ } from '@/hooks/use-getContrast';
 import { useEngineSettingsStore } from '@/zustand/stores/useEngineSettings';
 

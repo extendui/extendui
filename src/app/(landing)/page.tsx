@@ -2,7 +2,7 @@ import { ChevronRight, Globe, Recycle, Star, Zap } from 'lucide-react';
 import Link from 'next/link';
 
 import ComponentShowcaseCard from '@/components/component-showcase-card';
-import { Button } from '@/components/extendedui/button/button';
+import { Button } from '@/components/extendui/button/button';
 import FadeUp from '@/components/fadeup';
 import { Icons } from '@/components/icons/icons';
 import { Card, CardContent } from '@/components/ui/card';

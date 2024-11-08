@@ -5,7 +5,7 @@ import { docsConfig } from '@/config/docs';
 import { cn } from '@/lib/utils';
 import { type NavItem, type NavItemWithChildren } from '@/types/nav.types';
 
-import { buttonVariants } from './extendedui/button/button';
+import { buttonVariants } from './extendui/button/button';
 
 import type { Doc } from 'contentlayer/generated';
 

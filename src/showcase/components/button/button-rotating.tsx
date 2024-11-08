@@ -8,7 +8,7 @@ import {
 } from 'framer-motion';
 import * as React from 'react';
 
-import { Button, type ButtonProps } from '@/components/extendedui/button/button';
+import { Button, type ButtonProps } from '@/components/extendui/button/button';
 
 export const RotatingButton: React.FC<ButtonProps> = React.forwardRef<
   HTMLButtonElement,
