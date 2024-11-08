@@ -58,7 +58,7 @@ function Tree({ tree, level = 1, activeItem, itemIds }: TreeProps) {
     <div className="relative">
       {level == 1 && (
         <motion.div
-          className="absolute bottom-0 left-0 top-0 w-0.5 origin-top bg-emerald-500"
+          className="absolute bottom-0 left-0 top-0 w-0.5 origin-top bg-accent"
           initial={{ scaleY: 0 }}
           animate={{ scaleY: progress }}
           transition={{ duration: 0.3, ease: 'easeInOut' }}
@@ -81,7 +81,7 @@ function Tree({ tree, level = 1, activeItem, itemIds }: TreeProps) {
                 href={item.url}
                 className={cn(
                   `block border-l-2 border-transparent px-4 py-2 transition-colors`,
-                  isActive ? 'text-emerald-500' : 'text-muted-foreground',
+                  isActive ? 'text-accent' : 'text-muted-foreground',
                 )}
                 onClick={(e) => {
                   e.preventDefault();
@@ -117,12 +117,12 @@ export function DashboardTableOfContents({ toc }: TocProps) {
     () =>
       toc.items
         ? toc.items
-          .flatMap((item) => [
-            item.url,
-            ...(item.items?.map((subItem) => subItem.url) || []),
-          ])
-          .filter(Boolean)
-          .map((id) => id?.split('#')[1])
+            .flatMap((item) => [
+              item.url,
+              ...(item.items?.map((subItem) => subItem.url) || []),
+            ])
+            .filter(Boolean)
+            .map((id) => id?.split('#')[1])
         : [],
     [toc],
   );

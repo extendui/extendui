@@ -5,10 +5,7 @@ import ComponentShowcaseCard from '@/components/component-showcase-card';
 import { Button } from '@/components/extendedui/button/button';
 import FadeUp from '@/components/fadeup';
 import { Icons } from '@/components/icons/icons';
-import {
-  Card,
-  CardContent
-} from '@/components/ui/card';
+import { Card, CardContent } from '@/components/ui/card';
 import ButtonExample from '@/showcase/components/button/button';
 import InputExample from '@/showcase/components/input/input';
 
@@ -79,7 +76,7 @@ export default function HomePage() {
           <FadeUp delay={0.2} duration={0.8}>
             <Card className="border-none shadow-none">
               <CardContent className="flex flex-col items-center space-y-2 p-6">
-                <Recycle className="h-12 w-12 text-emerald-600" />
+                <Recycle className="h-12 w-12 text-accent-foreground" />
                 <h3 className="text-xl font-bold"> Reusable Components</h3>
                 <p className="text-center text-gray-600">
                   Build your UI faster with our pre-built, customizable
@@ -91,7 +88,7 @@ export default function HomePage() {
           <FadeUp delay={0.4} duration={0.8}>
             <Card className="border-none shadow-none">
               <CardContent className="flex flex-col items-center space-y-2 p-6">
-                <Zap className="h-12 w-12 text-emerald-600" />
+                <Zap className="h-12 w-12 text-accent-foreground" />
                 <h3 className="text-xl font-bold"> Performance Optimized</h3>
                 <p className="text-center text-gray-600">
                   Enjoy improved application performance with our optimized
@@ -103,7 +100,7 @@ export default function HomePage() {
           <FadeUp delay={0.6} duration={0.8}>
             <Card className="border-none shadow-none">
               <CardContent className="flex flex-col items-center space-y-2 p-6">
-                <Globe className="h-12 w-12 text-emerald-600" />
+                <Globe className="h-12 w-12 text-accent-foreground" />
                 <h3 className="text-xl font-bold"> Easy Integration</h3>
                 <p className="text-center text-gray-600">
                   Seamlessly integrate with your existing React and Next.js

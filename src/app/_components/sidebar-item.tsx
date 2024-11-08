@@ -58,7 +58,7 @@ export default function SidebarItem({ items, pathname, onClickProp }: Props) {
             >
               {item.title}
               {item.label && (
-                <span className="ml-2 rounded-md bg-emerald-400 px-1.5 py-0.5 text-base leading-none text-white no-underline group-hover:no-underline dark:text-black">
+                <span className="ml-2 rounded-md bg-accent px-1.5 py-0.5 text-base leading-none text-white no-underline group-hover:no-underline dark:text-black">
                   {item.label}
                 </span>
               )}
@@ -94,7 +94,7 @@ export default function SidebarItem({ items, pathname, onClickProp }: Props) {
         >
           {item.title}
           {item.label && (
-            <span className="ml-2 rounded-md bg-emerald-400 px-1.5 py-0.5 text-xs leading-none text-white no-underline group-hover:no-underline dark:text-black">
+            <span className="ml-2 rounded-md bg-accent px-1.5 py-0.5 text-xs leading-none text-white no-underline group-hover:no-underline dark:text-black">
               {item.label}
             </span>
           )}

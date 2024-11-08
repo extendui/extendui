@@ -14,10 +14,10 @@ export default function Logo({ className }: { className?: string }) {
       )}
     >
       <div className="mr-4 flex items-center justify-center gap-2 font-bold">
-        <Blocks className="h-6 w-6 text-emerald-600" />
+        <Blocks className="h-6 w-6 text-accent-foreground" />
         <span className="text-base font-bold">
           Extend
-          <span className="text-emerald-600 dark:text-emerald-500">UI</span>
+          <span className="text-accent-foreground dark:text-accent">UI</span>
         </span>
         <Badge variant="outline" className="bg-muted">
           Alpha

@@ -33,7 +33,7 @@ const buttonVariants = cva(
         shimmer:
           'bg-gradient-to-r from-primary via-primary/50 to-primary bg-[length:200%_100%] text-primary-foreground animate-shimmer transition-all',
         perimeterShimmer:
-          'bg-primary text-primary-foreground relative overflow-hidden before:absolute before:inset-0 before:rounded-md before:border-2 before:border-emerald-500/50 before:bg-transparent before:animate-perimeterShimmer transition-all',
+          'bg-primary text-primary-foreground relative overflow-hidden before:absolute before:inset-0 before:rounded-md before:border-2 before:border-accent/50 before:bg-transparent before:animate-perimeterShimmer transition-all',
         bouncing:
           'bg-primary text-primary-foreground shadow hover:bg-primary/90 transition-all animate-bounce-custom',
       },
@@ -53,7 +53,7 @@ const buttonVariants = cva(
 
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
-  VariantProps<typeof buttonVariants> {
+    VariantProps<typeof buttonVariants> {
   asChild?: boolean;
   loading?: boolean;
   loadingText?: string;

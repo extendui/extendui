@@ -69,7 +69,7 @@ export const PulsatingShadowButton = React.forwardRef<
           variant={'default'}
           ref={ref}
           className={cn(
-            'relative z-10 bg-emerald-600 shadow-none hover:bg-emerald-600/90',
+            'relative z-10 bg-accent-foreground shadow-none hover:bg-accent-foreground/90',
             className,
           )}
           {...props}
