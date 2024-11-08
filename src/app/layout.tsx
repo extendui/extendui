@@ -44,7 +44,6 @@ export const metadata: Metadata = {
     apple: '/apple-touch-icon.png',
   },
   manifest: `${siteConfig.url}/site.webmanifest`,
-
 };
 
 function generateSiteStructure() {
@@ -53,20 +52,21 @@ function generateSiteStructure() {
     '@type': 'WebSite',
     name: 'ExtendUI',
     url: 'https://extend-ui.com',
+    description: siteConfig.description,
     potentialAction: {
       '@type': 'SearchAction',
       target: {
         '@type': 'EntryPoint',
-        urlTemplate: 'https://extend-ui.com/search?q={search_term_string}'
+        urlTemplate: 'https://extend-ui.com/search?q={search_term_string}',
       },
-      'query-input': 'required name=search_term_string'
+      'query-input': 'required name=search_term_string',
     },
     sameAs: [
-      'https://www.extend-ui.com/docs/installation' ,
+      'https://www.extend-ui.com/docs/installation',
       'https://github.com/extendui',
       'https://x.com/extendui_pro',
-    ]
-  }
+    ],
+  };
 }
 
 export default function RootLayout({
@@ -82,7 +82,7 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify(generateSiteStructure())
+            __html: JSON.stringify(generateSiteStructure()),
           }}
         />
       </head>
