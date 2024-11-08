@@ -19,7 +19,6 @@ import type { DropdownMenuTriggerProps } from '@radix-ui/react-dropdown-menu';
 
 type Props = ButtonProps & {
   value: string;
-  src?: string;
   event?: Event['name'];
 };
 

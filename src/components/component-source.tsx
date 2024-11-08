@@ -15,30 +15,15 @@ interface CodeResponse {
 }
 
 type Props = React.HTMLAttributes<HTMLDivElement> & {
-  src?: string;
   children?: React.ReactNode;
 };
 
-const fetchCode = async (src: string): Promise<CodeResponse> => {
-  const response = await fetch(`/api/code?filename=${src}`);
-  if (!response.ok) throw new Error('File not found');
-  return response.json();
-};
-
-export function ComponentSource({ src, children, className, ...props }: Props) {
-  const { data } = useQuery({
-    queryKey: ['code', src],
-    queryFn: () => fetchCode(src!),
-    enabled: !!src,
-    staleTime: 1000 * 60 * 60 * 24,
-  });
-
-  const content = data?.code || (children as string) || '';
+export function ComponentSource({ children, className, ...props }: Props) {
+  const content = (children as string) || '';
 
   return (
     <div className="relative w-full max-w-full overflow-auto">
       <CopyButton
-        src={src}
         value={content}
         className={cn('absolute right-4 top-4 z-10')}
       />

@@ -4,8 +4,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useMDXComponent } from 'next-contentlayer2/hooks';
 import * as React from 'react';
-
-import { Callout } from '@/components/callout';
 import { CodeBlockWrapper } from '@/components/code-block-wrapper';
 import { ComponentSource } from '@/components/component-source';
 import { FrameworkDocs } from '@/components/framework-docs';
@@ -78,7 +76,6 @@ const components = {
   Alert,
   AlertTitle,
   AlertDescription,
-  Callout,
   PropsTable,
   ComponentSource,
   FrameworkDocs,
