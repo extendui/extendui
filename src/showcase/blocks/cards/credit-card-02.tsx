@@ -34,15 +34,26 @@ export default function CreditCard() {
         expiry: '12/24',
     }
 
-    const handleMouseMove = (event: React.MouseEvent<HTMLDivElement>) => {
-        const rect = event.currentTarget.getBoundingClientRect()
+    const handleMove = (clientX: number, clientY: number, currentTarget: HTMLElement) => {
+        const rect = currentTarget.getBoundingClientRect()
         const centerX = rect.left + rect.width / 2
         const centerY = rect.top + rect.height / 2
-        x.set(event.clientX - centerX)
-        y.set(event.clientY - centerY)
+        x.set(clientX - centerX)
+        y.set(clientY - centerY)
     }
 
-    const handleMouseLeave = () => {
+    const handleMouseMove = (event: React.MouseEvent<HTMLDivElement>) => {
+        handleMove(event.clientX, event.clientY, event.currentTarget)
+    }
+
+    const handleTouchMove = (event: React.TouchEvent<HTMLDivElement>) => {
+        // Prevent scrolling while touching the card
+        event.preventDefault()
+        const touch = event.touches[0]
+        handleMove(touch.clientX, touch.clientY, event.currentTarget)
+    }
+
+    const handleLeave = () => {
         x.set(0)
         y.set(0)
     }
@@ -60,9 +71,11 @@ export default function CreditCard() {
                 variants={fadeInVariants}
                 transition={{ duration: CARD_ANIMATION_DURATION }}
                 onMouseMove={handleMouseMove}
-                onMouseLeave={handleMouseLeave}
+                onTouchMove={handleTouchMove}
+                onTouchEnd={handleLeave}
+                onMouseLeave={handleLeave}
                 style={{ perspective: PERSPECTIVE }}
-                className="relative"
+                className="relative touch-none"
             >
                 <motion.div
                     style={{ rotateX, rotateY }}
