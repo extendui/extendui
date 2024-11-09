@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useMDXComponent } from 'next-contentlayer2/hooks';
 import * as React from 'react';
+
 import { CodeBlockWrapper } from '@/components/code-block-wrapper';
 import { ComponentSource } from '@/components/component-source';
 import { FrameworkDocs } from '@/components/framework-docs';
@@ -21,8 +22,8 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import '@/styles/mdx.css';
 import { useConfig } from '@/hooks/use-config';
 import { cn } from '@/lib/utils';
-import CreditCard2 from '@/showcase/blocks/cards/credit-card-02';
 import CreditCard from '@/showcase/blocks/cards/credit-card-01';
+import CreditCard2 from '@/showcase/blocks/cards/credit-card-02';
 import FileUpload from '@/showcase/blocks/cards/file-upload';
 import PricingCard from '@/showcase/blocks/cards/pricing-card';
 import ButtonExample from '@/showcase/components/button/button';

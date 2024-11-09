@@ -1,8 +1,8 @@
 'use client'
 
-import { useState } from 'react'
 import { motion, useMotionValue, useTransform } from 'framer-motion'
 import { Eye, EyeOff } from 'lucide-react'
+import { useState } from 'react'
 
 const ROTATION_RANGE = 5
 const PERSPECTIVE = 400

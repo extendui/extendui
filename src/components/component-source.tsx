@@ -1,6 +1,5 @@
 'use client';
 
-import { useQuery } from '@tanstack/react-query';
 import * as React from 'react';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { nightOwl } from 'react-syntax-highlighter/dist/esm/styles/prism';
@@ -9,10 +8,6 @@ import { cn } from '@/lib/utils';
 
 import { CodeBlockWrapper } from './code-block-wrapper';
 import { CopyButton } from './copy-button';
-
-interface CodeResponse {
-  code: string;
-}
 
 type Props = React.HTMLAttributes<HTMLDivElement> & {
   children?: React.ReactNode;

@@ -1,11 +1,12 @@
 'use client'
 
-import React, { useState, useCallback, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { X, Check, Upload, AlertCircle, File, Trash2, Loader2 } from 'lucide-react'
+import { X, Upload, AlertCircle, File, Trash2 } from 'lucide-react'
+import React, { useState, useCallback, useRef } from 'react'
+
 import { Alert, AlertDescription } from '@/components/ui/alert'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 
 type FileUploadProps = {
   maxSizeInMB?: number
@@ -67,7 +68,7 @@ export default function FileUpload({
         color: 'bg-gray-50'
       }
     }
-    return types[fileType as FileType] || types.default
+    return types[fileType] || types.default
   }
 
   const simulateUpload = useCallback((file: File) => {
