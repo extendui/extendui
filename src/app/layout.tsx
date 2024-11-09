@@ -1,7 +1,8 @@
 import { GeistSans } from 'geist/font/sans';
 import { type Metadata } from 'next';
 import { Toaster } from 'sonner';
-
+import { SpeedInsights } from '@vercel/speed-insights/next';
+import { Analytics } from "@vercel/analytics/react"
 import { siteConfig } from '@/config/site';
 import { ReactQueryProvider } from '@/providers/reactQueryProvider';
 import { ThemeProvider } from '@/providers/themeProvider';
@@ -91,6 +92,8 @@ export default function RootLayout({
           <ThemeProvider>
             {children}
             <Footer />
+            <Analytics />
+            <SpeedInsights />
           </ThemeProvider>
           <Toaster richColors />
         </ReactQueryProvider>
