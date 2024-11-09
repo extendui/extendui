@@ -43,7 +43,6 @@ export function PreCustom({
         {__rawString__ && (
           <CopyButton
             value={__rawString__}
-            src={__src__}
             event={__event__}
             className={cn(
               'absolute right-4 top-4 z-10',
