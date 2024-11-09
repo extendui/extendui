@@ -24,7 +24,7 @@ import { useConfig } from '@/hooks/use-config';
 import { cn } from '@/lib/utils';
 import CreditCard from '@/showcase/blocks/cards/credit-card-01';
 import CreditCard2 from '@/showcase/blocks/cards/credit-card-02';
-import FileUpload from '@/showcase/blocks/cards/file-upload';
+import FileUpload from '@/showcase/blocks/file-upload';
 import PricingCard from '@/showcase/blocks/cards/pricing-card';
 import ButtonExample from '@/showcase/components/button/button';
 import { Rotating3DButton } from '@/showcase/components/button/button-3d-rotating';
