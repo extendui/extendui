@@ -115,8 +115,11 @@ const InputComponent = React.forwardRef<HTMLInputElement, InputRootProps>(
       hasClearButton: hasNestedElementOfType(children, [InputClearButton])
     }), [children]);
 
+    const generatedId = React.useId();
+    const inputId = id || generatedId;
+
     const contextValue: InputContextType = {
-      id: id || '',
+      id: inputId,
       disabled,
       error,
       isFocused,
@@ -167,6 +170,7 @@ const InputComponent = React.forwardRef<HTMLInputElement, InputRootProps>(
         <div className="relative">
           {children}
           <input
+            id={inputId}
             ref={ref}
             type={type === 'password' && showPassword ? 'text' : type}
             className={inputClassName}
