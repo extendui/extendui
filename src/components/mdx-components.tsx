@@ -24,8 +24,9 @@ import { useConfig } from '@/hooks/use-config';
 import { cn } from '@/lib/utils';
 import CreditCard from '@/showcase/blocks/cards/credit-card-01';
 import CreditCard2 from '@/showcase/blocks/cards/credit-card-02';
-import FileUpload from '@/showcase/blocks/cards/file-upload';
-import PricingCard from '@/showcase/blocks/pricing-card';
+import PricingCard from '@/showcase/blocks/cards/pricing-card';
+import FileUpload from '@/showcase/blocks/file-upload';
+import SignIn from '@/showcase/blocks/sign-in';
 import ButtonExample from '@/showcase/components/button/button';
 import { Rotating3DButton } from '@/showcase/components/button/button-3d-rotating';
 import { BouncingButton } from '@/showcase/components/button/button-bouncing';
@@ -93,6 +94,7 @@ const components = {
   CreditCard2,
   Icons,
   FileUpload,
+  SignIn,
   ButtonExample,
   ButtonSettingsEngine,
   InputExample,

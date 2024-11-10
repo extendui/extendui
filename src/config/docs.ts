@@ -99,6 +99,11 @@ export const docsConfig: DocsConfig = {
           href: '/docs/blocks/file-upload',
           items: [],
         },
+        {
+          title: 'Sign In',
+          href: '/docs/blocks/sign-in',
+          items: [],
+        },
       ],
     },
   ],
