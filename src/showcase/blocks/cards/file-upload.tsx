@@ -6,8 +6,8 @@ import React, { useState, useCallback, useRef } from 'react'
 import { toast } from 'sonner'
 
 import { Button } from '@/components/extendui/button'
+import { Input } from '@/components/extendui/input'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { ScalingButton } from '@/showcase/components/button/button-scaling'
 
 type FileUploadProps = {
   maxSizeInMB?: number
@@ -187,16 +187,16 @@ export default function FileUpload({
 
   const renderUploadArea = () => (
     <div className="text-center">
-      <Upload className="mx-auto h-8 w-8 sm:h-12 sm:w-12 text-gray-400 dark:text-gray-500" />
+      <Upload className="mx-auto h-8 w-8 sm:h-12 sm:w-12 text-muted-foreground" />
       <div className="mt-4">
-        <ScalingButton
+        <Button
           variant="secondary"
           onClick={() => fileInputRef.current?.click()}
-          className="mx-auto text-xs sm:text-sm dark:bg-gray-700 dark:text-white"
+          className="mx-auto text-xs sm:text-sm"
         >
           Select File
-        </ScalingButton>
-        <input
+        </Button>
+        <Input
           ref={fileInputRef}
           type="file"
           className="hidden"
@@ -204,10 +204,10 @@ export default function FileUpload({
           onChange={(e) => handleFiles(e.target.files)}
           multiple={multiple}
         />
-        <p className="mt-2 text-xs sm:text-sm text-gray-600 dark:text-gray-400">
+        <p className="mt-2 text-xs sm:text-sm text-muted-foreground">
           or drop file{multiple ? 's' : ''} here
         </p>
-        <p className="mt-1 text-xs text-gray-500 dark:text-gray-400">
+        <p className="mt-1 text-xs text-muted-foreground">
           {acceptedFileTypes.join(', ')} up to {maxSizeInMB}MB
         </p>
       </div>
@@ -221,35 +221,35 @@ export default function FileUpload({
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3 }}
     >
-      <div className="flex items-center justify-between p-2 sm:p-3 bg-blue-50 dark:bg-blue-900 rounded-lg overflow-hidden">
+      <div className="flex items-center justify-between p-2 sm:p-3 bg-muted rounded-lg overflow-hidden">
         <div className="flex items-center space-x-2 sm:space-x-3 min-w-0 flex-1">
-          <div className={`flex-shrink-0 flex size-6 sm:size-8 p-1 sm:p-2 items-center justify-center rounded ${getFileTypeDetails(currentUpload!.file.type).color} ${getFileTypeDetails(currentUpload!.file.type).darkColor}`}>
+          <div className={`flex-shrink-0 flex size-6 sm:size-8 p-1 sm:p-2 items-center justify-center rounded bg-background`}>
             {getFileTypeDetails(currentUpload!.file.type).icon}
           </div>
           <div className="min-w-0 flex-1">
-            <h3 className="text-xs sm:text-sm font-medium truncate dark:text-white">{currentUpload!.file.name}</h3>
-            <p className="text-xs text-gray-500 dark:text-gray-400 truncate">
+            <h3 className="text-xs sm:text-sm font-medium truncate">{currentUpload!.file.name}</h3>
+            <p className="text-xs text-muted-foreground truncate">
               {formatFileSize(currentUpload!.file.size)}
             </p>
           </div>
         </div>
         <div className="flex items-center space-x-2 flex-shrink-0 ml-2">
-          <div className="text-xs text-blue-600 dark:text-blue-400 font-medium whitespace-nowrap w-12 text-right">
+          <div className="text-xs font-medium whitespace-nowrap w-12 text-right">
             {Math.round(progress)}%
           </div>
           <Button
             variant="ghost"
             size="icon"
             onClick={handleCancel}
-            className="text-gray-400 hover:text-gray-600 dark:text-gray-500 dark:hover:text-gray-400"
+            className="text-muted-foreground hover:text-foreground"
           >
             <X className="size-4" />
           </Button>
         </div>
       </div>
-      <div className="mt-2 h-1 w-full bg-blue-100 dark:bg-blue-800 rounded-full overflow-hidden">
+      <div className="mt-2 h-1 w-full bg-secondary rounded-full overflow-hidden">
         <motion.div
-          className="h-full bg-blue-500 dark:bg-blue-400"
+          className="h-full bg-primary"
           initial={{ width: 0 }}
           animate={{ width: `${progress}%` }}
           transition={{ duration: 0.3 }}
@@ -266,10 +266,10 @@ export default function FileUpload({
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -20 }}
         >
-          <Card className="dark:bg-gray-800">
+          <Card>
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-base sm:text-lg font-semibold dark:text-white">Uploaded Files</CardTitle>
-              <span className="text-xs sm:text-sm text-gray-500 dark:text-gray-400">
+              <CardTitle className="text-base sm:text-lg font-semibold">Uploaded Files</CardTitle>
+              <span className="text-xs sm:text-sm text-muted-foreground">
                 {uploadedFiles.length} {uploadedFiles.length === 1 ? 'file' : 'files'}
               </span>
             </CardHeader>
@@ -281,14 +281,14 @@ export default function FileUpload({
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: -20 }}
-                      className="flex items-center space-x-2 p-2 rounded-lg bg-gray-50 dark:bg-gray-700"
+                      className="flex items-center space-x-2 p-2 rounded-lg bg-muted"
                     >
-                      <div className={`flex-shrink-0 flex size-6 sm:size-8 p-1 sm:p-2 items-center justify-center rounded ${getFileTypeDetails(file.type).color} ${getFileTypeDetails(file.type).darkColor}`}>
+                      <div className={`flex-shrink-0 flex size-6 sm:size-8 p-1 sm:p-2 items-center justify-center rounded bg-background`}>
                         {getFileTypeDetails(file.type).icon}
                       </div>
                       <div className="flex-1 min-w-0 max-w-[calc(100%-3rem)]">
-                        <h3 className="text-xs sm:text-sm font-medium truncate dark:text-white">{file.name}</h3>
-                        <p className="text-xs text-gray-500 dark:text-gray-400 truncate">
+                        <h3 className="text-xs sm:text-sm font-medium truncate">{file.name}</h3>
+                        <p className="text-xs text-muted-foreground truncate">
                           {formatFileSize(file.size)}
                         </p>
                       </div>
@@ -296,7 +296,7 @@ export default function FileUpload({
                         variant="ghost"
                         size="icon"
                         onClick={() => handleDeleteFile(file.id)}
-                        className="text-red-500 hover:bg-red-500/60 hover:bg-red-50 dark:text-red-400 dark:hover:text-white dark:hover:bg-red-500/60"
+                        className="text-destructive hover:bg-destructive hover:text-destructive-foreground"
                       >
                         <Trash2 className="size-4" />
                       </Button>
@@ -313,14 +313,14 @@ export default function FileUpload({
 
   return (
     <div className="w-full max-w-md mx-auto space-y-4 px-4 sm:px-0">
-      <Card className="dark:bg-gray-800">
+      <Card>
         <CardHeader>
-          <CardTitle className="text-base sm:text-lg font-semibold dark:text-white">Upload Files</CardTitle>
+          <CardTitle className="text-base sm:text-lg font-semibold">Upload Files</CardTitle>
         </CardHeader>
         <CardContent className='w-full mx-auto'>
           <div
-            className={`relative border-2 ${isDragging ? 'border-blue-500 bg-blue-50 dark:bg-blue-900' : 'border-dashed border-gray-300 dark:border-gray-600'
-              } rounded-lg p-4 sm:p-6 transition-colors duration-200 ease-in-out hover:border-gray-400 dark:hover:border-gray-500`}
+            className={`relative border-2 ${isDragging ? 'border-primary bg-primary/10' : 'border-dashed border-muted-foreground/50'
+              } rounded-lg p-4 sm:p-6 transition-colors duration-200 ease-in-out hover:border-muted-foreground`}
             onDragEnter={handleDragEvents}
             onDragLeave={handleDragEvents}
             onDragOver={handleDragEvents}
