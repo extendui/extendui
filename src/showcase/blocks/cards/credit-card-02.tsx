@@ -51,7 +51,6 @@ export default function CreditCard() {
   };
 
   const handleTouchMove = (event: React.TouchEvent<HTMLDivElement>) => {
-    // Prevent scrolling while touching the card
     event.preventDefault();
     const touch = event.touches[0];
     handleMove(touch.clientX, touch.clientY, event.currentTarget);

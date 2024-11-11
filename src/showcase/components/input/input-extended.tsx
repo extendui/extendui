@@ -24,6 +24,7 @@ export const InputExtended = React.forwardRef<
       onChange={(e) => setValue(e.target.value)}
       type="text"
       required={true}
+      variant={'flushedfilled'}
       {...props}
     >
       <Input.Group>

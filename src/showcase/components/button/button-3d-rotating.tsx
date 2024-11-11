@@ -5,21 +5,50 @@ import * as React from 'react';
 
 import { Button, type ButtonProps } from '@/components/extendui/button';
 
+const ROTATION_RANGE = 20;
+
+const springTransition = {
+  type: 'spring',
+  stiffness: 300,
+  damping: 20,
+};
+
 export const Rotating3DButton: React.FC<ButtonProps> = React.forwardRef<
   HTMLButtonElement,
   ButtonProps
 >(({ children, ...props }, ref) => {
   const x = useMotionValue(0);
-  const rotateY = useTransform(x, [-50, 50], [-15, 15]);
+  const y = useMotionValue(0);
 
-  const handleMouseMove = (event: React.MouseEvent<HTMLDivElement>) => {
-    const rect = event.currentTarget.getBoundingClientRect();
+  const rotateX = useTransform(y, [-50, 50], [ROTATION_RANGE, -ROTATION_RANGE]);
+  const rotateY = useTransform(x, [-50, 50], [-ROTATION_RANGE, ROTATION_RANGE]);
+
+
+  const handleMove = (
+    clientX: number,
+    clientY: number,
+    currentTarget: HTMLElement,
+  ) => {
+    const rect = currentTarget.getBoundingClientRect();
     const centerX = rect.left + rect.width / 2;
-    x.set(event.clientX - centerX);
+    const centerY = rect.top + rect.height / 2;
+    x.set(clientX - centerX);
+    y.set(clientY - centerY);
   };
 
-  const handleMouseLeave = () => {
+  const handleMouseMove = (event: React.MouseEvent<HTMLDivElement>) => {
+    handleMove(event.clientX, event.clientY, event.currentTarget);
+  };
+
+  const handleTouchMove = (event: React.TouchEvent<HTMLDivElement>) => {
+    event.preventDefault();
+    const touch = event.touches[0];
+    handleMove(touch.clientX, touch.clientY, event.currentTarget);
+  };
+
+  const handleLeave = () => {
     x.set(0);
+    y.set(0);
   };
 
   return (
@@ -29,13 +58,16 @@ export const Rotating3DButton: React.FC<ButtonProps> = React.forwardRef<
         display: 'inline-block',
       }}
       onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={handleLeave}
+      onMouseLeave={handleLeave}
     >
       <motion.div
         style={{
+          rotateX,
           rotateY,
         }}
-        transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+        transition={springTransition}
       >
         <Button ref={ref} {...props}>
           {children}
