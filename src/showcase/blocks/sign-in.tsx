@@ -43,9 +43,8 @@ export default function SignIn() {
   const passwordValue = watch('password')
 
   const onSubmit = (data: SignInValues) => {
-    console.log(data)
-    toast.success('Sign In Attempted')
-  }
+    toast.success(<pre>{JSON.stringify(data, null, 2)}</pre>);
+  };
 
   return (
     <Card className="mx-auto max-w-sm">
@@ -56,7 +55,7 @@ export default function SignIn() {
         </CardDescription>
       </CardHeader>
       <CardContent>
-        <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+        <form onSubmit={handleSubmit(onSubmit)} className="space-y-4" autoComplete='off'>
           <div className="space-y-2">
             <Input
               id="email"
