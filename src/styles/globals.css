@@ -25,6 +25,7 @@
     --ring: 240 5% 64.9%;
     --radius: 0.5rem;
   }
+
   .dark {
     --background: 0 0% 3.9%;
     --foreground: 0 0% 98%;
@@ -47,11 +48,13 @@
     --ring: 240 4.9% 83.9%;
   }
 }
+
 @layer base {
   * {
     @apply border-border;
     scrollbar-width: auto;
   }
+
   body {
     @apply bg-background text-foreground;
   }
@@ -62,6 +65,7 @@
     width: 10px;
     @apply transition-all duration-1000 ease-in-out;
   }
+
   /* Track */
   ::-webkit-scrollbar-track {
     @apply bg-gray-100 dark:bg-neutral-800;
@@ -78,12 +82,14 @@
   }
 
   .sidebar {
-    @apply transition-all duration-1000 ease-in-out; /* Slow down the transition */
+    @apply transition-all duration-1000 ease-in-out;
+    /* Slow down the transition */
   }
 
   .sidebar::-webkit-scrollbar {
     width: 0;
-    @apply transition-all duration-1000 ease-in-out; /* Slow down the transition */
+    @apply transition-all duration-1000 ease-in-out;
+    /* Slow down the transition */
   }
 
   .sidebar:hover::-webkit-scrollbar {
@@ -114,16 +120,17 @@
     background-position: 10;
     background-repeat: repeat;
   }
+
   .mask {
     mask-image: radial-gradient(circle 800px at center, white, transparent);
   }
+
   .gradient {
-    background-image: radial-gradient(
-      circle 300px at center,
-      #34d399,
-      hsla(0, 0%, 0%, 0)
-    );
+    background-image: radial-gradient(circle 300px at center,
+        #34d399,
+        hsla(0, 0%, 0%, 0));
   }
+
   .step {
     counter-increment: step;
   }
@@ -142,26 +149,36 @@
     animation: perimeterShimmer 4s linear infinite;
   }
 
+  input[type="date"]::-webkit-calendar-picker-indicator {
+    display: none;
+    -webkit-appearance: none;
+  }
+
   @keyframes shimmer {
     0% {
       background-position: 200% 0;
     }
+
     100% {
       background-position: -200% 0;
     }
   }
 
   @keyframes perimeterShimmer {
+
     0%,
     100% {
       clip-path: inset(0 0 calc(100% - 2px) 0);
     }
+
     25% {
       clip-path: inset(0 0 0 calc(100% - 2px));
     }
+
     50% {
       clip-path: inset(calc(100% - 2px) 0 0 0);
     }
+
     75% {
       clip-path: inset(0 calc(100% - 2px) 0 0);
     }

@@ -37,6 +37,7 @@ type InputContextType = {
   value?: string | number | readonly string[];
   maxLength?: number;
   variant?: VariantProps<typeof inputVariants>['variant'];
+  type?: React.InputHTMLAttributes<HTMLInputElement>['type'];
   elementChecks: {
     hasLeftIcon: boolean;
     hasRightIcon: boolean;
@@ -129,6 +130,7 @@ const InputComponent = React.forwardRef<HTMLInputElement, InputRootProps>(
       variant,
       required,
       elementChecks,
+      type,
       onFocus: handleFocus,
       onBlur: handleBlur,
       setShowPassword,
@@ -233,13 +235,14 @@ const InputLabel = React.forwardRef<
     error,
     variant,
     elementChecks,
+    type
   } = useInputContext();
 
   const labelClassName = cn(
     'absolute top-2 text-sm text-muted-foreground transition-all duration-200 ease-in-out cursor-text border-transparent',
     elementChecks.hasLeftIcon ? 'left-9' : 'left-3',
     isFocused && 'font-medium',
-    (isFocused || value) && [
+    (isFocused || value || (type === 'date')) && [
       '-translate-y-[calc(85%)] scale-[0.85] bg-background px-1 text-primary',
       variant === 'flushed' || variant === 'flushedfilled'
         ? `-left-1.5 pl-0`

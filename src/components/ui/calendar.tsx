@@ -119,7 +119,7 @@ function Calendar({
           onClick={() => handleYearSelect(year)}
           className={cn(
             buttonVariants({ variant: 'ghost' }),
-            'w-full px-2 py-1 text-sm',
+            'w-full py-1 text-sm',
             month &&
             month.getFullYear() === year &&
             'bg-primary text-primary-foreground',

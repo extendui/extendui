@@ -34,6 +34,7 @@ import { PulsatingShadowButton } from '@/showcase/components/button/button-pulsa
 import { RotatingButton } from '@/showcase/components/button/button-rotating';
 import { ScalingButton } from '@/showcase/components/button/button-scaling';
 import ButtonSettingsEngine from '@/showcase/components/button/settings-engine';
+import DatePickerExample from '@/showcase/components/date-picker/date-picker';
 import InputExample from '@/showcase/components/input/input';
 import { InputButton } from '@/showcase/components/input/input-button';
 import { InputClear } from '@/showcase/components/input/input-clear';
@@ -47,7 +48,7 @@ import { InputPassword } from '@/showcase/components/input/input-password';
 import { InputSelectLeft } from '@/showcase/components/input/input-selectLeft';
 import { InputSelectRight } from '@/showcase/components/input/input-selectRight';
 import InputSettingsEngine from '@/showcase/components/input/settings-engine';
-import { DatePickerExample } from '@/showcase/date-picker/date-picker';
+
 
 import { Input } from './extendui/input';
 import { Icons } from './icons/icons';
