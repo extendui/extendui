@@ -54,6 +54,7 @@ export const RotatingButton: React.FC<ButtonProps> = React.forwardRef<
       style={{
         display: 'inline-block',
       }}
+      className='touch-none'
       onMouseMove={handleMouseMove}
       onTouchMove={handleTouchMove}
       onTouchEnd={handleLeave}
