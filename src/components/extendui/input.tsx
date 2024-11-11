@@ -45,6 +45,7 @@ type InputContextType = {
     hasPassword: boolean;
     hasClearButton: boolean
   }
+  placeholder?: string
   onFocus: (e: React.FocusEvent<HTMLInputElement>) => void;
   onBlur: (e: React.FocusEvent<HTMLInputElement>) => void;
   setShowPassword: (show: boolean) => void;
@@ -87,6 +88,7 @@ const InputComponent = React.forwardRef<HTMLInputElement, InputRootProps>(
       value,
       maxLength,
       children,
+      placeholder,
       onFocus: propOnFocus,
       onBlur: propOnBlur,
       ...inputProps
@@ -131,6 +133,7 @@ const InputComponent = React.forwardRef<HTMLInputElement, InputRootProps>(
       required,
       elementChecks,
       type,
+      placeholder,
       onFocus: handleFocus,
       onBlur: handleBlur,
       setShowPassword,
@@ -148,6 +151,7 @@ const InputComponent = React.forwardRef<HTMLInputElement, InputRootProps>(
 
     const getLabelPadding = React.useCallback(() => {
       if (elementChecks.hasClearButton && hasValue && elementChecks.hasPassword && maxLength) return 'pe-24';
+      if (elementChecks.hasClearButton && hasValue && elementChecks.hasPassword) return 'pe-20';
       if ((elementChecks.hasPassword || elementChecks.hasRightIcon) && maxLength) return 'pe-20';
       if (elementChecks.hasClearButton && hasValue && maxLength) return 'pe-20';
       return 'pe-8';
@@ -156,7 +160,7 @@ const InputComponent = React.forwardRef<HTMLInputElement, InputRootProps>(
     const inputClassName = cn(
       inputVariants({ variant }),
       elementChecks.hasLeftIcon ? 'pl-9' : 'px-3',
-      elementChecks.hasLabel && 'placeholder:text-transparent',
+      elementChecks.hasLabel,
       value && variant === 'flushedfilled' && 'bg-secondary',
       error && 'border-red-500',
       error &&
@@ -166,7 +170,7 @@ const InputComponent = React.forwardRef<HTMLInputElement, InputRootProps>(
       getLabelPadding(),
       className,
     );
-
+    console.log(placeholder)
     return (
       <InputContext.Provider value={contextValue}>
         <div className="relative">
@@ -181,6 +185,7 @@ const InputComponent = React.forwardRef<HTMLInputElement, InputRootProps>(
             onBlur={handleBlur}
             value={value}
             maxLength={maxLength}
+            placeholder={placeholder}
             {...inputProps}
           />
           {maxLength && (
@@ -235,18 +240,19 @@ const InputLabel = React.forwardRef<
     error,
     variant,
     elementChecks,
-    type
+    type,
+    placeholder,
   } = useInputContext();
 
   const labelClassName = cn(
     'absolute top-2 text-sm text-muted-foreground transition-all duration-200 ease-in-out cursor-text border-transparent',
     elementChecks.hasLeftIcon ? 'left-9' : 'left-3',
     isFocused && 'font-medium',
-    (isFocused || value || (type === 'date')) && [
-      '-translate-y-[calc(85%)] scale-[0.85] bg-background px-1 text-primary',
+    (isFocused || value || (type === 'date') || placeholder) && [
+      '-top-2.5  bg-background px-1 text-primary text-xs',
       variant === 'flushed' || variant === 'flushedfilled'
-        ? `-left-1.5 pl-0`
-        : `left-1.5 rounded-md border-2`,
+        ? `-left-[7px] pl-0`
+        : `left-[7px] rounded-md border-2`,
       (variant === 'flushed' ||
         variant === 'filled' ||
         variant === 'flushedfilled') &&
