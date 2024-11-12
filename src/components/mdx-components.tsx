@@ -35,6 +35,7 @@ import { RotatingButton } from '@/showcase/components/button/button-rotating';
 import { ScalingButton } from '@/showcase/components/button/button-scaling';
 import ButtonSettingsEngine from '@/showcase/components/button/settings-engine';
 import DatePickerExample from '@/showcase/components/date-picker/date-picker';
+import DatePickerSettingsEngine from '@/showcase/components/date-picker/settings-engine';
 import InputExample from '@/showcase/components/input/input';
 import { InputButton } from '@/showcase/components/input/input-button';
 import { InputClear } from '@/showcase/components/input/input-clear';
@@ -98,6 +99,7 @@ const components = {
   SignIn,
   ButtonExample,
   ButtonSettingsEngine,
+  DatePickerSettingsEngine,
   InputExample,
   InputSettingsEngine,
   Input,

@@ -245,18 +245,14 @@ const InputLabel = React.forwardRef<
   } = useInputContext();
 
   const labelClassName = cn(
-    'absolute top-2 text-sm text-muted-foreground transition-all duration-200 ease-in-out cursor-text border-transparent',
+    'absolute top-2 text-sm text-muted-foreground transition-all duration-200 ease-in-out cursor-text border-transparent ',
     elementChecks.hasLeftIcon ? 'left-9' : 'left-3',
     isFocused && 'font-medium',
     (isFocused || value || (type === 'date') || placeholder) && [
-      '-top-2.5  bg-background px-1 text-primary text-xs',
+      '-top-2.5  bg-background px-1 text-primary text-xs rounded-md',
       variant === 'flushed' || variant === 'flushedfilled'
-        ? `-left-[7px] pl-0`
-        : `left-[7px] rounded-md border-2`,
-      (variant === 'flushed' ||
-        variant === 'filled' ||
-        variant === 'flushedfilled') &&
-      '-translate-y-[calc(95%)]',
+        ? `-left-[7px] pl-2`
+        : `left-[7px] border-2`,
     ],
     error && 'text-red-500',
     disabled && 'opacity-50 cursor-not-allowed',

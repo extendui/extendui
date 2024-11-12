@@ -232,18 +232,14 @@ const InputLabel = React.forwardRef<
   } = useInputContext();
 
   const labelClassName = cn(
-    'absolute top-2 text-sm text-muted-foreground transition-all duration-200 ease-in-out cursor-text border-transparent',
+    'absolute top-2 left-1.5 text-sm text-muted-foreground transition-all duration-200 ease-in-out cursor-text border-transparent',
     elementChecks.hasLeftIcon ? 'left-9' : 'left-3',
     isFocused && 'font-medium',
     (isFocused || value) && [
-      '-translate-y-[calc(85%)] scale-[0.85] bg-background px-1 text-primary',
+      'bg-background px-1 text-primary',
       variant === 'flushed' || variant === 'flushedfilled'
-        ? `-left-1.5 pl-0`
-        : `left-1.5 rounded-md border-2`,
-      (variant === 'flushed' ||
-        variant === 'filled' ||
-        variant === 'flushedfilled') &&
-      '-translate-y-[calc(95%)]',
+        ? ``
+        : `rounded-md border-2`,
     ],
     error && 'text-red-500',
     disabled && 'opacity-50 cursor-not-allowed',

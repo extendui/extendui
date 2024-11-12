@@ -12,12 +12,17 @@ import {
     PopoverTrigger,
 } from "@/components/ui/popover"
 import { cn } from "@/lib/utils"
+import { useEngineSettingsDatePickerStore } from "@/zustand/stores/useEngineSettingsDatePicker"
 
 export default function DatePickerExample() {
     const [date, setDate] = React.useState<Date>()
     const [month, setMonth] = React.useState<Date>(new Date())
     const [inputValue, setInputValue] = React.useState('')
     const [isOpen, setIsOpen] = React.useState(false)
+
+    const variant = useEngineSettingsDatePickerStore((state) => state.variant)
+    const disabled = useEngineSettingsDatePickerStore((state) => state.disabled)
+    const error = useEngineSettingsDatePickerStore((state) => state.error)
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setInputValue(e.target.value);
@@ -44,8 +49,11 @@ export default function DatePickerExample() {
         <Popover open={isOpen} onOpenChange={setIsOpen}>
             <Input
                 type="date"
-                variant={"default"}
+                variant={variant}
+                disabled={disabled}
                 value={inputValue}
+                error={error}
+                textError="Date is required"
                 onChange={handleInputChange}
                 placeholder="yyyy-MM-dd"
                 className={cn(!date && "text-muted-foreground", "w-[180px]")}
