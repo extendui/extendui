@@ -25,7 +25,6 @@ export default function PricingTable() {
       description:
         'Get bespoke components designed and developed to fit your specific needs. Ideal for businesses wanting to enhance their existing websites.',
       buttonText: 'Contact Us',
-      href: 'mailto:contact@extend-ui.com',
       features: [
         'As many components as possible in a month',
         'React / Next.js / Tailwind CSS code',
@@ -46,7 +45,6 @@ export default function PricingTable() {
       description:
         'Full-page designs and development for a complete web presence. Perfect for startups and small businesses launching their online platform.',
       buttonText: 'Contact Us',
-      href: 'mailto:contact@extend-ui.com',
       features: [
         'One request / page at a time',
         'React / Next.js / Tailwind CSS code',
@@ -69,7 +67,6 @@ export default function PricingTable() {
       description:
         'Comprehensive website development including advanced features and integrations. Ideal for established businesses seeking a robust online solution.',
       buttonText: 'Contact Us',
-      href: 'mailto:contact@extend-ui.com',
       features: [
         'Multi-page landing page website',
         'Web Apps and SaaS Development',

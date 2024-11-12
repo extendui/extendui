@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { Check } from 'lucide-react';
 import Link from 'next/link';
 
+import ContactDialog from '../contact-dialog';
 import { Card, CardContent, CardFooter, CardHeader } from '../ui/card';
 
 import { Button } from './button';
@@ -12,7 +13,7 @@ type PricingPlan = {
   title: string;
   description: string;
   buttonText: string;
-  href: string;
+  href?: string;
   features: string[];
   price: string;
   interval: string;
@@ -107,7 +108,11 @@ export default function PricingCard({ plan }: { plan: PricingPlan }) {
             variant={plan.featured ? 'default' : 'outline'}
             asChild
           >
-            <Link href={plan.href}>{plan.buttonText}</Link>
+            {plan.href ? (
+              <Link href={plan.href}>{plan.buttonText}</Link>
+            ) : (
+              <ContactDialog />
+            )}
           </Button>
         </CardFooter>
       </Card>

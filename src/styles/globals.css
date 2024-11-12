@@ -124,6 +124,9 @@
   .mask {
     mask-image: radial-gradient(circle 800px at center, white, transparent);
   }
+   .input-error {
+    @apply ml-1 mt-2 text-sm text-rose-400;
+  }
 
   .gradient {
     background-image: radial-gradient(circle 300px at center,
