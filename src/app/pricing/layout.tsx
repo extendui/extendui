@@ -4,7 +4,7 @@ import { Icons } from '@/components/icons/icons';
 
 import { Navbar } from '../_components/navbar';
 
-export default function LandingLayout({
+export default function PricingLayout({
   children,
 }: {
   children: React.ReactNode;

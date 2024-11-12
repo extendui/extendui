@@ -3,6 +3,7 @@ import { SpeedInsights } from '@vercel/speed-insights/next';
 import { GeistSans } from 'geist/font/sans';
 import { type Metadata } from 'next';
 import { Toaster } from 'sonner';
+
 import { siteConfig } from '@/config/site';
 import { ReactQueryProvider } from '@/providers/reactQueryProvider';
 import { ThemeProvider } from '@/providers/themeProvider';
