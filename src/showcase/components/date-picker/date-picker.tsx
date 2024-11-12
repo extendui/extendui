@@ -48,7 +48,7 @@ export default function DatePickerExample() {
                 value={inputValue}
                 onChange={handleInputChange}
                 placeholder="yyyy-MM-dd"
-                className={cn(!date && "text-muted-foreground")}
+                className={cn(!date && "text-muted-foreground", "w-[180px]")}
             >
                 <Input.Group>
                     <Input.Label>Date</Input.Label>

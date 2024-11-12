@@ -100,6 +100,21 @@ export async function loadComponentCode({ componentName, state }: Props) {
         '@/showcase/codes/input/input-file-code'
       );
       return getInputFileCode();
+    case 'PricingCard':
+      const { getPricingCardCode } = await import(
+        '@/showcase/codes/blocks/cards/pricing-card-code'
+      );
+      return getPricingCardCode();
+    case 'CreditCard01':
+      const { getCreditCard01Code } = await import(
+        '@/showcase/codes/blocks/cards/credit-card-01-code'
+      );
+      return getCreditCard01Code();
+    case 'CreditCard02':
+      const { getCreditCard02Code } = await import(
+        '@/showcase/codes/blocks/cards/credit-card-02-code'
+      );
+      return getCreditCard02Code();
     default:
       throw new Error(`Component "${componentName}" not supported.`);
   }

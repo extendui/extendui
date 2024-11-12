@@ -57,7 +57,7 @@ export default function Preview({
           key={key}
         >
           <div
-            className={`grid grid-cols-1 gap-4 ${settingsEngine ? 'lg:grid-cols-2' : 'lg:grid-cols-1'}`}
+            className={`grid grid-cols-1 gap-4 ${settingsEngine ? 'lg:grid-cols-3' : 'lg:grid-cols-1'}`}
           >
             {animated &&
               (
@@ -73,18 +73,18 @@ export default function Preview({
             }
             <Suspense
               fallback={
-                <div className="flex items-center text-sm text-muted-foreground">
+                <div className="col-span-1 lg:col-span-2 flex items-center text-sm text-muted-foreground">
                   <Loader2 className="mr-2 size-4 animate-spin" />
                   Loading...
                 </div>
               }
             >
-              <div className="flex items-center justify-center p-4">
+              <div className="col-span-1 lg:col-span-2  flex items-center justify-center p-4">
                 {component}
               </div>
             </Suspense>
             {settingsEngine && (
-              <div className="flex flex-col items-center justify-center p-4">
+              <div className="col-span-1 flex flex-col items-center justify-center p-4">
                 {settingsEngine}
               </div>
             )}
