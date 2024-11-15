@@ -38,6 +38,7 @@ import { RotatingButton } from '@/showcase/components/button/button-rotating';
 import { ScalingButton } from '@/showcase/components/button/button-scaling';
 import { SendingButton } from '@/showcase/components/button/button-sending-01';
 import { SendingButton02 } from '@/showcase/components/button/button-sending-02';
+import { ButtonSlide } from '@/showcase/components/button/button-slide';
 import { SubscribeButton } from '@/showcase/components/button/button-subscribe';
 import ButtonSettingsEngine from '@/showcase/components/button/settings-engine';
 import DatePickerExample from '@/showcase/components/date-picker/date-picker';
@@ -127,6 +128,7 @@ const components = {
   SendingButton,
   SendingButton02,
   SubscribeButton,
+  ButtonSlide,
   h1: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h1
       className={cn(
