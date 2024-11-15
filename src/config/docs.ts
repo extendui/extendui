@@ -52,6 +52,11 @@ export const docsConfig: DocsConfig = {
               href: '/docs/components/button-extended',
               items: [],
             },
+            {
+              title: 'Stateful',
+              href: '/docs/components/button-stateful',
+              items: [],
+            },
           ],
         },
         {

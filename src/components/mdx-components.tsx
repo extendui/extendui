@@ -30,7 +30,10 @@ import SignIn from '@/showcase/blocks/sign-in';
 import ButtonExample from '@/showcase/components/button/button';
 import { Rotating3DButton } from '@/showcase/components/button/button-3d-rotating';
 import { BouncingButton } from '@/showcase/components/button/button-bouncing';
+import { FlipButtonX } from '@/showcase/components/button/button-flipX';
+import { FlipButtonY } from '@/showcase/components/button/button-flipY';
 import { PulsatingShadowButton } from '@/showcase/components/button/button-pulsating';
+import { PulsatingOutlineShadowButton } from '@/showcase/components/button/button-pulsating-outline';
 import { RotatingButton } from '@/showcase/components/button/button-rotating';
 import { ScalingButton } from '@/showcase/components/button/button-scaling';
 import { SendingButton } from '@/showcase/components/button/button-sending-01';
@@ -91,7 +94,10 @@ const components = {
   Image,
   ScalingButton,
   BouncingButton,
+  FlipButtonX,
+  FlipButtonY,
   PulsatingShadowButton,
+  PulsatingOutlineShadowButton,
   Rotating3DButton,
   RotatingButton,
   PricingCard,

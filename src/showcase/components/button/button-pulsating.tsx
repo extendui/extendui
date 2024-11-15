@@ -3,14 +3,24 @@
 import { motion } from 'framer-motion';
 import * as React from 'react';
 
-import { Button } from '@/components/extendui/button';
+import { Button, type ButtonProps } from '@/components/extendui/button';
 import { cn } from '@/lib/utils';
 
-interface PulsatingShadowButtonProps
-  extends React.ComponentPropsWithoutRef<typeof Button> {
+type PulsatingShadowButtonProps = ButtonProps & {
   glowColor?: string;
-  pulseDuration?: number;
+  transition?: {
+    type: string;
+    stiffness: number;
+    damping: number;
+  };
+  filter?: string;
 }
+
+const transitionDefault = {
+  duration: 2.5,
+  repeat: Infinity,
+  ease: 'easeInOut',
+};
 
 export const PulsatingShadowButton = React.forwardRef<
   HTMLButtonElement,
@@ -20,7 +30,8 @@ export const PulsatingShadowButton = React.forwardRef<
     {
       children,
       glowColor = '#059669',
-      pulseDuration = 2.5,
+      transition = transitionDefault,
+      filter = 'blur(4px)',
       className,
       ...props
     },
@@ -48,11 +59,7 @@ export const PulsatingShadowButton = React.forwardRef<
             animate: {
               opacity: [0, 1, 0],
               scale: [1, 1.05, 1],
-              transition: {
-                duration: pulseDuration,
-                repeat: Infinity,
-                ease: 'easeInOut',
-              },
+              transition: transition,
             },
             hover: {
               opacity: 0,
@@ -61,7 +68,7 @@ export const PulsatingShadowButton = React.forwardRef<
           }}
           style={{
             backgroundColor: glowColor,
-            filter: 'blur(8px)',
+            filter: filter,
           }}
         />
         <Button

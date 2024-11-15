@@ -3,16 +3,28 @@ import * as React from 'react';
 
 import { Button, type ButtonProps } from '@/components/extendui/button';
 
-const springTransition = {
+type BouncingButtonProps = ButtonProps & {
+  springTransition?: {
+    type: string;
+    stiffness: number;
+    damping: number;
+  };
+}
+
+const springTransitionDefault = {
   type: 'spring',
   stiffness: 300,
   damping: 8,
 };
 
-export const BouncingButton: React.FC<ButtonProps> = React.forwardRef<
+export const BouncingButton = React.forwardRef<
   HTMLButtonElement,
-  ButtonProps
->(({ children, ...props }, ref) => {
+  BouncingButtonProps
+>(({
+  children,
+  springTransition = springTransitionDefault,
+  ...props
+}, ref) => {
   return (
     <motion.div
       whileHover={{ y: -10 }}

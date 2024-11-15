@@ -5,24 +5,37 @@ import * as React from 'react';
 
 import { Button, type ButtonProps } from '@/components/extendui/button';
 
+type Rotating3DButtonProps = ButtonProps & {
+  springTransition?: {
+    type: string;
+    stiffness: number;
+    damping: number;
+  };
+  rotationRange?: number;
+}
+
 const ROTATION_RANGE = 20;
 
-const springTransition = {
+const springTransitionDefault = {
   type: 'spring',
   stiffness: 300,
   damping: 20,
 };
 
-export const Rotating3DButton: React.FC<ButtonProps> = React.forwardRef<
+export const Rotating3DButton = React.forwardRef<
   HTMLButtonElement,
-  ButtonProps
->(({ children, ...props }, ref) => {
+  Rotating3DButtonProps
+>(({
+  children,
+  springTransition = springTransitionDefault,
+  rotationRange = ROTATION_RANGE,
+  ...props
+}, ref) => {
   const x = useMotionValue(0);
   const y = useMotionValue(0);
 
-  const rotateX = useTransform(y, [-50, 50], [ROTATION_RANGE, -ROTATION_RANGE]);
-  const rotateY = useTransform(x, [-50, 50], [-ROTATION_RANGE, ROTATION_RANGE]);
-
+  const rotateX = useTransform(y, [-50, 50], [rotationRange, -rotationRange]);
+  const rotateY = useTransform(x, [-50, 50], [-rotationRange, rotationRange]);
 
   const handleMove = (
     clientX: number,

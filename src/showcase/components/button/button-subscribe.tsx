@@ -2,11 +2,10 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { Check, ChevronRight } from 'lucide-react';
 import * as React from 'react';
 
-import { type ButtonProps } from '@/components/extendui/button';
-import { Button } from '@/components/ui/button';
+import { Button, type ButtonProps } from '@/components/extendui/button';
 import { cn } from '@/lib/utils';
 
-interface StatusState {
+type StatusState = {
     status: 'subscribe' | 'subscribed';
     onSubscribe: () => void;
     onUnsubscribe: () => void;
