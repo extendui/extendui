@@ -1,47 +1,108 @@
-import { AnimatePresence, motion } from "framer-motion";
-import { Check, Loader, SendHorizonal, X } from "lucide-react";
-import React, { useState, useRef } from "react";
+"use client"
 
-import { Button, type ButtonProps } from "@/components/extendui/button";
-import { cn } from "@/lib/utils";
+import { AnimatePresence, motion, useMotionValue, useTransform, useSpring, type PanInfo } from "framer-motion"
+import { Check, Loader2, SendHorizontal, X } from 'lucide-react'
+import React, { useState, useRef, useCallback, useMemo } from "react"
 
-const useStatus = ({ resolveTo }: { resolveTo: "success" | "error" }) => {
-    const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+import { Button, type ButtonProps } from "@/components/ui/button"
+import { cn } from "@/lib/utils"
 
-    const onSubmit = () => {
-        setStatus("loading");
+const DRAG_CONSTRAINTS = { left: 0, right: 155 }
+const DRAG_THRESHOLD = 0.85
+const BUTTON_STATES = {
+    initial: { width: "12rem" },
+    completed: { width: "8rem" },
+}
+
+const ANIMATION_CONFIG = {
+    spring: {
+        type: "spring",
+        stiffness: 400,
+        damping: 40,
+        mass: 0.8,
+    },
+}
+
+interface StatusIconProps {
+    status: string
+}
+
+const StatusIcon: React.FC<StatusIconProps> = ({ status }) => {
+    const iconMap: Record<StatusIconProps['status'], JSX.Element> = useMemo(
+        () => ({
+            loading: <Loader2 className="animate-spin" size={20} />,
+            success: <Check size={20} />,
+            error: <X size={20} />,
+        }),
+        []
+    )
+
+    if (!iconMap[status]) return null
+
+    return (
+        <motion.div
+            key={status}
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0 }}
+        >
+            {iconMap[status]}
+        </motion.div>
+    )
+}
+
+const useButtonStatus = (resolveTo: "success" | "error") => {
+    const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle")
+
+    const handleSubmit = useCallback(() => {
+        setStatus("loading")
         setTimeout(() => {
-            setStatus(resolveTo);
-        }, 2000);
-    };
+            setStatus(resolveTo)
+        }, 2000)
+    }, [resolveTo])
 
-    return { status, onSubmit };
-};
+    return { status, handleSubmit }
+}
 
 export const ButtonSlide = React.forwardRef<HTMLButtonElement, ButtonProps>(
     ({ children, className, ...props }, ref) => {
-        const [isDragging, setIsDragging] = useState(false);
-        const [dragProgress, setDragProgress] = useState(0);
-        const [completed, setCompleted] = useState(false);
-        const dragHandleRef = useRef<HTMLDivElement | null>(null);
-        const { status, onSubmit } = useStatus({ resolveTo: "success" });
+        const [isDragging, setIsDragging] = useState(false)
+        const [completed, setCompleted] = useState(false)
+        const dragHandleRef = useRef<HTMLDivElement | null>(null)
+        const { status, handleSubmit } = useButtonStatus("success")
+
+        const dragX = useMotionValue(0)
+        const springX = useSpring(dragX, ANIMATION_CONFIG.spring)
+        const dragProgress = useTransform(springX, [0, DRAG_CONSTRAINTS.right], [0, 1])
+
+        const handleDragStart = useCallback(() => {
+            if (completed) return
+            setIsDragging(true)
+        }, [completed])
 
         const handleDragEnd = () => {
-            if (completed) return;
-            setIsDragging(false);
-            if (dragProgress >= 0.5) {
-                setCompleted(true);
-                onSubmit();
+            if (completed) return
+            setIsDragging(false)
+
+            const progress = dragProgress.get()
+            if (progress >= DRAG_THRESHOLD) {
+                setCompleted(true)
+                handleSubmit()
+            } else {
+                dragX.set(0) // Reset position if not completed
             }
-            setDragProgress(0);
-        };
+        }
+
+        const handleDrag = (event: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => {
+            if (completed) return
+            const newX = Math.max(0, Math.min(info.offset.x, DRAG_CONSTRAINTS.right))
+            dragX.set(newX)
+        }
 
         return (
             <motion.div
-                animate={{
-                    width: completed ? "8rem" : "12rem",
-                }}
-                transition={{ type: "spring", stiffness: 250, damping: 30 }}
+                animate={completed ? BUTTON_STATES.completed : BUTTON_STATES.initial}
+                transition={ANIMATION_CONFIG.spring}
                 className="relative h-9 bg-gray-100 rounded-lg overflow-hidden flex items-center justify-center"
             >
                 <AnimatePresence>
@@ -49,40 +110,39 @@ export const ButtonSlide = React.forwardRef<HTMLButtonElement, ButtonProps>(
                         <motion.div
                             ref={dragHandleRef}
                             drag="x"
-                            dragConstraints={{
-                                left: 0,
-                                right: 155,
-                            }}
-                            dragElastic={0}
+                            dragConstraints={DRAG_CONSTRAINTS}
+                            dragElastic={0.05}
                             dragMomentum={false}
-                            onDragStart={() => setIsDragging(true)}
+                            onDragStart={handleDragStart}
                             onDragEnd={handleDragEnd}
-                            onDrag={(_, info) => {
-                                const progress = Math.min(Math.max(info.offset.x / 155, 0), 1);
-                                setDragProgress(progress);
-                            }}
-                            initial={{ x: 0 }}
-                            animate={{ x: completed ? 155 : 0 }}
-                            exit={{ x: 155 }}
-                            transition={{ type: "spring", stiffness: 250, damping: 30 }}
-                            className="absolute left-0 flex items-center justify-start"
+                            onDrag={handleDrag}
+                            style={{ x: springX }}
+                            className="absolute left-0 flex items-center justify-start cursor-grab active:cursor-grabbing"
                         >
                             <Button
                                 ref={ref}
                                 disabled={status === "loading"}
                                 {...props}
                                 size="icon"
-                                className={cn(className, "rounded-xl")}
+                                className={cn(
+                                    className,
+                                    "rounded-xl",
+                                    isDragging && "transition-transform scale-105"
+                                )}
                             >
-                                <SendHorizonal className="h-4 w-4" />
+                                <SendHorizontal className="h-4 w-4" />
                             </Button>
                         </motion.div>
                     )}
                 </AnimatePresence>
+
                 <AnimatePresence>
                     {completed && (
                         <motion.div
                             className="absolute inset-0 flex items-center justify-center"
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
                         >
                             <Button
                                 ref={ref}
@@ -94,46 +154,15 @@ export const ButtonSlide = React.forwardRef<HTMLButtonElement, ButtonProps>(
                                 )}
                             >
                                 <AnimatePresence mode="wait">
-                                    {status === "loading" && (
-                                        <motion.div
-                                            key="loading"
-                                            initial={{ opacity: 0 }}
-                                            animate={{ opacity: 1 }}
-                                            exit={{ opacity: 0 }}
-                                        >
-                                            <Loader className="animate-spin" size={20} />
-                                        </motion.div>
-                                    )}
-                                    {status === "success" && (
-                                        <motion.div
-                                            key="success"
-                                            initial={{ opacity: 0, scale: 0.5 }}
-                                            animate={{ opacity: 1, scale: 1 }}
-                                            exit={{ opacity: 0 }}
-                                        >
-                                            <Check size={20} />
-                                        </motion.div>
-                                    )}
-                                    {status === "error" && (
-                                        <motion.div
-                                            key="error"
-                                            initial={{ opacity: 0, scale: 0.5 }}
-                                            animate={{ opacity: 1, scale: 1 }}
-                                            exit={{ opacity: 0 }}
-                                        >
-                                            <X size={20} />
-                                        </motion.div>
-                                    )}
+                                    <StatusIcon status={status} />
                                 </AnimatePresence>
                             </Button>
                         </motion.div>
                     )}
                 </AnimatePresence>
             </motion.div>
-        );
+        )
     }
-);
+)
 
-ButtonSlide.displayName = "ButtonSlide";
-
-export default ButtonSlide;
+ButtonSlide.displayName = "ButtonSlide"
