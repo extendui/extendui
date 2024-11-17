@@ -105,7 +105,7 @@ export const ButtonSlide = React.forwardRef<HTMLButtonElement, ButtonProps>(
                 transition={ANIMATION_CONFIG.spring}
                 className="relative h-9 bg-gray-100 rounded-lg overflow-hidden flex items-center justify-center"
             >
-                <AnimatePresence>
+                <AnimatePresence key={crypto.randomUUID()}>
                     {!completed && (
                         <motion.div
                             ref={dragHandleRef}
@@ -136,7 +136,7 @@ export const ButtonSlide = React.forwardRef<HTMLButtonElement, ButtonProps>(
                     )}
                 </AnimatePresence>
 
-                <AnimatePresence>
+                <AnimatePresence key={crypto.randomUUID()}>
                     {completed && (
                         <motion.div
                             className="absolute inset-0 flex items-center justify-center"
@@ -153,7 +153,7 @@ export const ButtonSlide = React.forwardRef<HTMLButtonElement, ButtonProps>(
                                     "w-full h-full rounded-xl transition-all duration-300"
                                 )}
                             >
-                                <AnimatePresence mode="wait">
+                                <AnimatePresence key={crypto.randomUUID()} mode="wait">
                                     <StatusIcon status={status} />
                                 </AnimatePresence>
                             </Button>

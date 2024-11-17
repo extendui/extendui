@@ -48,13 +48,13 @@ export const docsConfig: DocsConfig = {
           items: [
             { title: 'Base', href: '/docs/components/button', items: [] },
             {
-              title: 'Extended',
-              href: '/docs/components/button-extended',
+              title: 'Motion',
+              href: '/docs/components/button-motion',
               items: [],
             },
             {
-              title: 'Stateful',
-              href: '/docs/components/button-stateful',
+              title: 'Extended',
+              href: '/docs/components/button-extended',
               items: [],
             },
           ],
