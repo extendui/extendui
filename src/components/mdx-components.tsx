@@ -56,9 +56,11 @@ import { InputPassword } from '@/showcase/components/input/input-password';
 import { InputSelectLeft } from '@/showcase/components/input/input-selectLeft';
 import { InputSelectRight } from '@/showcase/components/input/input-selectRight';
 import InputSettingsEngine from '@/showcase/components/input/settings-engine';
-
+import SelectExample from '@/showcase/components/select/select';
+import SelectSettingsEngine from '@/showcase/components/select/settings-engine';
 
 import { Input } from './extendui/input';
+import { Select } from './extendui/select';
 import { Icons } from './icons/icons';
 import { PreCustom } from './pre-custom';
 import Preview from './preview';
@@ -123,6 +125,9 @@ const components = {
   InputSelectLeft,
   InputButton,
   InputDecreaseIncrease,
+  Select,
+  SelectExample,
+  SelectSettingsEngine,
   FileInput,
   DatePickerExample,
   SendingButton,
