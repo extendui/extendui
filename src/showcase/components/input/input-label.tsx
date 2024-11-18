@@ -8,7 +8,7 @@ interface InputLabelProps extends React.InputHTMLAttributes<HTMLInputElement> { 
 
 export const InputLabel = React.forwardRef<HTMLInputElement, InputLabelProps>(
   ({ className, ...props }, ref) => {
-    const [value, setValue] = React.useState('Kicky');
+    const [value, setValue] = React.useState<string>();
     return (
       <Input
         ref={ref}

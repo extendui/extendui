@@ -47,6 +47,7 @@ import DatePickerSettingsEngine from '@/showcase/components/date-picker/settings
 import InputExample from '@/showcase/components/input/input';
 import { InputButton } from '@/showcase/components/input/input-button';
 import { InputClear } from '@/showcase/components/input/input-clear';
+import CreditCardInput from '@/showcase/components/input/input-credit-card';
 import { InputDecreaseIncrease } from '@/showcase/components/input/input-decrease-increase';
 import { InputExtended } from '@/showcase/components/input/input-extended';
 import FileInput from '@/showcase/components/input/input-file';
@@ -109,6 +110,7 @@ const components = {
   CreditCard,
   CreditCard2,
   Icons,
+  CreditCardInput,
   FileUpload,
   SignIn,
   ButtonExample,

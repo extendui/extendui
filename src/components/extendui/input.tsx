@@ -162,7 +162,7 @@ const InputComponent = React.forwardRef<HTMLInputElement, InputRootProps>(
       elementChecks.hasLeftIcon ? 'pl-9' : 'px-3',
       elementChecks.hasLabel,
       value && variant === 'flushedfilled' && 'bg-secondary',
-      error && 'border-red-500',
+      error && 'border-red-500 text-red-500',
       error &&
       !['flushedfilled', 'flushed'].includes(variant as string) &&
       'focus:outline-red-500',
