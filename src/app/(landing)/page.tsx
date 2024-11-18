@@ -8,6 +8,7 @@ import { Icons } from '@/components/icons/icons';
 import { Card, CardContent } from '@/components/ui/card';
 import ButtonExample from '@/showcase/components/button/button';
 import InputExample from '@/showcase/components/input/input';
+import SelectExample from '@/showcase/components/select/select';
 
 export default function HomePage() {
   return (
@@ -123,7 +124,7 @@ export default function HomePage() {
             <ComponentShowcaseCard
               href="/docs/components/button"
               title="Button"
-              description="16 variants"
+              description="23 variants"
               component={<ButtonExample />}
             />
           </FadeUp>
@@ -132,11 +133,24 @@ export default function HomePage() {
             <ComponentShowcaseCard
               href="/docs/components/input"
               title="Input"
-              description="5 variants"
+              description="16 variants"
               component={<InputExample />}
             />
           </FadeUp>
           <FadeUp delay={0.6} duration={0.8}>
+            <ComponentShowcaseCard
+              href="/docs/components/select"
+              title="Select"
+              description="5 variants"
+              component={<SelectExample />}
+            />
+          </FadeUp>
+        </div>
+        <FadeUp delay={0.1} duration={0.8}>
+          <h2 className="my-8 text-center text-3xl font-bold">Blocks</h2>
+        </FadeUp>
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
+          <FadeUp delay={0.2} duration={0.8}>
             <ComponentShowcaseCard
               href="/docs/blocks/pricing-card"
               title="Cards"
@@ -144,12 +158,29 @@ export default function HomePage() {
               component={
                 <Card className="w-1/2">
                   <div className="space-y-3 p-6">
-                    <div className="h-2 w-full rounded-lg bg-gray-300"></div>
-                    <div className="h-8 w-full rounded-lg bg-gray-300"></div>
-                    <div className="h-4 w-full rounded-lg bg-gray-300"></div>
+                    <div className="h-2 w-full rounded bg-gray-300"></div>
+                    <div className="h-8 w-full rounded bg-gray-300"></div>
+                    <div className="h-4 w-full rounded bg-gray-300"></div>
                   </div>
                 </Card>
               }
+            />
+          </FadeUp>
+
+          <FadeUp delay={0.4} duration={0.8}>
+            <ComponentShowcaseCard
+              href="/docs/blocks/file-upload"
+              title="File Upload"
+              description="1 variant"
+              component={<span>File Upload</span>}
+            />
+          </FadeUp>
+          <FadeUp delay={0.6} duration={0.8}>
+            <ComponentShowcaseCard
+              href="/docs/blocks/sign-in"
+              title="Sign In"
+              description="1 variant"
+              component={<span>Sign In</span>}
             />
           </FadeUp>
         </div>
