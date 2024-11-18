@@ -17,7 +17,7 @@ export default function CreditCardInput() {
                 <div className="w-80 relative focus-within:z-10">
                     <Input
                         variant={"filled"}
-                        className="rounded-b-none border-white border-[3px]"
+                        className="rounded-b-none"
                         {...getCardNumberProps()}
                     >
                         <Input.Group>
@@ -37,18 +37,18 @@ export default function CreditCardInput() {
                         </Input.Group>
                     </Input>
                 </div>
-                <div className="w-80 -mt-px flex">
+                <div className="w-80 -mt-px flex space-x-[2px]">
                     <div className="w-1/2 flex-1 focus-within:z-10">
                         <Input
                             variant={"filled"}
-                            className="rounded-e-none rounded-t-none border-white border-[3px]"
+                            className="rounded-e-none rounded-t-none mt-1"
                             {...getExpiryDateProps()}
                         />
                     </div>
                     <div className="-ms-px w-1/2 flex-1 focus-within:z-10">
                         <Input
                             variant={"filled"}
-                            className="rounded-s-none rounded-t-none border-white border-[3px]"
+                            className="rounded-s-none rounded-t-none mt-1"
                             {...getCVCProps()}
                         />
                     </div>
