@@ -48,7 +48,7 @@ export default function PricingCard02() {
         animate="visible"
         transition={{ duration: 1 }}
       >
-        <div className="bg-accent text-white px-4 py-1.5 rounded-r-xl rounded-l-3xl text-sm pb-12 pl-6">
+        <div className="bg-accent text-white px-4 py-1.5 rounded-r-xl rounded-l-3xl text-sm font-medium pb-12 pl-6">
           Most Popular
         </div>
       </motion.div>
