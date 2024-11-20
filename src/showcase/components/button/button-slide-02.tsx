@@ -4,7 +4,7 @@ import { motion } from "framer-motion"
 import { LockKeyhole, LockKeyholeOpen } from 'lucide-react'
 import React, { useState } from "react"
 
-import { Button } from "@/components/ui/button"
+import { Button } from "@/components/extendui/button"
 import { cn } from "@/lib/utils"
 
 export function SlidingSpinningButton() {
@@ -51,7 +51,7 @@ export function SlidingSpinningButton() {
                         size="icon"
                         onClick={handleClick}
                     >
-                        {isOpen ? <LockKeyholeOpen className="size-4 text-accent" /> : <LockKeyhole className="size-4 text-accent" />}
+                        {isOpen ? <LockKeyholeOpen className="size-5 text-accent" /> : <LockKeyhole className="size-5 text-accent" />}
                     </Button>
                 </motion.div>
             </motion.div>
