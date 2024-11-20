@@ -12,6 +12,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      boxShadow: {
+        'text-inset': 'inset 0px 0px 2px rgba(0, 0, 0, 0.9)', // Example inset shadow
+      },
       maxWidth: {
         '8xl': '88rem', // Approx 1408px
         '9xl': '96rem', // Approx 1536px

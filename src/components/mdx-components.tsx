@@ -40,6 +40,7 @@ import { ScalingButton } from '@/showcase/components/button/button-scaling';
 import { SendingButton } from '@/showcase/components/button/button-sending-01';
 import { SendingButton02 } from '@/showcase/components/button/button-sending-02';
 import { ButtonSlide } from '@/showcase/components/button/button-slide';
+import { SlidingSpinningButton } from '@/showcase/components/button/button-slide-02';
 import { SubscribeButton } from '@/showcase/components/button/button-subscribe';
 import ButtonSettingsEngine from '@/showcase/components/button/settings-engine';
 import DatePickerExample from '@/showcase/components/date-picker/date-picker';
@@ -96,6 +97,7 @@ const components = {
   ComponentSource,
   FrameworkDocs,
   StyleWrapper,
+  SlidingSpinningButton,
   Image,
   ScalingButton,
   BouncingButton,
