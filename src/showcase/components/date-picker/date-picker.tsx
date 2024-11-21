@@ -62,7 +62,7 @@ export default function DatePickerExample() {
                     <Input.Label>Date</Input.Label>
                     <PopoverTrigger asChild>
                         <Input.RightIcon>
-                            <CalendarIcon className="h-4 w-4 hover:cursor-pointer" />
+                            <CalendarIcon className="h-4 w-4 hover:cursor-pointer max-sm:hidden" />
                         </Input.RightIcon>
                     </PopoverTrigger>
                 </Input.Group>

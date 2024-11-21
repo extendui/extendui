@@ -8,7 +8,7 @@ import { Button, type ButtonProps } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 
 const DRAG_CONSTRAINTS = { left: 0, right: 155 }
-const DRAG_THRESHOLD = 0.85
+const DRAG_THRESHOLD = 0.90
 const BUTTON_STATES = {
     initial: { width: "12rem" },
     completed: { width: "8rem" },
@@ -75,6 +75,13 @@ export const ButtonSlide = React.forwardRef<HTMLButtonElement, ButtonProps>(
         const springX = useSpring(dragX, ANIMATION_CONFIG.spring)
         const dragProgress = useTransform(springX, [0, DRAG_CONSTRAINTS.right], [0, 1])
 
+        // Color interpolation for the progress area
+        // const progressBackgroundColor = useTransform(
+        //     dragProgress,
+        //     [0, DRAG_THRESHOLD],
+        //     ['rgb(229, 231, 235)', 'rgb(0, 0, 0)'] // From gray-100 to green-400
+        // )
+
         const handleDragStart = useCallback(() => {
             if (completed) return
             setIsDragging(true)
@@ -99,12 +106,22 @@ export const ButtonSlide = React.forwardRef<HTMLButtonElement, ButtonProps>(
             dragX.set(newX)
         }
 
+        const adjustedWidth = useTransform(springX, (x) => x + 10);
+
         return (
             <motion.div
                 animate={completed ? BUTTON_STATES.completed : BUTTON_STATES.initial}
                 transition={ANIMATION_CONFIG.spring}
                 className="relative h-9 shadow-button-inset dark:shadow-button-inset-dark bg-gray-100 rounded-xl overflow-hidden flex items-center justify-center"
             >
+                {!completed && (
+                    <motion.div
+                        style={{
+                            width: adjustedWidth,
+                        }}
+                        className="absolute left-0 top-0 bottom-0 z-0 bg-primary"
+                    />
+                )}
                 <AnimatePresence key={crypto.randomUUID()}>
                     {!completed && (
                         <motion.div
@@ -117,7 +134,7 @@ export const ButtonSlide = React.forwardRef<HTMLButtonElement, ButtonProps>(
                             onDragEnd={handleDragEnd}
                             onDrag={handleDrag}
                             style={{ x: springX }}
-                            className="absolute left-0 flex items-center justify-start cursor-grab active:cursor-grabbing"
+                            className="absolute left-0 flex items-center justify-start cursor-grab active:cursor-grabbing z-10"
                         >
                             <Button
                                 ref={ref}

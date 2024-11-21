@@ -170,7 +170,6 @@ const InputComponent = React.forwardRef<HTMLInputElement, InputRootProps>(
       getLabelPadding(),
       className,
     );
-    console.log(placeholder)
     return (
       <InputContext.Provider value={contextValue}>
         <div className="relative">
