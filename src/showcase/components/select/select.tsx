@@ -14,16 +14,11 @@ import { useEngineSettingsSelectStore } from '@/zustand/stores/useEngineSettings
 export default function SelectExample() {
   const { variant, error, disabled } = useEngineSettingsSelectStore();
   return (
-    <Select>
-      <SelectTrigger
-        disabled={disabled}
-        error={error}
-        variant={variant}
-        className="w-[180px]"
-      >
+    <Select disabled={disabled}>
+      <SelectTrigger error={error} variant={variant} className="w-[180px]">
         <SelectValue placeholder="Select a fruit" />
       </SelectTrigger>
-      <SelectContent>
+      <SelectContent variant={variant}>
         <SelectGroup>
           <SelectLabel>Fruits</SelectLabel>
           <SelectItem value="apple">Apple</SelectItem>
