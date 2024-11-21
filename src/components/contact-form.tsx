@@ -6,6 +6,7 @@ import { useForm, type SubmitHandler } from 'react-hook-form';
 import { toast } from 'sonner';
 import { type z } from 'zod';
 
+import { sendEmail } from '@/app/actions/send-email';
 import {
   Popover,
   PopoverContent,
@@ -33,10 +34,21 @@ export default function ContactForm() {
       message: '',
     },
   });
-
   const processForm: SubmitHandler<Inputs> = async (data) => {
-    toast.success(JSON.stringify(data));
-    toast.success('Message sent successfully!');
+    try {
+      const result = await sendEmail(data);
+
+      if (result.error) {
+        toast.error(result.error);
+        return;
+      }
+
+      toast.success('Message sent successfully!');
+      reset();
+    } catch (err) {
+      console.error(err);
+      toast.error('Failed to send message. Please try again.');
+    }
     reset();
   };
 
@@ -48,7 +60,7 @@ export default function ContactForm() {
             id="name"
             type="text"
             placeholder="Name"
-            autoComplete="given-name"
+            autoComplete="name"
             {...register('name')}
           />
           {errors.name?.message && (
