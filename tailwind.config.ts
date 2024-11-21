@@ -13,7 +13,9 @@ const config: Config = {
   theme: {
     extend: {
       boxShadow: {
-        'text-inset': 'inset 0px 0px 2px rgba(0, 0, 0, 0.9)', // Example inset shadow
+        'button-inset': 'inset 0px 0px 3px rgba(0, 0, 0, 0.4)',
+        'button-inset-dark': 'inset 0px 0px 4px rgba(0, 0, 0, 0.8)',
+        'button': '0 0px 2px 1px rgba(0,0,0,0.4)'
       },
       maxWidth: {
         '8xl': '88rem', // Approx 1408px

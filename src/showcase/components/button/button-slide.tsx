@@ -103,7 +103,7 @@ export const ButtonSlide = React.forwardRef<HTMLButtonElement, ButtonProps>(
             <motion.div
                 animate={completed ? BUTTON_STATES.completed : BUTTON_STATES.initial}
                 transition={ANIMATION_CONFIG.spring}
-                className="relative h-9 bg-gray-100 rounded-lg overflow-hidden flex items-center justify-center"
+                className="relative h-9 shadow-button-inset dark:shadow-button-inset-dark bg-gray-100 rounded-xl overflow-hidden flex items-center justify-center"
             >
                 <AnimatePresence key={crypto.randomUUID()}>
                     {!completed && (
@@ -126,7 +126,7 @@ export const ButtonSlide = React.forwardRef<HTMLButtonElement, ButtonProps>(
                                 size="icon"
                                 className={cn(
                                     className,
-                                    "rounded-xl",
+                                    "rounded-xl shadow-button",
                                     isDragging && "transition-transform scale-105"
                                 )}
                             >
