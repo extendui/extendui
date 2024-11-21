@@ -4,8 +4,8 @@ import { format, isValid, parse } from "date-fns"
 import { Calendar as CalendarIcon } from "lucide-react"
 import * as React from "react"
 
+import { Calendar } from "@/components/extendui/calendar"
 import { Input } from "@/components/extendui/input"
-import { Calendar } from "@/components/ui/calendar"
 import {
     Popover,
     PopoverContent,
@@ -21,6 +21,7 @@ export default function DatePickerExample() {
     const [isOpen, setIsOpen] = React.useState(false)
 
     const variant = useEngineSettingsDatePickerStore((state) => state.variant)
+    const calendarVariant = useEngineSettingsDatePickerStore((state) => state.calendarVariant)
     const disabled = useEngineSettingsDatePickerStore((state) => state.disabled)
     const error = useEngineSettingsDatePickerStore((state) => state.error)
 
@@ -67,7 +68,6 @@ export default function DatePickerExample() {
                     </PopoverTrigger>
                 </Input.Group>
             </Input>
-
             <PopoverContent className="w-auto p-0">
                 <Calendar
                     mode="single"
@@ -75,7 +75,7 @@ export default function DatePickerExample() {
                     onMonthChange={setMonth}
                     selected={date}
                     onSelect={handleCalendarSelect}
-                    variant={"default"}
+                    variant={calendarVariant}
                     disabled={{ dayOfWeek: [0] }}
                     initialFocus
                 />

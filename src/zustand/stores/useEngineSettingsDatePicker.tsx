@@ -2,15 +2,18 @@ import { create } from 'zustand';
 import { immer } from 'zustand/middleware/immer';
 
 type Variant = 'default' | 'filled' | 'flushed' | 'flushedfilled' | 'dashed';
+type CalendarVariant = 'default' | 'glowingRing' | 'outline';
 
 type EngineSettingsDatePickerState = {
   variant: Variant;
+  calendarVariant: CalendarVariant;
   disabled: boolean;
   error: boolean;
 };
 
 type EngineSettingsDatePickerActions = {
   setVariant: (variant: Variant) => void;
+  setCalendarVariant: (variant: CalendarVariant) => void;
   setDisabled: (disabled: boolean) => void;
   setError: (error: boolean) => void;
 };
@@ -20,9 +23,14 @@ export const useEngineSettingsDatePickerStore = create(
     variant: 'default',
     disabled: false,
     error: false,
+    calendarVariant: 'default',
     setVariant: (variant) =>
       set((state) => {
         state.variant = variant;
+      }),
+    setCalendarVariant: (variant) =>
+      set((state) => {
+        state.calendarVariant = variant;
       }),
     setDisabled: (disabled) =>
       set((state) => {
@@ -35,5 +43,5 @@ export const useEngineSettingsDatePickerStore = create(
   })),
 );
 
-export const { setVariant, setDisabled, setError } =
+export const { setVariant, setCalendarVariant, setDisabled, setError } =
   useEngineSettingsDatePickerStore.getState();

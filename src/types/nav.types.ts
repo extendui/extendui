@@ -10,13 +10,13 @@ export type NavItem = {
 };
 
 export type NavItemWithChildren = {
-  items: NavItemWithChildren[];
+  items?: NavItemWithChildren[];
 } & NavItem;
 
 export type MainNavItem = NavItem;
 
 export type SidebarNavItem = NavItemWithChildren & {
-  items: (NavItemWithChildren & {
+  items?: (NavItemWithChildren & {
     items?: {
       title: string;
       href: string;

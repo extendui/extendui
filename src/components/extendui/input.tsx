@@ -244,7 +244,7 @@ const InputLabel = React.forwardRef<
   } = useInputContext();
 
   const labelClassName = cn(
-    'absolute top-2 text-sm text-muted-foreground transition-all duration-200 ease-in-out cursor-text border-transparent ',
+    'z-10 absolute top-2 text-sm text-muted-foreground transition-all duration-200 ease-in-out cursor-text border-transparent ',
     elementChecks.hasLeftIcon ? 'left-9' : 'left-3',
     isFocused && 'font-medium',
     (isFocused || value || (type === 'date') || placeholder) && [

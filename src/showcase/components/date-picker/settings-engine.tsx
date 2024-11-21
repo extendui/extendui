@@ -12,16 +12,22 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import { Switch } from '@/components/ui/switch';
-import { setDisabled, setError, setVariant, useEngineSettingsDatePickerStore } from '@/zustand/stores/useEngineSettingsDatePicker';
+import { setCalendarVariant, setDisabled, setError, setVariant, useEngineSettingsDatePickerStore } from '@/zustand/stores/useEngineSettingsDatePicker';
 
 
 export default function DatePickerSettingsEngine() {
-  const { variant, disabled, error } = useEngineSettingsDatePickerStore();
+  const { variant, calendarVariant, disabled, error } = useEngineSettingsDatePickerStore();
 
   const handleChangeVariant = (
     value: 'default' | 'flushed' | 'flushedfilled' | 'filled' | 'dashed',
   ) => {
     setVariant(value);
+  };
+
+  const handleChangeCalendarVariant = (
+    value: 'default' | 'glowingRing' | 'outline',
+  ) => {
+    setCalendarVariant(value);
   };
 
   const handleChangeError = (value: boolean) => {
@@ -47,6 +53,21 @@ export default function DatePickerSettingsEngine() {
               <SelectItem value="flushedfilled">Flushed Filled</SelectItem>
               <SelectItem value="filled">Filled</SelectItem>
               <SelectItem value="dashed">Dashed</SelectItem>
+            </SelectGroup>
+          </SelectContent>
+        </Select>
+      </div>
+      <div className="w-full sm:w-auto">
+        <Select onValueChange={handleChangeCalendarVariant} value={calendarVariant}>
+          <SelectTrigger className="w-full bg-secondary text-secondary-foreground sm:w-[180px]">
+            <SelectValue placeholder="Select variant" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectGroup>
+              <SelectLabel>Calendar Variants</SelectLabel>
+              <SelectItem value="default">Default</SelectItem>
+              <SelectItem value="outline">Outline</SelectItem>
+              <SelectItem value="glowingRing">Glowing Ring</SelectItem>
             </SelectGroup>
           </SelectContent>
         </Select>
