@@ -111,7 +111,7 @@ export default function PricingCard({ plan }: { plan: PricingPlan }) {
             {plan.href ? (
               <Link href={plan.href}>{plan.buttonText}</Link>
             ) : (
-              <ContactDialog />
+              <ContactDialog featured={plan.featured} />
             )}
           </Button>
         </CardFooter>

@@ -1,4 +1,4 @@
-import { Button } from '@/components/ui/button';
+import { Button } from '@/components/extendui/button';
 import {
   Dialog,
   DialogContent,
@@ -10,11 +10,18 @@ import {
 
 import ContactForm from './contact-form';
 
-export default function ContactDialog() {
+export default function ContactDialog({
+  featured,
+}: {
+  featured: boolean | undefined;
+}) {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button variant="outline" className="w-full">
+        <Button
+          variant={featured ? 'secondary' : 'outline'}
+          className={`w-full ${featured ? 'bg-neutral-200 text-black dark:bg-neutral-200 dark:hover:bg-neutral-100' : ''}`}
+        >
           Contact Us
         </Button>
       </DialogTrigger>
