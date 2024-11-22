@@ -14,12 +14,12 @@ export default function EmailTemplate({
   return (
     <div>
       <h1>New Contact Form Submission from Extend UI</h1>
-      <p>From: {name}</p>
-      <p>Email: {email}</p>
-      <h2>Message:</h2>
-      <p>{message}</p>
+      <div>From: {name}</div>
+      <div>Email: {email}</div>
+      <div>Message:</div>
+      <div>{message}</div>
       <hr />
-      <p>This message was sent from the Extend UI contact form.</p>
+      <div>This message was sent from the Extend UI contact form.</div>
     </div>
   );
 }

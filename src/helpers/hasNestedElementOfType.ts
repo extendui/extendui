@@ -22,11 +22,11 @@ export const hasNestedElementOfType = (
     }
 
     // Check children recursively
-    if (child.props?.children) {
+    if ((child.props as React.PropsWithChildren)?.children ) {
       // Handle both single child and array of children
-      if (React.Children.count(child.props.children) > 0) {
+      if (React.Children.count((child.props as React.PropsWithChildren).children) > 0) {
         let hasMatch = false;
-        React.Children.forEach(child.props.children, (nestedChild) => {
+        React.Children.forEach((child.props as React.PropsWithChildren).children, (nestedChild) => {
           if (checkChild(nestedChild)) {
             hasMatch = true;
           }

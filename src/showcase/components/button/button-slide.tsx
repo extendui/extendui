@@ -9,7 +9,7 @@ import {
   type PanInfo,
 } from 'framer-motion';
 import { Check, Loader2, SendHorizontal, X } from 'lucide-react';
-import React, { useState, useRef, useCallback, useMemo } from 'react';
+import React, { useState, useRef, useCallback, useMemo, type JSX } from 'react';
 
 import { Button, type ButtonProps } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
@@ -48,7 +48,7 @@ const StatusIcon: React.FC<StatusIconProps> = ({ status }) => {
 
   return (
     <motion.div
-      key={status}
+      key={crypto.randomUUID()}
       initial={{ opacity: 0, scale: 0.5 }}
       animate={{ opacity: 1, scale: 1 }}
       exit={{ opacity: 0 }}
@@ -74,7 +74,7 @@ const useButtonStatus = (resolveTo: 'success' | 'error') => {
 };
 
 export const ButtonSlide = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ children, className, ...props }, ref) => {
+  ({ className, ...props }, ref) => {
     const [isDragging, setIsDragging] = useState(false);
     const [completed, setCompleted] = useState(false);
     const dragHandleRef = useRef<HTMLDivElement | null>(null);

@@ -70,6 +70,8 @@ import { Icons } from './icons/icons';
 import { PreCustom } from './pre-custom';
 import Preview from './preview';
 
+import { type MDXComponents } from 'mdx/types';
+
 function CustomLink(props: any) {
   const href = props.href;
 
@@ -334,7 +336,7 @@ export function Mdx({ code }: MDXProps) {
 
   return (
     <div className="mdx max-w-none dark:prose-invert">
-      <Component components={components} />
+      <Component components={components as unknown as MDXComponents} />
     </div>
   );
 }

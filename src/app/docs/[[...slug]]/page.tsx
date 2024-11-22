@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/await-thenable */
+
 import { ChevronRightIcon, ExternalLinkIcon } from '@radix-ui/react-icons';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
@@ -21,8 +23,10 @@ type DocPageProps = {
 };
 
 async function getDocFromParams({ params }: DocPageProps) {
-  const slug = params.slug?.join('/') || '';
-  const doc = allDocs.find((doc) => doc.slugAsParams === slug);
+  const { slug } = await params;
+
+  // const slug = params.slug?.join('/') || '';
+  const doc = allDocs.find((doc) => doc.slugAsParams === (slug?.join('/') || ''));
 
   if (!doc) return null;
 
@@ -64,7 +68,7 @@ export default async function DocPage({ params }: DocPageProps) {
   const toc = await getTableOfContents(doc.body.raw);
 
   return (
-    <div className="relative mb-6 lg:gap-10 xl:grid xl:grid-cols-[1fr_300px]">
+    <div className="relative mb-6 lg:gap-10 xl:grid xl:grid-cols-[1fr_300px]" suppressHydrationWarning >
       <div className="mx-auto w-full min-w-0">
         <div className="mb-4 flex space-x-1 text-sm leading-none text-muted-foreground">
           <div className="truncate">Docs</div>

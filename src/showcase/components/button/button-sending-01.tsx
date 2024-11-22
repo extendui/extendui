@@ -38,7 +38,7 @@ export const SendingButton: React.FC<ButtonProps> = React.forwardRef<
                 {status === 'idle' && (
                     <>
                         <motion.span
-                            key={status}
+                            key={crypto.randomUUID()}
                             exit={{
                                 opacity: 0,
                                 transition: { duration: 0.6 },
@@ -48,7 +48,7 @@ export const SendingButton: React.FC<ButtonProps> = React.forwardRef<
                             {children}
                         </motion.span>
                         <motion.span
-                            key={status}
+                            key={crypto.randomUUID()}
                             exit={{
                                 opacity: 0,
                                 x: 15,
@@ -63,7 +63,7 @@ export const SendingButton: React.FC<ButtonProps> = React.forwardRef<
                 )}
                 {status === 'loading' && (
                     <motion.span
-                        key={status}
+                        key={crypto.randomUUID()}
                         initial={{ opacity: 0, y: 15 }}
                         animate={{ opacity: 100, y: 0, transition: { delay: 0 } }}
                         exit={{ opacity: 0, y: -15, transition: { duration: 0.3 } }}
@@ -73,7 +73,7 @@ export const SendingButton: React.FC<ButtonProps> = React.forwardRef<
                 )}
                 {['success', 'error'].includes(status) && (
                     <motion.span
-                        key={status}
+                        key={crypto.randomUUID()}
                         initial={{ opacity: 0, y: 15, scale: 0 }}
                         animate={{
                             opacity: 100,

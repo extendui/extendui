@@ -2,7 +2,7 @@
 
 import { motion, AnimatePresence } from 'framer-motion'
 import { X, Upload, File, Trash2, ImageIcon } from 'lucide-react'
-import React, { useState, useCallback, useRef } from 'react'
+import React, { useState, useCallback, useRef, type JSX } from 'react'
 import { toast } from 'sonner'
 
 import { Button } from '@/components/extendui/button'
