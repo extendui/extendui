@@ -109,9 +109,15 @@ export const docsConfig: DocsConfig = {
           items: [],
         },
         {
-          title: 'Sign In',
-          href: '/docs/blocks/sign-in',
-          items: [],
+          title: 'Forms',
+          href: '/docs/blocks/forms',
+          items: [
+            {
+              title: 'Sign In',
+              href: '/docs/blocks/forms/sign-in',
+              items: [],
+            },
+          ],
         },
       ],
     },

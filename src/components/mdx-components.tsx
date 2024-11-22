@@ -27,7 +27,8 @@ import CreditCard2 from '@/showcase/blocks/cards/credit-card-02';
 import PricingCard from '@/showcase/blocks/cards/pricing-card';
 import PricingCard02 from '@/showcase/blocks/cards/pricing-card-02';
 import FileUpload from '@/showcase/blocks/file-upload';
-import SignIn from '@/showcase/blocks/sign-in';
+import SignIn from '@/showcase/blocks/forms/sign-in';
+import SignIn02 from '@/showcase/blocks/forms/sign-in-02';
 import ButtonExample from '@/showcase/components/button/button';
 import { Rotating3DButton } from '@/showcase/components/button/button-3d-rotating';
 import { BouncingButton } from '@/showcase/components/button/button-bouncing';
@@ -115,6 +116,7 @@ const components = {
   CreditCardInput,
   FileUpload,
   SignIn,
+  SignIn02,
   ButtonExample,
   ButtonSettingsEngine,
   DatePickerSettingsEngine,
