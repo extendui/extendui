@@ -1,49 +1,48 @@
-import { type MetadataRoute } from 'next';
+import { type MetadataRoute } from 'next'
 
-import { docsConfig } from '@/config/docs';
+import { docsConfig } from '@/config/docs'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://www.extend-ui.com';
+  const baseUrl = 'https://www.extend-ui.com'
+  const seenUrls = new Set<string>()
+  
+  // Add the homepage
+  const routes: MetadataRoute.Sitemap = [{
+    url: baseUrl,
+    lastModified: new Date(),
+  }]
 
-  const seenUrls = new Set<string>();
-
-  const pages = [
-    ...docsConfig.sidebarNav
-      .flatMap((nav) =>
-        nav.items.flatMap((item) => {
-          const itemPages = [
-            {
+  // Safely handle the sidebar navigation
+  if (docsConfig?.sidebarNav?.length) {
+    docsConfig.sidebarNav.forEach((nav) => {
+      // Handle top level items
+      if (nav.items?.length) {
+        nav.items.forEach((item) => {
+          if (item.href && !seenUrls.has(baseUrl + item.href)) {
+            routes.push({
               url: baseUrl + item.href,
               lastModified: new Date(),
-            },
-          ];
-          seenUrls.add(itemPages[0].url);
-
-          const nestedPages = item.items
-            .map((nestedItem) => {
-              const nestedPage = {
-                url: baseUrl + nestedItem.href,
-                lastModified: new Date(),
-              };
-              if (!seenUrls.has(nestedPage.url)) {
-                seenUrls.add(nestedPage.url);
-                return nestedPage;
-              }
-              return null;
             })
-            .filter(Boolean);
+            seenUrls.add(baseUrl + item.href)
+          }
 
-          return [itemPages[0], ...nestedPages];
-        }),
-      )
-      .filter((page) => page),
-  ].filter((page) => page !== null);
+          // Handle nested items
+          if (item.items?.length) {
+            item.items.forEach((nestedItem) => {
+              if (nestedItem.href && !seenUrls.has(baseUrl + nestedItem.href)) {
+                routes.push({
+                  url: baseUrl + nestedItem.href,
+                  lastModified: new Date(),
+                })
+                seenUrls.add(baseUrl + nestedItem.href)
+              }
+            })
+          }
+        })
+      }
+    })
+  }
 
-  return [
-    {
-      url: baseUrl,
-      lastModified: new Date(),
-    },
-    ...pages,
-  ];
+  return routes
 }
+

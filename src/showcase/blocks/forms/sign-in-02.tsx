@@ -47,12 +47,12 @@ export default function SignIn02() {
     <motion.div
       layout
       animate={{
-        width: isOpen ? 360 : 36,
-        height: isOpen ? 420 : 36,
+        width: isOpen ? 360 : 42,
+        height: isOpen ? 420 : 42,
         borderRadius: isOpen ? 10 : 50,
       }}
       transition={{ duration: 0.7, ease: "easeInOut" }}
-      className="bg-white flex justify-center items-center overflow-hidden rounded-full border bg-card text-card-foreground shadow"
+      className="bg-card flex justify-center items-center overflow-hidden rounded-full border  text-card-foreground shadow "
     >
       <AnimatePresence mode="wait">
         {isOpen ? (
@@ -144,7 +144,7 @@ export default function SignIn02() {
             transition={{ duration: 0.4, delay: 0.4 }}
           >
             <Button
-              className='text-black bg-white shadow-none rounded-full hover:bg-white'
+              className='text-black bg-white shadow-none rounded-full hover:bg-white dark:hover:bg-black dark:bg-black dark:text-white'
               size={'icon'}
               onClick={() => setIsOpen(true)}
             >
