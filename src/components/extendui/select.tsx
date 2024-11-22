@@ -53,38 +53,80 @@ const selectContentVariants = cva(
   },
 );
 
+
 const Select = SelectPrimitive.Root;
 
 const SelectGroup = SelectPrimitive.Group;
 
 const SelectValue = SelectPrimitive.Value;
 
+const SelectIcon = SelectPrimitive.Icon
+
 const SelectTrigger = React.forwardRef<
   React.ElementRef<typeof SelectPrimitive.Trigger>,
   React.ComponentPropsWithoutRef<typeof SelectPrimitive.Trigger> & {
     error?: boolean;
     variant?: VariantProps<typeof selectVariants>['variant'];
+    openIcon?: React.ReactNode;
+    icon?: React.ReactNode;
+    leftText?: string;
   }
->(({ className, children, variant, error, disabled, ...props }, ref) => (
-  <SelectPrimitive.Trigger
-    ref={ref}
-    className={cn(
-      selectVariants({ variant }),
+>(
+  (
+    {
       className,
-      error && 'border-red-500 text-red-500',
-      error &&
+      children,
+      variant,
+      error,
+      disabled,
+      openIcon = <CaretSortIcon />,
+      icon,
+      leftText,
+      ...props
+    },
+    ref
+  ) => (
+    <SelectPrimitive.Trigger
+      ref={ref}
+      className={cn(
+        selectVariants({ variant }),
+        className,
+        error && 'border-red-500 text-red-500',
+        error &&
         !['flushedfilled', 'flushed'].includes(variant as string) &&
         'focus:outline-red-500',
-      disabled && 'cursor-not-allowed opacity-50',
-    )}
-    {...props}
-  >
-    {children}
-    <SelectPrimitive.Icon asChild>
-      <CaretSortIcon className="h-4 w-4 opacity-50" />
-    </SelectPrimitive.Icon>
-  </SelectPrimitive.Trigger>
-));
+        disabled && 'cursor-not-allowed opacity-50',
+        icon && 'relative ps-9',
+      )}
+      {...props}
+    >
+      {icon && (
+        <div className={cn(
+          "pointer-events-none absolute inset-y-0 start-0 flex items-center justify-center ps-3 text-primary",
+          error && 'text-red-500',
+        )}>
+
+          {icon}
+        </div>
+      )}
+      {leftText ? (
+        <span className={cn(
+          error && 'text-red-500',
+        )}>
+          {`${leftText} `}{children}
+        </span>
+      ) : (
+        children
+      )}
+
+      <SelectIcon asChild>
+        {openIcon}
+      </SelectIcon>
+    </SelectPrimitive.Trigger>
+  )
+);
+
+export default SelectTrigger;
 SelectTrigger.displayName = SelectPrimitive.Trigger.displayName;
 
 const SelectScrollUpButton = React.forwardRef<
@@ -134,7 +176,7 @@ const SelectContent = React.forwardRef<
       className={cn(
         selectContentVariants({ variant }),
         position === 'popper' &&
-          'data-[side=bottom]:translate-y-1 data-[side=left]:-translate-x-1 data-[side=right]:translate-x-1 data-[side=top]:-translate-y-1',
+        'data-[side=bottom]:translate-y-1 data-[side=left]:-translate-x-1 data-[side=right]:translate-x-1 data-[side=top]:-translate-y-1',
         className,
       )}
       position={position}
@@ -145,7 +187,7 @@ const SelectContent = React.forwardRef<
         className={cn(
           'p-1',
           position === 'popper' &&
-            'h-[var(--radix-select-trigger-height)] w-full min-w-[var(--radix-select-trigger-width)]',
+          'h-[var(--radix-select-trigger-height)] w-full min-w-[var(--radix-select-trigger-width)]',
         )}
       >
         {children}
@@ -202,8 +244,30 @@ const SelectSeparator = React.forwardRef<
 ));
 SelectSeparator.displayName = SelectPrimitive.Separator.displayName;
 
+
+const SelectHelperText = React.forwardRef<
+  HTMLParagraphElement,
+  React.HTMLAttributes<HTMLParagraphElement> & {
+    error?: boolean;
+  }
+>(({ className, error, ...props }, ref) => {
+  return (
+    <p
+      ref={ref}
+      className={cn(
+        'mt-2 text-xs text-muted-foreground',
+        error && 'text-red-500',
+        className
+      )}
+      {...props}
+    />
+  );
+});
+SelectHelperText.displayName = 'SelectHelperText';
+
 export {
   Select,
+  SelectIcon,
   SelectGroup,
   SelectValue,
   SelectTrigger,
@@ -213,4 +277,5 @@ export {
   SelectSeparator,
   SelectScrollUpButton,
   SelectScrollDownButton,
+  SelectHelperText
 };

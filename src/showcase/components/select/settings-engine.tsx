@@ -1,7 +1,9 @@
 'use client';
 
+import { UtensilsCrossed } from 'lucide-react';
 import React from 'react';
 
+import { Input } from '@/components/extendui/input';
 import {
   Select,
   SelectContent,
@@ -13,14 +15,19 @@ import {
 } from '@/components/ui/select';
 import { Switch } from '@/components/ui/switch';
 import {
+  setChangeOpenIcon,
   setDisabled,
   setError,
+  setHelperText,
+  setLeftText,
+  setPlaceholeder,
+  setShowIcon,
   setVariant,
 } from '@/zustand/stores/useEngineSettingsSelect';
 import { useEngineSettingsSelectStore } from '@/zustand/stores/useEngineSettingsSelect';
 
 export default function SelectSettingsEngine() {
-  const { variant, disabled, error } = useEngineSettingsSelectStore();
+  const { variant, error, disabled, changeOpenIcon, leftText, showIcon, helperText, placeholeder } = useEngineSettingsSelectStore();
 
   const handleChangeVariant = (
     value: 'default' | 'flushed' | 'flushedfilled' | 'filled' | 'dashed',
@@ -34,6 +41,26 @@ export default function SelectSettingsEngine() {
 
   const handleChangeDisabled = (value: boolean) => {
     setDisabled(value);
+  };
+
+  const handleShowIcon = (value: boolean) => {
+    setShowIcon(value);
+  };
+
+  const handleChangeOpenIcon = (value: boolean) => {
+    setChangeOpenIcon(value);
+  };
+
+  const handleChangeLeftText = (value: string) => {
+    setLeftText(value);
+  };
+
+  const handleChangeHelperText = (value: string) => {
+    setHelperText(value);
+  };
+
+  const handleChangePlaceholeder = (value: string) => {
+    setPlaceholeder(value);
   };
 
   return (
@@ -54,6 +81,23 @@ export default function SelectSettingsEngine() {
             </SelectGroup>
           </SelectContent>
         </Select>
+      </div>
+      <div className="flex w-full items-center space-x-2 sm:w-[180px]">
+        <Input value={placeholeder} onChange={(e) => handleChangePlaceholeder(e.target.value)} placeholder="Placeholder" />
+      </div>
+      <div className="flex w-full items-center space-x-2 sm:w-[180px]">
+        <Input value={helperText} onChange={(e) => handleChangeHelperText(e.target.value)} placeholder="Helper text" />
+      </div>
+      <div className="flex w-full items-center space-x-2 sm:w-[180px]">
+        <Input value={leftText} onChange={(e) => handleChangeLeftText(e.target.value)} placeholder="Left text" />
+      </div>
+      <div className="flex w-full items-center space-x-2 sm:w-auto">
+        <Switch checked={showIcon} onCheckedChange={handleShowIcon} />
+        <span className="text-sm">Left icon</span>
+      </div>
+      <div className="flex w-full items-center space-x-2 sm:w-auto">
+        <Switch checked={changeOpenIcon} onCheckedChange={handleChangeOpenIcon} />
+        <span className="text-sm">Change open icon</span>
       </div>
       <div className="flex w-full items-center space-x-2 sm:w-auto">
         <Switch checked={disabled} onCheckedChange={handleChangeDisabled} />
