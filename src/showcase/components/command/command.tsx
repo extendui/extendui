@@ -35,7 +35,7 @@ export default function CommandExample() {
   }
 
   return (
-    <div className="space-y-2">
+    <div className="space-y-2 z-10">
       <Popover open={open} onOpenChange={setOpen}>
         <PopoverTrigger asChild>
           <Button
