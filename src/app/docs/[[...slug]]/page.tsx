@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/await-thenable */
 
 import { ChevronRightIcon, ExternalLinkIcon } from '@radix-ui/react-icons';
+import { allDocs } from 'contentlayer/generated';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import Balancer from 'react-wrap-balancer';
@@ -12,7 +13,6 @@ import { badgeVariants } from '@/components/ui/badge';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { getTableOfContents } from '@/lib/toc';
 import { absoluteUrl, cn } from '@/lib/utils';
-import { allDocs } from 'contentlayer/generated';
 
 import type { Metadata } from 'next';
 

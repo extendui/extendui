@@ -16,7 +16,7 @@ import {
 import { useEngineSettingsSelectStore } from '@/zustand/stores/useEngineSettingsSelect';
 
 export default function SelectExample() {
-  const { variant, error, disabled, showIcon, changeOpenIcon, leftText, helperText, placeholeder } = useEngineSettingsSelectStore();
+  const { variant, error, disabled, showIcon, changeOpenIcon, leftText, helperText, placeholder } = useEngineSettingsSelectStore();
   return (
     <div>
       <Select disabled={disabled}>
@@ -28,7 +28,7 @@ export default function SelectExample() {
           leftText={leftText}
           className="min-w-[160px]"
         >
-          <SelectValue placeholder={placeholeder} />
+          <SelectValue placeholder={placeholder} />
         </SelectTrigger>
         <SelectContent variant={variant}>
           <SelectGroup >

@@ -10,7 +10,7 @@ type EngineSettingsSelectState = {
   showIcon: boolean;
   changeOpenIcon: boolean;
   leftText: string;
-  placeholeder: string;
+  placeholder: string;
   helperText: string;
 };
 
@@ -19,7 +19,7 @@ type EngineSettingsSelectActions = {
   setDisabled: (disabled: boolean) => void;
   setError: (error: boolean) => void;
   setLeftText: (leftText: string) => void;
-  setPlaceholeder: (placeholeder: string) => void;
+  setPlaceholder: (placeholder: string) => void;
   setHelperText: (helperText: string) => void;
   setShowIcon: (showIcon: boolean) => void;
   setChangeOpenIcon: (changeOpenIcon: boolean) => void;
@@ -33,7 +33,7 @@ export const useEngineSettingsSelectStore = create(
     showIcon: false,
     changeOpenIcon: false,
     leftText: '',
-    placeholeder: 'Select a fruit',
+    placeholder: 'Select a fruit',
     helperText: '',
     setVariant: (variant) =>
       set((state) => {
@@ -59,9 +59,9 @@ export const useEngineSettingsSelectStore = create(
       set((state) => {
         state.leftText = leftText;
       }),
-    setPlaceholeder: (placeholeder) =>
+    setPlaceholder: (placeholder) =>
       set((state) => {
-        state.placeholeder = placeholeder;
+        state.placeholder = placeholder;
       }),
     setHelperText: (helperText) =>
       set((state) => {
@@ -70,5 +70,5 @@ export const useEngineSettingsSelectStore = create(
   })),
 );
 
-export const { setVariant, setDisabled, setError, setLeftText, setPlaceholeder, setHelperText, setShowIcon, setChangeOpenIcon } =
+export const { setVariant, setDisabled, setError, setLeftText, setPlaceholder, setHelperText, setShowIcon, setChangeOpenIcon } =
   useEngineSettingsSelectStore.getState();

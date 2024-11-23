@@ -76,6 +76,18 @@ export const docsConfig: DocsConfig = {
           href: '/docs/components/select',
           items: [
             { title: 'Base', href: '/docs/components/select', items: [] },
+            {
+              title: 'Extended',
+              href: '/docs/components/select-extended',
+              items: [],
+            },
+          ],
+        },
+        {
+          title: 'Command',
+          href: '/docs/components/command',
+          items: [
+            { title: 'Base', href: '/docs/components/command', items: [] },
           ],
         },
         {

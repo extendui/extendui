@@ -1,6 +1,5 @@
 'use client';
 
-import { UtensilsCrossed } from 'lucide-react';
 import React from 'react';
 
 import { Input } from '@/components/extendui/input';
@@ -20,14 +19,14 @@ import {
   setError,
   setHelperText,
   setLeftText,
-  setPlaceholeder,
+  setPlaceholder,
   setShowIcon,
   setVariant,
 } from '@/zustand/stores/useEngineSettingsSelect';
 import { useEngineSettingsSelectStore } from '@/zustand/stores/useEngineSettingsSelect';
 
 export default function SelectSettingsEngine() {
-  const { variant, error, disabled, changeOpenIcon, leftText, showIcon, helperText, placeholeder } = useEngineSettingsSelectStore();
+  const { variant, error, disabled, changeOpenIcon, leftText, showIcon, helperText, placeholder } = useEngineSettingsSelectStore();
 
   const handleChangeVariant = (
     value: 'default' | 'flushed' | 'flushedfilled' | 'filled' | 'dashed',
@@ -60,7 +59,7 @@ export default function SelectSettingsEngine() {
   };
 
   const handleChangePlaceholeder = (value: string) => {
-    setPlaceholeder(value);
+    setPlaceholder(value);
   };
 
   return (
@@ -83,7 +82,7 @@ export default function SelectSettingsEngine() {
         </Select>
       </div>
       <div className="flex w-full items-center space-x-2 sm:w-[180px]">
-        <Input value={placeholeder} onChange={(e) => handleChangePlaceholeder(e.target.value)} placeholder="Placeholder" />
+        <Input value={placeholder} onChange={(e) => handleChangePlaceholeder(e.target.value)} placeholder="Placeholder" />
       </div>
       <div className="flex w-full items-center space-x-2 sm:w-[180px]">
         <Input value={helperText} onChange={(e) => handleChangeHelperText(e.target.value)} placeholder="Helper text" />

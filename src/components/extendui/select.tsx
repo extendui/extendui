@@ -13,17 +13,15 @@ import * as React from 'react';
 import { cn } from '@/lib/utils';
 
 const selectVariants = cva(
-  'flex h-9 w-full items-center justify-between whitespace-nowrap rounded-md border border-input bg-transparent px-3 py-2 text-sm shadow-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-ring disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1',
+  'flex h-9 w-full items-center justify-between whitespace-nowrap rounded-md border border-input bg-transparent px-3 py-2 text-sm shadow-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-0 focus:ring-offset-0 disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1',
   {
     variants: {
       variant: {
-        default: 'border-select focus:outline-primary',
-        filled: 'border-transparent bg-muted focus:outline-primary',
-        flushed:
-          'rounded-none border-x-0 border-t-0 outline-none focus:outline-none focus:ring-0 focus:ring-offset-0 focus:bg-secondary focus-visible:outline-none',
-        flushedfilled:
-          'rounded-none border-x-0 border-t-0 outline-none focus:outline-none focus:ring-0 focus:ring-offset-0 focus:bg-secondary',
-        dashed: 'border-dashed border-2 focus:outline-primary',
+        default: 'border-select',
+        filled: 'border-transparent bg-muted',
+        flushed: 'rounded-none border-x-0 border-t-0 outline-none',
+        flushedfilled: 'rounded-none border-x-0 border-t-0 outline-none',
+        dashed: 'border-dashed border-2',
       },
     },
     defaultVariants: {
@@ -31,20 +29,18 @@ const selectVariants = cva(
     },
   },
 );
+
 
 const selectContentVariants = cva(
   'relative z-50 max-h-96 min-w-[8rem] overflow-hidden rounded-md border bg-popover text-popover-foreground shadow-md data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2',
-
   {
     variants: {
       variant: {
-        default: 'border-select focus:outline-primary',
-        filled: 'border-transparent bg-muted focus:outline-primary',
-        flushed:
-          'rounded-none border-x-0 border-t-0 outline-none focus:outline-none focus:ring-0 focus:ring-offset-0 focus:bg-primary focus-visible:outline-none',
-        flushedfilled:
-          'rounded-none border-x-0 border-t-0 outline-none focus:outline-none focus:ring-0 focus:ring-offset-0 focus:bg-secondary',
-        dashed: 'border-dashed border-2 focus:outline-primary',
+        default: 'border-select',
+        filled: 'border-transparent bg-muted',
+        flushed: 'rounded-none border-x-0 border-t-0 outline-none',
+        flushedfilled: 'rounded-none border-x-0 border-t-0 outline-none',
+        dashed: 'border-dashed border-2',
       },
     },
     defaultVariants: {
@@ -52,6 +48,7 @@ const selectContentVariants = cva(
     },
   },
 );
+
 
 
 const Select = SelectPrimitive.Root;

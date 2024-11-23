@@ -45,6 +45,8 @@ import { ButtonSlide } from '@/showcase/components/button/button-slide';
 import { ClickSlideButton } from '@/showcase/components/button/button-slide-02';
 import { SubscribeButton } from '@/showcase/components/button/button-subscribe';
 import ButtonSettingsEngine from '@/showcase/components/button/settings-engine';
+import CommandExample from '@/showcase/components/command/command';
+import CommandSettingsEngine from '@/showcase/components/command/settings-engine';
 import DatePickerExample from '@/showcase/components/date-picker/date-picker';
 import DatePickerSettingsEngine from '@/showcase/components/date-picker/settings-engine';
 import InputExample from '@/showcase/components/input/input';
@@ -62,6 +64,8 @@ import { InputSelectLeft } from '@/showcase/components/input/input-selectLeft';
 import { InputSelectRight } from '@/showcase/components/input/input-selectRight';
 import InputSettingsEngine from '@/showcase/components/input/settings-engine';
 import SelectExample from '@/showcase/components/select/select';
+import AvatarDescriptionSelect from '@/showcase/components/select/select-avatar-decription';
+import StatusSelect from '@/showcase/components/select/select-status';
 import SelectSettingsEngine from '@/showcase/components/select/settings-engine';
 
 import { Input } from './extendui/input';
@@ -112,6 +116,7 @@ const components = {
   Rotating3DButton,
   RotatingButton,
   ExpandingDotButton,
+  CommandSettingsEngine,
   PricingCard,
   PricingCard02,
   CreditCard,
@@ -146,6 +151,9 @@ const components = {
   SendingButton02,
   SubscribeButton,
   ButtonSlide,
+  StatusSelect,
+  CommandExample,
+  AvatarDescriptionSelect,
   h1: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h1
       className={cn(
