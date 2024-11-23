@@ -23,7 +23,7 @@ export const useEngineSettingsCommandStore = create(
     showIcon: false,
     placeholder: 'Select status...',
     labelText: 'Select status',
-    notFoundText: 'Not found status',
+    notFoundText: 'Status not found.',
     setDisabled: (disabled) =>
       set((state) => {
         state.disabled = disabled;
