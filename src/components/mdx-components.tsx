@@ -1,5 +1,6 @@
 'use client';
 
+import { type MDXComponents } from 'mdx/types';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useMDXComponent } from 'next-contentlayer2/hooks';
@@ -32,6 +33,7 @@ import SignIn02 from '@/showcase/blocks/forms/sign-in-02';
 import ButtonExample from '@/showcase/components/button/button';
 import { Rotating3DButton } from '@/showcase/components/button/button-3d-rotating';
 import { BouncingButton } from '@/showcase/components/button/button-bouncing';
+import CreateNewButton from '@/showcase/components/button/button-create-new';
 import { ExpandingDotButton } from '@/showcase/components/button/button-expanding-dot';
 import { FlipButtonX } from '@/showcase/components/button/button-flipX';
 import { FlipButtonY } from '@/showcase/components/button/button-flipY';
@@ -74,8 +76,6 @@ import { Select } from './extendui/select';
 import { Icons } from './icons/icons';
 import { PreCustom } from './pre-custom';
 import Preview from './preview';
-
-import { type MDXComponents } from 'mdx/types';
 
 function CustomLink(props: any) {
   const href = props.href;
@@ -129,6 +129,7 @@ const components = {
   SignIn,
   SignIn02,
   ButtonExample,
+  CreateNewButton,
   ButtonSettingsEngine,
   DatePickerSettingsEngine,
   InputExample,
