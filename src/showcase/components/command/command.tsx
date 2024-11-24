@@ -1,12 +1,11 @@
 'use client';
 
-
-import { Popover, PopoverTrigger, PopoverContent } from "@radix-ui/react-popover";
 import { Check, ChevronDown, Dot } from "lucide-react";
 import { useState } from "react";
 
 import { Button } from "@/components/extendui/button";
 import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from "@/components/extendui/command";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { cn } from "@/lib/utils";
 import { useEngineSettingsCommandStore } from "@/zustand/stores/useEngineSettingsCommand";
 
@@ -35,7 +34,7 @@ export default function CommandExample() {
   }
 
   return (
-    <div className="space-y-2 z-10">
+    <div className="space-y-2">
       <Popover open={open} onOpenChange={setOpen}>
         <PopoverTrigger asChild>
           <Button
@@ -60,6 +59,7 @@ export default function CommandExample() {
         </PopoverTrigger>
         <PopoverContent
           align="start"
+          className="p-0"
         >
           <Command>
             <CommandInput placeholder={placeholder} />

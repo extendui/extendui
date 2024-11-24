@@ -88,6 +88,7 @@ export const docsConfig: DocsConfig = {
           href: '/docs/components/command',
           items: [
             { title: 'Base', href: '/docs/components/command', items: [] },
+            { title: 'Extended', href: '/docs/components/command-extended', items: [] },
           ],
         },
         {

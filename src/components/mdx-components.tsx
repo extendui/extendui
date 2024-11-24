@@ -46,6 +46,7 @@ import { ClickSlideButton } from '@/showcase/components/button/button-slide-02';
 import { SubscribeButton } from '@/showcase/components/button/button-subscribe';
 import ButtonSettingsEngine from '@/showcase/components/button/settings-engine';
 import CommandExample from '@/showcase/components/command/command';
+import CommandAvatarDescription from '@/showcase/components/command/command-avatar-description';
 import CommandSettingsEngine from '@/showcase/components/command/settings-engine';
 import DatePickerExample from '@/showcase/components/date-picker/date-picker';
 import DatePickerSettingsEngine from '@/showcase/components/date-picker/settings-engine';
@@ -106,6 +107,7 @@ const components = {
   FrameworkDocs,
   StyleWrapper,
   ClickSlideButton,
+  CommandAvatarDescription,
   Image,
   ScalingButton,
   BouncingButton,

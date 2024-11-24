@@ -159,7 +159,7 @@ const InputComponent = React.forwardRef<HTMLInputElement, InputRootProps>(
 
     const inputClassName = cn(
       inputVariants({ variant }),
-      elementChecks.hasLeftIcon ? 'pl-9' : 'px-3',
+      elementChecks.hasLeftIcon ? 'ps-9' : 'px-3',
       elementChecks.hasLabel,
       value && variant === 'flushedfilled' && 'bg-secondary',
       error && 'border-red-500 text-red-500',
@@ -250,7 +250,7 @@ const InputLabel = React.forwardRef<
     (isFocused || value || (type === 'date') || placeholder) && [
       '-top-2.5  bg-background px-1 text-primary text-xs rounded-md',
       variant === 'flushed' || variant === 'flushedfilled'
-        ? `-left-[7px] pl-2`
+        ? `-left-[7px] ps-2`
         : `left-[7px] border-2`,
     ],
     error && 'text-red-500',
