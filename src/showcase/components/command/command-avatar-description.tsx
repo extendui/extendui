@@ -17,7 +17,6 @@ import {
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { cn } from "@/lib/utils";
 
-// Define types for user and group
 type User = {
   value: string;
   name: string;
@@ -82,7 +81,6 @@ export default function CommandAvatarDescription() {
   const [open, setOpen] = useState<boolean>(false);
   const [value, setValue] = useState<string>("");
 
-  // Helper function with type safety
   const findUser = (value: string): JSX.Element | null => {
     const user = users
       .flatMap((group) => group.items)
