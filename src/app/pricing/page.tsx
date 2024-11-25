@@ -19,7 +19,7 @@ export default function PricingPage() {
                 </h1>
               </FadeUp>
               <FadeUp delay={0.4} duration={0.8}>
-                <p className="mx-auto mb-20 mt-6 max-w-xl text-center text-lg leading-8 text-muted-foreground">
+                <p className="mx-2 my-6 max-w-2xl text-base font-light tracking-tight dark:text-zinc-300 sm:text-xl">
                   From individual elements to entire sites built to your
                   specifications—transparent pricing with no hidden fees.
                 </p>

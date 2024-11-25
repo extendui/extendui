@@ -20,10 +20,10 @@ type Props = {
   navLinks: { name: string; href: string }[];
 };
 export default function MobileSidebar({ navLinks }: Props) {
-  const [isOpen, setIsOpen] = useState(false); // Add state for sheet open/close
+  const [isOpen, setIsOpen] = useState(false);
 
   const handleLinkClick = () => {
-    setIsOpen(false); // Close the sheet on link click
+    setIsOpen(false);
   };
   return (
     <Sheet open={isOpen} onOpenChange={setIsOpen}>

@@ -8,20 +8,13 @@ import {
   DialogTrigger,
 } from '@/components/ui/dialog';
 
-import ContactForm from './contact-form';
+import ContactForm from '../../../components/contact-form';
 
-export default function ContactDialog({
-  featured,
-}: {
-  featured: boolean | undefined;
-}) {
+export default function ContactDialog() {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button
-          variant={featured ? 'secondary' : 'outline'}
-          className={`w-full ${featured ? 'bg-neutral-200 text-black dark:bg-neutral-200 dark:hover:bg-neutral-100' : ''}`}
-        >
+        <Button className='w-full bg-accent hover:bg-accent/80'>
           Contact Us
         </Button>
       </DialogTrigger>

@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   title: `Docs | ${siteConfig.name}`,
   description: `Read docs about ${siteConfig.keywords.join(', ')}`,
   openGraph: {
-    title: `Dpcs | ${siteConfig.name}`,
+    title: `Docs | ${siteConfig.name}`,
     description: `Read docs about ${siteConfig.keywords.join(', ')}`,
     type: 'website',
     url: `${siteConfig.url}/docs`,

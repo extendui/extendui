@@ -1,25 +1,7 @@
-import PricingCard from './extendui/pricing-card';
+import PricingCard02 from './extendui/pricing-card';
 
 export default function PricingTable() {
   const pricingPlans = [
-    {
-      title: 'Existing Components',
-
-      description:
-        'Access our library of pre-built components to kickstart your project. Perfect for developers and hobbyists looking to explore and learn.',
-      buttonText: 'Browse Components',
-      href: '/docs/components/button',
-      features: [
-        'Access to a growing library of pre-built components to kickstart your project',
-        'React / Next.js / Tailwind CSS code provided',
-        'Serves a wide range of users and audiences',
-        'MIT License for personal or commercial projects',
-        'Direct chat support available',
-      ],
-      price: 'Free',
-      interval: '',
-      priceTagline: 'lifetime access',
-    },
     {
       title: 'Custom Components',
       description:
@@ -29,19 +11,16 @@ export default function PricingTable() {
         'Bespoke components designed and developed to your specific needs',
         'React / Next.js / Tailwind CSS code provided',
         'Design and development services',
-        'Unlimited revisions',
         '24-hour support response time',
-        'Private communication channel',
         '4-7 day turnaround time',
         'Pause or cancel anytime',
       ],
-      price: '$1499',
+      price: '1499',
       interval: '/mo',
       priceTagline: 'pause or cancel anytime',
     },
     {
       title: 'Pages',
-
       description:
         'Full-page designs and development for a complete web presence. Perfect for startups and small businesses launching their online platform.',
       buttonText: 'Contact Us',
@@ -50,14 +29,12 @@ export default function PricingTable() {
         'One request / page at a time',
         'React / Next.js / Tailwind CSS code provided',
         'Design and development services',
-        'Unlimited revisions',
         'Search Engine Optimization',
         '24-hour support response time',
-        'Private communication channel',
         '7-10 day turnaround time',
         'Pause or cancel anytime',
       ],
-      price: '$2899',
+      price: '2899',
       interval: '/mo',
       priceTagline: 'pause or cancel anytime',
       featured: true,
@@ -78,17 +55,18 @@ export default function PricingTable() {
         'Unlimited revisions',
         'Negotiable delivery time',
       ],
-      price: '$9,999',
+      price: '7,999',
       interval: '',
       priceTagline: 'starts at',
     },
   ];
 
   return (
-    <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-4 md:grid-cols-2 xl:grid-cols-4">
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mx-auto max-w-6xl px-4">
       {pricingPlans.map((plan) => (
-        <PricingCard plan={plan} key={plan.title} />
+        <PricingCard02 plan={plan} key={plan.title} />
       ))}
     </div>
   );
 }
+

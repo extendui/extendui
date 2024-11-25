@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/await-thenable */
 
 import { ChevronRightIcon, ExternalLinkIcon } from '@radix-ui/react-icons';
-import { allDocs } from 'contentlayer/generated';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import Balancer from 'react-wrap-balancer';
@@ -13,29 +12,26 @@ import { badgeVariants } from '@/components/ui/badge';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { getTableOfContents } from '@/lib/toc';
 import { absoluteUrl, cn } from '@/lib/utils';
+import { allDocs } from 'contentlayer/generated';
 
 import type { Metadata } from 'next';
 
-type DocPageProps = {
+type Props = {
   params: {
     slug: string[];
   };
 };
 
-async function getDocFromParams({ params }: DocPageProps) {
+async function getDocFromParams({ params }: Props) {
   const { slug } = await params;
-
-  // const slug = params.slug?.join('/') || '';
   const doc = allDocs.find((doc) => doc.slugAsParams === (slug?.join('/') || ''));
-
   if (!doc) return null;
-
   return doc;
 }
 
 export async function generateMetadata({
   params,
-}: DocPageProps): Promise<Metadata> {
+}: Props): Promise<Metadata> {
   const doc = await getDocFromParams({ params });
 
   if (!doc) return {};
@@ -53,14 +49,14 @@ export async function generateMetadata({
 }
 
 export async function generateStaticParams(): Promise<
-  DocPageProps['params'][]
+  Props['params'][]
 > {
   return allDocs.map((doc) => ({
     slug: doc.slugAsParams.split('/'),
   }));
 }
 
-export default async function DocPage({ params }: DocPageProps) {
+export default async function DocPage({ params }: Props) {
   const doc = await getDocFromParams({ params });
 
   if (!doc) notFound();
@@ -68,7 +64,7 @@ export default async function DocPage({ params }: DocPageProps) {
   const toc = await getTableOfContents(doc.body.raw);
 
   return (
-    <div className="relative mb-6 lg:gap-10 xl:grid xl:grid-cols-[1fr_300px]" suppressHydrationWarning >
+    <div className="relative mb-6 lg:gap-10 xl:grid xl:grid-cols-[1fr_300px]">
       <div className="mx-auto w-full min-w-0">
         <div className="mb-4 flex space-x-1 text-sm leading-none text-muted-foreground">
           <div className="truncate">Docs</div>
