@@ -16,7 +16,7 @@ import {
   CommandInput,
   CommandItem,
   CommandList,
-} from './ui/command';
+} from './extendui/command';
 
 export function CommandMenu({ ...props }: DialogProps) {
   const router = useRouter();
@@ -65,7 +65,7 @@ export function CommandMenu({ ...props }: DialogProps) {
         </kbd>
       </Button>
       <CommandDialog open={open} onOpenChange={setOpen} >
-        <CommandInput placeholder="Type a command or search..." />
+        <CommandInput placeholder="Search documentation..." />
         <CommandList>
           <CommandEmpty>No results found.</CommandEmpty>
           <CommandGroup heading="Links">
