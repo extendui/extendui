@@ -1,3 +1,7 @@
+'use client';
+
+import Autoplay from "embla-carousel-autoplay"
+
 import ComponentShowcaseCard from "@/components/component-showcase-card";
 import FadeUp from "@/components/fadeup";
 import { Card } from "@/components/ui/card";
@@ -35,7 +39,7 @@ const componentShowcases = [
     },
     {
         href: "/docs/components/date-picker",
-        title: "Date piecker",
+        title: "Date picker",
         description: "5 variants",
         component: <DatePickerExample />,
     },
@@ -47,7 +51,7 @@ const blockShowcases = [
         title: "Cards",
         description: "3 variants",
         component: (
-            <Card className="w-1/2">
+            <Card className="w-[200px]">
                 <div className="space-y-3 p-6">
                     <div className="h-2 w-full rounded bg-gray-300"></div>
                     <div className="h-8 w-full rounded bg-gray-300"></div>
@@ -85,49 +89,72 @@ export default function ShowcaseSection() {
                         align: "start",
                         loop: true,
                     }}
-                    className="w-full"
+                    plugins={[
+                        Autoplay({
+                            delay: 3500,
+                        }),
+                    ]}
+                    className="mx-auto"
                 >
                     <CarouselContent>
                         {componentShowcases.map(({ href, title, description, component }, index) => (
-                            <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
-                                <ComponentShowcaseCard
-                                    href={href}
-                                    title={title}
-                                    description={description}
-                                    component={component}
-                                />
+                            <CarouselItem key={index} className="basis-full sm:basis-1/2 lg:basis-1/3">
+                                <div className="p-1">
+                                    <ComponentShowcaseCard
+                                        href={href}
+                                        title={title}
+                                        description={description}
+                                        component={component}
+                                    />
+                                </div>
                             </CarouselItem>
                         ))}
                     </CarouselContent>
-                    <CarouselPrevious />
-                    <CarouselNext />
+                    <div className="mt-4 flex justify-center gap-2 sm:hidden">
+                        <CarouselPrevious />
+                        <CarouselNext />
+                    </div>
+                    <CarouselPrevious className="hidden sm:flex" />
+                    <CarouselNext className="hidden sm:flex" />
                 </Carousel>
             </FadeUp>
             <FadeUp duration={0.8} delay={0.1}>
-                <h2 className="mb-8 mt-12 text-center text-3xl font-bold">Blocks</h2>
+                <h2 className="mb-8 mt-32 text-center text-3xl font-bold">Blocks</h2>
                 <Carousel
                     opts={{
                         align: "start",
                         loop: true,
                     }}
+                    plugins={[
+                        Autoplay({
+                            delay: 3500,
+                        }),
+                    ]}
                     className="w-full"
                 >
                     <CarouselContent>
                         {blockShowcases.map(({ href, title, description, component }, index) => (
-                            <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
-                                <ComponentShowcaseCard
-                                    href={href}
-                                    title={title}
-                                    description={description}
-                                    component={component}
-                                />
+                            <CarouselItem key={index} className="basis-full sm:basis-1/2 lg:basis-1/3">
+                                <div className="p-1">
+                                    <ComponentShowcaseCard
+                                        href={href}
+                                        title={title}
+                                        description={description}
+                                        component={component}
+                                    />
+                                </div>
                             </CarouselItem>
                         ))}
                     </CarouselContent>
-                    <CarouselPrevious />
-                    <CarouselNext />
+                    <div className="mt-4 flex justify-center gap-2 sm:hidden">
+                        <CarouselPrevious />
+                        <CarouselNext />
+                    </div>
+                    <CarouselPrevious className="hidden sm:flex" />
+                    <CarouselNext className="hidden sm:flex" />
                 </Carousel>
             </FadeUp>
         </section>
     );
 }
+
