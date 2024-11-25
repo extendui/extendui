@@ -18,10 +18,10 @@ const config: Config = {
         'button': '0 0px 2px 1px rgba(0,0,0,0.4)'
       },
       maxWidth: {
-        '8xl': '88rem', // Approx 1408px
-        '9xl': '96rem', // Approx 1536px
-        '10xl': '104rem', // Approx 1664px
-        '11xl': '112rem', // Approx 1792px
+        '8xl': '88rem',
+        '9xl': '96rem',
+        '10xl': '104rem',
+        '11xl': '112rem',
       },
       fontFamily: {
         sans: ['var(--font-geist-sans)', ...fontFamily.sans],
@@ -75,20 +75,12 @@ const config: Config = {
       },
       keyframes: {
         'accordion-down': {
-          from: {
-            height: '0',
-          },
-          to: {
-            height: 'var(--radix-accordion-content-height)',
-          },
+          from: { height: '0' },
+          to: { height: 'var(--radix-accordion-content-height)' },
         },
         'accordion-up': {
-          from: {
-            height: 'var(--radix-accordion-content-height)',
-          },
-          to: {
-            height: '0',
-          },
+          from: { height: 'var(--radix-accordion-content-height)' },
+          to: { height: '0' },
         },
         glow: {
           '0%, 100%': {
@@ -100,37 +92,34 @@ const config: Config = {
               '0 0 10px rgba(52, 211, 153, 0.8), 0 0 20px rgba(52, 211, 153, 0.5)',
           },
         },
-        'bounce-custom': {
-          '0%, 100%': { transform: 'translateY(0)' },
-          '50%': { transform: 'translateY(-6px)' },
+        shimmer: {
+          '0%': { backgroundPosition: '200% 0' },
+          '100%': { backgroundPosition: '-200% 0' },
+        },
+        perimeterShimmer: {
+          '0%, 100%': { clipPath: 'inset(0 0 calc(100% - 2px) 0)' },
+          '25%': { clipPath: 'inset(0 0 0 calc(100% - 2px))' },
+          '50%': { clipPath: 'inset(calc(100% - 2px) 0 0 0)' },
+          '75%': { clipPath: 'inset(0 calc(100% - 2px) 0 0)' },
         },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
         glow: 'glow 2s ease-in-out infinite',
-        'bounce-custom': 'bounce-custom 1s ease-in-out infinite',
+
+        shimmer: 'shimmer 3s linear infinite',
+        perimeterShimmer: 'perimeterShimmer 4s linear infinite',
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
-      typography: () => ({
-        DEFAULT: {
-          css: {
-            'code::before': {
-              content: '""',
-            },
-            'code::after': {
-              content: '""',
-            },
-          },
-        },
-      }),
     },
   },
   plugins: [require('tailwindcss-animate'), require('@tailwindcss/typography')],
 };
 
 export default config;
+

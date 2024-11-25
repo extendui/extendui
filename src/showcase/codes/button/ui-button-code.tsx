@@ -1,4 +1,5 @@
-import { Slot } from '@radix-ui/react-slot';
+export function getButtonCode() {
+  return `import { Slot } from '@radix-ui/react-slot';
 import { Tooltip } from '@radix-ui/react-tooltip';
 import { cva, type VariantProps } from 'class-variance-authority';
 import { Loader2 } from 'lucide-react';
@@ -123,3 +124,6 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 Button.displayName = 'Button';
 
 export { Button, buttonVariants };
+  
+`;
+}

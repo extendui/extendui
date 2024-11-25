@@ -1,10 +1,9 @@
 export function getButtonExampleCode(state: Record<string, any>) {
   const { variant, size, loading, tooltipText } = state;
 
-  return `
-import { Button } from '@/components/ui/button';
+  return `import { Button } from '@/components/ui/button';
 
-function ExampleButton() {
+function ButtonDemo() {
   return (
     <Button 
       variant={'${variant}'} 

@@ -71,6 +71,7 @@ import AvatarDescriptionSelect from '@/showcase/components/select/select-avatar-
 import StatusSelect from '@/showcase/components/select/select-status';
 import SelectSettingsEngine from '@/showcase/components/select/settings-engine';
 
+import { ComponentSourceLive } from './component-source-live';
 import { Input } from './extendui/input';
 import { Select } from './extendui/select';
 import { Icons } from './icons/icons';
@@ -104,6 +105,7 @@ const components = {
   AlertDescription,
   PropsTable,
   ComponentSource,
+  ComponentSourceLive,
   FrameworkDocs,
   StyleWrapper,
   ClickSlideButton,

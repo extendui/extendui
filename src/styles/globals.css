@@ -66,30 +66,25 @@
     @apply transition-all duration-1000 ease-in-out;
   }
 
-  /* Track */
   ::-webkit-scrollbar-track {
     @apply bg-gray-100 dark:bg-neutral-800;
   }
 
-  /* Handle */
   ::-webkit-scrollbar-thumb {
     @apply rounded bg-gray-300 dark:bg-zinc-600;
   }
 
-  /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
     @apply rounded bg-gray-400 dark:bg-zinc-500;
   }
 
   .sidebar {
     @apply transition-all duration-1000 ease-in-out;
-    /* Slow down the transition */
   }
 
   .sidebar::-webkit-scrollbar {
     width: 0;
     @apply transition-all duration-1000 ease-in-out;
-    /* Slow down the transition */
   }
 
   .sidebar:hover::-webkit-scrollbar {
@@ -124,7 +119,8 @@
   .mask {
     mask-image: radial-gradient(circle 800px at center, white, transparent);
   }
-   .input-error {
+
+  .input-error {
     @apply ml-1 mt-2 text-sm text-rose-400;
   }
 
@@ -144,46 +140,9 @@
     content: counter(step);
   }
 
-  .animate-shimmer {
-    animation: shimmer 3s linear infinite;
-  }
-
-  .animate-perimeterShimmer {
-    animation: perimeterShimmer 4s linear infinite;
-  }
-
   input[type="date"]::-webkit-calendar-picker-indicator {
     display: none;
     -webkit-appearance: none;
   }
-
-  @keyframes shimmer {
-    0% {
-      background-position: 200% 0;
-    }
-
-    100% {
-      background-position: -200% 0;
-    }
-  }
-
-  @keyframes perimeterShimmer {
-
-    0%,
-    100% {
-      clip-path: inset(0 0 calc(100% - 2px) 0);
-    }
-
-    25% {
-      clip-path: inset(0 0 0 calc(100% - 2px));
-    }
-
-    50% {
-      clip-path: inset(calc(100% - 2px) 0 0 0);
-    }
-
-    75% {
-      clip-path: inset(0 calc(100% - 2px) 0 0);
-    }
-  }
 }
+

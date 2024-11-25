@@ -10,6 +10,11 @@ type Props = {
 export async function loadComponentCode({ componentName, state }: Props) {
   switch (componentName) {
     /* Button */
+    case 'Button':
+      const { getButtonCode } = await import(
+        '@/showcase/codes/button/ui-button-code'
+      )
+      return getButtonCode();
     case 'ButtonExample':
       const { getButtonExampleCode } = await import(
         '@/showcase/codes/button/button-code'
