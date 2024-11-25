@@ -89,7 +89,7 @@ export default function SidebarItem({ items, pathname, onClickProp }: Props) {
         <Link
           key={index}
           href={item.href || '#'}
-          className={itemClasses}
+          className={cn(itemClasses)}
           onClick={onClickProp}
         >
           {item.title}
@@ -104,7 +104,7 @@ export default function SidebarItem({ items, pathname, onClickProp }: Props) {
   };
 
   return items?.length ? (
-    <div className="grid grid-flow-row auto-rows-max text-base">
+    <div className="mr-4 grid grid-flow-row auto-rows-max text-base">
       {items.map((item, index) => renderItem(item, index))}
     </div>
   ) : null;
