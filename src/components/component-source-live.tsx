@@ -11,6 +11,7 @@ import {
 } from '@/registry/component-code-registry';
 
 import { CodeBlockWrapper } from './code-block-wrapper';
+import { CopyButton } from './copy-button';
 
 type Props = React.HTMLAttributes<HTMLDivElement> & {
   componentName: string;
@@ -96,6 +97,12 @@ export function ComponentSourceLive({
           )}
         </div>
       </CodeBlockWrapper>
+      {content && (
+        <CopyButton
+          value={content}
+          className={cn('absolute right-4 top-4 z-10')}
+        />
+      )}
     </div>
   );
 }

@@ -92,7 +92,7 @@ export default function Preview({
         </TabsContent>
         <TabsContent value="code" className="rounded-lg">
           <div className="relative mx-auto w-full max-w-full overflow-auto">
-            <ComponentSourceLive componentName={componentName} />
+            <ComponentSourceLive componentName={componentName} />s
           </div>
         </TabsContent>
       </Tabs>

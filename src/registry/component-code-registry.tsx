@@ -45,6 +45,26 @@ export async function loadComponentCode({ componentName, state }: Props) {
         '@/showcase/codes/button/button-bouncing-code'
       );
       return getButtonBouncingCode();
+    case 'ExpandingDotButton':
+      const { getButtonExpandingDotCode } = await import(
+        '@/showcase/codes/button/button-expanding-dot-code'
+      );
+      return getButtonExpandingDotCode();
+    case 'PulsatingOutlineShadowButton':
+      const { getButtonPulsatingOutlineShadowCode } = await import(
+        '@/showcase/codes/button/button-pulsating-outline-shadow-code'
+      );
+      return getButtonPulsatingOutlineShadowCode();
+    case 'FlipButtonX':
+      const { getButtonFlipXCode } = await import(
+        '@/showcase/codes/button/button-flip-x-code'
+      );
+      return getButtonFlipXCode();
+    case 'FlipButtonY':
+      const { getButtonFlipYCode } = await import(
+        '@/showcase/codes/button/button-flip-y-code'
+      );
+      return getButtonFlipYCode();
     /* Input */
     case 'InputExample':
       const { getInputExampleCode } = await import(
