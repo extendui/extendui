@@ -83,6 +83,7 @@ export default function ShowcaseSection() {
                 <Carousel
                     opts={{
                         align: "start",
+                        loop: true,
                     }}
                     className="w-full"
                 >
@@ -107,6 +108,7 @@ export default function ShowcaseSection() {
                 <Carousel
                     opts={{
                         align: "start",
+                        loop: true,
                     }}
                     className="w-full"
                 >
