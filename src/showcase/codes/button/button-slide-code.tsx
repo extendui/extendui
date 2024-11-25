@@ -1,4 +1,5 @@
-'use client';
+export function getButtonSlideCode() {
+    return `'use client';
 
 import {
   AnimatePresence,
@@ -191,3 +192,5 @@ export const ButtonSlide = React.forwardRef<HTMLButtonElement, ButtonProps>(
 );
 
 ButtonSlide.displayName = 'ButtonSlide';
+`;
+}

@@ -1,3 +1,5 @@
+export function getButtonSubscribeCode() {
+    return `
 import { AnimatePresence, motion } from 'framer-motion';
 import { Check, ChevronRight } from 'lucide-react';
 import * as React from 'react';
@@ -78,3 +80,5 @@ export const SubscribeButton = React.forwardRef<
 });
 
 SubscribeButton.displayName = 'SubscribeButton';
+`;
+}

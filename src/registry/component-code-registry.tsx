@@ -57,14 +57,39 @@ export async function loadComponentCode({ componentName, state }: Props) {
       return getButtonPulsatingOutlineShadowCode();
     case 'FlipButtonX':
       const { getButtonFlipXCode } = await import(
-        '@/showcase/codes/button/button-flip-x-code'
+        '@/showcase/codes/button/button-flipX-code'
       );
       return getButtonFlipXCode();
     case 'FlipButtonY':
       const { getButtonFlipYCode } = await import(
-        '@/showcase/codes/button/button-flip-y-code'
+        '@/showcase/codes/button/button-flipY-code'
       );
       return getButtonFlipYCode();
+    case 'SendingButton01':
+      const { getButtonSending01Code } = await import(
+        '@/showcase/codes/button/button-sending-01-code'
+      );
+      return getButtonSending01Code();
+    case 'SendingButton02':
+      const { getButtonSending02Code } = await import(
+        '@/showcase/codes/button/button-sending-02-code'
+      );
+      return getButtonSending02Code();
+    case 'ButtonSunscribe':
+      const { getButtonSubscribeCode } = await import(
+        '@/showcase/codes/button/button-subscribe-code'
+      );
+      return getButtonSubscribeCode();
+    case 'ButtonSlide':
+      const { getButtonSlideCode } = await import(
+        '@/showcase/codes/button/button-slide-code'
+      );
+      return getButtonSlideCode();
+    case 'ButtonClickSlide':
+      const { getButtonClickSlideCode } = await import(
+        '@/showcase/codes/button/button-click-slide-code'
+      );
+      return getButtonClickSlideCode();
     /* Input */
     case 'InputExample':
       const { getInputExampleCode } = await import(

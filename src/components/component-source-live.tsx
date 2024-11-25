@@ -61,20 +61,7 @@ export function ComponentSourceLive({
         {...props}
       >
         <div className="max-w-full overflow-auto">
-          {isLoading ? (
-            <div
-              className="flex h-72 items-center justify-center"
-              aria-live="polite"
-              aria-busy="true"
-            >
-              <div
-                className="h-8 w-8 animate-spin rounded-full border-b-2 border-t-2 border-primary"
-                role="status"
-              >
-                <span className="sr-only">Loading...</span>
-              </div>
-            </div>
-          ) : content ? (
+          {!isLoading && content ? (
             <SyntaxHighlighter
               language="typescript"
               style={nightOwl}
