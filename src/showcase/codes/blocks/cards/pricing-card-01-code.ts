@@ -1,13 +1,12 @@
 export function getPricingCardCode() {
-    return `
-'use client';
+    return `'use client';
 
 import { motion } from 'framer-motion';
 import { Check } from 'lucide-react';
 
 import { ScalingButton } from '@/showcase/components/button/button-scaling';
 
-export default function PricingCard() {
+export default function PricingCard01() {
   const features = [
     '2 Senior Developers',
     'Landing Page Development',
@@ -61,8 +60,6 @@ export default function PricingCard() {
       </motion.div>
     </div>
   );
-}
-
-  `;
+}`;
   }
   
