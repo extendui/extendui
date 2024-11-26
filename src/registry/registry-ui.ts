@@ -47,5 +47,11 @@ export const ui: Registry = [
     type: 'registry:ui',
     dependencies: ['@radix-ui/react-select', '@radix-ui/react-icons'],
     files: ['components/ui/select.tsx']
+  },
+  {
+    name: 'command',
+    type: 'registry:ui',
+    dependencies: ['@radix-ui/react-dialog', '@radix-ui/react-icons', 'cmdk'],
+    files: ['components/ui/command.tsx']
   }
 ];
