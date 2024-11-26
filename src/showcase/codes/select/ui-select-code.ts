@@ -1,4 +1,5 @@
-'use client';
+export function getSelectCode() {  
+    return `'use client';
 
 import {
   CaretSortIcon,
@@ -108,7 +109,7 @@ const SelectTrigger = React.forwardRef<
         <span className={cn(
           error && 'text-red-500',
         )}>
-          {`${leftText} `}{children}
+          {\`\${leftText}\`}{children}
         </span>
       ) : (
         children
@@ -274,3 +275,6 @@ export {
   SelectScrollDownButton,
   SelectHelperText
 };
+`;
+}
+  

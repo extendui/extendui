@@ -1,4 +1,5 @@
-'use client';
+export function getSelectAvatarDescriptionCode() {  
+    return `'use client';
 
 import Image from "next/image";
 
@@ -75,3 +76,5 @@ export default function AvatarDescriptionSelect() {
     </div>
   );
 }
+`;
+} 

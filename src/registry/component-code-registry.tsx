@@ -1,6 +1,6 @@
-
 import { useEngineSettingsStore } from '@/zustand/stores/useEngineSettings';
 import { useEngineSettingsInputStore } from '@/zustand/stores/useEngineSettingsInput';
+import { useEngineSettingsSelectStore } from '@/zustand/stores/useEngineSettingsSelect';
 
 type Props = {
   componentName: string;
@@ -91,6 +91,11 @@ export async function loadComponentCode({ componentName, state }: Props) {
       );
       return getButtonClickSlideCode();
     /* Input */
+    case 'Input':
+      const { getInputCode } = await import(
+        '@/showcase/codes/input/ui-input-code'
+      );
+      return getInputCode();
     case 'InputExample':
       const { getInputExampleCode } = await import(
         '@/showcase/codes/input/input-code'
@@ -156,6 +161,27 @@ export async function loadComponentCode({ componentName, state }: Props) {
         '@/showcase/codes/input/input-credit-card-code'
       );
       return getCreditCardInputCode();
+    // Select
+    case 'Select':
+      const { getSelectCode } = await import(
+        '@/showcase/codes/select/ui-select-code'
+      )
+      return getSelectCode();
+    case 'SelectExample':
+      const { getSelectExampleCode } = await import(
+        '@/showcase/codes/select/select-code'
+      )
+      return getSelectExampleCode(state);
+    case 'SelectAvatarDescription':
+      const { getSelectAvatarDescriptionCode } = await import(
+        '@/showcase/codes/select/select-avatar-description-code'
+      )
+      return getSelectAvatarDescriptionCode
+    case 'SelectStatus':
+      const { getSelectStatusCode } = await import(
+        '@/showcase/codes/select/select-status-code'
+      )
+      return getSelectStatusCode
     // Blocks
     case 'PricingCard':
       const { getPricingCardCode } = await import(
@@ -172,6 +198,12 @@ export async function loadComponentCode({ componentName, state }: Props) {
         '@/showcase/codes/blocks/cards/credit-card-02-code'
       );
       return getCreditCard02Code();
+    // helpers
+    case 'hasNestedElementOfType':
+      const { getHasNestedElementOfType } = await import(
+        '@/showcase/codes/helpers/hasNestedElementOfType-code'
+      );
+      return getHasNestedElementOfType();
     default:
       throw new Error(`Component "${componentName}" not supported.`);
   }
@@ -193,5 +225,9 @@ export const componentStateConfig: ComponentStateConfigProps = {
   InputExample: {
     state: ['variant', 'label', 'error', 'disabled', 'required'],
     store: useEngineSettingsInputStore,
+  },
+  SelectExample: {
+    state: ['variant', 'error', 'disabled', 'leftText', 'helperText', 'placeholder'],
+    store: useEngineSettingsSelectStore,
   },
 };
