@@ -41,5 +41,11 @@ export const ui: Registry = [
     type: 'registry:ui',
     dependencies: [],
     files: ['components/ui/input.tsx', 'helpers/hasNestedElementOfType.ts']
+  },
+  {
+    name: 'select',
+    type: 'registry:ui',
+    dependencies: ['@radix-ui/react-select', '@radix-ui/react-icons'],
+    files: ['components/ui/select.tsx']
   }
 ];

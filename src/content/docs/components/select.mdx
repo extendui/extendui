@@ -9,7 +9,7 @@ description: A customizable list of predefined options allowing users to select 
   componentName={'SelectExample'}
 />
 
-## Installation
+### Installation
 
 <Tabs defaultValue="cli">
   <TabsList>
@@ -26,15 +26,120 @@ description: A customizable list of predefined options allowing users to select 
       <Step>
         Install the following dependencies: 
         ```bash 
-        npm install @radix-ui/react-slot 
+        npm install @radix-ui/react-select 
+        ```
+         ```bash 
+        npm install @radix-ui/react-icons
         ```
       </Step>
       <Step>
         Copy and paste the following code into your project.
-        <ComponentSource src={'select'} />
+        <ComponentSourceLive componentName={'Select'} />
       </Step>
       <Step>Update the import paths to match your project setup.</Step>
     </Steps>
   </TabsContent>
 </Tabs>
 
+### Select example usage
+
+```tsx
+<div className="space-y-2">
+  <Select defaultValue="completed">
+    <SelectTrigger id="select" className="w-[180px]">
+      <SelectValue placeholder="Select value" />
+    </SelectTrigger>
+    <SelectContent>
+        <SelectItem value={'value1'}>
+          First value
+        </SelectItem>
+        <SelectItem value={'value2'}>
+          Second value
+        </SelectItem>
+    </SelectContent>
+  </Select>
+</div>
+```
+
+### Select component props
+
+{' '}
+
+<div className="my-6 w-full overflow-x-auto">
+  <table className="w-full border-collapse border border-gray-300 bg-white">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>variant</td>
+        <td>default | filled | flushed | flushedfilled | dashed</td>
+        <td>
+          Defines the visual style of the select trigger and dropdown. Available
+          variants include <code>default</code>, <code>filled</code>, <code>flushed</code>, and more.
+        </td>
+      </tr>
+      <tr>
+        <td>error</td>
+        <td>boolean</td>
+        <td>
+          If <code>true</code>, applies an error style to the select trigger and helper text.
+        </td>
+      </tr>
+      <tr>
+        <td>icon</td>
+        <td>React.ReactNode</td>
+        <td>
+          Custom icon displayed on the left side of the select trigger.
+        </td>
+      </tr>
+      <tr>
+        <td>openIcon</td>
+        <td>React.ReactNode</td>
+        <td>
+          Icon displayed to indicate the dropdown is open. Defaults to <code>&lt;CaretSortIcon&gt;</code>.
+        </td>
+      </tr>
+      <tr>
+        <td>leftText</td>
+        <td>string</td>
+        <td>
+          Text displayed on the left side of the select trigger before the value.
+        </td>
+      </tr>
+      <tr>
+        <td>className</td>
+        <td>string</td>
+        <td>
+          Additional CSS classes to customize the select trigger's appearance.
+        </td>
+      </tr>
+      <tr>
+        <td>children</td>
+        <td>React.ReactNode</td>
+        <td>
+          The options or groups that make up the select menu, typically using
+          <code>&lt;SelectItem&gt;</code> or <code>&lt;SelectGroup&gt;</code>.
+        </td>
+      </tr>
+      <tr>
+        <td>ref</td>
+        <td>React.Ref&lt;HTMLButtonElement&gt;</td>
+        <td>
+          A ref to the select trigger element for direct DOM manipulation.
+        </td>
+      </tr>
+      <tr>
+        <td>...props</td>
+        <td>React.ComponentPropsWithoutRef&lt;SelectPrimitive.Trigger&gt;</td>
+        <td>
+          Additional props passed to the root trigger component.
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
