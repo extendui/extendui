@@ -372,7 +372,6 @@ Input.RightIcon = InputRightIcon;
 Input.PasswordToggle = InputPasswordToggle;
 Input.ClearButton = InputClearButton;
 
-export { Input };
-`;
+export { Input };`;
 }
   

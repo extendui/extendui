@@ -25,6 +25,5 @@ export const InputClear = () => {
       </Input.Group>
     </Input>
   );
-};
-`;
+};`;
 }

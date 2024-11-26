@@ -93,6 +93,5 @@ export const SendingButton: React.FC<ButtonProps> = React.forwardRef<
     )
 });
 
-SendingButton.displayName = 'SendingButton';
-`;
+SendingButton.displayName = 'SendingButton';`;
 }

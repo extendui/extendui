@@ -28,6 +28,5 @@ export const InputExtended = () => {
       </Input.Group>
     </Input>
   );
-};
-`;
+};`;
 }

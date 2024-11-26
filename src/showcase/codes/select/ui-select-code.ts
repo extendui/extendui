@@ -274,7 +274,6 @@ export {
   SelectScrollUpButton,
   SelectScrollDownButton,
   SelectHelperText
-};
-`;
+};`;
 }
   

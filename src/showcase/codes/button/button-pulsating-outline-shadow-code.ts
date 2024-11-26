@@ -84,6 +84,5 @@ export const PulsatingOutlineShadowButton = React.forwardRef<
     },
 );
 
-PulsatingOutlineShadowButton.displayName = 'PulsatingOutlineShadowButton';
-`;
+PulsatingOutlineShadowButton.displayName = 'PulsatingOutlineShadowButton';`;
 }

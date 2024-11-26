@@ -36,6 +36,5 @@ export const InputSelectLeft = () => {
       />
     </div>
   );
-};
-`;
+};`;
 }

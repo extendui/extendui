@@ -54,6 +54,5 @@ export const InputDecreaseIncrease = ({ min = 0, max = 100, step = 1 }: Props) =
       </Button>
     </div>
   );
-};
-`;
+};`;
 }

@@ -18,7 +18,7 @@ const statuses = [
   { value: "failed", label: "Failed", color: "text-red-600" },
 ];
 
-export default function StatusSelect() {
+export const StatusSelect = () => {
   return (
     <div className="space-y-2">
       <Select defaultValue="completed">

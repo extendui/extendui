@@ -73,6 +73,5 @@ export const FlipButtonY = React.forwardRef<HTMLButtonElement, FlipButtonYProps>
     }
 );
 
-FlipButtonY.displayName = 'FlipButtonY';
-`;
+FlipButtonY.displayName = 'FlipButtonY';`;
 }

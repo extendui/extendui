@@ -19,6 +19,5 @@ export const InputPassword = () => {
       </Input.Group>
     </Input>
   );
-};
-`;
+};`;
 }

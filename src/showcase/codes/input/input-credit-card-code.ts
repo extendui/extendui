@@ -1,5 +1,5 @@
 export function getCreditCardInputCode() {
-  return `"use client";
+  return `'use client';
 
 import { CreditCard } from "lucide-react";
 import { usePaymentInputs } from "react-payment-inputs";
@@ -56,6 +56,5 @@ export const CreditCardInput = () => {
             </div>
         </div>
     );
-};
-`;
+};`;
 }

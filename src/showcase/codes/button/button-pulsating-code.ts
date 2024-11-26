@@ -88,6 +88,5 @@ export const PulsatingShadowButton = React.forwardRef<
   },
 );
 
-PulsatingShadowButton.displayName = 'PulsatingShadowButton';
-`;
+PulsatingShadowButton.displayName = 'PulsatingShadowButton';`;
 }

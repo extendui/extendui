@@ -88,6 +88,5 @@ export const RotatingButton = React.forwardRef<
   );
 });
 
-RotatingButton.displayName = 'RotatingButton';
-`;
+RotatingButton.displayName = 'RotatingButton';`;
 }

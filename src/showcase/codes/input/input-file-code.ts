@@ -12,6 +12,5 @@ export const FileInput = () => {
       type="file"
     />
   );
-};
-`;
+};`;
 }

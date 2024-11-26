@@ -12,7 +12,7 @@ import {
 
 
 
-export default function CommandSettingsEngine() {
+export const CommandSettingsEngine = () => {
   const { disabled, showIcon, labelText, notFoundText, placeholder } = useEngineSettingsCommandStore();
 
   const handleChangeDisabled = (value: boolean) => {

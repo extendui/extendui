@@ -15,7 +15,7 @@ import {
 } from '@/components/extendui/select';
 import { useEngineSettingsSelectStore } from '@/zustand/stores/useEngineSettingsSelect';
 
-export default function SelectExample() {
+export const SelectExample = () => {
   const { variant, error, disabled, showIcon, changeOpenIcon, leftText, helperText, placeholder } = useEngineSettingsSelectStore();
   return (
     <div>

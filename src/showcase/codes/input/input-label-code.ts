@@ -18,6 +18,5 @@ export const InputLabel = () => {
       </Input.Group>
     </Input>
   );
-};
-`;
+};`;
 }

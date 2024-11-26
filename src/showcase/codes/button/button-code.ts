@@ -15,6 +15,5 @@ function ButtonDemo() {
       Button
     </Button>
   );
-}
-`;
+}`;
 }

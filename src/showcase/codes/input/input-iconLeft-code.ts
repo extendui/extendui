@@ -22,6 +22,5 @@ export const InputIconLeft = () => {
       </Input.Group>
     </Input>
   );
-};
-`;
+};`;
 }

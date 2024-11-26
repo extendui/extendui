@@ -182,6 +182,22 @@ export async function loadComponentCode({ componentName, state }: Props) {
         '@/showcase/codes/select/select-status-code'
       )
       return getSelectStatusCode
+    // Command
+    case 'Command':
+      const { getCommandCode } = await import(
+        '@/showcase/codes/command/ui-command-code'
+      )
+      return getCommandCode();
+    case 'CommandExample':
+      const { getCommandExampleCode } = await import(
+        '@/showcase/codes/command/command-code'
+      )
+      return getCommandExampleCode(state);
+    case 'CommandAvatarDescription':
+      const { getCommandAvatarDescriptionCode } = await import(
+        '@/showcase/codes/command/command-avatar-description-code'
+      )
+      return getCommandAvatarDescriptionCode();
     // Blocks
     case 'PricingCard':
       const { getPricingCardCode } = await import(

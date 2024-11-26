@@ -35,6 +35,5 @@ export const InputButtonRight = () => {
       </Button>
     </div>
   );
-};
-`;
+};`;
 }

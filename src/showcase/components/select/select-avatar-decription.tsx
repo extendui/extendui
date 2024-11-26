@@ -43,7 +43,7 @@ const users = [
   },
 ];
 
-export default function AvatarDescriptionSelect() {
+export const AvatarDescriptionSelect = () => {
   return (
     <div className="space-y-2">
       <Select defaultValue={users[0]?.value}>

@@ -37,6 +37,5 @@ export const InputSelectRight = () => {
       </Select>
     </div>
   );
-};
-`;
+};`;
 }

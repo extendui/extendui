@@ -39,6 +39,5 @@ export const ScalingButton = React.forwardRef<
   );
 });
 
-ScalingButton.displayName = 'ScalingButton';
-`;
+ScalingButton.displayName = 'ScalingButton';`;
 }

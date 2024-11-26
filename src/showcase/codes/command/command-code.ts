@@ -1,14 +1,10 @@
-'use client';
+export function getCommandExampleCode(state: Record<string, any>) {
+  const { disabled, labelText, notFoundText } = state;
 
-import { Check, ChevronDown, Dot } from "lucide-react";
-import { useState } from "react";
-
-import { Button } from "@/components/extendui/button";
-import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from "@/components/extendui/command";
-import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
-import { cn } from "@/lib/utils";
-import { useEngineSettingsCommandStore } from "@/zustand/stores/useEngineSettingsCommand";
-
+  return `import { useState } from 'react';
+import { Input } from '@/components/extendui/input';
+import { CaretSortIcon, ChevronDownIcon } from '@radix-ui/react-icons';
+import { UtensilsCrossed } from 'lucide-react';
 
 const statuses = [
   { value: "completed", label: "Completed", color: "text-emerald-600" },
@@ -17,21 +13,21 @@ const statuses = [
   { value: "cancelled", label: "Cancelled", color: "text-gray-500" },
   { value: "failed", label: "Failed", color: "text-red-600" },
 ];
-
-
-export const CommandExample = () => {
+  
+export const CommandDemo = () => {
   const [open, setOpen] = useState(false);
+  const [showIcon, setShowIcon] = useSatat(false)
   const [value, setValue] = useState<string>("");
-  const { disabled, showIcon, labelText, notFoundText, placeholder } = useEngineSettingsCommandStore();
+
   const findElement = (value: string) => {
-    const status = statuses.find((status) => status.value === value);
-    return (
-      <div className="flex items-center gap-2">
-        {showIcon && <Dot className={status?.color} width={10} height={10} strokeWidth={20} />}
-        {status?.label}
-      </div>
-    )
-  }
+      const status = statuses.find((status) => status.value === value);
+      return (
+        <div className="flex items-center gap-2">
+          {showIcon && <Dot className={status?.color} width={10} height={10} strokeWidth={20} />}
+          {status?.label}
+        </div>
+      )
+    }
 
   return (
     <div className="space-y-2">
@@ -41,13 +37,13 @@ export const CommandExample = () => {
             variant="outline"
             role="combobox"
             aria-expanded={open}
-            disabled={disabled}
+            disabled={${disabled}}
             className="w-[180px] justify-between px-3 font-normal"
           >
             <span className={cn("truncate", !value && "text-muted-foreground")}>
               {value
                 ? findElement(value)
-                : <>{labelText}</>}
+                : <>${labelText}</>}
             </span>
             <ChevronDown
               size={16}
@@ -62,9 +58,9 @@ export const CommandExample = () => {
           className="p-0"
         >
           <Command>
-            <CommandInput placeholder={placeholder} />
+            <CommandInput/>
             <CommandList>
-              <CommandEmpty>{notFoundText}</CommandEmpty>
+              <CommandEmpty>${notFoundText}</CommandEmpty>
               <CommandGroup>
                 {statuses.map((status) => (
                   <CommandItem
@@ -94,4 +90,5 @@ export const CommandExample = () => {
       </Popover>
     </div>
   );
+}`;
 }

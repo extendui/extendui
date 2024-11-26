@@ -4,7 +4,7 @@ export function getInputExampleCode(state: Record<string, any>) {
   return `import { useState } from 'react';
   import { Input } from '@/components/extendui/input';
   
-  export default function InputExample() {
+  export default function InputDemo() {
   const [value, setValue] = useState('');
 
   return (
@@ -20,6 +20,5 @@ export function getInputExampleCode(state: Record<string, any>) {
       disabled={${disabled}}
     />
   );
-}
-`;
+}`;
 }

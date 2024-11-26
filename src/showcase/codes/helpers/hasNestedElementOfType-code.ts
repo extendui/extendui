@@ -39,7 +39,6 @@ export const hasNestedElementOfType = (
   const childrenArray = React.Children.toArray(children);
   
   return childrenArray.some(child => checkChild(child));
-};
-`;
+};`;
 }
   

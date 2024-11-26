@@ -58,6 +58,5 @@ export const ExpandingDotButton = React.forwardRef<
     </motion.button>
   );
 });
-ExpandingDotButton.displayName = 'ExpandingDotButton';
-`
+ExpandingDotButton.displayName = 'ExpandingDotButton';`
 }

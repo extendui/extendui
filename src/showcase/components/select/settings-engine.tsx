@@ -25,7 +25,7 @@ import {
 } from '@/zustand/stores/useEngineSettingsSelect';
 import { useEngineSettingsSelectStore } from '@/zustand/stores/useEngineSettingsSelect';
 
-export default function SelectSettingsEngine() {
+export const SelectSettingsEngine = () => {
   const { variant, error, disabled, changeOpenIcon, leftText, showIcon, helperText, placeholder } = useEngineSettingsSelectStore();
 
   const handleChangeVariant = (

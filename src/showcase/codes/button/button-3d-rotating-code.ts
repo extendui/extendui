@@ -92,6 +92,5 @@ export const Rotating3DButton = React.forwardRef<
   );
 });
 
-Rotating3DButton.displayName = 'Rotating3DButton';
-`;
+Rotating3DButton.displayName = 'Rotating3DButton';`;
 }

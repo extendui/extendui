@@ -79,6 +79,5 @@ export const SubscribeButton = React.forwardRef<
     );
 });
 
-SubscribeButton.displayName = 'SubscribeButton';
-`;
+SubscribeButton.displayName = 'SubscribeButton';`;
 }
