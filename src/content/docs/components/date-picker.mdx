@@ -6,5 +6,115 @@ description: A date picker component that allows users to select a date from a c
 <Preview
   component={<DatePickerExample />}
   settingsEngine={<DatePickerSettingsEngine />}
-  componentName={'DatePickerExample'}
+  componentName={'DatePickerExmaple'}
 />
+
+### Instalation
+
+<Tabs defaultValue="cli">
+  <TabsList>
+    <TabsTrigger value="cli">CLI</TabsTrigger>
+    <TabsTrigger value="manual">Manual</TabsTrigger>
+  </TabsList>
+  <TabsContent value="cli">
+    ```bash 
+    npx shadcn add https://extend-ui.com/registry/date-picker.json 
+    ```
+  </TabsContent>
+  <TabsContent value="manual">
+    <Steps>
+      <Step>
+          Install the following dependencies: 
+        ```bash 
+        npm install react-day-picker
+        ```
+      </Step>
+      <Step>
+        Copy and paste the following code into your project.
+        <ComponentSourceLive componentName={'DatePicker'} />
+      </Step>
+      <Step>Update the import paths to match your project setup.</Step>
+      <Step>
+        Update tailwind.config.ts
+        ```ts
+         keyframes: {
+          glow: {
+            '0%, 100%': { boxShadow: '0 0 5px rgba(52, 211, 153, 0.5), 0 0 10px rgba(52, 211, 153, 0.3)' },
+            '50%': { boxShadow: '0 0 10px rgba(52, 211, 153, 0.8), 0 0 20px rgba(52, 211, 153, 0.5)' },
+          },
+        },
+        animation: {
+          glow: 'glow 2s ease-in-out infinite',
+        },
+        ```
+      </Step>
+    </Steps>
+  </TabsContent>
+</Tabs>
+
+### Calendar Component Props
+
+{' '}
+
+<div className="my-6 w-full overflow-x-auto">
+  <table className="w-full border-collapse border border-gray-300 bg-white">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>variant</td>
+        <td>default | glowingRing | outline</td>
+        <td>
+          Determines the visual style of the calendar. Options include <code>default</code>, <code>glowingRing</code> (adds a glowing border), and <code>outline</code> (adds a bordered style).
+        </td>
+      </tr>
+      <tr>
+        <td>className</td>
+        <td>string</td>
+        <td>
+          Additional CSS classes to style the calendar's root element.
+        </td>
+      </tr>
+      <tr>
+        <td>classNames</td>
+        <td>Record&lt;string, string&gt;</td>
+        <td>
+          Custom class names for specific calendar parts (e.g., days, rows, navigation buttons). Overrides default classes.
+        </td>
+      </tr>
+      <tr>
+        <td>showOutsideDays</td>
+        <td>boolean</td>
+        <td>
+          If <code>true</code>, displays days from the previous and next months within the current month's grid. Defaults to <code>true</code>.
+        </td>
+      </tr>
+      <tr>
+        <td>month</td>
+        <td>Date</td>
+        <td>
+          The current month displayed in the calendar. Useful for controlled components.
+        </td>
+      </tr>
+      <tr>
+        <td>onMonthChange</td>
+        <td>(month: Date) => void</td>
+        <td>
+          Callback function triggered when the displayed month changes.
+        </td>
+      </tr>
+      <tr>
+        <td>...props</td>
+        <td>React.ComponentProps&lt;typeof DayPicker&gt;</td>
+        <td>
+          Additional props passed to the underlying <code>DayPicker</code> component from <code>react-day-picker</code>.
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

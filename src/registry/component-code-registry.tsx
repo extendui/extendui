@@ -1,4 +1,6 @@
 import { useEngineSettingsStore } from '@/zustand/stores/useEngineSettings';
+import { useEngineSettingsCommandStore } from '@/zustand/stores/useEngineSettingsCommand';
+import { useEngineSettingsDatePickerStore } from '@/zustand/stores/useEngineSettingsDatePicker';
 import { useEngineSettingsInputStore } from '@/zustand/stores/useEngineSettingsInput';
 import { useEngineSettingsSelectStore } from '@/zustand/stores/useEngineSettingsSelect';
 
@@ -214,6 +216,17 @@ export async function loadComponentCode({ componentName, state }: Props) {
         '@/showcase/codes/blocks/cards/credit-card-02-code'
       );
       return getCreditCard02Code();
+    // Date Picker
+    case 'DatePickerExmaple':
+      const { getDatePickerExampleCode } = await import(
+        '@/showcase/codes/date-picker/date-picker-code'
+      );
+      return getDatePickerExampleCode(state);
+    case 'DatePicker':
+      const { getDatePickerCode } = await import(
+        '@/showcase/codes/date-picker/ui-date-picker-code'
+      );
+      return getDatePickerCode();
     // helpers
     case 'hasNestedElementOfType':
       const { getHasNestedElementOfType } = await import(
@@ -245,5 +258,13 @@ export const componentStateConfig: ComponentStateConfigProps = {
   SelectExample: {
     state: ['variant', 'error', 'disabled', 'leftText', 'helperText', 'placeholder'],
     store: useEngineSettingsSelectStore,
+  },
+  CommandExample: {
+    state: ['disabled', 'showIcon', 'labelText', 'notFoundText', 'placeholder'],
+    store: useEngineSettingsCommandStore,
+  },
+  DatePickerExample: {
+    state: ['variant', 'error', 'disabled', 'calendarVariant'],
+    store: useEngineSettingsDatePickerStore,
   },
 };
