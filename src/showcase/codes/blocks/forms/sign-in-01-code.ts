@@ -1,4 +1,5 @@
-'use client'
+export function getSignIn01Code() {
+    return `'use client'
 
 import { zodResolver } from '@hookform/resolvers/zod'
 import Link from 'next/link'
@@ -24,7 +25,7 @@ const signInSchema = z.object({
 
 type SignInValues = z.infer<typeof signInSchema>
 
-export default function SignIn() {
+export default function SignIn01() {
   const {
     register,
     handleSubmit,
@@ -112,4 +113,6 @@ export default function SignIn() {
       </CardContent>
     </Card>
   )
+}`;
 }
+  

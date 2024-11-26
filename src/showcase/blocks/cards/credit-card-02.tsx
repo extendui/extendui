@@ -20,7 +20,7 @@ const springTransition = {
   damping: 30,
 };
 
-export default function CreditCard() {
+export default function CreditCard02() {
   const [isVisible, setIsVisible] = useState(false);
   const x = useMotionValue(0);
   const y = useMotionValue(0);

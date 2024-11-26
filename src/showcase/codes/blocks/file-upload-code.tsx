@@ -1,4 +1,6 @@
-'use client'
+
+export function getFileUploadCode() {
+  return `'use client'
 
 import { motion, AnimatePresence } from 'framer-motion'
 import { X, Upload, File, Trash2, ImageIcon } from 'lucide-react'
@@ -56,7 +58,7 @@ const formatFileSize = (bytes: number) => {
   const k = 1024
   const sizes = ['Bytes', 'KB', 'MB']
   const i = Math.floor(Math.log(bytes) / Math.log(k))
-  return `${parseFloat((bytes / Math.pow(k, i)).toFixed(2))} ${sizes[i]}`
+  return \`\${parseFloat((bytes / Math.pow(k, i)).toFixed(2))} \${sizes[i]}\`
 }
 
 export default function FileUpload({
@@ -147,17 +149,17 @@ export default function FileUpload({
 
     filesToUpload.forEach(file => {
       if (!acceptedFileTypes.includes(file.type)) {
-        onUploadError(`Invalid file type. Please upload: ${acceptedFileTypes.join(', ')}`)
+        onUploadError(\`Invalid file type. Please upload: \${acceptedFileTypes.join(', ')}\`)
         return
       }
 
       if (file.size > maxSizeInMB * 1024 * 1024) {
-        onUploadError(`File size must be less than ${maxSizeInMB}MB`)
+        onUploadError(\`File size must be less than \${maxSizeInMB}MB\`)
         return
       }
 
       if (isFileDuplicate(file)) {
-        onUploadError(`File "${file.name}" has already been uploaded. Please choose a different file.`)
+        onUploadError(\`File "\${file.name}" has already been uploaded. Please choose a different file.\`)
         return
       }
 
@@ -222,7 +224,7 @@ export default function FileUpload({
     >
       <div className="flex items-center justify-between p-2 sm:p-3 bg-muted rounded-lg overflow-hidden">
         <div className="flex items-center space-x-2 sm:space-x-3 min-w-0 flex-1">
-          <div className={`flex-shrink-0 flex size-6 sm:size-8 p-1 sm:p-2 items-center justify-center rounded bg-background`}>
+          <div className={\`flex-shrink-0 flex size-6 sm:size-8 p-1 sm:p-2 items-center justify-center rounded bg-background\`}>
             {getFileTypeDetails(currentUpload!.file.type).icon}
           </div>
           <div className="min-w-0 flex-1">
@@ -250,7 +252,7 @@ export default function FileUpload({
         <motion.div
           className="h-full bg-primary"
           initial={{ width: 0 }}
-          animate={{ width: `${progress}%` }}
+          animate={{ width: \`\${progress}%\` }}
           transition={{ duration: 0.3 }}
         />
       </div>
@@ -282,7 +284,7 @@ export default function FileUpload({
                       exit={{ opacity: 0, y: -20 }}
                       className="flex items-center space-x-2 p-2 rounded-lg bg-muted"
                     >
-                      <div className={`flex-shrink-0 flex size-6 sm:size-8 p-1 sm:p-2 items-center justify-center rounded bg-background`}>
+                      <div className={\`flex-shrink-0 flex size-6 sm:size-8 p-1 sm:p-2 items-center justify-center rounded bg-background\`}>
                         {getFileTypeDetails(file.type).icon}
                       </div>
                       <div className="flex-1 min-w-0 max-w-[calc(100%-3rem)]">
@@ -318,8 +320,8 @@ export default function FileUpload({
         </CardHeader>
         <CardContent className='w-full mx-auto'>
           <div
-            className={`relative border-2 ${isDragging ? 'border-primary bg-primary/10' : 'border-dashed border-muted-foreground/50'
-              } rounded-lg p-4 sm:p-6 transition-colors duration-200 ease-in-out hover:border-muted-foreground`}
+            className={\`relative border-2 \${isDragging ? 'border-primary bg-primary/10' : 'border-dashed border-muted-foreground/50'
+              } rounded-lg p-4 sm:p-6 transition-colors duration-200 ease-in-out hover:border-muted-foreground\`}
             onDragEnter={handleDragEvents}
             onDragLeave={handleDragEvents}
             onDragOver={handleDragEvents}
@@ -335,4 +337,5 @@ export default function FileUpload({
       {renderUploadedFiles()}
     </div>
   )
+}`
 }

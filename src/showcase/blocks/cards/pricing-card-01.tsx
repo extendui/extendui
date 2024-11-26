@@ -5,7 +5,7 @@ import { Check } from 'lucide-react';
 
 import { ScalingButton } from '@/showcase/components/button/button-scaling';
 
-export default function PricingCard() {
+export default function PricingCard01() {
   const features = [
     '2 Senior Developers',
     'Landing Page Development',

@@ -1,6 +1,5 @@
 export function getCreditCard02Code() {
-    return `
-'use client';
+    return `'use client';
 
 import { motion, useMotionValue, useTransform } from 'framer-motion';
 import { Eye, EyeOff } from 'lucide-react';
@@ -22,7 +21,7 @@ const springTransition = {
   damping: 30,
 };
 
-export default function CreditCard() {
+export default function CreditCard02() {
   const [isVisible, setIsVisible] = useState(false);
   const x = useMotionValue(0);
   const y = useMotionValue(0);
@@ -157,7 +156,6 @@ export default function CreditCard() {
       </motion.div>
     </div>
   );
+}`;
 }
-  `;
-  }
   

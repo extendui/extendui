@@ -203,9 +203,14 @@ export async function loadComponentCode({ componentName, state }: Props) {
     // Blocks
     case 'PricingCard':
       const { getPricingCardCode } = await import(
-        '@/showcase/codes/blocks/cards/pricing-card-code'
+        '@/showcase/codes/blocks/cards/pricing-card-01-code'
       );
       return getPricingCardCode();
+    case 'PricingCard02':
+      const { getPricingCard02Code } = await import(
+        '@/showcase/codes/blocks/cards/pricing-card-02-code'
+      );
+      return getPricingCard02Code();
     case 'CreditCard01':
       const { getCreditCard01Code } = await import(
         '@/showcase/codes/blocks/cards/credit-card-01-code'
@@ -216,6 +221,21 @@ export async function loadComponentCode({ componentName, state }: Props) {
         '@/showcase/codes/blocks/cards/credit-card-02-code'
       );
       return getCreditCard02Code();
+    case 'SignIn01':
+      const { getSignIn01Code } = await import(
+        '@/showcase/codes/blocks/forms/sign-in-01-code'
+      );
+      return getSignIn01Code();
+    case 'SignIn02':
+      const { getSignIn02Code } = await import(
+        '@/showcase/codes/blocks/forms/sign-in-02-code'
+      );
+      return getSignIn02Code();
+    case 'FileUpload':
+      const { getFileUploadCode } = await import(
+        '@/showcase/codes/blocks/file-upload-code'
+      );
+      return getFileUploadCode();
     // Date Picker
     case 'DatePickerExmaple':
       const { getDatePickerExampleCode } = await import(
