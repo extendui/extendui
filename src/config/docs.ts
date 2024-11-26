@@ -8,12 +8,12 @@ export type DocsConfig = {
 export const docsConfig: DocsConfig = {
   mainNav: [
     {
-      title: 'Documentation',
-      href: '/docs',
-    },
-    {
       title: 'Components',
       href: '/docs/components/button',
+    },
+    {
+      title: 'Documentation',
+      href: '/docs',
     },
   ],
   sidebarNav: [
@@ -21,22 +21,15 @@ export const docsConfig: DocsConfig = {
       title: 'Getting Started',
       items: [
         {
-          title: 'Introduction',
-          href: '/docs',
-          items: [],
-        },
-        {
           title: 'Installation',
           href: '/docs/installation',
           items: [],
         },
-        // {
-        //   title: 'CLI',
-        //   href: '/docs',
-        //   label: 'soon',
-        //   disabled: true,
-        //   items: [],
-        // },
+        {
+          title: 'Introduction',
+          href: '/docs',
+          items: [],
+        },
       ],
     },
     {
@@ -48,16 +41,33 @@ export const docsConfig: DocsConfig = {
           items: [
             { title: 'Base', href: '/docs/components/button', items: [] },
             {
-              title: 'Motion',
-              href: '/docs/components/button-motion',
-              items: [],
-            },
-            {
               title: 'Extended',
               href: '/docs/components/button-extended',
               items: [],
             },
+            {
+              title: 'Motion',
+              href: '/docs/components/button-motion',
+              items: [],
+            },
           ],
+        },
+        {
+          title: 'Command',
+          href: '/docs/components/command',
+          items: [
+            { title: 'Base', href: '/docs/components/command', items: [] },
+            {
+              title: 'Extended',
+              href: '/docs/components/command-extended',
+              items: [],
+            },
+          ],
+        },
+        {
+          title: 'Date Picker',
+          href: '/docs/components/date-picker',
+          items: [],
         },
         {
           title: 'Input',
@@ -83,18 +93,6 @@ export const docsConfig: DocsConfig = {
             },
           ],
         },
-        {
-          title: 'Command',
-          href: '/docs/components/command',
-          items: [
-            { title: 'Base', href: '/docs/components/command', items: [] },
-            { title: 'Extended', href: '/docs/components/command-extended', items: [] },
-          ],
-        },
-        {
-          title: 'Date Picker',
-          href: '/docs/components/date-picker'
-        },
       ],
     },
     {
@@ -105,13 +103,13 @@ export const docsConfig: DocsConfig = {
           href: '/docs/blocks/pricing-card',
           items: [
             {
-              title: 'Pricing Card',
-              href: '/docs/blocks/cards/pricing-card',
+              title: 'Credit Card',
+              href: '/docs/blocks/cards/credit-card',
               items: [],
             },
             {
-              title: 'Credit Card',
-              href: '/docs/blocks/cards/credit-card',
+              title: 'Pricing Card',
+              href: '/docs/blocks/cards/pricing-card',
               items: [],
             },
           ],

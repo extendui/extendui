@@ -46,7 +46,7 @@ const variants = {
 
 export default function PricingCard({ plan }: Props) {
   return (
-    <div className="flex flex-col h-full relative text-start mt-12">
+    <div className="flex flex-col h-full relative text-start mt-12 pb-2">
       {
         plan.featured && (
           <motion.div
