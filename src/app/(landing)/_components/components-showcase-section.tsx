@@ -9,7 +9,7 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 import ButtonExample from "@/showcase/components/button/button";
 import CommandExample from "@/showcase/components/command/command";
 import DatePickerExample from "@/showcase/components/date-picker/date-picker";
-import InputExample from "@/showcase/components/input/input";
+import { InputExample } from "@/showcase/components/input/input";
 import SelectExample from "@/showcase/components/select/select";
 
 const componentShowcases = [
