@@ -5,14 +5,10 @@ const nextConfig = {
   reactStrictMode: true,
   images: {
     remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'avatars.githubusercontent.com',
-      },
-      {
-        protocol: 'https',
-        hostname: 'images.unsplash.com',
-      },
+{      protocol:"https",
+      hostname:"utfs.io",
+      port:"",
+      pathname:"/a/9g3kf9djq5/**",}
     ],
   },
   experimental: {
