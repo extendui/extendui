@@ -2,9 +2,9 @@ export function getInputExampleCode(state: Record<string, any>) {
   const { variant, error, disabled, required } = state;
 
   return `import { useState } from 'react';
-  import { Input } from '@/components/extendui/input';
+import { Input } from '@/components/extendui/input';
   
-  export default function InputDemo() {
+export function InputDemo() {
   const [value, setValue] = useState('');
 
   return (
@@ -16,7 +16,7 @@ export function getInputExampleCode(state: Record<string, any>) {
       type="text"
       value={value}
       onChange={(e) => setValue(e.target.value)}
-      required={${required}
+      required={${required}}
       disabled={${disabled}}
     />
   );

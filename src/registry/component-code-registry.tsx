@@ -15,7 +15,7 @@ export async function loadComponentCode({ componentName, state }: Props) {
     case 'Button':
       const { getButtonCode } = await import(
         '@/showcase/codes/button/ui-button-code'
-      )
+      );
       return getButtonCode();
     case 'ButtonExample':
       const { getButtonExampleCode } = await import(
@@ -167,38 +167,38 @@ export async function loadComponentCode({ componentName, state }: Props) {
     case 'Select':
       const { getSelectCode } = await import(
         '@/showcase/codes/select/ui-select-code'
-      )
+      );
       return getSelectCode();
     case 'SelectExample':
       const { getSelectExampleCode } = await import(
         '@/showcase/codes/select/select-code'
-      )
+      );
       return getSelectExampleCode(state);
     case 'SelectAvatarDescription':
       const { getSelectAvatarDescriptionCode } = await import(
         '@/showcase/codes/select/select-avatar-description-code'
-      )
-      return getSelectAvatarDescriptionCode
+      );
+      return getSelectAvatarDescriptionCode;
     case 'SelectStatus':
       const { getSelectStatusCode } = await import(
         '@/showcase/codes/select/select-status-code'
-      )
-      return getSelectStatusCode
+      );
+      return getSelectStatusCode;
     // Command
     case 'Command':
       const { getCommandCode } = await import(
         '@/showcase/codes/command/ui-command-code'
-      )
+      );
       return getCommandCode();
     case 'CommandExample':
       const { getCommandExampleCode } = await import(
         '@/showcase/codes/command/command-code'
-      )
+      );
       return getCommandExampleCode(state);
     case 'CommandAvatarDescription':
       const { getCommandAvatarDescriptionCode } = await import(
         '@/showcase/codes/command/command-avatar-description-code'
-      )
+      );
       return getCommandAvatarDescriptionCode();
     // Blocks
     case 'PricingCard':
@@ -217,7 +217,7 @@ export async function loadComponentCode({ componentName, state }: Props) {
       );
       return getCreditCard02Code();
     // Date Picker
-    case 'DatePickerExmaple':
+    case 'DatePickerExample':
       const { getDatePickerExampleCode } = await import(
         '@/showcase/codes/date-picker/date-picker-code'
       );
@@ -256,7 +256,14 @@ export const componentStateConfig: ComponentStateConfigProps = {
     store: useEngineSettingsInputStore,
   },
   SelectExample: {
-    state: ['variant', 'error', 'disabled', 'leftText', 'helperText', 'placeholder'],
+    state: [
+      'variant',
+      'error',
+      'disabled',
+      'leftText',
+      'helperText',
+      'placeholder',
+    ],
     store: useEngineSettingsSelectStore,
   },
   CommandExample: {

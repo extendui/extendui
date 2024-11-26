@@ -15,12 +15,13 @@ import { Switch } from '@/components/ui/switch';
 import {
   setDisabled,
   setError,
+  setRequired,
   setVariant,
   useEngineSettingsInputStore,
 } from '@/zustand/stores/useEngineSettingsInput';
 
 export default function InputSettingsEngine() {
-  const { variant, disabled, error } = useEngineSettingsInputStore();
+  const { variant, disabled, error, required } = useEngineSettingsInputStore();
 
   const handleChangeVariant = (
     value: 'default' | 'flushed' | 'flushedfilled' | 'filled' | 'dashed',
@@ -34,6 +35,10 @@ export default function InputSettingsEngine() {
 
   const handleChangeDisabled = (value: boolean) => {
     setDisabled(value);
+  };
+
+  const handleChangeRequired = (value: boolean) => {
+    setRequired(value);
   };
 
   return (
@@ -62,6 +67,10 @@ export default function InputSettingsEngine() {
       <div className="flex w-full items-center space-x-2 sm:w-auto">
         <Switch checked={error} onCheckedChange={handleChangeError} />
         <span className="text-sm">Error</span>
+      </div>
+      <div className="flex w-full items-center space-x-2 sm:w-auto">
+        <Switch checked={required} onCheckedChange={handleChangeRequired} />
+        <span className="text-sm">Required</span>
       </div>
     </div>
   );

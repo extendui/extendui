@@ -5,6 +5,18 @@ export function getCommandExampleCode(state: Record<string, any>) {
 import { Input } from '@/components/extendui/input';
 import { CaretSortIcon, ChevronDownIcon } from '@radix-ui/react-icons';
 import { UtensilsCrossed } from 'lucide-react';
+import { Button } from "@/components/extendui/button";
+import { Button } from "@/components/extendui/button";
+import {
+  Command,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
+} from "@/components/extendui/command";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import { cn } from "@/lib/utils";
 
 const statuses = [
   { value: "completed", label: "Completed", color: "text-emerald-600" },

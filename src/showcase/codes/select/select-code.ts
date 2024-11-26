@@ -1,10 +1,20 @@
 export function getSelectExampleCode(state: Record<string, any>) {
-    const { variant, error, disabled, leftText, helperText, placeholder } = state;
-  
-    return `import { useState } from 'react';
+  const { variant, error, disabled, leftText, helperText, placeholder } = state;
+
+  return `import { useState } from 'react';
 import { Input } from '@/components/extendui/input';
 import { CaretSortIcon, ChevronDownIcon } from '@radix-ui/react-icons';
 import { UtensilsCrossed } from 'lucide-react';
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectHelperText,
+  SelectItem,
+  SelectLabel,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/extendui/select';
     
 export const SelectDemo = () => {
     const [value, setValue] = useState('');
@@ -42,4 +52,3 @@ export const SelectDemo = () => {
     );
 };`;
 }
-  
