@@ -1,4 +1,5 @@
-'use client';
+export function getInputSelectRightCode() {
+  return `'use client';
 
 import * as React from 'react';
 
@@ -18,7 +19,7 @@ export const InputSelectRight = () => {
   return (
     <div className="flex items-center">
       <Input
-        className={`flex-grow -me-px rounded-r-none focus-visible:rounded-r-none`}
+        className={\`flex-grow -me-px rounded-r-none focus-visible:rounded-r-none\`}
         value={value}
         onChange={(e) => setValue(e.target.value)}
         type="text"
@@ -37,3 +38,5 @@ export const InputSelectRight = () => {
     </div>
   );
 };
+`;
+}

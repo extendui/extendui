@@ -8,23 +8,19 @@ import { hasNestedElementOfType } from '@/helpers/hasNestedElementOfType';
 import { cn } from '@/lib/utils';
 
 const inputVariants = cva(
-  'h-9 w-full rounded-md border border-input bg-background py-2 text-sm transition-all disabled:cursor-not-allowed disabled:opacity-50 placeholder:text-muted-foreground',
+  'h-9 w-full rounded-md border py-2 text-sm transition-all disabled:cursor-not-allowed disabled:opacity-50 placeholder:text-muted-foreground',
   {
     variants: {
       variant: {
-        default: 'border-input focus:outline-primary',
+        default: 'border-input bg-background focus:outline-primary',
         filled: 'border-transparent bg-muted focus:outline-primary',
-        flushed:
-          'rounded-none border-x-0 border-t-0 outline-none focus:outline-none focus:ring-0 focus:ring-offset-0 focus:bg-secondary focus-visible:outline-none',
-        flushedfilled:
-          'rounded-none border-x-0 border-t-0 outline-none focus:outline-none focus:ring-0 focus:ring-offset-0 focus:bg-secondary',
+        flushed: 'rounded-none border-x-0 border-t-0 outline-none focus:bg-secondary focus-visible:outline-none',
+        flushedfilled: 'rounded-none border-x-0 border-t-0 outline-none focus:bg-secondary',
         dashed: 'border-dashed border-2 focus:outline-primary',
       },
     },
-    defaultVariants: {
-      variant: 'default',
-    },
-  },
+    defaultVariants: { variant: 'default' },
+  }
 );
 
 type InputContextType = {
@@ -43,17 +39,15 @@ type InputContextType = {
     hasRightIcon: boolean;
     hasLabel: boolean;
     hasPassword: boolean;
-    hasClearButton: boolean
-  }
-  placeholder?: string
+    hasClearButton: boolean;
+  };
+  placeholder?: string;
   onFocus: (e: React.FocusEvent<HTMLInputElement>) => void;
   onBlur: (e: React.FocusEvent<HTMLInputElement>) => void;
   setShowPassword: (show: boolean) => void;
 };
 
-const InputContext = React.createContext<InputContextType | undefined>(
-  undefined,
-);
+const InputContext = React.createContext<InputContextType | undefined>(undefined);
 
 const useInputContext = () => {
   const context = React.useContext(InputContext);
@@ -72,6 +66,21 @@ interface InputRootProps
   textError?: string;
   maxLength?: number;
   children?: React.ReactNode;
+}
+
+const getCounterPosition = (elementChecks: InputContextType['elementChecks'], hasValue: boolean) => {
+  if (elementChecks.hasClearButton && hasValue && elementChecks.hasPassword) return 'right-[3.2rem]';
+  if (elementChecks.hasPassword || elementChecks.hasRightIcon) return 'right-8';
+  if (elementChecks.hasClearButton && hasValue) return 'right-8';
+  return 'right-3';
+};
+
+const getLabelPadding = (elementChecks: InputContextType['elementChecks'], hasValue: boolean, maxLength?: number) => {
+  if (elementChecks.hasClearButton && hasValue && elementChecks.hasPassword && maxLength) return 'pe-24';
+  if (elementChecks.hasClearButton && hasValue && elementChecks.hasPassword) return 'pe-20';
+  if ((elementChecks.hasPassword || elementChecks.hasRightIcon) && maxLength) return 'pe-20';
+  if (elementChecks.hasClearButton && hasValue && maxLength) return 'pe-20';
+  return 'pe-8';
 }
 
 const InputComponent = React.forwardRef<HTMLInputElement, InputRootProps>(
@@ -141,33 +150,21 @@ const InputComponent = React.forwardRef<HTMLInputElement, InputRootProps>(
 
     const currentValue = String(value || '');
     const hasValue = currentValue.length > 0;
+    const counterPosition = getCounterPosition(elementChecks, hasValue);
+    const labelPadding = getLabelPadding(elementChecks, hasValue, maxLength);
 
-    const getCounterPosition = React.useCallback(() => {
-      if (elementChecks.hasClearButton && hasValue && elementChecks.hasPassword) return 'right-[3.2rem]';
-      if (elementChecks.hasPassword || elementChecks.hasRightIcon) return 'right-8';
-      if (elementChecks.hasClearButton && hasValue) return 'right-8';
-      return 'right-3';
-    }, [elementChecks.hasClearButton, hasValue, elementChecks.hasPassword, elementChecks.hasRightIcon]);
-
-    const getLabelPadding = React.useCallback(() => {
-      if (elementChecks.hasClearButton && hasValue && elementChecks.hasPassword && maxLength) return 'pe-24';
-      if (elementChecks.hasClearButton && hasValue && elementChecks.hasPassword) return 'pe-20';
-      if ((elementChecks.hasPassword || elementChecks.hasRightIcon) && maxLength) return 'pe-20';
-      if (elementChecks.hasClearButton && hasValue && maxLength) return 'pe-20';
-      return 'pe-8';
-    }, [elementChecks.hasClearButton, hasValue, elementChecks.hasPassword, elementChecks.hasRightIcon, maxLength]);
 
     const inputClassName = cn(
       inputVariants({ variant }),
       elementChecks.hasLeftIcon ? 'ps-9' : 'px-3',
       elementChecks.hasLabel,
       value && variant === 'flushedfilled' && 'bg-secondary',
-      error && 'border-red-500 text-red-500',
-      error &&
-      !['flushedfilled', 'flushed'].includes(variant as string) &&
-      'focus:outline-red-500',
+      error && [
+        'border-red-500 text-red-500',
+        !['flushedfilled', 'flushed'].includes(variant as string) && 'focus:outline-red-500'
+      ],
       disabled && 'opacity-50 cursor-not-allowed',
-      getLabelPadding(),
+      labelPadding,
       className,
     );
     return (
@@ -190,9 +187,9 @@ const InputComponent = React.forwardRef<HTMLInputElement, InputRootProps>(
           {maxLength && (
             <div className={cn(
               "absolute top-2.5 text-xs text-muted-foreground",
-              getCounterPosition()
+              counterPosition
             )}>
-              {currentValue.length}/{maxLength}
+              {String(value || '').length}/{maxLength}
             </div>
           )}
           {error && textError && (
@@ -204,7 +201,6 @@ const InputComponent = React.forwardRef<HTMLInputElement, InputRootProps>(
   },
 );
 InputComponent.displayName = 'InputComponent';
-
 
 type InputType = typeof InputComponent & {
   Group: typeof InputGroup;

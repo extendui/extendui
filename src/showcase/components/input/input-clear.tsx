@@ -5,32 +5,23 @@ import { useState } from 'react';
 
 import { Input } from '@/components/extendui/input';
 
-interface InputClearProps extends React.InputHTMLAttributes<HTMLInputElement> { }
+export const InputClear = () => {
+  const [value, setValue] = useState('');
 
-export const InputClear = React.forwardRef<HTMLInputElement, InputClearProps>(
-  ({ className, ...props }, ref) => {
-    const [value, setValue] = useState('');
+  const handleClear = () => {
+    setValue('');
+  };
 
-    const handleClear = () => {
-      setValue('');
-    };
-
-    return (
-      <Input
-        ref={ref}
-        className={`${className}`}
-        value={value}
-        onChange={(e) => setValue(e.target.value)}
-        type="text"
-        placeholder="Type here..."
-        {...props}
-      >
-        <Input.Group>
-          <Input.ClearButton onClick={handleClear} />
-        </Input.Group>
-      </Input>
-    );
-  },
-);
-
-InputClear.displayName = 'InputClear';
+  return (
+    <Input
+      value={value}
+      onChange={(e) => setValue(e.target.value)}
+      type="text"
+      placeholder="Type here..."
+    >
+      <Input.Group>
+        <Input.ClearButton onClick={handleClear} />
+      </Input.Group>
+    </Input>
+  );
+};

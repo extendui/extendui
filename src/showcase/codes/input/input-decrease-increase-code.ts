@@ -1,4 +1,5 @@
-'use client';
+export function getInputDecreaseIncreaseCode() {
+  return `'use client';
 
 import { Minus, Plus } from 'lucide-react';
 import * as React from 'react';
@@ -54,3 +55,5 @@ export const InputDecreaseIncrease = ({ min = 0, max = 100, step = 1 }: Props) =
     </div>
   );
 };
+`;
+}

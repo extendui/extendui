@@ -1,24 +1,24 @@
-'use client';
+export function getInputPasswordCode() {
+  return `'use client';
 
-import { User } from 'lucide-react';
 import * as React from 'react';
 
 import { Input } from '@/components/extendui/input';
 
-export const InputIconLeft = () => {
+export const InputPassword = () => {
   const [value, setValue] = React.useState('');
   return (
     <Input
+      type="password"
       value={value}
       onChange={(e) => setValue(e.target.value)}
-      type="text"
-      placeholder="Type here..."
+      placeholder={'Type password here...'}
     >
       <Input.Group>
-        <Input.LeftIcon>
-          <User />
-        </Input.LeftIcon>
+        <Input.PasswordToggle />
       </Input.Group>
     </Input>
   );
 };
+`;
+}

@@ -52,13 +52,13 @@ import CommandAvatarDescription from '@/showcase/components/command/command-avat
 import CommandSettingsEngine from '@/showcase/components/command/settings-engine';
 import DatePickerExample from '@/showcase/components/date-picker/date-picker';
 import DatePickerSettingsEngine from '@/showcase/components/date-picker/settings-engine';
-import InputExample from '@/showcase/components/input/input';
-import { InputButton } from '@/showcase/components/input/input-button';
+import { InputExample } from '@/showcase/components/input/input';
+import { InputButtonRight } from '@/showcase/components/input/input-button-right';
 import { InputClear } from '@/showcase/components/input/input-clear';
-import CreditCardInput from '@/showcase/components/input/input-credit-card';
+import { CreditCardInput } from '@/showcase/components/input/input-credit-card';
 import { InputDecreaseIncrease } from '@/showcase/components/input/input-decrease-increase';
 import { InputExtended } from '@/showcase/components/input/input-extended';
-import FileInput from '@/showcase/components/input/input-file';
+import { FileInput } from '@/showcase/components/input/input-file';
 import { InputIconLeft } from '@/showcase/components/input/input-iconLeft';
 import { InputIconRight } from '@/showcase/components/input/input-iconRight';
 import { InputLabel } from '@/showcase/components/input/input-label';
@@ -77,6 +77,7 @@ import { Select } from './extendui/select';
 import { Icons } from './icons/icons';
 import { PreCustom } from './pre-custom';
 import Preview from './preview';
+
 
 function CustomLink(props: any) {
   const href = props.href;
@@ -145,7 +146,7 @@ const components = {
   InputExtended,
   InputSelectRight,
   InputSelectLeft,
-  InputButton,
+  InputButtonRight,
   InputDecreaseIncrease,
   Select,
   SelectExample,

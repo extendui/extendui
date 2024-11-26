@@ -10,7 +10,7 @@ import {
   SelectLabel,
   SelectTrigger,
   SelectValue,
-} from '@/components/ui/select';
+} from '@/components/extendui/select';
 import { Switch } from '@/components/ui/switch';
 import {
   setDisabled,

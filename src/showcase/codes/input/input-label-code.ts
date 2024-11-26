@@ -1,24 +1,23 @@
-'use client';
+export function getInputLabelCode() {
+  return `'use client';
 
-import { User } from 'lucide-react';
 import * as React from 'react';
 
 import { Input } from '@/components/extendui/input';
 
-export const InputIconLeft = () => {
+export const InputLabel = () => {
   const [value, setValue] = React.useState('');
   return (
     <Input
       value={value}
       onChange={(e) => setValue(e.target.value)}
       type="text"
-      placeholder="Type here..."
     >
       <Input.Group>
-        <Input.LeftIcon>
-          <User />
-        </Input.LeftIcon>
+        <Input.Label>Username</Input.Label>
       </Input.Group>
     </Input>
   );
 };
+`;
+}

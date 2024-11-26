@@ -136,11 +136,11 @@ export async function loadComponentCode({ componentName, state }: Props) {
         '@/showcase/codes/input/input-selectLeft-code'
       );
       return getInputSelectLeftCode();
-    case 'InputButton':
-      const { getInputButtonCode } = await import(
-        '@/showcase/codes/input/input-buttonRight-code'
+    case 'InputButtonRight':
+      const { getInputButtonRightCode } = await import(
+        '@/showcase/codes/input/input-button-right-code'
       );
-      return getInputButtonCode();
+      return getInputButtonRightCode();
     case 'InputDecreaseIncrease':
       const { getInputDecreaseIncreaseCode } = await import(
         '@/showcase/codes/input/input-decrease-increase-code'
@@ -151,6 +151,12 @@ export async function loadComponentCode({ componentName, state }: Props) {
         '@/showcase/codes/input/input-file-code'
       );
       return getInputFileCode();
+    case 'CreditCardInput':
+      const { getCreditCardInputCode } = await import(
+        '@/showcase/codes/input/input-credit-card-code'
+      );
+      return getCreditCardInputCode();
+    // Blocks
     case 'PricingCard':
       const { getPricingCardCode } = await import(
         '@/showcase/codes/blocks/cards/pricing-card-code'

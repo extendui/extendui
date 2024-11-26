@@ -5,27 +5,18 @@ import * as React from 'react';
 
 import { Input } from '@/components/extendui/input';
 
-interface InputExtendedProps
-  extends React.InputHTMLAttributes<HTMLInputElement> { }
-
-export const InputExtended = React.forwardRef<
-  HTMLInputElement,
-  InputExtendedProps
->(({ className, ...props }, ref) => {
+export const InputExtended = () => {
   const [value, setValue] = React.useState('');
   const handleClear = () => {
     setValue('');
   };
   return (
     <Input
-      ref={ref}
-      className={`${className}`}
       value={value}
       onChange={(e) => setValue(e.target.value)}
       type="text"
       required={true}
       variant={'flushed'}
-      {...props}
     >
       <Input.Group>
         <Input.Label>Username</Input.Label>
@@ -36,6 +27,4 @@ export const InputExtended = React.forwardRef<
       </Input.Group>
     </Input>
   );
-});
-
-InputExtended.displayName = 'InputExtended';
+};

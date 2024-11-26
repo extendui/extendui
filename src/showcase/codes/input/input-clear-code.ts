@@ -1,12 +1,18 @@
-'use client';
+export function getInputClearCode() {
+  return `'use client';
 
-import { User } from 'lucide-react';
 import * as React from 'react';
+import { useState } from 'react';
 
 import { Input } from '@/components/extendui/input';
 
-export const InputIconLeft = () => {
-  const [value, setValue] = React.useState('');
+export const InputClear = () => {
+  const [value, setValue] = useState('');
+
+  const handleClear = () => {
+    setValue('');
+  };
+
   return (
     <Input
       value={value}
@@ -15,10 +21,10 @@ export const InputIconLeft = () => {
       placeholder="Type here..."
     >
       <Input.Group>
-        <Input.LeftIcon>
-          <User />
-        </Input.LeftIcon>
+        <Input.ClearButton onClick={handleClear} />
       </Input.Group>
     </Input>
   );
 };
+`;
+}

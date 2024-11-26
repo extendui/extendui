@@ -1,4 +1,5 @@
-'use client';
+export function getInputCode() {  
+    return `'use client';
 
 import { cva, type VariantProps } from 'class-variance-authority';
 import { Eye, EyeOff, X } from 'lucide-react';
@@ -246,12 +247,12 @@ const InputLabel = React.forwardRef<
     (isFocused || value || (type === 'date') || placeholder) && [
       '-top-2.5  bg-background px-1 text-primary text-xs rounded-md',
       variant === 'flushed' || variant === 'flushedfilled'
-        ? `-left-[7px] ps-2`
-        : `left-[7px] border-2`,
+        ? \`-left-[7px] ps-2\`
+        : \`left-[7px] border-2\`,
     ],
     error && 'text-red-500',
     disabled && 'opacity-50 cursor-not-allowed',
-    required && `after:content-['*'] after:ml-0.5 after:text-red-500`,
+    required && \`after:content-['*'] after:ml-0.5 after:text-red-500\`,
     className,
   );
 
@@ -372,3 +373,6 @@ Input.PasswordToggle = InputPasswordToggle;
 Input.ClearButton = InputClearButton;
 
 export { Input };
+`;
+}
+  

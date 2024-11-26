@@ -1,11 +1,12 @@
-'use client';
+export function getInputIconRightCode() {
+  return `'use client';
 
 import { User } from 'lucide-react';
 import * as React from 'react';
 
 import { Input } from '@/components/extendui/input';
 
-export const InputIconLeft = () => {
+export const InputIconRight = () => {
   const [value, setValue] = React.useState('');
   return (
     <Input
@@ -15,10 +16,12 @@ export const InputIconLeft = () => {
       placeholder="Type here..."
     >
       <Input.Group>
-        <Input.LeftIcon>
+        <Input.RightIcon>
           <User />
-        </Input.LeftIcon>
+        </Input.RightIcon>
       </Input.Group>
     </Input>
   );
 };
+`;
+}

@@ -5,7 +5,7 @@ import { useState } from 'react';
 import { Input } from '@/components/extendui/input';
 import { useEngineSettingsInputStore } from '@/zustand/stores/useEngineSettingsInput';
 
-export default function InputExample() {
+export const InputExample = () => {
   const { variant, error, disabled } = useEngineSettingsInputStore();
   const [value, setValue] = useState('');
 
@@ -21,4 +21,4 @@ export default function InputExample() {
       disabled={disabled}
     />
   );
-}
+};
