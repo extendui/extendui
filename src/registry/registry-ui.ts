@@ -36,4 +36,10 @@ export const ui: Registry = [
       },
     },
   },
+  {
+    name: 'input',
+    type: 'registry:ui',
+    dependencies: [],
+    files: ['components/ui/input.tsx', 'helpers/hasNestedElementOfType.ts']
+  }
 ];
