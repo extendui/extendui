@@ -1,6 +1,6 @@
 'use client';
 
-import Image from "next/image";
+import Image from 'next/image';
 
 import {
   Select,
@@ -8,38 +8,43 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/extendui/select";
+} from '@/components/extendui/select';
 
 const users = [
   {
-    value: "user1",
-    name: "Ashwin Santiago",
-    twitter: "@ashwin",
-    avatar: "/Ashwin_Santiago.png",
+    value: 'user1',
+    name: 'Ashwin Santiago',
+    twitter: '@ashwin',
+    avatar:
+      'https://utfs.io/a/9g3kf9djq5/7zmIwBk1GZeszEPB1RoL5yfeTt9QHciEpvWZO4oNRYd78gD2',
   },
   {
-    value: "user2",
-    name: "Ayah Wilkinson",
-    twitter: "@ayah",
-    avatar: "/Ayah_Wilkinson.png",
+    value: 'user2',
+    name: 'Ayah Wilkinson',
+    twitter: '@ayah',
+    avatar:
+      'https://utfs.io/a/9g3kf9djq5/7zmIwBk1GZesAAlqU8cspq73uNyl4bVzMtmeFr9dP51Hoc0i',
   },
   {
-    value: "user3",
-    name: "Aysha Becker",
-    twitter: "@aysha",
-    avatar: "/Aysha_Becker.png",
+    value: 'user3',
+    name: 'Aysha Becker',
+    twitter: '@aysha',
+    avatar:
+      'https://utfs.io/a/9g3kf9djq5/7zmIwBk1GZesEDGVq92T4LXqJAzvb7Bay16kxN2DWoKGQE3F',
   },
   {
-    value: "user4",
-    name: "Cohen Lozano",
-    twitter: "@cohen",
-    avatar: "/Cohen_Lozano.png",
+    value: 'user4',
+    name: 'Cohen Lozano',
+    twitter: '@cohen',
+    avatar:
+      'https://utfs.io/a/9g3kf9djq5/7zmIwBk1GZesU6WYdiu1UYlV8Zmqcfr9Xg3HOeKGBTb5ChDs',
   },
   {
-    value: "user5",
-    name: "Eva Bond",
-    twitter: "@eva",
-    avatar: "/Eva_Bond.png",
+    value: 'user5',
+    name: 'Eva Bond',
+    twitter: '@eva',
+    avatar:
+      'https://utfs.io/a/9g3kf9djq5/7zmIwBk1GZesW8VypWhRzfYdH1K9vlanbirG4AehCwZBk62j',
   },
 ];
 
@@ -47,7 +52,7 @@ export default function AvatarDescriptionSelect() {
   return (
     <div className="space-y-2">
       <Select defaultValue={users[0]?.value}>
-        <SelectTrigger id="select-status" className="w-[220px] h-full">
+        <SelectTrigger id="select-status" className="h-full w-[220px]">
           <SelectValue placeholder="Select status" />
         </SelectTrigger>
         <SelectContent>
