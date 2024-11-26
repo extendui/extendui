@@ -9,7 +9,7 @@ description: Render a user interface element that resembles or functions as an i
   componentName={'InputExample'}
 />
 
-## Installation
+### Installation
 
 <Tabs defaultValue="cli">
   <TabsList>
@@ -26,25 +26,25 @@ description: Render a user interface element that resembles or functions as an i
       <Step>
         Install the following dependencies: 
         ```bash 
-        npm install @radix-ui/react-slot 
+        npx install @radix-ui/react-slot 
         ```
       </Step>
       <Step>
         Copy and paste the following code into your project.
         <ComponentSourceLive componentName={'Input'} />
       </Step>
-      <Step>Update the import paths to match your project setup.</Step>
       <Step>
         Copy and paste the helper function into your project.
         <ComponentSourceLive componentName={'hasNestedElementOfType'} />
       </Step>
+      <Step>Update the import paths to match your project setup.</Step>
     </Steps>
   </TabsContent>
 </Tabs>
 
-## Input core subcomonents and usage
+### Input core subcomonents and usage
 
-### Input.Group
+#### Input.Group
 
 The Input.Group component serves as a container that groups related Input elements and any associated icons, labels, or buttons. It provides a structural wrapper, typically used when the input has additional elements like labels or icons.
 
@@ -55,7 +55,7 @@ The Input.Group component serves as a container that groups related Input elemen
 </Input>
 ```
 
-### Input.Label
+#### Input.Label
 
 The Input.Label component displays a label for the input field. It dynamically adjusts based on the focus state of the input and the presence of a value. Input.Label is placed as a child within Input.Group.
 
@@ -67,7 +67,7 @@ The Input.Label component displays a label for the input field. It dynamically a
 </Input>
 ```
 
-### Input.LeftIcon
+#### Input.LeftIcon
 
 The Input.LeftIcon component renders an icon to the left of the input field. This is typically used for visual cues, such as a user icon for a username input. It is placed as a child within Input.Group
 
@@ -82,7 +82,7 @@ The Input.LeftIcon component renders an icon to the left of the input field. Thi
 </Input>
 ```
 
-### Input.LeftIcon
+#### Input.LeftIcon
 
 The Input.RightIcon component displays an icon to the right of the input field. This can be useful for showing status icons or action icons. It is placed as a child within Input.Group```tsx
 
@@ -97,7 +97,7 @@ The Input.RightIcon component displays an icon to the right of the input field. 
 </Input>
 ```
 
-### Input.PasswordToggle
+#### Input.PasswordToggle
 
 The Input.PasswordToggle component is a button that toggles the visibility of the input's password text, changing the input type between password and text. This should be used alongside an Input with type="password
 
@@ -110,7 +110,7 @@ The Input.PasswordToggle component is a button that toggles the visibility of th
 </Input>
 ```
 
-### Input.ClearButton
+#### Input.ClearButton
 
 The Input.ClearButton component displays a button to the right of the input that clears the input's value when clicked. This is helpful for input fields that may require quick clearing.
 
@@ -122,7 +122,7 @@ The Input.ClearButton component displays a button to the right of the input that
 </Input>
 ```
 
-### Complete Example with Multiple Elements
+#### Complete Example with Multiple Elements
 
 Below is a more comprehensive example that combines multiple sub-components.
 
@@ -140,7 +140,7 @@ Below is a more comprehensive example that combines multiple sub-components.
 ```
 
 
-## Input component props
+### Input component props
 
 <div className="my-6 w-full overflow-x-auto">
   <table className="w-full border-collapse border border-gray-300 bg-white">
