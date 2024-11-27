@@ -49,17 +49,10 @@ description: A versatile component designed to mimic the appearance and function
             '0%': { backgroundPosition: '200% 0' },
             '100%': { backgroundPosition: '-200% 0' },
           },
-          perimeterShimmer: {
-            '0%, 100%': { clipPath: 'inset(0 0 calc(100% - 2px) 0)' },
-            '25%': { clipPath: 'inset(0 0 0 calc(100% - 2px))' },
-            '50%': { clipPath: 'inset(calc(100% - 2px) 0 0 0)' },
-            '75%': { clipPath: 'inset(0 calc(100% - 2px) 0 0)' },
-          }
         },
         animation: {
           glow: 'glow 2s ease-in-out infinite',
           shimmer: 'shimmer 3s linear infinite',
-          perimeterShimmer: 'perimeterShimmer 4s linear infinite',
         },
         ```
       </Step>
@@ -93,7 +86,7 @@ description: A versatile component designed to mimic the appearance and function
         <td>variant</td>
         <td>
           default | destructive | outline | secondary | ghost | link | ringHover
-          | glowingRing | shimmer | perimeterShimmer | bouncing
+          | glowingRing | shimmer | bouncing
         </td>
         <td>
           Defines the visual style of the button. It supports several predefined
