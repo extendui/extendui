@@ -1,11 +1,17 @@
 'use client';
 
 import Autoplay from 'embla-carousel-autoplay';
-import { Upload } from 'lucide-react';
 
 import ComponentShowcaseCard from '@/components/component-showcase-card';
 import FadeUp from '@/components/fadeup';
-import { Card } from '@/components/ui/card';
+import { ButtonPlaceholder } from '@/components/placeholders/button-placeholder';
+import { CardsPlaceholder } from '@/components/placeholders/cards-placeholder';
+import { CommandPlaceholder } from '@/components/placeholders/command-placeholder';
+import { DatePickerPlaceholder } from '@/components/placeholders/date-picker-placeholder';
+import { FileUploadPlaceholder } from '@/components/placeholders/file-upload-placeholder';
+import { FormsPlaceholder } from '@/components/placeholders/forms-placeholder';
+import { InputPlaceholder } from '@/components/placeholders/input-placeholder';
+import { SelectPlaceholder } from '@/components/placeholders/select-placeholder';
 import {
   Carousel,
   CarouselContent,
@@ -13,42 +19,37 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from '@/components/ui/carousel';
-import ButtonExample from '@/showcase/components/button/button';
-import { CommandExample } from '@/showcase/components/command/command';
-import DatePickerExample from '@/showcase/components/date-picker/date-picker';
-import { InputExample } from '@/showcase/components/input/input';
-import { SelectExample } from '@/showcase/components/select/select';
 
 const componentShowcases = [
   {
     href: '/docs/components/button',
     title: 'Button',
     description: '25+ variants',
-    component: <ButtonExample />,
+    component: <ButtonPlaceholder />,
   },
   {
     href: '/docs/components/input',
     title: 'Input',
     description: '17+ variants',
-    component: <InputExample />,
+    component: <InputPlaceholder />,
   },
   {
     href: '/docs/components/select',
     title: 'Select',
     description: '7+ variants',
-    component: <SelectExample />,
+    component: <SelectPlaceholder />,
   },
   {
     href: '/docs/components/command',
     title: 'Command',
     description: '3+ variants',
-    component: <CommandExample />,
+    component: <CommandPlaceholder />
   },
   {
     href: '/docs/components/date-picker',
     title: 'Date picker',
     description: '5+ variants',
-    component: <DatePickerExample />,
+    component: <DatePickerPlaceholder />
   },
 ];
 
@@ -57,57 +58,19 @@ const blockShowcases = [
     href: '/docs/blocks/cards/pricing-card',
     title: 'Cards',
     description: '4 variants',
-    component: (
-      <Card className="w-[200px]">
-        <div className="flex flex-col items-center justify-center space-y-3 p-6">
-          <div className="h-2 w-4/5 rounded-sm bg-gray-300"></div>
-          <div className="h-2 w-2/3 rounded-sm bg-gray-300"></div>
-          <div className="flex w-full items-center justify-around gap-2">
-            <span className="h-2 w-2 rounded-full bg-gray-300"></span>
-            <div className="h-1 w-full rounded-sm bg-gray-300"></div>
-          </div>{' '}
-          <div className="flex w-full items-center justify-around gap-2">
-            <span className="h-2 w-2 rounded-full bg-gray-300"></span>
-            <div className="h-1 w-full rounded-sm bg-gray-300"></div>
-          </div>{' '}
-          <div className="flex w-full items-center justify-around gap-2">
-            <span className="h-2 w-2 rounded-full bg-gray-300"></span>
-            <div className="h-1 w-full rounded-sm bg-gray-300"></div>
-          </div>
-          <div className="h-4 w-1/3 rounded-sm bg-gray-300"></div>
-        </div>
-      </Card>
-    ),
+    component: <CardsPlaceholder />
   },
   {
     href: '/docs/blocks/file-upload',
     title: 'File Upload',
     description: '1 variant',
-    component: (
-      <Card className="w-[200px]">
-        <div className="space-y-3 p-6">
-          <div className="flex h-10 w-full items-center justify-center rounded border-2 border-dashed border-gray-300">
-            <Upload />
-          </div>
-        </div>
-      </Card>
-    ),
+    component: <FileUploadPlaceholder />
   },
   {
     href: '/docs/blocks/forms/sign-in',
     title: 'Forms',
     description: '2 variants',
-    component: (
-      <Card className="w-[200px]">
-        <div className="flex flex-col items-center justify-center space-y-3 p-6">
-          <div className="h-2 w-1/3 rounded-sm bg-gray-300"></div>
-          <div className="h-3 w-1/2 rounded-sm bg-gray-300"></div>
-          <div className="h-3 w-1/2 rounded-sm bg-gray-300"></div>
-          <div className="h-3 w-1/2 rounded-sm bg-gray-300"></div>
-          <div className="h-3 w-1/3 rounded-sm bg-gray-300"></div>
-        </div>
-      </Card>
-    ),
+    component: <FormsPlaceholder />
   },
 ];
 
