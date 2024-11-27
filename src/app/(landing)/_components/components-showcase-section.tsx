@@ -1,7 +1,7 @@
 'use client';
 
 import Autoplay from 'embla-carousel-autoplay';
-import { Upload } from 'lucide-react';
+import { Calendar, ChevronDown, ChevronsDown, ChevronsUpDown, Upload } from 'lucide-react';
 
 import ComponentShowcaseCard from '@/components/component-showcase-card';
 import FadeUp from '@/components/fadeup';
@@ -24,31 +24,60 @@ const componentShowcases = [
     href: '/docs/components/button',
     title: 'Button',
     description: '25+ variants',
-    component: <ButtonExample />,
+    component: (
+      <Card className="w-[120px] h-9 border-accent border-2 flex items-center justify-center">
+        <div className="w-16 h-4 rounded-sm bg-gray-200" />
+      </Card>
+    ),
   },
   {
     href: '/docs/components/input',
     title: 'Input',
     description: '17+ variants',
-    component: <InputExample />,
+    component: (
+      <Card className="w-[200px] h-9 border-accent border-2 flex items-center justify-start">
+        <div className="w-24 h-4 rounded-sm ml-2 bg-gray-200" />
+      </Card>
+    ),
   },
   {
     href: '/docs/components/select',
     title: 'Select',
     description: '7+ variants',
-    component: <SelectExample />,
+    component: (
+      <Card className="w-[200px] h-9 border-accent border-2 flex items-center justify-between px-2">
+        <div className="w-24 h-4 rounded-sm bg-gray-200" />
+        <div>
+          <ChevronsUpDown className='text-accent' size={16} />
+        </div>
+      </Card>
+    ),
   },
   {
     href: '/docs/components/command',
     title: 'Command',
     description: '3+ variants',
-    component: <CommandExample />,
+    component: (
+      <Card className="w-[200px] h-9 border-accent border-2 flex items-center justify-between px-2">
+        <div className="w-24 h-4 rounded-sm bg-gray-200" />
+        <div>
+          <ChevronDown className='text-accent' size={16} />
+        </div>
+      </Card>
+    ),
   },
   {
     href: '/docs/components/date-picker',
     title: 'Date picker',
     description: '5+ variants',
-    component: <DatePickerExample />,
+    component: (
+      <Card className="w-[200px] h-9 border-accent border-2 flex items-center justify-between px-2">
+        <div className="w-24 h-4 rounded-sm bg-gray-200" />
+        <div>
+          <Calendar className='text-accent' size={16} />
+        </div>
+      </Card>
+    ),
   },
 ];
 
@@ -58,23 +87,17 @@ const blockShowcases = [
     title: 'Cards',
     description: '4 variants',
     component: (
-      <Card className="w-[200px]">
-        <div className="flex flex-col items-center justify-center space-y-3 p-6">
-          <div className="h-2 w-4/5 rounded-sm bg-gray-300"></div>
-          <div className="h-2 w-2/3 rounded-sm bg-gray-300"></div>
-          <div className="flex w-full items-center justify-around gap-2">
-            <span className="h-2 w-2 rounded-full bg-gray-300"></span>
-            <div className="h-1 w-full rounded-sm bg-gray-300"></div>
-          </div>{' '}
-          <div className="flex w-full items-center justify-around gap-2">
-            <span className="h-2 w-2 rounded-full bg-gray-300"></span>
-            <div className="h-1 w-full rounded-sm bg-gray-300"></div>
-          </div>{' '}
-          <div className="flex w-full items-center justify-around gap-2">
-            <span className="h-2 w-2 rounded-full bg-gray-300"></span>
-            <div className="h-1 w-full rounded-sm bg-gray-300"></div>
+      <Card className="w-[180px] border-accent border-2">
+        <div className="flex flex-col justify-center  p-4">
+          <div className='space-y-2 items-start'>
+            <div className="h-2 w-2/5 rounded-sm mb-4 bg-gray-200" />
+            <div className="h-2 w-11/12 rounded-sm bg-gray-200" />
+            <div className="h-2 w-10/12 rounded-sm bg-gray-200" />
+            <div className="h-2 w-9/12 rounded-sm bg-gray-200" />
           </div>
-          <div className="h-4 w-1/3 rounded-sm bg-gray-300"></div>
+          <div className="space-y-3 flex justify-end items-end">
+            <div className="h-3 w-3/12 rounded-xl mt-4 bg-accent" />
+          </div>
         </div>
       </Card>
     ),
@@ -84,10 +107,10 @@ const blockShowcases = [
     title: 'File Upload',
     description: '1 variant',
     component: (
-      <Card className="w-[200px]">
+      <Card className="w-[180px] border-accent border-2">
         <div className="space-y-3 p-6">
-          <div className="flex h-10 w-full items-center justify-center rounded border-2 border-dashed border-gray-300">
-            <Upload />
+          <div className="flex h-10 w-full items-center justify-center rounded border-2 border-dashed border-gray-200">
+            <Upload className='text-accent' />
           </div>
         </div>
       </Card>
@@ -98,13 +121,26 @@ const blockShowcases = [
     title: 'Forms',
     description: '2 variants',
     component: (
-      <Card className="w-[200px]">
-        <div className="flex flex-col items-center justify-center space-y-3 p-6">
-          <div className="h-2 w-1/3 rounded-sm bg-gray-300"></div>
-          <div className="h-3 w-1/2 rounded-sm bg-gray-300"></div>
-          <div className="h-3 w-1/2 rounded-sm bg-gray-300"></div>
-          <div className="h-3 w-1/2 rounded-sm bg-gray-300"></div>
-          <div className="h-3 w-1/3 rounded-sm bg-gray-300"></div>
+      <Card className="w-[180px] border-accent border-2">
+        <div className="flex flex-col justify-center  p-4">
+          <div className='space-y-2 items-start'>
+            <div className="h-2 w-2/5 rounded-sm mb-4 bg-gray-200" />
+            <div className='grid grid-cols-2 gap-2'>
+              <div className="h-2 rounded-sm bg-gray-200" />
+              <div className="h-2 rounded-sm bg-gray-200" />
+            </div>
+            <div className='grid grid-cols-2 gap-2'>
+              <div className="h-2 rounded-sm bg-gray-200" />
+              <div className="h-2 rounded-sm bg-gray-200" />
+            </div>
+            <div className='grid grid-cols-2 gap-2'>
+              <div className="h-2 rounded-sm bg-gray-200" />
+              <div className="h-2 rounded-sm bg-gray-200" />
+            </div>
+          </div>
+          <div className="space-y-3 flex justify-end items-end">
+            <div className="h-3 w-3/12 rounded-xl mt-4 bg-accent" />
+          </div>
         </div>
       </Card>
     ),
