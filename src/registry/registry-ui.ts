@@ -51,8 +51,8 @@ export const ui: Registry = [
   {
     name: 'command',
     type: 'registry:ui',
-    dependencies: ['@radix-ui/react-dialog', '@radix-ui/react-icons', 'cmdk', 'components/ui/dialog'],
-    files: ['components/extendui/command.tsx']
+    dependencies: ['@radix-ui/react-dialog', '@radix-ui/react-icons', 'cmdk'],
+    files: ['components/extendui/command.tsx', 'components/ui/dialog.tsx']
   },
   {
     name: 'calendar',
