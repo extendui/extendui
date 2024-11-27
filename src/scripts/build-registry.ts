@@ -34,14 +34,14 @@ const getComponentFiles = async (files: File[]) => {
     if (typeof file === 'string') {
       const filePath = `src/${REGISTRY_BASE_PATH}/${file}`;
       const fileContent = await fs.readFile(filePath, 'utf-8');
-      const updatedFile = file.replace('/ui/', '/extendui/')
+      // const updatedFile = file.replace('/ui/', '/extendui/')
       return {
         type: FolderToComponentTypeMap[
-          updatedFile.split('/')[1] as keyof typeof FolderToComponentTypeMap
+          filePath.split('/')[1] as keyof typeof FolderToComponentTypeMap
         ],
         content: fileContent,
-        path: updatedFile,
-        target: `${updatedFile}`,
+        path: filePath,
+        target: `${filePath}`,
       };
     }
   });
