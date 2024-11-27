@@ -152,10 +152,7 @@ export default function ShowcaseSection() {
               ),
             )}
           </CarouselContent>
-          <div className="mt-4 flex justify-center gap-2 sm:hidden">
-            <CarouselPrevious />
-            <CarouselNext />
-          </div>
+
           <CarouselPrevious className="hidden sm:flex" />
           <CarouselNext className="hidden sm:flex" />
         </Carousel>
@@ -193,10 +190,6 @@ export default function ShowcaseSection() {
               ),
             )}
           </CarouselContent>
-          <div className="mt-4 flex justify-center gap-2 sm:hidden">
-            <CarouselPrevious />
-            <CarouselNext />
-          </div>
           <CarouselPrevious className="hidden sm:flex" />
           <CarouselNext className="hidden sm:flex" />
         </Carousel>
