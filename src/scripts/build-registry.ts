@@ -37,11 +37,11 @@ const getComponentFiles = async (files: File[]) => {
       // const updatedFile = file.replace('/ui/', '/extendui/')
       return {
         type: FolderToComponentTypeMap[
-          filePath.split('/')[1] as keyof typeof FolderToComponentTypeMap
+          file.split('/')[1] as keyof typeof FolderToComponentTypeMap
         ],
         content: fileContent,
-        path: filePath,
-        target: `${filePath}`,
+        path: file,
+        target: `${file}`,
       };
     }
   });
