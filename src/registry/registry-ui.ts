@@ -5,7 +5,7 @@ export const ui: Registry = [
     name: 'button',
     type: 'registry:ui',
     dependencies: ['@radix-ui/react-slot', '@radix-ui/react-tooltip'],
-    files: ['components/ui/button.tsx'],
+    files: ['components/extendui/button.tsx', 'components/ui/tooltip.tsx'],
     tailwind: {
       config: {
         theme: {
@@ -40,24 +40,24 @@ export const ui: Registry = [
     name: 'input',
     type: 'registry:ui',
     dependencies: [],
-    files: ['components/ui/input.tsx', 'helpers/hasNestedElementOfType.ts']
+    files: ['components/extendui/input.tsx', 'helpers/hasNestedElementOfType.ts']
   },
   {
     name: 'select',
     type: 'registry:ui',
     dependencies: ['@radix-ui/react-select', '@radix-ui/react-icons'],
-    files: ['components/ui/select.tsx']
+    files: ['components/extendui/select.tsx']
   },
   {
     name: 'command',
     type: 'registry:ui',
-    dependencies: ['@radix-ui/react-dialog', '@radix-ui/react-icons', 'cmdk'],
-    files: ['components/ui/command.tsx']
+    dependencies: ['@radix-ui/react-dialog', '@radix-ui/react-icons', 'cmdk', 'components/ui/dialog'],
+    files: ['components/extendui/command.tsx']
   },
   {
     name: 'calendar',
     type: 'registry:ui',
     dependencies: ['react-day-picker'],
-    files: ['components/ui/calendar.tsx', 'components/ui/button.tsx' ]
+    files: ['components/extendui/calendar.tsx', 'components/extendui/button.tsx' ]
   }
 ];

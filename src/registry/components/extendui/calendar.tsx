@@ -4,10 +4,9 @@ import { cva, type VariantProps } from 'class-variance-authority';
 import * as React from 'react';
 import { DayPicker } from 'react-day-picker';
 
-import { buttonVariants } from '@/components/extendui/button';
 import { cn } from '@/lib/utils';
 
-
+import { buttonVariants } from '../extendui/button';
 
 const calendarVariants = cva('p-3', {
   variants: {
