@@ -30,6 +30,9 @@ import PricingCard02 from '@/showcase/blocks/cards/pricing-card-02';
 import FileUpload from '@/showcase/blocks/file-upload';
 import SignIn from '@/showcase/blocks/forms/sign-in-01';
 import SignIn02 from '@/showcase/blocks/forms/sign-in-02';
+import SimpleBanner from '@/showcase/components/banners/banner';
+import CollapsibleBanner from '@/showcase/components/banners/banner-collapsible';
+import CookieBanner from '@/showcase/components/banners/banner-cookie';
 import ButtonExample from '@/showcase/components/button/button';
 import { Rotating3DButton } from '@/showcase/components/button/button-3d-rotating';
 import { BouncingButton } from '@/showcase/components/button/button-bouncing';
@@ -77,7 +80,6 @@ import { Select } from './extendui/select';
 import { Icons } from './icons/icons';
 import { PreCustom } from './pre-custom';
 import Preview from './preview';
-
 
 function CustomLink(props: any) {
   const href = props.href;
@@ -132,6 +134,9 @@ const components = {
   SignIn,
   SignIn02,
   ButtonExample,
+  SimpleBanner,
+  CookieBanner,
+  CollapsibleBanner,
   CreateNewButton,
   ButtonSettingsEngine,
   DatePickerSettingsEngine,

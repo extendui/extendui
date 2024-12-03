@@ -36,6 +36,11 @@ export const docsConfig: DocsConfig = {
       title: 'Components',
       items: [
         {
+          title: 'Banner',
+          href: '/docs/components/banner',
+          items: [],
+        },
+        {
           title: 'Button',
           href: '/docs/components/button',
           items: [
@@ -52,6 +57,7 @@ export const docsConfig: DocsConfig = {
             },
           ],
         },
+
         {
           title: 'Command',
           href: '/docs/components/command',
