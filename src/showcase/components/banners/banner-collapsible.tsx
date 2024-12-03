@@ -11,13 +11,18 @@ export default function CollapsibleBanner() {
   if (!isVisible) return null;
 
   return (
-    <div className="dark w-full bg-muted px-4 py-3 text-foreground md:py-2">
+    // replace `absolute` with `fixed` if you want the banner to be fixed on the page Also Animation will not work if you use `absolute`
+    <div
+      className={`dark absolute left-0 top-0 w-full rounded-t-lg bg-accent px-4 py-3 text-foreground transition-all duration-300 ease-in-out dark:bg-accent-foreground ${
+        isVisible ? 'translate-y-0' : '-translate-y-full'
+      }`}
+    >
       <div className="flex gap-2 md:items-center">
         <div className="flex grow gap-3 md:items-center">
-          <div className="flex grow flex-col justify-between gap-3 md:flex-row md:items-center">
+          <div className="flex grow flex-col justify-center gap-3 md:flex-row md:items-center">
             <p className="text-sm">
-              It&lsquo;s live and ready to use! Start exploring the latest
-              addition to your toolkit.
+              Start using our new product{' '}
+              <span className="font-semibold italic">animated</span>
             </p>
             <div className="flex gap-2 max-md:flex-wrap">
               <Button variant="link" size="sm" className="text-sm">
