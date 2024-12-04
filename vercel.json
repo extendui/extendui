@@ -1,0 +1,11 @@
+{
+     "name": "vercel-action",
+  "version": 2,
+  "public": false,
+  "github": {
+    "enabled": false
+  },
+   "builds": [
+    { "src": "{{Source for distribution}}", "use": "@vercel/static" }
+  ]
+}
