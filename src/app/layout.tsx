@@ -87,6 +87,7 @@ export default function RootLayout({
             __html: JSON.stringify(generateSiteStructure()),
           }}
         />
+        <script defer src="https://cloud.umami.is/script.js" data-website-id="1684864f-8d9b-49c0-a231-7235ad5abf8f"></script>
       </head>
       <body>
         <ReactQueryProvider>
