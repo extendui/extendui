@@ -1,4 +1,3 @@
-import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { GeistSans } from 'geist/font/sans';
 import { type Metadata } from 'next';
@@ -87,14 +86,12 @@ export default function RootLayout({
             __html: JSON.stringify(generateSiteStructure()),
           }}
         />
-        <script defer src="https://cloud.umami.is/script.js" data-website-id="1684864f-8d9b-49c0-a231-7235ad5abf8f"></script>
       </head>
       <body>
         <ReactQueryProvider>
           <ThemeProvider>
             {children}
             <Footer />
-            <Analytics />
             <SpeedInsights />
           </ThemeProvider>
           <Toaster richColors />
