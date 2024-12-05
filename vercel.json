@@ -1,20 +1,3 @@
 {
-  "version": 2,
-  "public": false,
-  "github": {
-    "enabled": false
-  },
-  "builds": [
-    { "src": ".next/**", "use": "@vercel/static" }
-  ],
-  "routes": [
-    {
-      "src": "^/static/(.*)",
-      "dest": "/_next/static/$1"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/_next/$1"
-    }
-  ]
+  "version": 2
 }
