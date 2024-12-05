@@ -1,5 +1,5 @@
+import PricingTable from '@/app/pricing/_components/pricing-table';
 import FadeUp from '@/components/fadeup';
-import PricingTable from '@/components/pricing-table';
 
 export default function PricingPage() {
   return (

@@ -17,25 +17,25 @@ type Props = {
     interval: string;
     priceTagline: string;
     featured?: boolean;
-  }
+  };
 };
 
 const variants = {
   badge: {
     hidden: {
       opacity: 0,
-      y: 50
+      y: 50,
     },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { delay: 1.2 }
+      transition: { delay: 1.2 },
     },
   },
   card: {
     hidden: {
       opacity: 0,
-      y: 50
+      y: 50,
     },
     visible: {
       opacity: 1,
@@ -46,26 +46,26 @@ const variants = {
 
 export default function PricingCard({ plan }: Props) {
   return (
-    <div className="flex flex-col h-full relative text-start mt-12 pb-2">
-      {
-        plan.featured && (
-          <motion.div
-            className="absolute -top-7 left-0"
-            variants={variants.badge}
-            initial="hidden"
-            animate="visible"
-            transition={{ duration: 1 }}
-          >
-            <div className="bg-accent text-white px-4 py-1.5 rounded-r-xl rounded-l-3xl text-sm font-medium pb-12 pl-6">
-              Most Popular
-            </div>
-          </motion.div>
-        )
-      }
+    <div className="relative mt-12 flex h-full flex-col pb-2 text-start">
+      {plan.featured && (
+        <motion.div
+          className="absolute -top-7 left-0"
+          variants={variants.badge}
+          initial="hidden"
+          animate="visible"
+          transition={{ duration: 1 }}
+        >
+          <div className="rounded-l-3xl rounded-r-xl bg-accent px-4 py-1.5 pb-12 pl-6 text-sm font-medium text-white">
+            Most Popular
+          </div>
+        </motion.div>
+      )}
       <motion.div
         className={cn(
-          "flex flex-col flex-grow z-10 w-full rounded-3xl p-6 ",
-          plan.featured ? "bg-gradient-to-b from-gray-800 to-gray-900 text-white" : "bg-background"
+          'z-10 flex w-full flex-grow flex-col rounded-3xl p-6',
+          plan.featured
+            ? 'bg-gradient-to-b from-gray-800 to-gray-900 text-white'
+            : 'bg-background',
         )}
         variants={variants.card}
         initial="hidden"
@@ -78,7 +78,9 @@ export default function PricingCard({ plan }: Props) {
         </div>
         <div className="mb-6">
           <div className="flex items-baseline">
-            <span className="text-4xl font-bold">${plan.price}</span>
+            <span className="text-4xl font-bold">
+              {plan.price === 'Custom' ? plan.price : `$${plan.price}`}
+            </span>
             <span className="ml-2 text-lg text-gray-400">{plan.interval}</span>
           </div>
           <p className="text-sm text-gray-400">{plan.priceTagline}</p>
@@ -86,7 +88,7 @@ export default function PricingCard({ plan }: Props) {
         <div className="mb-6">
           <ContactDialog />
         </div>
-        <ul className="space-y-3 flex-grow">
+        <ul className="flex-grow space-y-3">
           {plan.features.map((feature, index) => (
             <motion.li
               key={index}
@@ -96,7 +98,7 @@ export default function PricingCard({ plan }: Props) {
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
               <motion.span
-                className="flex h-5 w-5 flex-shrink-0 items-center justify-center mt-0.5"
+                className="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center"
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
                 transition={{
@@ -107,11 +109,11 @@ export default function PricingCard({ plan }: Props) {
               >
                 <Check className="h-4 w-4 text-accent" />
               </motion.span>
-              <p className="text-sm ">{feature}</p>
+              <p className="text-sm">{feature}</p>
             </motion.li>
           ))}
         </ul>
       </motion.div>
-    </div >
+    </div>
   );
 }

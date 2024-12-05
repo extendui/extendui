@@ -1,4 +1,4 @@
-import PricingCard02 from './extendui/pricing-card';
+import PricingCard02 from '../../../components/extendui/pricing-card';
 
 export default function PricingTable() {
   const pricingPlans = [
@@ -15,7 +15,7 @@ export default function PricingTable() {
         '4-7 day turnaround time',
         'Pause or cancel anytime',
       ],
-      price: '1499',
+      price: '499',
       interval: '/mo',
       priceTagline: 'pause or cancel anytime',
     },
@@ -34,7 +34,7 @@ export default function PricingTable() {
         '7-10 day turnaround time',
         'Pause or cancel anytime',
       ],
-      price: '2899',
+      price: '1899',
       interval: '/mo',
       priceTagline: 'pause or cancel anytime',
       featured: true,
@@ -55,18 +55,17 @@ export default function PricingTable() {
         'Unlimited revisions',
         'Negotiable delivery time',
       ],
-      price: '7,999',
+      price: 'Custom',
       interval: '',
-      priceTagline: 'starts at',
+      priceTagline: 'Let us know your needs',
     },
   ];
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mx-auto max-w-6xl px-4">
+    <div className="mx-auto grid max-w-6xl grid-cols-1 gap-6 px-4 md:grid-cols-3">
       {pricingPlans.map((plan) => (
         <PricingCard02 plan={plan} key={plan.title} />
       ))}
     </div>
   );
 }
-
