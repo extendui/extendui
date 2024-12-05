@@ -4,6 +4,7 @@ import { type Metadata } from 'next';
 import { Toaster } from 'sonner';
 
 import { siteConfig } from '@/config/site';
+import { CSPostHogProvider } from '@/providers/postHogProvider';
 import { ReactQueryProvider } from '@/providers/reactQueryProvider';
 import { ThemeProvider } from '@/providers/themeProvider';
 
@@ -88,14 +89,16 @@ export default function RootLayout({
         />
       </head>
       <body>
-        <ReactQueryProvider>
-          <ThemeProvider>
-            {children}
-            <Footer />
-            <SpeedInsights />
-          </ThemeProvider>
-          <Toaster richColors />
-        </ReactQueryProvider>
+        <CSPostHogProvider>
+          <ReactQueryProvider>
+            <ThemeProvider>
+              {children}
+              <Footer />
+              <SpeedInsights />
+            </ThemeProvider>
+            <Toaster richColors />
+          </ReactQueryProvider>
+        </CSPostHogProvider>
       </body>
     </html>
   );
