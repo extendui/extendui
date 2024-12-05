@@ -1,11 +1,11 @@
 {
-     "name": "vercel-action",
   "version": 2,
+  "buildCommand": "npm run build",
+  "devCommand": "npm run dev",
+  "installCommand": "npm install",
+  "framework": "nextjs",
   "public": false,
   "github": {
     "enabled": false
-  },
-   "builds": [
-    { "src": "./public/**", "use": "@vercel/static" }
-  ]
+  }
 }
