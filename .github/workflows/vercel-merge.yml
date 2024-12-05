@@ -3,15 +3,21 @@ on:
   push:
     branches:
       - main
-permissions:
-  contents: read
+permissions: # Dodaj pełne uprawnienia dla workflow
+  contents: write
   deployments: write
+  issues: write
+  checks: write
+  pull-requests: write
+  statuses: write
 jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      
+        with:
+          fetch-depth: 0 # Dodaj to dla pełnej historii repo
+          
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
