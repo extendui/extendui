@@ -35,10 +35,19 @@ export const metadata: Metadata = {
     title: siteConfig.name,
     description: siteConfig.description,
     siteName: siteConfig.name,
+    images: [
+      {
+        url: '/opengraph-image.png', // Path relative to the public directory
+        width: 1200,
+        height: 630,
+        alt: siteConfig.name,
+      },
+    ],
   },
   twitter: {
     title: 'extendui_pro',
     card: 'summary_large_image',
+    images: ['/twitter-image.png'], // Path relative to the public directory
   },
   icons: {
     icon: '/favicon.ico',
@@ -87,10 +96,6 @@ export default function RootLayout({
             __html: JSON.stringify(generateSiteStructure()),
           }}
         />
-        <meta property="og:image" content="<generated>" />
-        <meta property="og:image:type" content="<generated>" />
-        <meta property="og:image:width" content="<generated>" />
-        <meta property="og:image:height" content="<generated>" />
       </head>
       <body>
         <CSPostHogProvider>
