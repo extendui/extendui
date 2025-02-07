@@ -87,6 +87,10 @@ export default function RootLayout({
             __html: JSON.stringify(generateSiteStructure()),
           }}
         />
+        <meta property="og:image" content="<generated>" />
+        <meta property="og:image:type" content="<generated>" />
+        <meta property="og:image:width" content="<generated>" />
+        <meta property="og:image:height" content="<generated>" />
       </head>
       <body>
         <CSPostHogProvider>
