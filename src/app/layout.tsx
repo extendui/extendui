@@ -40,7 +40,8 @@ export const metadata: Metadata = {
         url: '/opengraph-image.png', // Path relative to the public directory
         width: 1200,
         height: 630,
-        alt: siteConfig.name,
+        alt: 'Extend UI - Reusable components built with shadcn/ui',
+        type: 'image/png',
       },
     ],
   },
@@ -50,9 +51,31 @@ export const metadata: Metadata = {
     images: ['/twitter-image.png'], // Path relative to the public directory
   },
   icons: {
-    icon: '/favicon.ico',
-    shortcut: '/favicon-16x16.png',
-    apple: '/apple-touch-icon.png',
+    icon: [
+      {
+        url: '/favicon.ico',
+        sizes: '32x32',
+        type: 'image/x-icon',
+      },
+      {
+        url: '/favicon-16x16.png',
+        sizes: '16x16',
+        type: 'image/png',
+      },
+      {
+        url: '/favicon-32x32.png',
+        sizes: '32x32',
+        type: 'image/png',
+      },
+    ],
+    shortcut: '/favicon.ico',
+    apple: [
+      {
+        url: '/apple-touch-icon.png',
+        sizes: '180x180',
+        type: 'image/png',
+      },
+    ],
   },
   manifest: `${siteConfig.url}/site.webmanifest`,
 };
