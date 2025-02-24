@@ -2,6 +2,29 @@ import { type Registry } from './schema';
 
 export const ui: Registry = [
   {
+    name: 'banner',
+    type: 'registry:ui',
+    dependencies: ['@radix-ui/react-slot'],
+    files: ['components/extendui/banner.tsx'],
+    tailwind: {
+      config: {
+        theme: {
+          extend: {
+            keyframes: {
+              shimmer: {
+                '0%': { backgroundPosition: '200% 0' },
+                '100%': { backgroundPosition: '-200% 0' },
+              },
+            },
+            animation: {
+              shimmer: 'shimmer 3s linear infinite',
+            },
+          },
+        },
+      },
+    },
+  },
+  {
     name: 'button',
     type: 'registry:ui',
     dependencies: ['@radix-ui/react-slot', '@radix-ui/react-tooltip'],

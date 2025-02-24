@@ -30,9 +30,8 @@ import PricingCard02 from '@/showcase/blocks/cards/pricing-card-02';
 import FileUpload from '@/showcase/blocks/file-upload';
 import SignIn from '@/showcase/blocks/forms/sign-in-01';
 import SignIn02 from '@/showcase/blocks/forms/sign-in-02';
-import SimpleBanner from '@/showcase/components/banners/banner';
-import CollapsibleBanner from '@/showcase/components/banners/banner-collapsible';
-import CookieBanner from '@/showcase/components/banners/banner-cookie';
+import BannerExample from '@/showcase/components/banners/banner';
+import { BannerSettingsEngine } from '@/showcase/components/banners/settings-engine';
 import ButtonExample from '@/showcase/components/button/button';
 import { Rotating3DButton } from '@/showcase/components/button/button-3d-rotating';
 import { BouncingButton } from '@/showcase/components/button/button-bouncing';
@@ -134,9 +133,7 @@ const components = {
   SignIn,
   SignIn02,
   ButtonExample,
-  SimpleBanner,
-  CookieBanner,
-  CollapsibleBanner,
+  BannerExample,
   CreateNewButton,
   ButtonSettingsEngine,
   DatePickerSettingsEngine,
@@ -156,6 +153,7 @@ const components = {
   Select,
   SelectExample,
   SelectSettingsEngine,
+  BannerSettingsEngine,
   FileInput,
   DatePickerExample,
   SendingButton,

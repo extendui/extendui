@@ -1,4 +1,5 @@
 import { useEngineSettingsStore } from '@/zustand/stores/useEngineSettings';
+import { useEngineSettingsBanner } from '@/zustand/stores/useEngineSettingsBanner';
 import { useEngineSettingsCommandStore } from '@/zustand/stores/useEngineSettingsCommand';
 import { useEngineSettingsDatePickerStore } from '@/zustand/stores/useEngineSettingsDatePicker';
 import { useEngineSettingsInputStore } from '@/zustand/stores/useEngineSettingsInput';
@@ -11,6 +12,14 @@ type Props = {
 
 export async function loadComponentCode({ componentName, state }: Props) {
   switch (componentName) {
+    case 'BannerExample': {
+      const { getBannerExampleCode } = await import('@/showcase/codes/banner/banner-code');
+      return getBannerExampleCode(state);
+    }
+    case 'Banner': {
+      const { getBannerCode } = await import('@/showcase/codes/banner/ui-banner-code');
+      return getBannerCode();
+    }
     /* Button */
     case 'Button': {
       const { getButtonCode } = await import('@/showcase/codes/button/ui-button-code');
@@ -220,6 +229,10 @@ export type ComponentStateConfigProps = Record<
 >;
 
 export const componentStateConfig: ComponentStateConfigProps = {
+  BannerExample: {
+    state: ['variant', 'position', 'size', 'title', 'icon', 'link', 'showArrow', 'dismissible'],
+    store: useEngineSettingsBanner,
+  },
   ButtonExample: {
     state: ['loading', 'variant', 'size', 'tooltipText'],
     store: useEngineSettingsStore,

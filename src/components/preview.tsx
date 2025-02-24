@@ -6,6 +6,7 @@ import { cn } from '@/lib/utils';
 
 import { ComponentSourceLive } from './component-source-live';
 import { Button } from './extendui/button';
+import { OpenInV0Button } from './open-in-v0-button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from './ui/tabs';
 
 type Props = {
@@ -14,6 +15,7 @@ type Props = {
   componentName: string;
   className?: string;
   animated?: boolean;
+  v0url?: string;
 };
 
 export default function Preview({
@@ -22,31 +24,36 @@ export default function Preview({
   componentName,
   className,
   animated,
+  v0url,
 }: Props) {
   const [key, setKey] = useState(0);
+  console.log(v0url)
 
   return (
     <div className="mx-auto">
       <Tabs defaultValue="preview" className="w-full">
-        <TabsList className={cn('flex items-center justify-end bg-inherit')}>
-          <TabsTrigger
-            value="preview"
-            className={cn(
-              'data-[state=active]:bg-zinc-900 data-[state=active]:text-zinc-100 data-[state=active]:shadow dark:data-[state=active]:bg-zinc-100 dark:data-[state=active]:text-zinc-900',
-            )}
-          >
-            <Eye size={16} />
-            <span className="ml-1">Preview</span>
-          </TabsTrigger>
-          <TabsTrigger
-            value="code"
-            className={cn(
-              'data-[state=active]:bg-zinc-900 data-[state=active]:text-zinc-100 data-[state=active]:shadow dark:data-[state=active]:bg-zinc-100 dark:data-[state=active]:text-zinc-900',
-            )}
-          >
-            <Code size={16} />
-            <span className="ml-1">Code</span>
-          </TabsTrigger>
+        <TabsList className={cn('flex items-center justify-end bg-inherit ')}>
+          <div className="flex items-center space-x-2">
+            {v0url && <OpenInV0Button url={v0url} />}
+            <TabsTrigger
+              value="preview"
+              className={cn(
+                'data-[state=active]:bg-zinc-900 data-[state=active]:text-zinc-100 data-[state=active]:shadow dark:data-[state=active]:bg-zinc-100 dark:data-[state=active]:text-zinc-900',
+              )}
+            >
+              <Eye size={16} />
+              <span className="ml-1">Preview</span>
+            </TabsTrigger>
+            <TabsTrigger
+              value="code"
+              className={cn(
+                'data-[state=active]:bg-zinc-900 data-[state=active]:text-zinc-100 data-[state=active]:shadow dark:data-[state=active]:bg-zinc-100 dark:data-[state=active]:text-zinc-900',
+              )}
+            >
+              <Code size={16} />
+              <span className="ml-1">Code</span>
+            </TabsTrigger>
+          </div>
         </TabsList>
         <TabsContent
           value="preview"

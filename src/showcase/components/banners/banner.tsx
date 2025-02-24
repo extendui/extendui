@@ -1,22 +1,46 @@
-// Dependencies: pnpm install lucide-react
+'use client';
 
-import { ArrowRight } from 'lucide-react';
+import React, { useEffect, useState } from 'react';
 
-export default function SimpleBanner() {
+import { Banner } from '@/components/extendui/banner';
+import { useEngineSettingsBanner } from '@/zustand/stores/useEngineSettingsBanner';
+
+export default function BannerDemo() {
+  const bannerSettings = useEngineSettingsBanner();
+  const [isBannerDismissed, setIsBannerDismissed] = useState(false);
+  const [bannerKey, setBannerKey] = useState(0);
+
+  useEffect(() => {
+    if (bannerSettings.visible) {
+      setIsBannerDismissed(false);
+      setBannerKey(prevKey => prevKey + 1);
+    }
+  }, [bannerSettings]);
+
+  const handleDismiss = () => {
+    setIsBannerDismissed(true);
+  };
+
   return (
-    <div className="dark absolute left-0 top-0 w-full rounded-t-lg bg-accent px-4 py-3 text-foreground dark:bg-accent-foreground">
-      <p className="flex justify-center text-sm">
-        <a href="#" className="group">
-          <span className="me-1 text-base leading-none">🚀</span>
-          Introducing banner component
-          <ArrowRight
-            className="-mt-0.5 ms-2 inline-flex opacity-60 transition-transform group-hover:translate-x-0.5"
-            size={16}
-            strokeWidth={2}
-            aria-hidden="true"
-          />
-        </a>
-      </p>
+    <div className="relative h-full w-full overflow-hidden rounded-lg border">
+      {bannerSettings.visible && !isBannerDismissed && (
+        <Banner
+          key={bannerKey}
+          variant={bannerSettings.variant}
+          position={bannerSettings.position}
+          size={bannerSettings.size}
+          title={bannerSettings.title}
+          icon={bannerSettings.icon}
+          link={bannerSettings.link}
+          showArrow={bannerSettings.showArrow}
+          dismissible={bannerSettings.dismissible}
+          className={bannerSettings.className}
+          onDismiss={handleDismiss}
+        />
+      )}
+      <div className="flex h-full min-h-[150px] items-center justify-center">
+        <p className="text-muted-foreground">Content Area</p>
+      </div>
     </div>
-  );
+  )
 }

@@ -3,26 +3,51 @@ title: Banner
 description: A versatile component designed to display important information in a prominent and visually appealing way, offering a range of customization options for various use cases.
 ---
 
-### Simple Banner
-
 <Preview
-  className="h-80"
-  component={<SimpleBanner></SimpleBanner>}
-  componentName={'SimpleBanner'}
+  component={<BannerExample/>}
+  settingsEngine={<BannerSettingsEngine/>}
+  componentName={'BannerExample'}
 />
 
-### Cookie Banner
+### Installation
 
-<Preview
-  className="h-80"
-  component={<CookieBanner></CookieBanner>}
-  componentName={'CookieBanner'}
-/>
-
-### Collapsible Banner
-
-<Preview
-  className="h-80"
-  component={<CollapsibleBanner></CollapsibleBanner>}
-  componentName={'CollapsibleBanner'}
-/>
+<Tabs defaultValue="cli">
+  <TabsList>
+    <TabsTrigger value="cli">CLI</TabsTrigger>
+    <TabsTrigger value="manual">Manual</TabsTrigger>
+  </TabsList>
+  <TabsContent value="cli">
+    ```bash 
+    npx shadcn add https://extend-ui.com/registry/banner.json 
+    ```
+  </TabsContent>
+  <TabsContent value="manual">
+    <Steps>
+      <Step>
+          Install the following dependencies: 
+        ```bash 
+        npx install @radix-ui/react-slot 
+        ```
+      </Step>
+      <Step>
+        Copy and paste the following code into your project.
+        <ComponentSourceLive componentName={'Banner'} />
+      </Step>
+      <Step>Update the import paths to match your project setup.</Step>
+      <Step>
+        Update tailwind.config.ts
+        ```ts
+         keyframes: {
+          shimmer: {
+            '0%': { backgroundPosition: '200% 0' },
+            '100%': { backgroundPosition: '-200% 0' },
+          },
+        },
+        animation: {
+          shimmer: 'shimmer 3s linear infinite',
+        },
+        ```
+      </Step>
+    </Steps>
+  </TabsContent>
+</Tabs>
