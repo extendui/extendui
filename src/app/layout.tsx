@@ -4,6 +4,7 @@ import { type Metadata } from 'next';
 import { Toaster } from 'sonner';
 
 import { siteConfig } from '@/config/site';
+import { CSPostHogProvider } from '@/providers/postHogProvider';
 import { ReactQueryProvider } from '@/providers/reactQueryProvider';
 import { ThemeProvider } from '@/providers/themeProvider';
 
@@ -34,15 +35,47 @@ export const metadata: Metadata = {
     title: siteConfig.name,
     description: siteConfig.description,
     siteName: siteConfig.name,
+    images: [
+      {
+        url: '/opengraph-image.png', // Path relative to the public directory
+        width: 1200,
+        height: 630,
+        alt: 'Extend UI - Reusable components built with shadcn/ui',
+        type: 'image/png',
+      },
+    ],
   },
   twitter: {
     title: 'extendui_pro',
     card: 'summary_large_image',
+    images: ['/twitter-image.png'], // Path relative to the public directory
   },
   icons: {
-    icon: '/favicon.ico',
-    shortcut: '/favicon-16x16.png',
-    apple: '/apple-touch-icon.png',
+    icon: [
+      {
+        url: '/favicon.ico',
+        sizes: '32x32',
+        type: 'image/x-icon',
+      },
+      {
+        url: '/favicon-16x16.png',
+        sizes: '16x16',
+        type: 'image/png',
+      },
+      {
+        url: '/favicon-32x32.png',
+        sizes: '32x32',
+        type: 'image/png',
+      },
+    ],
+    shortcut: '/favicon.ico',
+    apple: [
+      {
+        url: '/apple-touch-icon.png',
+        sizes: '180x180',
+        type: 'image/png',
+      },
+    ],
   },
   manifest: `${siteConfig.url}/site.webmanifest`,
 };
@@ -88,14 +121,16 @@ export default function RootLayout({
         />
       </head>
       <body>
-        <ReactQueryProvider>
-          <ThemeProvider>
-            {children}
-            <Footer />
-            <SpeedInsights />
-          </ThemeProvider>
-          <Toaster richColors />
-        </ReactQueryProvider>
+        <CSPostHogProvider>
+          <ReactQueryProvider>
+            <ThemeProvider>
+              {children}
+              <Footer />
+              <SpeedInsights />
+            </ThemeProvider>
+            <Toaster richColors />
+          </ReactQueryProvider>
+        </CSPostHogProvider>
       </body>
     </html>
   );
