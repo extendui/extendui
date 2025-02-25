@@ -27,7 +27,6 @@ export default function Preview({
   v0url,
 }: Props) {
   const [key, setKey] = useState(0);
-  console.log(v0url)
 
   return (
     <div className="mx-auto">
