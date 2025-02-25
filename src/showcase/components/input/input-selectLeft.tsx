@@ -18,7 +18,7 @@ export const InputSelectLeft = () => {
   return (
     <div className="flex items-center">
       <Select value={selectValue} onValueChange={(val) => setSelectValue(val)}>
-        <SelectTrigger className="w-[95px] rounded-r-none border-r-0 shadow-none focus:outline-none focus:ring-0">
+        <SelectTrigger className="w-[95px] rounded-r-none border-r-0 shadow-none focus:outline-hidden focus:ring-0">
           <SelectValue placeholder="http" />
         </SelectTrigger>
         <SelectContent>
@@ -27,7 +27,7 @@ export const InputSelectLeft = () => {
         </SelectContent>
       </Select>
       <Input
-        className={`flex-grow -me-px rounded-l-none focus-visible:rounded-l-none`}
+        className={`grow -me-px rounded-l-none focus-visible:rounded-l-none`}
         value={value}
         onChange={(e) => setValue(e.target.value)}
         type="text"

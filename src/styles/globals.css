@@ -1,6 +1,5 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+@config "../../tailwindcss.config.js";
 
 @layer base {
   :root {
@@ -145,4 +144,3 @@
     -webkit-appearance: none;
   }
 }
-

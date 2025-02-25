@@ -12,18 +12,18 @@ import {
 import { cn } from '@/lib/utils';
 
 const buttonVariants = cva(
-  'inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50',
+  'inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-hidden focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50',
   {
     variants: {
       variant: {
         default:
-          'bg-primary text-primary-foreground shadow hover:bg-primary/90 transition-all',
+          'bg-primary text-primary-foreground shadow-sm hover:bg-primary/90 transition-all',
         destructive:
-          'bg-destructive text-destructive-foreground shadow-sm hover:bg-destructive/90 transition-all',
+          'bg-destructive text-destructive-foreground shadow-xs hover:bg-destructive/90 transition-all',
         outline:
-          'border border-input bg-background shadow-sm hover:bg-secondary hover:text-secondary-foreground transition-all',
+          'border border-input bg-background shadow-xs hover:bg-secondary hover:text-secondary-foreground transition-all',
         secondary:
-          'bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80 transition-all',
+          'bg-secondary text-secondary-foreground shadow-xs hover:bg-secondary/80 transition-all',
         ghost:
           'hover:bg-secondary hover:text-secondary-foreground transition-all',
         link: 'text-primary underline-offset-4 hover:underline transition-all',
@@ -32,11 +32,11 @@ const buttonVariants = cva(
         glowingRing:
           'bg-primary text-primary-foreground relative overflow-hidden ring-2 ring-primary/50 animate-glow transition-all',
         shimmer:
-          'bg-gradient-to-r from-primary via-primary/50 to-primary bg-[length:200%_100%] text-primary-foreground animate-shimmer transition-all',
+          'bg-linear-to-r from-primary via-primary/50 to-primary bg-[length:200%_100%] text-primary-foreground animate-shimmer transition-all',
         perimeterShimmer:
           'bg-primary text-primary-foreground relative overflow-hidden before:absolute before:inset-0 before:rounded-md before:border-2 before:border-accent/50 before:bg-transparent before:animate-perimeterShimmer transition-all',
         bouncing:
-          'bg-primary text-primary-foreground shadow hover:bg-primary/90 transition-all animate-bounce',
+          'bg-primary text-primary-foreground shadow-sm hover:bg-primary/90 transition-all animate-bounce',
       },
       size: {
         default: 'h-9 px-4 py-2',

@@ -115,7 +115,7 @@ export const Icons = {
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       stroke="currentColor"
-      className="flex-shrink-0 stroke-0"
+      className="shrink-0 stroke-0"
       {...props}
     >
       <path d="M12 12l-8 -8v16l16 -16v16l-4 -4"></path>

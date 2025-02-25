@@ -53,7 +53,7 @@ export default function SignIn02() {
         borderRadius: isOpen ? 10 : 50,
       }}
       transition={{ duration: 0.7, ease: "easeInOut" }}
-      className="bg-card flex justify-center items-center overflow-hidden rounded-full border  text-card-foreground shadow "
+      className="bg-card flex justify-center items-center overflow-hidden rounded-full border  text-card-foreground shadow-sm "
     >
       <AnimatePresence mode="wait">
         {isOpen ? (

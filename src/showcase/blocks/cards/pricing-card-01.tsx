@@ -17,7 +17,7 @@ export default function PricingCard01() {
   return (
     <div className="flex items-center justify-center">
       <motion.div
-        className="w-full max-w-md rounded-3xl bg-gradient-to-b from-gray-800 to-gray-900 p-6 text-white shadow-xl"
+        className="w-full max-w-md rounded-3xl bg-linear-to-b from-gray-800 to-gray-900 p-6 text-white shadow-xl"
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
@@ -38,7 +38,7 @@ export default function PricingCard01() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
               <motion.span
-                className="flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-accent"
+                className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-accent"
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
                 transition={{

@@ -19,14 +19,14 @@ export const InputSelectRight = () => {
   return (
     <div className="flex items-center">
       <Input
-        className={\`flex-grow -me-px rounded-r-none focus-visible:rounded-r-none\`}
+        className={\`grow -me-px rounded-r-none focus-visible:rounded-r-none\`}
         value={value}
         onChange={(e) => setValue(e.target.value)}
         type="text"
         placeholder="Type here..."
       />
       <Select value={selectValue} onValueChange={(val) => setSelectValue(val)}>
-        <SelectTrigger className="w-[80px] rounded-l-none border-l-0 shadow-none focus:outline-none focus:ring-0">
+        <SelectTrigger className="w-[80px] rounded-l-none border-l-0 shadow-none focus:outline-hidden focus:ring-0">
           <SelectValue placeholder=".com" />
         </SelectTrigger>
         <SelectContent>

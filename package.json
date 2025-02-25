@@ -100,6 +100,7 @@
     "zustand": "^5.0.0-rc.2"
   },
   "devDependencies": {
+    "@tailwindcss/postcss": "^4.0.8",
     "@types/eslint": "^8.56.10",
     "@types/node": "^20.14.10",
     "@types/react": "npm:types-react@19.0.0-rc.1",
@@ -114,8 +115,8 @@
     "eslint-plugin-prettier": "^5.2.1",
     "postcss": "^8.4.39",
     "prettier": "^3.3.3",
-    "prettier-plugin-tailwindcss": "^0.6.8",
-    "tailwindcss": "^3.4.14",
+    "prettier-plugin-tailwindcss": "^0.6.11",
+    "tailwindcss": "^4.0.8",
     "typescript": "^5.6.2"
   },
   "ct3aMetadata": {

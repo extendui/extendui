@@ -64,8 +64,8 @@ export default function PricingCard({ plan }: Props) {
       }
       <motion.div
         className={cn(
-          "flex flex-col flex-grow z-10 w-full rounded-3xl p-6 ",
-          plan.featured ? "bg-gradient-to-b from-gray-800 to-gray-900 text-white" : "bg-background"
+          "flex flex-col grow z-10 w-full rounded-3xl p-6 ",
+          plan.featured ? "bg-linear-to-b from-gray-800 to-gray-900 text-white" : "bg-background"
         )}
         variants={variants.card}
         initial="hidden"
@@ -86,7 +86,7 @@ export default function PricingCard({ plan }: Props) {
         <div className="mb-6">
           <ContactDialog />
         </div>
-        <ul className="space-y-3 flex-grow">
+        <ul className="space-y-3 grow">
           {plan.features.map((feature, index) => (
             <motion.li
               key={index}
@@ -96,7 +96,7 @@ export default function PricingCard({ plan }: Props) {
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
               <motion.span
-                className="flex h-5 w-5 flex-shrink-0 items-center justify-center mt-0.5"
+                className="flex h-5 w-5 shrink-0 items-center justify-center mt-0.5"
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
                 transition={{

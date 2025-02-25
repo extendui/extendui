@@ -15,8 +15,8 @@ const inputVariants = cva(
       variant: {
         default: 'border-input bg-background focus:outline-primary',
         filled: 'border-transparent bg-muted focus:outline-primary',
-        flushed: 'rounded-none border-x-0 border-t-0 outline-none focus:bg-secondary focus-visible:outline-none',
-        flushedfilled: 'rounded-none border-x-0 border-t-0 outline-none focus:bg-secondary',
+        flushed: 'rounded-none border-x-0 border-t-0 outline-hidden focus:bg-secondary focus-visible:outline-hidden',
+        flushedfilled: 'rounded-none border-x-0 border-t-0 outline-hidden focus:bg-secondary',
         dashed: 'border-dashed border-2 focus:outline-primary',
       },
     },
