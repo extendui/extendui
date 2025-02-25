@@ -224,7 +224,7 @@ export default function FileUpload({
     >
       <div className="flex items-center justify-between p-2 sm:p-3 bg-muted rounded-lg overflow-hidden">
         <div className="flex items-center space-x-2 sm:space-x-3 min-w-0 flex-1">
-          <div className={\`flex-shrink-0 flex size-6 sm:size-8 p-1 sm:p-2 items-center justify-center rounded bg-background\`}>
+          <div className={\`shrink-0 flex size-6 sm:size-8 p-1 sm:p-2 items-center justify-center rounded bg-background\`}>
             {getFileTypeDetails(currentUpload!.file.type).icon}
           </div>
           <div className="min-w-0 flex-1">
@@ -234,7 +234,7 @@ export default function FileUpload({
             </p>
           </div>
         </div>
-        <div className="flex items-center space-x-2 flex-shrink-0 ml-2">
+        <div className="flex items-center space-x-2 shrink-0 ml-2">
           <div className="text-xs font-medium whitespace-nowrap w-12 text-right">
             {Math.round(progress)}%
           </div>
@@ -284,7 +284,7 @@ export default function FileUpload({
                       exit={{ opacity: 0, y: -20 }}
                       className="flex items-center space-x-2 p-2 rounded-lg bg-muted"
                     >
-                      <div className={\`flex-shrink-0 flex size-6 sm:size-8 p-1 sm:p-2 items-center justify-center rounded bg-background\`}>
+                      <div className={\`shrink-0 flex size-6 sm:size-8 p-1 sm:p-2 items-center justify-center rounded bg-background\`}>
                         {getFileTypeDetails(file.type).icon}
                       </div>
                       <div className="flex-1 min-w-0 max-w-[calc(100%-3rem)]">

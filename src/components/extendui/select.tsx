@@ -13,14 +13,14 @@ import * as React from 'react';
 import { cn } from '@/lib/utils';
 
 const selectVariants = cva(
-  'flex h-9 w-full items-center justify-between whitespace-nowrap rounded-md border border-input bg-transparent px-3 py-2 text-sm shadow-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-0 focus:ring-offset-0 disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1',
+  'flex h-9 w-full items-center justify-between whitespace-nowrap rounded-md border border-input bg-transparent px-3 py-2 text-sm shadow-xs ring-offset-background placeholder:text-muted-foreground focus:outline-hidden focus:ring-0 focus:ring-offset-0 disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1',
   {
     variants: {
       variant: {
         default: 'border-select',
         filled: 'border-transparent bg-muted',
-        flushed: 'rounded-none border-x-0 border-t-0 outline-none',
-        flushedfilled: 'rounded-none border-x-0 border-t-0 outline-none',
+        flushed: 'rounded-none border-x-0 border-t-0 outline-hidden',
+        flushedfilled: 'rounded-none border-x-0 border-t-0 outline-hidden',
         dashed: 'border-dashed border-2',
       },
     },
@@ -38,8 +38,8 @@ const selectContentVariants = cva(
       variant: {
         default: 'border-select',
         filled: 'border-transparent bg-muted',
-        flushed: 'rounded-none border-x-0 border-t-0 outline-none',
-        flushedfilled: 'rounded-none border-x-0 border-t-0 outline-none',
+        flushed: 'rounded-none border-x-0 border-t-0 outline-hidden',
+        flushedfilled: 'rounded-none border-x-0 border-t-0 outline-hidden',
         dashed: 'border-dashed border-2',
       },
     },
@@ -212,7 +212,7 @@ const SelectItem = React.forwardRef<
   <SelectPrimitive.Item
     ref={ref}
     className={cn(
-      'relative flex w-full cursor-default select-none items-center rounded-sm py-1.5 pl-2 pr-8 text-sm outline-none focus:bg-secondary focus:text-secondary-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50',
+      'relative flex w-full cursor-default select-none items-center rounded-sm py-1.5 pl-2 pr-8 text-sm outline-hidden focus:bg-secondary focus:text-secondary-foreground data-disabled:pointer-events-none data-disabled:opacity-50',
       className,
     )}
     {...props}

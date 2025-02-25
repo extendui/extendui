@@ -13,7 +13,7 @@ export const InputButtonRight = () => {
   return (
     <div className="flex items-center">
       <Input
-        className={`flex-grow -me-px rounded-r-none focus-visible:rounded-r-none`}
+        className={`grow -me-px rounded-r-none focus-visible:rounded-r-none`}
         value={value}
         onChange={(e) => setValue(e.target.value)}
         placeholder="Type here..."

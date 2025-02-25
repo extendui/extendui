@@ -82,7 +82,7 @@ export default function CreditCard02() {
       >
         <motion.div style={{ rotateX, rotateY }} transition={springTransition}>
           <motion.div
-            className="relative h-48 w-80 overflow-hidden rounded-2xl bg-gradient-to-br from-emerald-400 to-cyan-400 p-6 shadow-2xl"
+            className="relative h-48 w-80 overflow-hidden rounded-2xl bg-linear-to-br from-emerald-400 to-cyan-400 p-6 shadow-2xl"
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: CARD_ANIMATION_DURATION }}
@@ -103,7 +103,7 @@ export default function CreditCard02() {
               </motion.div>
 
               <motion.button
-                className="flex h-10 w-10 items-center justify-center rounded-full bg-white/20 text-white backdrop-blur-sm transition-colors hover:bg-white/30"
+                className="flex h-10 w-10 items-center justify-center rounded-full bg-white/20 text-white backdrop-blur-xs transition-colors hover:bg-white/30"
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
                 transition={{ delay: 0.4, ...springTransition }}

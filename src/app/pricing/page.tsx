@@ -12,7 +12,7 @@ export default function PricingPage() {
                 <h1 className="mt-2 text-4xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-5xl">
                   Transforming Ideas Into
                   <br></br>
-                  <span className="relative z-10 bg-gradient-to-t from-emerald-600 to-emerald-600/[0.8] bg-clip-text text-transparent dark:text-white">
+                  <span className="relative z-10 bg-linear-to-t from-emerald-600 to-emerald-600/[0.8] bg-clip-text text-transparent dark:text-white">
                     Powerful {''}
                   </span>
                   Software Solutions

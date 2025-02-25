@@ -14,7 +14,7 @@ const calendarVariants = cva('p-3', {
       default: '',
       glowingRing:
         'relative overflow-hidden ring-2 ring-primary/50 animate-glow transition-all',
-      outline: 'border-2  border-md shadow-sm',
+      outline: 'border-2  border-md shadow-xs',
     },
   },
   defaultVariants: {

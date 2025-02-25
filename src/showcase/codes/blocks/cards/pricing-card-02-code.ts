@@ -82,7 +82,7 @@ export default function PricingCard02() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
               <motion.span
-                className="flex h-5 w-5 flex-shrink-0 items-center justify-center"
+                className="flex h-5 w-5 shrink-0 items-center justify-center"
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
                 transition={{

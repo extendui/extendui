@@ -50,7 +50,9 @@
     "prettier.config.cjs",
     ".eslintrc.cjs",
     "next.config.mjs",
-    "src/**/*"
+    "src/**/*",
+    "tailwindcss.config.js",
+    "postcss.config.js",
   ],
   "exclude": [
     "node_modules",
