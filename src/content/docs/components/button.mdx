@@ -7,7 +7,6 @@ description: A versatile component designed to mimic the appearance and function
   component={<ButtonExample />}
   settingsEngine={<ButtonSettingsEngine />}
   componentName={'ButtonExample'}
-  v0url={'https://extend-ui.com/registry/button-01.json'}
 />
 
 ### Installation
@@ -64,6 +63,9 @@ description: A versatile component designed to mimic the appearance and function
 ### Button example usage
 
 ```tsx
+import { Button } from '@/components/extendui/button';
+```
+```tsx
 <Button variant={'bouncing'} tooltipText={`I'm bouncing!`}>
   Button
 </Button>
@@ -74,7 +76,7 @@ description: A versatile component designed to mimic the appearance and function
 {' '}
 
 <div className="my-6 w-full overflow-x-auto">
-  <table className="w-full border-collapse border border-gray-300 bg-white">
+  <table className="w-full border-collapse border border-gray-300 ">
     <thead>
       <tr>
         <th>Name</th>

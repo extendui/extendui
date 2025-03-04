@@ -30,7 +30,6 @@ const selectVariants = cva(
   },
 );
 
-
 const selectContentVariants = cva(
   'relative z-50 max-h-96 min-w-[8rem] overflow-hidden rounded-md border bg-popover text-popover-foreground shadow-md data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2',
   {
@@ -49,46 +48,73 @@ const selectContentVariants = cva(
   },
 );
 
-const Select = SelectPrimitive.Root;
+type SelectContextType = {
+  variant?: VariantProps<typeof selectVariants>['variant'];
+  error?: boolean;
+  disabled?: boolean;
+};
 
-const SelectGroup = SelectPrimitive.Group;
+const SelectContext = React.createContext<SelectContextType | undefined>(undefined);
 
-const SelectValue = SelectPrimitive.Value;
+const useSelectContext = () => {
+  const context = React.useContext(SelectContext);
+  if (!context) {
+    throw new Error(
+      'Select compound components must be used within a Select component',
+    );
+  }
+  return context;
+};
 
-const SelectIcon = SelectPrimitive.Icon
+interface SelectProps extends React.ComponentProps<typeof SelectPrimitive.Root>,
+  VariantProps<typeof selectVariants> {
+  error?: boolean;
+  children: React.ReactNode;
+}
+
+const SelectComponent = React.forwardRef<
+  React.ElementRef<typeof SelectPrimitive.Root>,
+  SelectProps
+>(({ children, variant, error, disabled, ...props }, ref) => {
+  const contextValue: SelectContextType = {
+    variant,
+    error,
+    disabled,
+  };
+
+  return (
+    <SelectContext.Provider value={contextValue}>
+      <SelectPrimitive.Root disabled={disabled} {...props}>
+        {children}
+      </SelectPrimitive.Root>
+    </SelectContext.Provider>
+  );
+});
+SelectComponent.displayName = 'Select';
 
 const SelectTrigger = React.forwardRef<
   React.ElementRef<typeof SelectPrimitive.Trigger>,
   React.ComponentPropsWithoutRef<typeof SelectPrimitive.Trigger> & {
     error?: boolean;
-    variant?: VariantProps<typeof selectVariants>['variant'];
+    variant?: VariantProps<typeof selectVariants>['variant']; // Add variant prop explicitly
     openIcon?: React.ReactNode;
     icon?: React.ReactNode;
     leftText?: string;
   }
->(
-  (
-    {
-      className,
-      children,
-      variant,
-      error,
-      disabled,
-      openIcon = <CaretSortIcon />,
-      icon,
-      leftText,
-      ...props
-    },
-    ref
-  ) => (
+>(({ className, children, error: triggerError, variant: triggerVariant, openIcon = <CaretSortIcon />, icon, leftText, ...props }, ref) => {
+  const { variant: contextVariant, error: contextError, disabled } = useSelectContext();
+  const effectiveError = triggerError !== undefined ? triggerError : contextError;
+  const effectiveVariant = triggerVariant !== undefined ? triggerVariant : contextVariant;
+
+  return (
     <SelectPrimitive.Trigger
       ref={ref}
       className={cn(
-        selectVariants({ variant }),
+        selectVariants({ variant: effectiveVariant }), // Use effectiveVariant here
         className,
-        error && [
+        effectiveError === true && [
           'border-red-500 text-red-500',
-          !['flushedfilled', 'flushed'].includes(variant as string) && 'focus:outline-red-500'
+          !['flushedfilled', 'flushed'].includes(effectiveVariant as string) && 'focus:outline-red-500'
         ],
         disabled && 'cursor-not-allowed opacity-50',
         icon && 'relative ps-9',
@@ -98,31 +124,25 @@ const SelectTrigger = React.forwardRef<
       {icon && (
         <div className={cn(
           "pointer-events-none absolute inset-y-0 start-0 flex items-center justify-center ps-3 text-primary",
-          error && 'text-red-500',
+          effectiveError === true && 'text-red-500',
         )}>
-
           {icon}
         </div>
       )}
       {leftText ? (
-        <span className={cn(
-          error && 'text-red-500',
-        )}>
+        <span className={cn(effectiveError === true && 'text-red-500')}>
           {`${leftText} `}{children}
         </span>
       ) : (
         children
       )}
-
-      <SelectIcon asChild>
+      <SelectPrimitive.Icon asChild>
         {openIcon}
-      </SelectIcon>
+      </SelectPrimitive.Icon>
     </SelectPrimitive.Trigger>
-  )
-);
-
-export default SelectTrigger;
-SelectTrigger.displayName = SelectPrimitive.Trigger.displayName;
+  );
+});
+SelectTrigger.displayName = 'SelectTrigger';
 
 const SelectScrollUpButton = React.forwardRef<
   React.ElementRef<typeof SelectPrimitive.ScrollUpButton>,
@@ -130,16 +150,13 @@ const SelectScrollUpButton = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <SelectPrimitive.ScrollUpButton
     ref={ref}
-    className={cn(
-      'flex cursor-default items-center justify-center py-1',
-      className,
-    )}
+    className={cn('flex cursor-default items-center justify-center py-1', className)}
     {...props}
   >
     <ChevronUpIcon />
   </SelectPrimitive.ScrollUpButton>
 ));
-SelectScrollUpButton.displayName = SelectPrimitive.ScrollUpButton.displayName;
+SelectScrollUpButton.displayName = 'SelectScrollUpButton';
 
 const SelectScrollDownButton = React.forwardRef<
   React.ElementRef<typeof SelectPrimitive.ScrollDownButton>,
@@ -147,51 +164,52 @@ const SelectScrollDownButton = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <SelectPrimitive.ScrollDownButton
     ref={ref}
-    className={cn(
-      'flex cursor-default items-center justify-center py-1',
-      className,
-    )}
+    className={cn('flex cursor-default items-center justify-center py-1', className)}
     {...props}
   >
     <ChevronDownIcon />
   </SelectPrimitive.ScrollDownButton>
 ));
-SelectScrollDownButton.displayName =
-  SelectPrimitive.ScrollDownButton.displayName;
+SelectScrollDownButton.displayName = 'SelectScrollDownButton';
 
 const SelectContent = React.forwardRef<
   React.ElementRef<typeof SelectPrimitive.Content>,
   React.ComponentPropsWithoutRef<typeof SelectPrimitive.Content> & {
     variant?: VariantProps<typeof selectContentVariants>['variant'];
   }
->(({ className, children, variant, position = 'popper', ...props }, ref) => (
-  <SelectPrimitive.Portal>
-    <SelectPrimitive.Content
-      ref={ref}
-      className={cn(
-        selectContentVariants({ variant }),
-        position === 'popper' &&
-        'data-[side=bottom]:translate-y-1 data-[side=left]:-translate-x-1 data-[side=right]:translate-x-1 data-[side=top]:-translate-y-1',
-        className,
-      )}
-      position={position}
-      {...props}
-    >
-      <SelectScrollUpButton />
-      <SelectPrimitive.Viewport
+>(({ className, children, position = 'popper', variant: contentVariant, ...props }, ref) => {
+  const { variant: rootVariant } = useSelectContext();
+  const effectiveVariant = contentVariant || rootVariant;
+
+  return (
+    <SelectPrimitive.Portal>
+      <SelectPrimitive.Content
+        ref={ref}
         className={cn(
-          'p-1',
+          selectContentVariants({ variant: effectiveVariant }),
           position === 'popper' &&
-          'h-[var(--radix-select-trigger-height)] w-full min-w-[var(--radix-select-trigger-width)]',
+          'data-[side=bottom]:translate-y-1 data-[side=left]:-translate-x-1 data-[side=right]:translate-x-1 data-[side=top]:-translate-y-1',
+          className,
         )}
+        position={position}
+        {...props}
       >
-        {children}
-      </SelectPrimitive.Viewport>
-      <SelectScrollDownButton />
-    </SelectPrimitive.Content>
-  </SelectPrimitive.Portal>
-));
-SelectContent.displayName = SelectPrimitive.Content.displayName;
+        <SelectScrollUpButton />
+        <SelectPrimitive.Viewport
+          className={cn(
+            'p-1',
+            position === 'popper' &&
+            'h-[var(--radix-select-trigger-height)] w-full min-w-[var(--radix-select-trigger-width)]',
+          )}
+        >
+          {children}
+        </SelectPrimitive.Viewport>
+        <SelectScrollDownButton />
+      </SelectPrimitive.Content>
+    </SelectPrimitive.Portal>
+  );
+});
+SelectContent.displayName = 'SelectContent';
 
 const SelectLabel = React.forwardRef<
   React.ElementRef<typeof SelectPrimitive.Label>,
@@ -203,7 +221,7 @@ const SelectLabel = React.forwardRef<
     {...props}
   />
 ));
-SelectLabel.displayName = SelectPrimitive.Label.displayName;
+SelectLabel.displayName = 'SelectLabel';
 
 const SelectItem = React.forwardRef<
   React.ElementRef<typeof SelectPrimitive.Item>,
@@ -225,7 +243,7 @@ const SelectItem = React.forwardRef<
     <SelectPrimitive.ItemText>{children}</SelectPrimitive.ItemText>
   </SelectPrimitive.Item>
 ));
-SelectItem.displayName = SelectPrimitive.Item.displayName;
+SelectItem.displayName = 'SelectItem';
 
 const SelectSeparator = React.forwardRef<
   React.ElementRef<typeof SelectPrimitive.Separator>,
@@ -237,21 +255,23 @@ const SelectSeparator = React.forwardRef<
     {...props}
   />
 ));
-SelectSeparator.displayName = SelectPrimitive.Separator.displayName;
-
+SelectSeparator.displayName = 'SelectSeparator';
 
 const SelectHelperText = React.forwardRef<
   HTMLParagraphElement,
   React.HTMLAttributes<HTMLParagraphElement> & {
     error?: boolean;
   }
->(({ className, error, ...props }, ref) => {
+>(({ className, error: helperError, ...props }, ref) => {
+  const { error: contextError } = useSelectContext();
+  const effectiveError = helperError !== undefined ? helperError : contextError;
+
   return (
     <p
       ref={ref}
       className={cn(
         'mt-2 text-xs text-muted-foreground',
-        error && 'text-red-500',
+        effectiveError === true && 'text-red-500',
         className
       )}
       {...props}
@@ -260,17 +280,32 @@ const SelectHelperText = React.forwardRef<
 });
 SelectHelperText.displayName = 'SelectHelperText';
 
-export {
-  Select,
-  SelectIcon,
-  SelectGroup,
-  SelectValue,
-  SelectTrigger,
-  SelectContent,
-  SelectLabel,
-  SelectItem,
-  SelectSeparator,
-  SelectScrollUpButton,
-  SelectScrollDownButton,
-  SelectHelperText
+type SelectType = typeof SelectComponent & {
+  Group: typeof SelectPrimitive.Group;
+  Value: typeof SelectPrimitive.Value;
+  Icon: typeof SelectPrimitive.Icon;
+  Trigger: typeof SelectTrigger;
+  Content: typeof SelectContent;
+  Label: typeof SelectLabel;
+  Item: typeof SelectItem;
+  Separator: typeof SelectSeparator;
+  ScrollUpButton: typeof SelectScrollUpButton;
+  ScrollDownButton: typeof SelectScrollDownButton;
+  HelperText: typeof SelectHelperText;
 };
+
+const Select = SelectComponent as SelectType;
+
+Select.Group = SelectPrimitive.Group;
+Select.Value = SelectPrimitive.Value;
+Select.Icon = SelectPrimitive.Icon;
+Select.Trigger = SelectTrigger;
+Select.Content = SelectContent;
+Select.Label = SelectLabel;
+Select.Item = SelectItem;
+Select.Separator = SelectSeparator;
+Select.ScrollUpButton = SelectScrollUpButton;
+Select.ScrollDownButton = SelectScrollDownButton;
+Select.HelperText = SelectHelperText;
+
+export { Select };

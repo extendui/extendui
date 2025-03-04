@@ -33,8 +33,6 @@ type EngineSettingsBannerState = {
     title: string;
     icon: string | React.ReactNode;
     link: string;
-    showArrow: boolean;
-    dismissible: boolean;
     className: string;
     visible: boolean;
 };
@@ -47,8 +45,6 @@ type EngineSettingsBannerActions = {
     setTitle: (title: string) => void;
     setIcon: (icon: string | React.ReactNode) => void;
     setLink: (link: string) => void;
-    setShowArrow: (showArrow: boolean) => void;
-    setDismissible: (dismissible: boolean) => void;
     setClassName: (className: string) => void;
     setVisible: (visible: boolean) => void;
     resetToDefaults: () => void;
@@ -62,8 +58,6 @@ const defaultSettings: EngineSettingsBannerState = {
     title: 'Banner component',
     icon: '🚀',
     link: '#',
-    showArrow: true,
-    dismissible: false,
     className: '',
     visible: true,
 };
@@ -98,14 +92,6 @@ export const useEngineSettingsBanner = create(
             set((state) => {
                 state.link = link;
             }),
-        setShowArrow: (showArrow) =>
-            set((state) => {
-                state.showArrow = showArrow;
-            }),
-        setDismissible: (dismissible) =>
-            set((state) => {
-                state.dismissible = dismissible;
-            }),
         setClassName: (className) =>
             set((state) => {
                 state.className = className;
@@ -129,8 +115,6 @@ export const {
     setTitle,
     setIcon,
     setLink,
-    setShowArrow,
-    setDismissible,
     setClassName,
     setVisible,
     resetToDefaults,

@@ -7,8 +7,8 @@ import {
   Select,
   SelectContent,
   SelectItem,
-  SelectTrigger,
-  SelectValue,
+  Select.Trigger,
+  Select.Value,
 } from "@/components/extendui/select";
 
 const statuses = [
@@ -23,9 +23,9 @@ export const StatusSelect = () => {
   return (
     <div className="space-y-2">
       <Select defaultValue="completed">
-        <SelectTrigger id="select-status" className="w-[180px]">
-          <SelectValue placeholder="Select status" />
-        </SelectTrigger>
+        <Select.Trigger id="select-status" className="w-[180px]">
+          <Select.Value placeholder="Select status" />
+        </Select.Trigger>
         <SelectContent>
           {statuses.map((status) => (
             <SelectItem key={status.value} value={status.value}>

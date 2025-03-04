@@ -1,5 +1,6 @@
 'use client';
 
+import { AlertCircle, CheckCircle } from 'lucide-react';
 import React, { useEffect, useState } from 'react';
 
 import { Banner } from '@/components/extendui/banner';
@@ -29,14 +30,20 @@ export default function BannerDemo() {
           variant={bannerSettings.variant}
           position={bannerSettings.position}
           size={bannerSettings.size}
-          title={bannerSettings.title}
-          icon={bannerSettings.icon}
-          link={bannerSettings.link}
-          showArrow={bannerSettings.showArrow}
-          dismissible={bannerSettings.dismissible}
+          link="#"
           className={bannerSettings.className}
           onDismiss={handleDismiss}
-        />
+        >
+          <Banner.Description position="center">
+            <div className="flex justify-center items-center gap-2">
+              <div>
+                {bannerSettings.icon}
+              </div>
+              {bannerSettings.title}
+            </div>
+          </Banner.Description>
+          <Banner.Dismiss />
+        </Banner>
       )}
       <div className="flex h-full min-h-[150px] items-center justify-center">
         <p className="text-muted-foreground">Content Area</p>

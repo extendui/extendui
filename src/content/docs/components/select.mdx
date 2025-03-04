@@ -46,17 +46,17 @@ description: A customizable list of predefined options allowing users to select 
 ```tsx
 <div className="space-y-2">
   <Select defaultValue="completed">
-    <SelectTrigger id="select" className="w-[180px]">
-      <SelectValue placeholder="Select value" />
-    </SelectTrigger>
-    <SelectContent>
-        <SelectItem value={'value1'}>
+    <Select.Trigger id="select" className="w-[180px]">
+      <Select.Value placeholder="Select value" />
+    </Select.Trigger>
+    <Select.Content>
+        <Select.Item value={'value1'}>
           First value
-        </SelectItem>
-        <SelectItem value={'value2'}>
+        </Select.Item>
+        <Select.Item value={'value2'}>
           Second value
-        </SelectItem>
-    </SelectContent>
+        </Select.Item>
+    </Select.Content>
   </Select>
 </div>
 ```

@@ -114,17 +114,17 @@ pre {
 
 /* Header Background */
 .mdx th {
-  @apply bg-gray-100 font-semibold text-gray-700 dark:bg-gray-800 dark:text-gray-200;
+  @apply bg-gray-100 font-semibold text-gray-700 dark:bg-[#0a0a0a] dark:text-gray-200;
 }
 
 /* Row Styles */
 .mdx tr {
-  @apply bg-white transition-colors duration-200 dark:bg-gray-900;
+  @apply bg-white transition-colors duration-200 dark:bg-[#1a1a1a];
 }
 
 /* Hover effect for rows */
 .mdx tr:hover {
-  @apply bg-gray-50 dark:bg-gray-800;
+  @apply bg-gray-50 dark:bg-[#0a0a0a];
 }
 
 /* Responsive Table */

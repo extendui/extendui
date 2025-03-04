@@ -4,10 +4,6 @@ import Image from 'next/image';
 
 import {
   Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
 } from '@/components/extendui/select';
 
 const users = [
@@ -52,12 +48,12 @@ export const AvatarDescriptionSelect = () => {
   return (
     <div className="space-y-2">
       <Select defaultValue={users[0]?.value}>
-        <SelectTrigger id="select-status" className="h-full w-[220px]">
-          <SelectValue placeholder="Select status" />
-        </SelectTrigger>
-        <SelectContent>
+        <Select.Trigger id="select-status" className="h-full w-[220px]">
+          <Select.Value placeholder="Select status" />
+        </Select.Trigger>
+        <Select.Content>
           {users.map((user) => (
-            <SelectItem key={user.value} value={user.value}>
+            <Select.Item key={user.value} value={user.value}>
               <span className="flex items-center gap-4">
                 <Image
                   className="rounded-full"
@@ -73,9 +69,9 @@ export const AvatarDescriptionSelect = () => {
                   </span>
                 </span>
               </span>
-            </SelectItem>
+            </Select.Item>
           ))}
-        </SelectContent>
+        </Select.Content>
       </Select>
     </div>
   );

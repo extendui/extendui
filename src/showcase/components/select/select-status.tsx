@@ -3,11 +3,7 @@
 import { Dot } from "lucide-react";
 
 import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
+  Select
 } from "@/components/extendui/select";
 
 const statuses = [
@@ -22,12 +18,12 @@ export const StatusSelect = () => {
   return (
     <div className="space-y-2">
       <Select defaultValue="completed">
-        <SelectTrigger id="select-status" className="w-[180px]">
-          <SelectValue placeholder="Select status" />
-        </SelectTrigger>
-        <SelectContent>
+        <Select.Trigger id="select-status" className="w-[180px]">
+          <Select.Value placeholder="Select status" />
+        </Select.Trigger>
+        <Select.Content>
           {statuses.map((status) => (
-            <SelectItem key={status.value} value={status.value}>
+            <Select.Item key={status.value} value={status.value}>
               <span className="flex items-center gap-2">
                 <Dot
                   className={status.color}
@@ -37,9 +33,9 @@ export const StatusSelect = () => {
                 />
                 <span className="truncate">{status.label}</span>
               </span>
-            </SelectItem>
+            </Select.Item>
           ))}
-        </SelectContent>
+        </Select.Content>
       </Select>
     </div>
   );

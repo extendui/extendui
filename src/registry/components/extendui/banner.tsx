@@ -18,7 +18,7 @@ const bannerVariants = cva(
                 info: 'bg-blue-500 text-white',
                 outline: 'border border-input bg-background',
                 subtle: 'bg-muted text-muted-foreground',
-                ghost: 'text-foreground hover:bg-accent hover:text-accent-foreground',
+                ghost: 'text-foreground',
                 shimmer: 'bg-gradient-to-r from-primary via-primary/50 to-primary bg-[length:200%_100%] text-primary-foreground animate-shimmer',
             },
             position: {

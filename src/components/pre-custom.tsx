@@ -33,7 +33,7 @@ export function PreCustom({
       <div className="relative mb-4 mt-6">
         <pre
           className={cn(
-            'max-h-[650px] overflow-x-auto rounded-lg border bg-[#001626] py-4',
+            'max-h-[650px] overflow-x-auto rounded-lg border bg-[#1a1a1a] py-4',
             className,
           )}
           {...rest}

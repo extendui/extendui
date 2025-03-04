@@ -5,20 +5,12 @@ import { HexColorPicker } from 'react-colorful';
 
 import { Button } from '@/components/extendui/button';
 import { Input } from '@/components/extendui/input';
+import { Select } from '@/components/extendui/select';
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
 } from '@/components/ui/popover';
-import {
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectLabel,
-  SelectTrigger,
-  SelectValue,
-} from '@/components/ui/select';
 import { Switch } from '@/components/ui/switch';
 import {
   setLoading,
@@ -79,43 +71,40 @@ export default function ButtonSettingsEngine() {
     <div className="flex flex-col space-y-4 sm:space-y-6">
       <div className="w-full sm:w-auto">
         <Select onValueChange={handleChangeVariant} value={variant}>
-          <SelectTrigger className="w-full bg-secondary text-secondary-foreground sm:w-[180px]">
-            <SelectValue placeholder="Select variant" />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectGroup>
-              <SelectLabel>Variants</SelectLabel>
-              <SelectItem value="default">Default</SelectItem>
-              <SelectItem value="destructive">Destructive</SelectItem>
-              <SelectItem value="outline">Outline</SelectItem>
-              <SelectItem value="secondary">Secondary</SelectItem>
-              <SelectItem value="ghost">Ghost</SelectItem>
-              <SelectItem value="link">Link</SelectItem>
-              <SelectItem value="ringHover">Ring Hover</SelectItem>
-              <SelectItem value="glowingRing">Glowing Ring</SelectItem>
-              <SelectItem value="shimmer">Shimmer</SelectItem>
-              {/* <SelectItem value="perimeterShimmer">
-                Perimeter Shimmer
-              </SelectItem> */}
-              <SelectItem value="bouncing">Bouncing</SelectItem>
-            </SelectGroup>
-          </SelectContent>
+          <Select.Trigger className="w-full bg-secondary text-secondary-foreground sm:w-[180px]">
+            <Select.Value placeholder="Select variant" />
+          </Select.Trigger>
+          <Select.Content>
+            <Select.Group>
+              <Select.Label>Variants</Select.Label>
+              <Select.Item value="default">Default</Select.Item>
+              <Select.Item value="destructive">Destructive</Select.Item>
+              <Select.Item value="outline">Outline</Select.Item>
+              <Select.Item value="secondary">Secondary</Select.Item>
+              <Select.Item value="ghost">Ghost</Select.Item>
+              <Select.Item value="link">Link</Select.Item>
+              <Select.Item value="ringHover">Ring Hover</Select.Item>
+              <Select.Item value="glowingRing">Glowing Ring</Select.Item>
+              <Select.Item value="shimmer">Shimmer</Select.Item>
+              <Select.Item value="bouncing">Bouncing</Select.Item>
+            </Select.Group>
+          </Select.Content>
         </Select>
       </div>
       <div className="w-full sm:w-auto">
         <Select onValueChange={handleChangeSize} value={size}>
-          <SelectTrigger className="w-full bg-secondary text-secondary-foreground sm:w-[180px]">
-            <SelectValue placeholder="Select size" />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectGroup>
-              <SelectLabel>Sizes</SelectLabel>
-              <SelectItem value="default">default</SelectItem>
-              <SelectItem value="sm">sm</SelectItem>
-              <SelectItem value="lg">lg</SelectItem>
-              <SelectItem value="icon">icon</SelectItem>
-            </SelectGroup>
-          </SelectContent>
+          <Select.Trigger className="w-full bg-secondary text-secondary-foreground sm:w-[180px]">
+            <Select.Value placeholder="Select size" />
+          </Select.Trigger>
+          <Select.Content>
+            <Select.Group>
+              <Select.Label>Sizes</Select.Label>
+              <Select.Item value="default">default</Select.Item>
+              <Select.Item value="sm">sm</Select.Item>
+              <Select.Item value="lg">lg</Select.Item>
+              <Select.Item value="icon">icon</Select.Item>
+            </Select.Group>
+          </Select.Content>
         </Select>
       </div>
       {variant === 'default' && (

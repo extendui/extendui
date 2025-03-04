@@ -98,7 +98,7 @@ export const docsConfig: DocsConfig = {
               items: [],
             },
           ],
-        },
+        }
       ],
     },
     {

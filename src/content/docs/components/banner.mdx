@@ -51,3 +51,134 @@ description: A versatile component designed to display important information in 
     </Steps>
   </TabsContent>
 </Tabs>
+
+### Banner example usage
+
+```tsx
+import { Banner } from '@/components/extendui/banner';
+```
+
+```tsx
+<Banner 
+  variant="warning" 
+  title="Update available" 
+  icon="🚀" 
+  dismissible 
+/>
+```
+
+### Banner component props
+
+<div className="my-6 w-full overflow-x-auto">
+  <table className="w-full border-collapse border border-gray-300 ">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>variant</td>
+        <td>
+          default | primary | destructive | success | warning | info | outline | subtle | ghost | shimmer
+        </td>
+        <td>
+          Defines the visual style of the banner. It supports various predefined styles for different contexts.
+        </td>
+      </tr>
+      <tr>
+        <td>position</td>
+        <td>top | bottom | center | static</td>
+        <td>
+          Determines the positioning of the banner. Options include top, bottom, center, or static positioning.
+        </td>
+      </tr>
+      <tr>
+        <td>size</td>
+        <td>default | sm | lg</td>
+        <td>
+          Sets the size of the banner. Available sizes are default, small, and large.
+        </td>
+      </tr>
+      <tr>
+        <td>width</td>
+        <td>default | auto | fixed</td>
+        <td>
+          Controls the width of the banner. Options include full width, auto, or a fixed width.
+        </td>
+      </tr>
+      <tr>
+        <td>asChild</td>
+        <td>boolean</td>
+        <td>
+          If true, the banner will render as a child component using a Slot, useful for passing custom components.
+        </td>
+      </tr>
+      <tr>
+        <td>title</td>
+        <td>string</td>
+        <td>
+          The main text content of the banner. Defaults to "Banner component" if not provided.
+        </td>
+      </tr>
+      <tr>
+        <td>icon</td>
+        <td>React.ReactNode</td>
+        <td>
+          An optional icon to display alongside the banner text. Can be a string or a React component.
+        </td>
+      </tr>
+      <tr>
+        <td>link</td>
+        <td>string</td>
+        <td>
+          An optional URL to make the banner content clickable. Defaults to "#" if provided.
+        </td>
+      </tr>
+      <tr>
+        <td>showArrow</td>
+        <td>boolean</td>
+        <td>
+          If true (default), shows an arrow icon next to the link. Only applicable when a link is provided.
+        </td>
+      </tr>
+      <tr>
+        <td>dismissible</td>
+        <td>boolean</td>
+        <td>
+          If true, adds a dismiss button to the banner, allowing users to close it.
+        </td>
+      </tr>
+      <tr>
+        <td>onDismiss</td>
+        <td>() =&gt; void</td>
+        <td>
+          An optional callback function triggered when the banner is dismissed.
+        </td>
+      </tr>
+      <tr>
+        <td>className</td>
+        <td>string</td>
+        <td>
+          Additional CSS classes to apply custom styling to the banner.
+        </td>
+      </tr>
+      <tr>
+        <td>children</td>
+        <td>React.ReactNode</td>
+        <td>
+          Optional custom content to replace the default title and icon rendering.
+        </td>
+      </tr>
+      <tr>
+        <td>...props</td>
+        <td>React.HTMLAttributes&lt;HTMLDivElement&gt;</td>
+        <td>
+          Additional props that can be passed to the banner div, such as onClick, data attributes, etc.
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

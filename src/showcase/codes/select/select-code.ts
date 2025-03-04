@@ -7,13 +7,6 @@ import { CaretSortIcon, ChevronDownIcon } from '@radix-ui/react-icons';
 import { UtensilsCrossed } from 'lucide-react';
 import {
   Select,
-  SelectContent,
-  SelectGroup,
-  SelectHelperText,
-  SelectItem,
-  SelectLabel,
-  SelectTrigger,
-  SelectValue,
 } from '@/components/extendui/select';
     
 export const SelectDemo = () => {
@@ -24,7 +17,7 @@ export const SelectDemo = () => {
     return (
         <div>
             <Select disabled={${disabled}}>
-                <SelectTrigger
+                <Select.Trigger
                     error={${error}}
                     variant={'${variant}'}
                     openIcon={changeOpenIcon ? <ChevronDownIcon /> : <CaretSortIcon />}
@@ -32,22 +25,23 @@ export const SelectDemo = () => {
                     leftText={'${leftText}'}
                     className="min-w-[160px]"
                 >
-                <SelectValue placeholder={'${placeholder}'} />
-                </SelectTrigger>
-                <SelectContent variant={'${variant}'}>
-                <SelectGroup >
-                    <SelectLabel>Fruits</SelectLabel>
-                    <SelectItem value="apple">Apple</SelectItem>
-                    <SelectItem value="banana">Banana</SelectItem>
-                    <SelectItem value="blueberry">Blueberry</SelectItem>
-                    <SelectItem value="grapes">Grapes</SelectItem>
-                    <SelectItem value="pineapple">Pineapple</SelectItem>
-                </SelectGroup>
-                </SelectContent>
-            </Select>
-            <SelectHelperText error={${error}}>
+                <Select.Value placeholder={'${placeholder}'} />
+                </Select.Trigger>
+                <Select.Content variant={'${variant}'}>
+                <Select.Group >
+                    <Select.Label>Fruits</SelectLabel>
+                    <Select.Item value="apple">Apple</Select.Item>
+                    <Select.Item value="banana">Banana</Select.Item>
+                    <Select.Item value="blueberry">Blueberry</Select.Item>
+                    <Select.Item value="grapes">Grapes</Select.Item>
+                    <Select.Item value="pineapple">Pineapple</Select.Item>
+                </Select.Group>
+                </Select.Content>
+                            <Select.HelperText error={${error}}>
                 ${helperText}
-            </SelectHelperText>
+            </Select.HelperText>
+            </Select>
+
         </div>
     );
 };`;

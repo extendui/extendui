@@ -57,7 +57,7 @@ export default function Preview({
         <TabsContent
           value="preview"
           className={cn(
-            'relative w-full content-center rounded-lg py-4 shadow-[inset_0_0_2px_rgba(0,0,0,0.1)] shadow-slate-300',
+            'relative w-full content-center rounded-lg py-4',
             className,
           )}
           key={key}

@@ -54,11 +54,11 @@ const Select = SelectPrimitive.Root;
 
 const SelectGroup = SelectPrimitive.Group;
 
-const SelectValue = SelectPrimitive.Value;
+const Select.Value = SelectPrimitive.Value;
 
 const SelectIcon = SelectPrimitive.Icon
 
-const SelectTrigger = React.forwardRef<
+const Select.Trigger = React.forwardRef<
   React.ElementRef<typeof SelectPrimitive.Trigger>,
   React.ComponentPropsWithoutRef<typeof SelectPrimitive.Trigger> & {
     error?: boolean;
@@ -122,8 +122,8 @@ const SelectTrigger = React.forwardRef<
   )
 );
 
-export default SelectTrigger;
-SelectTrigger.displayName = SelectPrimitive.Trigger.displayName;
+export default Select.Trigger;
+Select.Trigger.displayName = SelectPrimitive.Trigger.displayName;
 
 const SelectScrollUpButton = React.forwardRef<
   React.ElementRef<typeof SelectPrimitive.ScrollUpButton>,
@@ -265,8 +265,8 @@ export {
   Select,
   SelectIcon,
   SelectGroup,
-  SelectValue,
-  SelectTrigger,
+  Select.Value,
+  Select.Trigger,
   SelectContent,
   SelectLabel,
   SelectItem,

@@ -5,10 +5,6 @@ import * as React from 'react';
 import { Input } from '@/components/extendui/input';
 import {
   Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
 } from '@/components/extendui/select';
 
 export const InputSelectRight = () => {
@@ -25,14 +21,14 @@ export const InputSelectRight = () => {
         placeholder="Type here..."
       />
       <Select value={selectValue} onValueChange={(val) => setSelectValue(val)}>
-        <SelectTrigger className="w-[80px] rounded-l-none border-l-0 shadow-none focus:outline-hidden focus:ring-0">
-          <SelectValue placeholder=".com" />
-        </SelectTrigger>
-        <SelectContent>
-          <SelectItem value="com">.com</SelectItem>
-          <SelectItem value="io">.io</SelectItem>
-          <SelectItem value="xyz">.xyz</SelectItem>
-        </SelectContent>
+        <Select.Trigger className="w-[80px] rounded-l-none border-l-0 shadow-none focus:outline-hidden focus:ring-0">
+          <Select.Value placeholder=".com" />
+        </Select.Trigger>
+        <Select.Content>
+          <Select.Item value="com">.com</Select.Item>
+          <Select.Item value="io">.io</Select.Item>
+          <Select.Item value="xyz">.xyz</Select.Item>
+        </Select.Content>
       </Select>
     </div>
   );

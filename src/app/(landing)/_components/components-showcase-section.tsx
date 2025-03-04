@@ -4,6 +4,7 @@ import Autoplay from 'embla-carousel-autoplay';
 
 import ComponentShowcaseCard from '@/components/component-showcase-card';
 import FadeUp from '@/components/fadeup';
+import { BannerPlaceholder } from '@/components/placeholders/banner-placeholder';
 import { ButtonPlaceholder } from '@/components/placeholders/button-placeholder';
 import { CardsPlaceholder } from '@/components/placeholders/cards-placeholder';
 import { CommandPlaceholder } from '@/components/placeholders/command-placeholder';
@@ -21,6 +22,12 @@ import {
 } from '@/components/ui/carousel';
 
 const componentShowcases = [
+  {
+    href: '/docs/components/banner',
+    title: 'Banner',
+    description: '1+ variants',
+    component: <BannerPlaceholder />
+  },
   {
     href: '/docs/components/button',
     title: 'Button',

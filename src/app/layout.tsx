@@ -1,8 +1,8 @@
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { GeistSans } from 'geist/font/sans';
 import { type Metadata } from 'next';
-import { Toaster } from 'sonner';
 
+import { Toaster } from '@/components/ui/sonner';
 import { siteConfig } from '@/config/site';
 import { CSPostHogProvider } from '@/providers/postHogProvider';
 import { ReactQueryProvider } from '@/providers/reactQueryProvider';
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     siteName: siteConfig.name,
     images: [
       {
-        url: '/opengraph-image.png', // Path relative to the public directory
+        url: '/opengraph-image.png',
         width: 1200,
         height: 630,
         alt: 'Extend UI - Reusable components built with shadcn/ui',
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
   twitter: {
     title: 'extendui_pro',
     card: 'summary_large_image',
-    images: ['/twitter-image.png'], // Path relative to the public directory
+    images: ['/twitter-image.png'],
   },
   icons: {
     icon: [
@@ -127,8 +127,8 @@ export default function RootLayout({
               {children}
               <Footer />
               <SpeedInsights />
+              <Toaster />
             </ThemeProvider>
-            <Toaster richColors />
           </ReactQueryProvider>
         </CSPostHogProvider>
       </body>

@@ -7,8 +7,8 @@ import {
   Select,
   SelectContent,
   SelectItem,
-  SelectTrigger,
-  SelectValue,
+  Select.Trigger,
+  Select.Value,
 } from "@/components/extendui/select";
 
 const users = [
@@ -48,9 +48,9 @@ export const AvatarDescriptionSelect = () => {
   return (
     <div className="space-y-2">
       <Select defaultValue={users[0]?.value}>
-        <SelectTrigger id="select-status" className="w-[220px] h-full">
-          <SelectValue placeholder="Select status" />
-        </SelectTrigger>
+        <Select.Trigger id="select-status" className="w-[220px] h-full">
+          <Select.Value placeholder="Select status" />
+        </Select.Trigger>
         <SelectContent>
           {users.map((user) => (
             <SelectItem key={user.value} value={user.value}>
