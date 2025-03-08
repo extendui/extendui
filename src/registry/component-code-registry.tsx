@@ -85,6 +85,23 @@ export async function loadComponentCode({ componentName, state }: Props) {
       const { getButtonClickSlideCode } = await import('@/showcase/codes/button/button-click-slide-code');
       return getButtonClickSlideCode();
     }
+    /* Banner */
+    case 'BannerExtended': {
+      const { getBannerExtendedCode } = await import('@/showcase/codes/banner/banner-extended-code');
+      return getBannerExtendedCode();
+    }
+    case 'BannerLeftIcon': {
+      const { getBannerLeftIconCode } = await import('@/showcase/codes/banner/banner-leftIcon-code');
+      return getBannerLeftIconCode();
+    }
+    case 'BannerRightIcon': {
+      const { getBannerRightIconCode } = await import('@/showcase/codes/banner/banner-rightIcon-code');
+      return getBannerRightIconCode();
+    }
+    case 'BannerDismissed': {
+      const { getBannerDismissedCode } = await import('@/showcase/codes/banner/banner-dismissed-code');
+      return getBannerDismissedCode();
+    }
     /* Input */
     case 'Input': {
       const { getInputCode } = await import('@/showcase/codes/input/ui-input-code');

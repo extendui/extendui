@@ -31,6 +31,10 @@ import FileUpload from '@/showcase/blocks/file-upload';
 import SignIn from '@/showcase/blocks/forms/sign-in-01';
 import SignIn02 from '@/showcase/blocks/forms/sign-in-02';
 import BannerExample from '@/showcase/components/banners/banner';
+import BannerDismissed from '@/showcase/components/banners/banner-dismissed';
+import BannerExtended from '@/showcase/components/banners/banner-extended';
+import BannerLeftIcon from '@/showcase/components/banners/banner-leftIcon';
+import BannerRightIcon from '@/showcase/components/banners/banner-rightIcon';
 import { BannerSettingsEngine } from '@/showcase/components/banners/settings-engine';
 import ButtonExample from '@/showcase/components/button/button';
 import { Rotating3DButton } from '@/showcase/components/button/button-3d-rotating';
@@ -146,8 +150,12 @@ const components = {
   InputLabel,
   InputClear,
   InputExtended,
+  BannerExtended,
   InputSelectRight,
   InputSelectLeft,
+  BannerLeftIcon,
+  BannerDismissed,
+  BannerRightIcon,
   InputButtonRight,
   InputDecreaseIncrease,
   Select,

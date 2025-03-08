@@ -52,19 +52,49 @@ description: A versatile component designed to display important information in 
   </TabsContent>
 </Tabs>
 
-### Banner example usage
+### Baner core subcomponents and usage
+
+#### Banner.LeftIcon
+
+The `Banner.LeftIcon` component is used to display an icon on the left side of the banner.
 
 ```tsx
-import { Banner } from '@/components/extendui/banner';
+<Banner>
+  <Banner.LeftIcon>🚀</Banner.LeftIcon>
+</Banner>
 ```
 
+#### Banner.RightIcon
+
+The `Banner.RightIcon` component is used to display an icon on the right side of the banner.
+
 ```tsx
-<Banner 
-  variant="warning" 
-  title="Update available" 
-  icon="🚀" 
-  dismissible 
-/>
+<Banner>
+  <Banner.RightIcon>🚀</Banner.RightIcon>
+</Banner>
+```
+
+#### Banner.Description
+
+The `Banner.Description` component is used to display the main content of the banner.
+
+```tsx
+<Banner>
+  <Banner.Description position="center">
+    Description
+  </Banner.Description>
+</Banner>
+```
+
+
+#### Banner.Dismiss
+
+The `Banner.Dismiss` component is used to add a dismiss button to the banner.
+
+```tsx
+<Banner>
+  <Banner.Dismiss />
+</Banner>
 ```
 
 ### Banner component props
@@ -117,38 +147,10 @@ import { Banner } from '@/components/extendui/banner';
         </td>
       </tr>
       <tr>
-        <td>title</td>
-        <td>string</td>
-        <td>
-          The main text content of the banner. Defaults to "Banner component" if not provided.
-        </td>
-      </tr>
-      <tr>
-        <td>icon</td>
-        <td>React.ReactNode</td>
-        <td>
-          An optional icon to display alongside the banner text. Can be a string or a React component.
-        </td>
-      </tr>
-      <tr>
         <td>link</td>
         <td>string</td>
         <td>
           An optional URL to make the banner content clickable. Defaults to "#" if provided.
-        </td>
-      </tr>
-      <tr>
-        <td>showArrow</td>
-        <td>boolean</td>
-        <td>
-          If true (default), shows an arrow icon next to the link. Only applicable when a link is provided.
-        </td>
-      </tr>
-      <tr>
-        <td>dismissible</td>
-        <td>boolean</td>
-        <td>
-          If true, adds a dismiss button to the banner, allowing users to close it.
         </td>
       </tr>
       <tr>

@@ -1,6 +1,5 @@
 'use client';
 
-import { AlertCircle, CheckCircle } from 'lucide-react';
 import React, { useEffect, useState } from 'react';
 
 import { Banner } from '@/components/extendui/banner';

@@ -6,8 +6,17 @@ export function BannerDemo() {
             variant={'default'}
             position={'top'}
             size={'default'}
-            title={'Banner component'}
-            link={'#'}
-        />
+            link="#"
+        >
+            <Banner.Description position="center">
+                <div className="flex justify-center items-center gap-2">
+                    <div>
+                        🚀
+                    </div>
+                    Banner component
+                </div>
+            </Banner.Description>
+            <Banner.Dismiss />
+        </Banner>
     );
 }
