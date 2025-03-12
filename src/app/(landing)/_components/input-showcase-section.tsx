@@ -21,6 +21,9 @@ export default function InputShowcaseSection() {
               preload="auto"
               muted
               className="rounded-md border transition-all duration-200 ease-out"
+              poster={
+                "https://toczmji9rl.ufs.sh/f/zGi357RvYr0H8TZYZYtMElYon4etuGpway1r6HWX3xsdRkcC"
+              }
             >
               <source
                 src={
