@@ -1,8 +1,6 @@
 "use client";
 
-import { ArrowRight, Bell, ChevronRight } from "lucide-react";
-import Link from "next/link";
-import posthog from "posthog-js";
+import { ArrowRight } from "lucide-react";
 import { useState } from "react";
 
 import { cn } from "@/lib/utils";
@@ -12,16 +10,16 @@ import { Banner } from "./extendui/banner";
 export function SiteBanner() {
     const [isHovered, setIsHovered] = useState(false);
     return (
-        <div className=" md:py-0">
+        <div className="md:py-0">
             <div className="container items-center justify-center gap-4 h-12 flex-row">
                 <Banner
                     position="top"
                     variant="primary"
                     width="default"
-                    link="/announcements"
+                    link="https://animated.extend-ui.com/"
                     onMouseEnter={() => setIsHovered(true)}
                     onMouseLeave={() => setIsHovered(false)}
-                    className="bg-green-400"
+                    className="bg-green-400/70"
                 >
                     <Banner.Description
                         position="center"

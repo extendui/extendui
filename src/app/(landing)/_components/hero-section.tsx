@@ -8,8 +8,8 @@ import { Icons } from '@/components/icons/icons';
 export default function HeroSection() {
     return (
         <section id="hero" className="space-y-10">
-            <div className="min-h-[calc(100dvh-4rem)] md:h-[100dvh] md:space-y-24">
-                <div className="mx-auto flex max-w-7xl flex-col items-center space-y-4 py-[32dvh] text-center">
+            <div className="min-h-[calc(100dvh-8rem)] md:h-[100dvh] md:space-y-24">
+                <div className="mx-auto flex max-w-7xl flex-col items-center space-y-4 py-[22dvh] text-center">
                     <div className="relative">
                         <FadeUp delay={0.2} duration={0.8}>
                             <h1 className="bg-linear-to-br from-black via-zinc-600 to-zinc-400 bg-clip-text text-center text-3xl font-bold tracking-tight dark:from-white dark:via-neutral-200 dark:to-black/[0.6] sm:text-center sm:text-4xl md:text-6xl">
