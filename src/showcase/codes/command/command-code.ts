@@ -8,12 +8,7 @@ import { UtensilsCrossed } from 'lucide-react';
 import { Button } from "@/components/extendui/button";
 import { Button } from "@/components/extendui/button";
 import {
-  Command,
-  CommandEmpty,
-  CommandGroup,
-  CommandInput,
-  CommandItem,
-  CommandList,
+  Command
 } from "@/components/extendui/command";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { cn } from "@/lib/utils";
@@ -70,12 +65,12 @@ export const CommandDemo = () => {
           className="p-0"
         >
           <Command>
-            <CommandInput/>
-            <CommandList>
-              <CommandEmpty>${notFoundText}</CommandEmpty>
-              <CommandGroup>
+            <Command.Input/>
+            <Command.List>
+              <Command.Empty>${notFoundText}</Command.Empty>
+              <Command.Group>
                 {statuses.map((status) => (
-                  <CommandItem
+                  <Command.Item
                     key={status.value}
                     value={status.value}
                     onSelect={(currentValue) => {
@@ -93,10 +88,10 @@ export const CommandDemo = () => {
                         value === status.value ? "opacity-100" : "opacity-0",
                       )}
                     />
-                  </CommandItem>
+                  </Command.Item>
                 ))}
-              </CommandGroup>
-            </CommandList>
+              </Command.Group>
+            </Command.List>
           </Command>
         </PopoverContent>
       </Popover>

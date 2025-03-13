@@ -4,7 +4,7 @@ import { Check, ChevronDown, Dot } from "lucide-react";
 import { useState } from "react";
 
 import { Button } from "@/components/extendui/button";
-import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from "@/components/extendui/command";
+import { Command } from "@/components/extendui/command";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { cn } from "@/lib/utils";
 import { useEngineSettingsCommandStore } from "@/zustand/stores/useEngineSettingsCommand";
@@ -62,12 +62,12 @@ export const CommandExample = () => {
           className="p-0"
         >
           <Command>
-            <CommandInput placeholder={placeholder} />
-            <CommandList>
-              <CommandEmpty>{notFoundText}</CommandEmpty>
-              <CommandGroup>
+            <Command.Input placeholder={placeholder} />
+            <Command.List>
+              <Command.Empty>{notFoundText}</Command.Empty>
+              <Command.Group>
                 {statuses.map((status) => (
-                  <CommandItem
+                  <Command.Item
                     key={status.value}
                     value={status.value}
                     onSelect={(currentValue) => {
@@ -85,10 +85,10 @@ export const CommandExample = () => {
                         value === status.value ? "opacity-100" : "opacity-0",
                       )}
                     />
-                  </CommandItem>
+                  </Command.Item>
                 ))}
-              </CommandGroup>
-            </CommandList>
+              </Command.Group>
+            </Command.List>
           </Command>
         </PopoverContent>
       </Popover>

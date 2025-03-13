@@ -7,12 +7,7 @@ import { Fragment, type JSX, useState } from "react";
 
 import { Button } from "@/components/extendui/button";
 import {
-  Command,
-  CommandEmpty,
-  CommandGroup,
-  CommandInput,
-  CommandItem,
-  CommandList,
+  Command
 } from "@/components/extendui/command";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { cn } from "@/lib/utils";
@@ -132,14 +127,14 @@ export const CommandAvatarDescription = () => {
         </PopoverTrigger>
         <PopoverContent align="start" className="p-0">
           <Command>
-            <CommandInput placeholder="Search user..." />
-            <CommandList>
-              <CommandEmpty>User not found.</CommandEmpty>
+            <Command.Input placeholder="Search user..." />
+            <Command.List>
+              <Command.Empty>User not found.</Command.Empty>
               {users.map((group) => (
                 <Fragment key={group.nameGroup}>
-                  <CommandGroup heading={group.nameGroup}>
+                  <Command.Group heading={group.nameGroup}>
                     {group.items.map((user) => (
-                      <CommandItem
+                      <Command.Item
                         key={user.value}
                         value={user.name}
                         onSelect={(currentValue) => {
@@ -168,12 +163,12 @@ export const CommandAvatarDescription = () => {
                             value === user.value ? "opacity-100" : "opacity-0"
                           )}
                         />
-                      </CommandItem>
+                      </Command.Item>
                     ))}
-                  </CommandGroup>
+                  </Command.Group>
                 </Fragment>
               ))}
-            </CommandList>
+            </Command.List>
           </Command>
         </PopoverContent>
       </Popover>

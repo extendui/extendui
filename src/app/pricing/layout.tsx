@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { Icons } from '@/components/icons/icons';
+import { SiteBanner } from '@/components/site-banner';
 
 import { Navbar } from '../_components/navbar';
 
@@ -11,6 +12,7 @@ export default function PricingLayout({
 }) {
   return (
     <>
+      <SiteBanner />
       <Navbar
         navLinks={[
           { name: 'Components', href: 'docs/components/button' },

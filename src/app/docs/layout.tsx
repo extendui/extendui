@@ -2,6 +2,7 @@ import { type Metadata } from 'next';
 import React from 'react';
 
 import { Icons } from '@/components/icons/icons';
+import { SiteBanner } from '@/components/site-banner';
 import { docsConfig } from '@/config/docs';
 import { siteConfig } from '@/config/site';
 
@@ -27,6 +28,7 @@ export default function DocsLayout({
 }) {
   return (
     <>
+      <SiteBanner />
       <Navbar
         navLinks={[
           { name: 'Components', href: '/docs/components/button' },

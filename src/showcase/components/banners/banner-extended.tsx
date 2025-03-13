@@ -17,9 +17,7 @@ export default function BannerExtended() {
                 </Banner.Description>
                 <Banner.Dismiss />
             </Banner>
-            <div className="flex h-full min-h-[150px] items-center justify-center">
-                <p className="text-muted-foreground">Content Area</p>
-            </div>
+            <div className="flex h-full min-h-[150px] items-center justify-center" />
         </div>
     )
 }

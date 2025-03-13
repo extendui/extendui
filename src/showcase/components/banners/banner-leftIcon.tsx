@@ -13,14 +13,12 @@ export default function BannerLeftIcon() {
             >
                 <Banner.LeftIcon>🚀</Banner.LeftIcon>
                 <Banner.Description position="center">
-                    <div className="flex justify-center items-center gap-2">
+                    <div className="flex justify-center items-center">
                         Banner component
                     </div>
                 </Banner.Description>
             </Banner>
-            <div className="flex h-full min-h-[150px] items-center justify-center">
-                <p className="text-muted-foreground">Content Area</p>
-            </div>
+            <div className="flex h-full min-h-[150px] items-center justify-center" />
         </div>
     )
 }

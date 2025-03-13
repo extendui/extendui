@@ -34,19 +34,14 @@ export default function BannerDemo() {
           onDismiss={handleDismiss}
         >
           <Banner.Description position="center">
-            <div className="flex justify-center items-center gap-2">
-              <div>
-                {bannerSettings.icon}
-              </div>
-              {bannerSettings.title}
+            <div className="flex justify-center items-center">
+              {bannerSettings.icon} {bannerSettings.title}
             </div>
           </Banner.Description>
           <Banner.Dismiss />
         </Banner>
       )}
-      <div className="flex h-full min-h-[150px] items-center justify-center">
-        <p className="text-muted-foreground">Content Area</p>
-      </div>
+      <div className="flex h-full min-h-[150px] items-center justify-center" />
     </div>
   )
 }

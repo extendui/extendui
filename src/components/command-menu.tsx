@@ -10,12 +10,7 @@ import { cn } from '@/lib/utils';
 
 import { Button } from './extendui/button';
 import {
-  CommandDialog,
-  CommandEmpty,
-  CommandGroup,
-  CommandInput,
-  CommandItem,
-  CommandList,
+  Command,
 } from './extendui/command';
 
 export function CommandMenu({ ...props }: DialogProps) {
@@ -64,15 +59,15 @@ export function CommandMenu({ ...props }: DialogProps) {
           <span className="text-xs">⌘</span>K
         </kbd>
       </Button>
-      <CommandDialog open={open} onOpenChange={setOpen} >
-        <CommandInput placeholder="Search documentation..." />
-        <CommandList>
-          <CommandEmpty>No results found.</CommandEmpty>
-          <CommandGroup heading="Links">
+      <Command.Dialog open={open} onOpenChange={setOpen} >
+        <Command.Input placeholder="Search documentation..." />
+        <Command.List>
+          <Command.Empty>No results found.</Command.Empty>
+          <Command.Group heading="Links">
             {docsConfig.mainNav
               .filter((navitem) => !navitem.external)
               .map((navItem) => (
-                <CommandItem
+                <Command.Item
                   key={navItem.title}
                   value={navItem.title}
                   onSelect={() => {
@@ -81,13 +76,13 @@ export function CommandMenu({ ...props }: DialogProps) {
                 >
                   <FileIcon className="mr-2 h-4 w-4" />
                   {navItem.title}
-                </CommandItem>
+                </Command.Item>
               ))}
-          </CommandGroup>
+          </Command.Group>
           {docsConfig.sidebarNav.map((group) => (
-            <CommandGroup key={group.title} heading={group.title}>
+            <Command.Group key={group.title} heading={group.title}>
               {group?.items?.map((navItem) => (
-                <CommandItem
+                <Command.Item
                   key={navItem.title}
                   value={navItem.title}
                   onSelect={() => {
@@ -98,12 +93,12 @@ export function CommandMenu({ ...props }: DialogProps) {
                     <CircleIcon className="h-3 w-3" />
                   </div>
                   {navItem.title}
-                </CommandItem>
+                </Command.Item>
               ))}
-            </CommandGroup>
+            </Command.Group>
           ))}
-        </CommandList>
-      </CommandDialog>
+        </Command.List>
+      </Command.Dialog>
     </>
   );
 }

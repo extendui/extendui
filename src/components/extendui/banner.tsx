@@ -220,7 +220,6 @@ interface BannerDescriptionProps extends React.HTMLAttributes<HTMLDivElement> {
     asChild?: boolean;
 }
 
-// Using polymorphic component pattern for Description
 const BannerDescription = React.forwardRef<HTMLElement, BannerDescriptionProps>(
     ({ className, position = 'center', asChild = false, children, ...props }, ref) => {
         const { link } = useBannerContext();
@@ -255,7 +254,7 @@ const BannerDescription = React.forwardRef<HTMLElement, BannerDescriptionProps>(
                     target="_blank"
                     rel="noopener noreferrer"
                     className={cn(
-                        'flex-1 cursor-pointer text-sm hover:underline',
+                        'flex-1 cursor-pointer text-sm',
                         position === 'left' && 'text-left',
                         position === 'center' && 'text-center justify-center',
                         position === 'right' && 'text-right justify-end',
@@ -321,7 +320,6 @@ const BannerDismiss = React.forwardRef<HTMLButtonElement, BannerDismissProps>(
 );
 BannerDismiss.displayName = 'Banner.Dismiss';
 
-// Create a complete Banner component with all subcomponents
 const Banner = Object.assign(BannerRoot, {
     LeftIcon: BannerLeftIcon,
     RightIcon: BannerRightIcon,

@@ -1,13 +1,14 @@
 export function getBannerCode() {
-    return `import { Slot } from '@radix-ui/react-slot';
+    return `'use client';
+
 import { cva, type VariantProps } from 'class-variance-authority';
-import { ArrowRight, X } from 'lucide-react';
+import { X } from 'lucide-react';
 import * as React from 'react';
 
 import { cn } from '@/lib/utils';
 
 const bannerVariants = cva(
-    'relative flex items-center justify-center whitespace-nowrap text-sm font-medium transition-all',
+    'relative flex w-full items-center text-sm font-medium transition-all',
     {
         variants: {
             variant: {
@@ -19,15 +20,14 @@ const bannerVariants = cva(
                 info: 'bg-blue-500 text-white',
                 outline: 'border border-input bg-background',
                 subtle: 'bg-muted text-muted-foreground',
-                ghost: 'text-foreground hover:bg-accent hover:text-accent-foreground',
-                shimmer: 'bg-gradient-to-r from-primary via-primary/50 to-primary bg-[length:200%_100%] text-primary-foreground animate-shimmer',
+                ghost: 'text-foreground',
+                shimmer:
+                    'animate-shimmer bg-gradient-to-r from-primary via-primary/50 to-primary bg-[length:200%_100%] text-primary-foreground',
             },
             position: {
-                top: 'top-0 left-0 w-full',
+                top: 'left-0 top-0 w-full',
                 bottom: 'bottom-0 left-0 w-full',
-                left: 'left-0 top-0 h-full flex-col',
-                right: 'right-0 top-0 h-full flex-col',
-                center: 'top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 ',
+                center: 'left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform',
                 static: 'relative w-full',
             },
             size: {
@@ -38,7 +38,7 @@ const bannerVariants = cva(
             width: {
                 default: 'w-full',
                 auto: 'w-auto',
-                fixed: '',
+                fixed: 'max-w-md',
             },
         },
         defaultVariants: {
@@ -47,22 +47,55 @@ const bannerVariants = cva(
             size: 'default',
             width: 'default',
         },
-    },
+    }
 );
 
-export interface BannerProps
+type BannerElementCheck = {
+    hasLeftIcon: boolean;
+    hasRightIcon: boolean;
+    hasDescription: boolean;
+    hasDismiss: boolean;
+};
+
+type BannerContextType = {
+    variant?: VariantProps<typeof bannerVariants>['variant'];
+    position?: VariantProps<typeof bannerVariants>['position'];
+    size?: VariantProps<typeof bannerVariants>['size'];
+    width?: VariantProps<typeof bannerVariants>['width'];
+    isVisible: boolean;
+    link?: string;
+    elementChecks: BannerElementCheck;
+    handleDismiss: () => void;
+};
+
+const BannerContext = React.createContext<BannerContextType | undefined>(undefined);
+
+const useBannerContext = () => {
+    const context = React.useContext(BannerContext);
+    if (!context) {
+        throw new Error(
+            'Banner compound components must be used within a Banner.Root component'
+        );
+    }
+    return context;
+};
+
+const checkForChildComponent = (children: React.ReactNode, componentType: React.FC<any> | React.ForwardRefExoticComponent<any>) => {
+    return React.Children.toArray(children).some((child) =>
+        React.isValidElement(child) && child.type === componentType
+    );
+};
+
+interface BannerRootProps
     extends React.HTMLAttributes<HTMLDivElement>,
     VariantProps<typeof bannerVariants> {
-    asChild?: boolean;
-    title?: string;
-    icon?: React.ReactNode;
     link?: string;
-    showArrow?: boolean;
-    dismissible?: boolean;
     onDismiss?: () => void;
+    defaultVisible?: boolean;
+    children?: React.ReactNode;
 }
 
-const Banner = React.forwardRef<HTMLDivElement, BannerProps>(
+const BannerRoot = React.forwardRef<HTMLDivElement, BannerRootProps>(
     (
         {
             className,
@@ -70,79 +103,230 @@ const Banner = React.forwardRef<HTMLDivElement, BannerProps>(
             position,
             size,
             width,
-            asChild = false,
-            title = "Banner component",
-            icon,
-            link = "#",
-            showArrow = true,
-            dismissible = false,
+            link,
             onDismiss,
+            defaultVisible = true,
             children,
             ...props
         },
-        ref,
+        ref
     ) => {
-        const Comp = asChild ? Slot : 'div';
-        const [isVisible, setIsVisible] = React.useState(true);
+        const [isVisible, setIsVisible] = React.useState(defaultVisible);
 
-        const handleDismiss = () => {
+        const handleDismiss = React.useCallback(() => {
             setIsVisible(false);
             onDismiss?.();
+        }, [onDismiss]);
+
+        const elementChecks = React.useMemo<BannerElementCheck>(
+            () => ({
+                hasLeftIcon: checkForChildComponent(children, BannerLeftIcon),
+                hasRightIcon: checkForChildComponent(children, BannerRightIcon),
+                hasDescription: checkForChildComponent(children, BannerDescription),
+                hasDismiss: checkForChildComponent(children, BannerDismiss),
+            }),
+            [children]
+        );
+
+        if (!isVisible) return null;
+
+        const contextValue: BannerContextType = {
+            variant,
+            position,
+            size,
+            width,
+            isVisible,
+            link,
+            elementChecks,
+            handleDismiss,
         };
 
-        if (!isVisible) {
-            return null;
-        }
-
-        const content = children || (
-            <p className="flex items-center justify-center">
-                {link ? (
-                    <a href={link} className="group flex items-center">
-                        {icon && <span className="me-1 text-base leading-none">{typeof icon === 'string' ? icon : icon}</span>}
-                        {title}
-                        {showArrow && (
-                            <ArrowRight
-                                className="-mt-0.5 ms-2 inline-flex opacity-60 transition-transform group-hover:translate-x-0.5"
-                                size={16}
-                                strokeWidth={2}
-                                aria-hidden="true"
-                            />
+        return (
+            <BannerContext.Provider value={contextValue}>
+                <div
+                    ref={ref}
+                    role="alert"
+                    className={cn(
+                        bannerVariants({ variant, position, size, width }),
+                        position !== 'static' && 'absolute z-50',
+                        className
+                    )}
+                    {...props}
+                >
+                    <div
+                        className={cn(
+                            'flex w-full items-center justify-between gap-2',
+                            elementChecks.hasDismiss && 'pr-8'
                         )}
-                    </a>
-                ) : (
-                    <>
-                        {icon && <span className="me-1 text-base leading-none">{typeof icon === 'string' ? icon : icon}</span>}
-                        {title}
-                    </>
-                )}
-            </p>
+                    >
+                        {children}
+                    </div>
+                </div>
+            </BannerContext.Provider>
         );
+    }
+);
+BannerRoot.displayName = 'Banner';
+
+interface BannerIconProps extends React.HTMLAttributes<HTMLSpanElement> {
+    children: React.ReactNode;
+}
+
+const BannerLeftIcon = React.forwardRef<HTMLSpanElement, BannerIconProps>(
+    ({ className, children, ...props }, ref) => {
+        const { elementChecks } = useBannerContext();
 
         return (
-            <Comp
-                className={cn(
-                    bannerVariants({ variant, position, size, width, className }),
-                    width === 'fixed' ? 'max-w-md' : '',
-                    position !== 'static' ? 'absolute' : '',
-                )}
+            <span
                 ref={ref}
+                className={cn(
+                    'flex flex-shrink-0 items-center',
+                    elementChecks.hasDescription ? 'mr-2' : 'mr-4',
+                    className
+                )}
+                aria-hidden="true"
                 {...props}
             >
-                {content}
-                {dismissible && (
-                    <button
-                        onClick={handleDismiss}
-                        className="absolute right-2 top-1/2 -translate-y-1/2 rounded-full p-1 opacity-70 hover:bg-black/10 hover:opacity-100"
-                        aria-label="Dismiss"
-                    >
-                        <X size={16} />
-                    </button>
-                )}
-            </Comp>
+                {children}
+            </span>
         );
-    },
+    }
 );
-Banner.displayName = 'Banner';
+BannerLeftIcon.displayName = 'Banner.LeftIcon';
+
+const BannerRightIcon = React.forwardRef<HTMLSpanElement, BannerIconProps>(
+    ({ className, children, ...props }, ref) => {
+        const { elementChecks } = useBannerContext();
+
+        return (
+            <span
+                ref={ref}
+                className={cn(
+                    'flex flex-shrink-0 items-center',
+                    elementChecks.hasDescription ? 'ml-2' : 'ml-4',
+                    className
+                )}
+                aria-hidden="true"
+                {...props}
+            >
+                {children}
+            </span>
+        );
+    }
+);
+BannerRightIcon.displayName = 'Banner.RightIcon';
+
+interface BannerDescriptionProps extends React.HTMLAttributes<HTMLDivElement> {
+    position?: 'left' | 'center' | 'right';
+    asChild?: boolean;
+}
+
+const BannerDescription = React.forwardRef<HTMLElement, BannerDescriptionProps>(
+    ({ className, position = 'center', asChild = false, children, ...props }, ref) => {
+        const { link } = useBannerContext();
+
+        if (asChild) {
+            return (
+                <div
+                    ref={ref as React.Ref<HTMLDivElement>}
+                    className={cn(
+                        'flex-1 text-sm',
+                        position === 'left' && 'text-left',
+                        position === 'center' && 'text-center justify-center',
+                        position === 'right' && 'text-right justify-end',
+                        className
+                    )}
+                    {...props}
+                >
+                    {children}
+                </div>
+            );
+        }
+
+        if (link) {
+            const validProps = Object.fromEntries(
+                Object.entries(props).filter(([key]) => React.isValidElement(key as keyof React.AnchorHTMLAttributes<HTMLAnchorElement>))
+            );
+
+            return (
+                <a
+                    ref={ref as React.Ref<HTMLAnchorElement>}
+                    href={link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={cn(
+                        'flex-1 cursor-pointer text-sm',
+                        position === 'left' && 'text-left',
+                        position === 'center' && 'text-center justify-center',
+                        position === 'right' && 'text-right justify-end',
+                        className
+                    )}
+                    {...validProps}
+                >
+                    {children}
+                </a>
+            );
+        }
+
+        return (
+            <div
+                ref={ref as React.Ref<HTMLDivElement>}
+                className={cn(
+                    'flex-1 text-sm',
+                    position === 'left' && 'text-left',
+                    position === 'center' && 'text-center justify-center',
+                    position === 'right' && 'text-right justify-end',
+                    className
+                )}
+                {...props}
+            >
+                {children}
+            </div>
+        );
+    }
+);
+BannerDescription.displayName = 'Banner.Description';
+
+interface BannerDismissProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+    icon?: React.ReactNode;
+}
+
+const BannerDismiss = React.forwardRef<HTMLButtonElement, BannerDismissProps>(
+    ({ className, onClick, icon = <X size={16} />, ...props }, ref) => {
+        const { handleDismiss } = useBannerContext();
+
+        const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+            event.stopPropagation();
+            handleDismiss();
+            onClick?.(event);
+        };
+
+        return (
+            <button
+                ref={ref}
+                type="button"
+                onClick={handleClick}
+                className={cn(
+                    'absolute right-2 top-1/2 -translate-y-1/2 rounded-full p-1.5 transition-all',
+                    'opacity-70 hover:bg-black/10 hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-offset-2',
+                    className
+                )}
+                aria-label="Dismiss"
+                {...props}
+            >
+                {icon}
+            </button>
+        );
+    }
+);
+BannerDismiss.displayName = 'Banner.Dismiss';
+
+const Banner = Object.assign(BannerRoot, {
+    LeftIcon: BannerLeftIcon,
+    RightIcon: BannerRightIcon,
+    Description: BannerDescription,
+    Dismiss: BannerDismiss,
+});
 
 export { Banner, bannerVariants };`
 }

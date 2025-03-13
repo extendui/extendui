@@ -13,18 +13,13 @@ export function BannerDemo() {
         link={'${link}'}
       >
         <Banner.Description position="center">
-          <div className="flex justify-center items-center gap-2">
-            <div>
-              ${icon}
-            </div>
-            ${title}
+          <div className="flex justify-center items-center">
+            ${icon} ${title}
           </div>
         </Banner.Description>
         <Banner.Dismiss />
       </Banner>
-      <div className="flex h-full min-h-[150px] items-center justify-center">
-        <p className="text-muted-foreground">Content Area</p>
-      </div>
+      <div className="flex h-full min-h-[150px] items-center justify-center"/>
     </div>
   );
 }`;
