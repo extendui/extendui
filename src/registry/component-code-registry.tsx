@@ -218,6 +218,18 @@ export async function loadComponentCode({ componentName, state }: Props) {
       const { getFileUploadCode } = await import('@/showcase/codes/blocks/file-upload-code');
       return getFileUploadCode();
     }
+    case 'AlertDialog01': {
+      const { getAlertDialog01 } = await import('@/showcase/codes/blocks/dialogs/alert-dialog-01-code');
+      return getAlertDialog01();
+    }
+    case 'AlertDialog02': {
+      const { getAlertDialog02 } = await import('@/showcase/codes/blocks/dialogs/alert-dialog-02-code');
+      return getAlertDialog02();
+    }
+    case 'AlertDialog03': {
+      const { getAlertDialog03 } = await import('@/showcase/codes/blocks/dialogs/alert-dialog-03-code');
+      return getAlertDialog03();
+    }
     /* Date Picker */
     case 'DatePickerExample': {
       const { getDatePickerExampleCode } = await import('@/showcase/codes/date-picker/date-picker-code');
@@ -227,6 +239,7 @@ export async function loadComponentCode({ componentName, state }: Props) {
       const { getDatePickerCode } = await import('@/showcase/codes/date-picker/ui-date-picker-code');
       return getDatePickerCode();
     }
+
     /* Helpers */
     case 'hasNestedElementOfType': {
       const { getHasNestedElementOfType } = await import('@/showcase/codes/helpers/hasNestedElementOfType-code');

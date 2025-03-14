@@ -70,7 +70,7 @@ export function CodeBlockWrapper({
         <div
           className={cn(
             'absolute flex items-center justify-center p-2',
-            isOpened ? 'inset-x-0 bottom-0' : 'inset-0',
+            isOpened ? 'inset-x-0 bottom-4' : 'inset-0',
           )}
         >
           <CollapsibleTrigger asChild>

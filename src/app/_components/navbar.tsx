@@ -17,7 +17,7 @@ type Props = {
 export const Navbar = ({ navLinks, socialLinks }: Props) => {
   return (
     <header
-      className="sticky top-0 z-40 shadow-xl w-full border-b border-border bg-background/40 backdrop-blur-lg supports-backdrop-blur:bg-background/90"
+      className="sticky top-0 z-40 shadow-none w-full border-b border-border bg-background/40 backdrop-blur-lg supports-backdrop-blur:bg-background/90"
     >
       <div className="mx-auto  px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">

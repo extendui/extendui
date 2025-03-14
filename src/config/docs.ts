@@ -128,6 +128,17 @@ export const docsConfig: DocsConfig = {
           ],
         },
         {
+          title: 'Dialogs',
+          href: '/docs/blocks/alert-dialogs',
+          items: [
+            {
+              title: 'Alert Dialogs',
+              href: '/docs/blocks/dialogs/alert-dialogs',
+              items: [],
+            },
+          ],
+        },
+        {
           title: 'File Upload',
           href: '/docs/blocks/file-upload',
           items: [],

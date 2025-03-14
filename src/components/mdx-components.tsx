@@ -27,6 +27,9 @@ import CreditCard from '@/showcase/blocks/cards/credit-card-01';
 import CreditCard2 from '@/showcase/blocks/cards/credit-card-02';
 import PricingCard from '@/showcase/blocks/cards/pricing-card-01';
 import PricingCard02 from '@/showcase/blocks/cards/pricing-card-02';
+import { AlertDialog01 } from '@/showcase/blocks/dialogs/alert-dialog-01';
+import { AlertDialog02 } from '@/showcase/blocks/dialogs/alert-dialog-02';
+import { AlertDialog03 } from '@/showcase/blocks/dialogs/alert-dialog-03';
 import FileUpload from '@/showcase/blocks/file-upload';
 import SignIn from '@/showcase/blocks/forms/sign-in-01';
 import SignIn02 from '@/showcase/blocks/forms/sign-in-02';
@@ -131,6 +134,9 @@ const components = {
   PricingCard02,
   CreditCard,
   CreditCard2,
+  AlertDialog01,
+  AlertDialog02,
+  AlertDialog03,
   Icons,
   CreditCardInput,
   FileUpload,

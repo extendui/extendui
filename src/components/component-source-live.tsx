@@ -71,7 +71,7 @@ export function ComponentSourceLive({
                 fontSize: '0.875rem',
                 lineHeight: '1.5rem',
                 minHeight: '18rem',
-                backgroundColor: 'transparent',
+                backgroundColor: 'black',
               }}
               wrapLines={true}
               wrapLongLines={true}
