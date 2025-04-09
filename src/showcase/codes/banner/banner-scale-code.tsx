@@ -1,4 +1,5 @@
-"use client"
+export function getBannerScaleCode() {
+    return `"use client"
 
 import { AnimatePresence, motion } from "framer-motion"
 import { useState } from "react"
@@ -63,4 +64,5 @@ export default function BannerScale({
             <div className="flex h-full min-h-[150px] items-center justify-center" />
         </div>
     )
+}`
 }

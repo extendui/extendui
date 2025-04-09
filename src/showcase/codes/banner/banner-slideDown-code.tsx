@@ -1,4 +1,5 @@
-"use client"
+export function getBannerSlideDownCode() {
+    return `"use client"
 
 import { AnimatePresence, motion } from "framer-motion"
 import { useState } from "react"
@@ -12,9 +13,9 @@ const springTransitionDefault = {
 };
 
 const bannerVariantsDefault = {
-    initial: { scale: 0, opacity: 0 },
-    animate: { scale: 1, opacity: 1 },
-    exit: { scale: 0, opacity: 0 },
+    initial: { y: 100, opacity: 0 },
+    animate: { y: 0, opacity: 1 },
+    exit: { y: 100, opacity: 0 },
 }
 
 type BannerProps = {
@@ -30,7 +31,7 @@ type BannerProps = {
     };
 };
 
-export default function BannerScale({
+export default function BannerSlideDown({
     springTransition = springTransitionDefault,
     bannerVariants = bannerVariantsDefault,
 }: BannerProps) {
@@ -63,4 +64,5 @@ export default function BannerScale({
             <div className="flex h-full min-h-[150px] items-center justify-center" />
         </div>
     )
+}`
 }

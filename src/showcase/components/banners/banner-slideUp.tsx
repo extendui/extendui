@@ -5,17 +5,39 @@ import { useState } from "react"
 
 import { Banner } from "@/components/extendui/banner"
 
-export default function BannerSlideUp() {
+const springTransitionDefault = {
+    type: 'spring',
+    stiffness: 300,
+    damping: 20,
+};
+
+const bannerVariantsDefault = {
+    initial: { y: -100, opacity: 0 },
+    animate: { y: 0, opacity: 1 },
+    exit: { y: -100, opacity: 0 },
+}
+
+type BannerProps = {
+    springTransition?: {
+        type: string;
+        stiffness: number;
+        damping: number;
+    };
+    bannerVariants?: {
+        initial: { opacity: number };
+        animate: { opacity: number };
+        exit: { opacity: number };
+    };
+};
+
+export default function BannerSlideUp({
+    springTransition = springTransitionDefault,
+    bannerVariants = bannerVariantsDefault,
+}: BannerProps) {
     const [isVisible, setIsVisible] = useState(true)
 
     const handleClose = () => {
         setIsVisible(false)
-    }
-
-    const bannerVariants = {
-        initial: { y: -100, opacity: 0 },
-        animate: { y: 0, opacity: 1 },
-        exit: { y: -100, opacity: 0 },
     }
 
     return (
@@ -28,11 +50,7 @@ export default function BannerSlideUp() {
                         animate="animate"
                         exit="exit"
                         variants={bannerVariants}
-                        transition={{
-                            type: "spring",
-                            stiffness: 500,
-                            damping: 30,
-                        }}
+                        transition={springTransition}
                         className="absolute left-0 top-0 w-full z-150"
                     >
                         <Banner variant={"default"} position={"top"} onDismiss={handleClose}>

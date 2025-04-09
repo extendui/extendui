@@ -102,6 +102,34 @@ export async function loadComponentCode({ componentName, state }: Props) {
       const { getBannerDismissedCode } = await import('@/showcase/codes/banner/banner-dismissed-code');
       return getBannerDismissedCode();
     }
+    case 'BannerFade': {
+      const { getBannerFadeCode } = await import('@/showcase/codes/banner/banner-fade-code');
+      return getBannerFadeCode();
+    }
+    case 'BannerScale': {
+      const { getBannerScaleCode } = await import('@/showcase/codes/banner/banner-scale-code');
+      return getBannerScaleCode();
+    }
+    case 'BannerSlideDown': {
+      const { getBannerSlideDownCode } = await import('@/showcase/codes/banner/banner-slideDown-code');
+      return getBannerSlideDownCode();
+    }
+    case 'BannerSlideRight': {
+      const { getBannerSlideRightCode } = await import('@/showcase/codes/banner/banner-slideRight-code');
+      return getBannerSlideRightCode();
+    }
+    case 'BannerZoom': {
+      const { getBannerZoomCode } = await import('@/showcase/codes/banner/banner-zoom-code');
+      return getBannerZoomCode();
+    }
+    case 'BannerSlideLeft': {
+      const { getBannerSlideLeftCode } = await import('@/showcase/codes/banner/banner-slideLeft-code');
+      return getBannerSlideLeftCode();
+    }
+    case 'BannerSlideUp': {
+      const { getBannerSlideUpCode } = await import('@/showcase/codes/banner/banner-slideUp-code');
+      return getBannerSlideUpCode();
+    }
     /* Input */
     case 'Input': {
       const { getInputCode } = await import('@/showcase/codes/input/ui-input-code');
