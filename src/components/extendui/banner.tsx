@@ -127,7 +127,7 @@ const BannerRoot = React.forwardRef<HTMLDivElement, BannerRootProps>(
             [children]
         );
 
-        if (!isVisible) return null;
+        if (!isVisible && !onDismiss) return null;
 
         const contextValue: BannerContextType = {
             variant,
@@ -297,7 +297,7 @@ const BannerDismiss = React.forwardRef<HTMLButtonElement, BannerDismissProps>(
         const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
             event.stopPropagation();
             handleDismiss();
-            onClick?.(event);
+            // onClick?.(event);
         };
 
         return (

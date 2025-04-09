@@ -45,6 +45,11 @@ export const docsConfig: DocsConfig = {
               href: '/docs/components/banner-extended',
               items: [],
             },
+            {
+              title: 'Motion',
+              href: '/docs/components/banner-motion',
+              items: [],
+            },
           ],
         },
         {

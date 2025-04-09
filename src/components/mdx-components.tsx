@@ -36,8 +36,15 @@ import SignIn02 from '@/showcase/blocks/forms/sign-in-02';
 import BannerExample from '@/showcase/components/banners/banner';
 import BannerDismissed from '@/showcase/components/banners/banner-dismissed';
 import BannerExtended from '@/showcase/components/banners/banner-extended';
+import BannerFade from '@/showcase/components/banners/banner-fade';
 import BannerLeftIcon from '@/showcase/components/banners/banner-leftIcon';
 import BannerRightIcon from '@/showcase/components/banners/banner-rightIcon';
+import BannerScale from '@/showcase/components/banners/banner-scale';
+import BannerSlideDown from '@/showcase/components/banners/banner-slideDown';
+import BannerSlideLeft from '@/showcase/components/banners/banner-slideLeft';
+import BannerSlideRight from '@/showcase/components/banners/banner-slideRight';
+import BannerSlideUp from '@/showcase/components/banners/banner-slideUp';
+import BannerZoom from '@/showcase/components/banners/banner-zoom';
 import { BannerSettingsEngine } from '@/showcase/components/banners/settings-engine';
 import ButtonExample from '@/showcase/components/button/button';
 import { Rotating3DButton } from '@/showcase/components/button/button-3d-rotating';
@@ -177,6 +184,13 @@ const components = {
   StatusSelect,
   CommandExample,
   AvatarDescriptionSelect,
+  BannerFade,
+  BannerSlideDown,
+  BannerSlideLeft,
+  BannerSlideRight,
+  BannerSlideUp,
+  BannerZoom,
+  BannerScale,
   h1: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h1
       className={cn(
