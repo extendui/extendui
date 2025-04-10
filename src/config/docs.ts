@@ -110,6 +110,13 @@ export const docsConfig: DocsConfig = {
               items: [],
             },
           ],
+        },
+        {
+          title: 'Stepper',
+          href: '/docs/components/stepper',
+          items: [
+            { title: 'Base', href: '/docs/components/stepper', items: [] },
+          ],
         }
       ],
     },

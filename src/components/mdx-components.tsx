@@ -86,6 +86,8 @@ import { SelectExample } from '@/showcase/components/select/select';
 import { AvatarDescriptionSelect } from '@/showcase/components/select/select-avatar-decription';
 import { StatusSelect } from '@/showcase/components/select/select-status';
 import { SelectSettingsEngine } from '@/showcase/components/select/settings-engine';
+import { StepperSettingsEngine } from '@/showcase/components/stepper/settings-engine';
+import { StepperExample } from '@/showcase/components/stepper/stepper';
 
 import { ComponentSourceLive } from './component-source-live';
 import { Input } from './extendui/input';
@@ -151,6 +153,7 @@ const components = {
   SignIn02,
   ButtonExample,
   BannerExample,
+  StepperExample,
   CreateNewButton,
   ButtonSettingsEngine,
   DatePickerSettingsEngine,
@@ -174,6 +177,7 @@ const components = {
   Select,
   SelectExample,
   SelectSettingsEngine,
+  StepperSettingsEngine,
   BannerSettingsEngine,
   FileInput,
   DatePickerExample,

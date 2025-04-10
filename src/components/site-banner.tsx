@@ -19,7 +19,7 @@ export function SiteBanner() {
                     link="https://animated.extend-ui.com/"
                     onMouseEnter={() => setIsHovered(true)}
                     onMouseLeave={() => setIsHovered(false)}
-                    className="bg-green-400/70"
+                    className="bg-accent/90"
                 >
                     <Banner.Description
                         position="center"

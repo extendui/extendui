@@ -4,6 +4,7 @@ import { useEngineSettingsCommandStore } from '@/zustand/stores/useEngineSetting
 import { useEngineSettingsDatePickerStore } from '@/zustand/stores/useEngineSettingsDatePicker';
 import { useEngineSettingsInputStore } from '@/zustand/stores/useEngineSettingsInput';
 import { useEngineSettingsSelectStore } from '@/zustand/stores/useEngineSettingsSelect';
+import { useEngineSettingsStepperStore } from '@/zustand/stores/useEngineSettingsStepper';
 
 type Props = {
   componentName: string;
@@ -268,6 +269,11 @@ export async function loadComponentCode({ componentName, state }: Props) {
       return getDatePickerCode();
     }
 
+    case 'StepperExample': {
+      const { getStepperExampleCode } = await import('@/showcase/codes/stepper/stepper-code');
+      return getStepperExampleCode(state);
+    }
+
     /* Helpers */
     case 'hasNestedElementOfType': {
       const { getHasNestedElementOfType } = await import('@/showcase/codes/helpers/hasNestedElementOfType-code');
@@ -311,4 +317,8 @@ export const componentStateConfig: ComponentStateConfigProps = {
     state: ['variant', 'error', 'disabled', 'calendarVariant'],
     store: useEngineSettingsDatePickerStore,
   },
+  StepperExample: {
+    state: ['variant', 'orientation', 'activeStep', 'disabled', 'loading', 'separatorWidth', 'completed', 'setActiveStep'],
+    store: useEngineSettingsStepperStore,
+  }
 };

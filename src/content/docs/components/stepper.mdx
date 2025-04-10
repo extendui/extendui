@@ -1,0 +1,43 @@
+---
+title: Stepper
+description: A versatile component designed to mimic the appearance and functionality of a traditional Stepper, offering a range of customization options for various use cases.
+---
+
+<Preview
+  component={<StepperExample />}
+  settingsEngine={<StepperSettingsEngine />}
+  componentName={'StepperExample'}
+/>
+
+### Installation
+
+<Tabs defaultValue="cli">
+  <TabsList>
+    <TabsTrigger value="cli">CLI</TabsTrigger>
+    <TabsTrigger value="manual">Manual</TabsTrigger>
+  </TabsList>
+  <TabsContent value="cli">
+    ```bash 
+    npx shadcn add https://extend-ui.com/registry/Stepper.json 
+    ```
+  </TabsContent>
+  <TabsContent value="manual">
+    <Steps>
+      <Step>
+          Install the following dependencies: 
+        ```bash 
+        npx install @radix-ui/react-slot 
+        ```
+        ```bash 
+        npx install @radix-ui/react-tooltip 
+        ```
+      </Step>
+      <Step>
+        Copy and paste the following code into your project.
+        <ComponentSourceLive componentName={'Stepper'} />
+      </Step>
+    </Steps>
+  </TabsContent>
+</Tabs>
+
+
