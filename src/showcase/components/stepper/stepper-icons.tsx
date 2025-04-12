@@ -12,7 +12,7 @@ export const StepperWithIcons = () => {
     const steps = [
         { step: 1, icon: FaceIcon },
         { step: 2, icon: ImageIcon },
-        { step: 4, icon: CheckIcon },
+        { step: 3, icon: CheckIcon },
     ];
 
     const handleNextStep = () => {
