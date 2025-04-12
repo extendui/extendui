@@ -48,6 +48,12 @@ export const ui: Registry = [
     },
   },
   {
+    name: 'stepper',
+    type: 'registry:ui',
+    dependencies: ['@radix-ui/react-slot'],
+    files: ['components/extendui/stepper.tsx'],
+  },
+  {
     name: 'button',
     type: 'registry:ui',
     dependencies: ['@radix-ui/react-slot', '@radix-ui/react-tooltip'],
