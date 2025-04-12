@@ -88,6 +88,11 @@ import { StatusSelect } from '@/showcase/components/select/select-status';
 import { SelectSettingsEngine } from '@/showcase/components/select/settings-engine';
 import { StepperSettingsEngine } from '@/showcase/components/stepper/settings-engine';
 import { StepperExample } from '@/showcase/components/stepper/stepper';
+import { StepperWithIcons } from '@/showcase/components/stepper/stepper-icons';
+import { StepperLabeled } from '@/showcase/components/stepper/stepper-labeled';
+import { StepperLabeled02 } from '@/showcase/components/stepper/stepper-labeled-02';
+import { StepperLoading } from '@/showcase/components/stepper/stepper-loading';
+import { StepperProgress } from '@/showcase/components/stepper/stepper-progress';
 
 import { ComponentSourceLive } from './component-source-live';
 import { Input } from './extendui/input';
@@ -127,6 +132,7 @@ const components = {
   FrameworkDocs,
   StyleWrapper,
   ClickSlideButton,
+  StepperLoading,
   CommandAvatarDescription,
   Image,
   ScalingButton,
@@ -154,6 +160,10 @@ const components = {
   ButtonExample,
   BannerExample,
   StepperExample,
+  StepperWithIcons,
+  StepperLabeled,
+  StepperProgress,
+  StepperLabeled02,
   CreateNewButton,
   ButtonSettingsEngine,
   DatePickerSettingsEngine,

@@ -269,9 +269,35 @@ export async function loadComponentCode({ componentName, state }: Props) {
       return getDatePickerCode();
     }
 
+    case 'Stepper': {
+      const { getStepperCode } = await import('@/showcase/codes/stepper/ui-stepper-code');
+      return getStepperCode();
+    }
+
     case 'StepperExample': {
       const { getStepperExampleCode } = await import('@/showcase/codes/stepper/stepper-code');
       return getStepperExampleCode(state);
+    }
+
+    case 'StepperIcons': {
+      const { getStepperIconsCode } = await import('@/showcase/codes/stepper/stepper-icons-code');
+      return getStepperIconsCode();
+    }
+    case 'StepperLabeled': {
+      const { getStepperLabeledCode } = await import('@/showcase/codes/stepper/stepper-labeled-code');
+      return getStepperLabeledCode();
+    }
+    case 'StepperLabeled02': {
+      const { getStepperLabeled02Code } = await import('@/showcase/codes/stepper/stepper-labeled-02-code');
+      return getStepperLabeled02Code();
+    }
+    case 'StepperLoading': {
+      const { getStepperLoadingCode } = await import('@/showcase/codes/stepper/stepper-loading-code');
+      return getStepperLoadingCode();
+    }
+    case 'StepperProgress': {
+      const { getStepperProgressCode } = await import('@/showcase/codes/stepper/stepper-progress-code');
+      return getStepperProgressCode();
     }
 
     /* Helpers */

@@ -6,7 +6,6 @@ import { Input } from "@/components/extendui/input";
 import { Select } from "@/components/extendui/select";
 import { Switch } from "@/components/ui/switch";
 import {
-    setActiveStep,
     setDisabled,
     setLoading,
     setOrientation,
@@ -20,7 +19,6 @@ export const StepperSettingsEngine = () => {
     const {
         variant,
         orientation,
-        activeStep,
         disabled,
         loading,
         separatorWidth,
@@ -37,13 +35,6 @@ export const StepperSettingsEngine = () => {
         value: "horizontal" | "vertical"
     ) => {
         setOrientation(value);
-    };
-
-    const handleChangeActiveStep = (value: string) => {
-        const numValue = parseInt(value);
-        if (!isNaN(numValue)) {
-            setActiveStep(numValue);
-        }
     };
 
     const handleChangeSeparatorWidth = (value: string) => {

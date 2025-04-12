@@ -116,6 +116,11 @@ export const docsConfig: DocsConfig = {
           href: '/docs/components/stepper',
           items: [
             { title: 'Base', href: '/docs/components/stepper', items: [] },
+            {
+              title: 'Extended',
+              href: '/docs/components/stepper-extended',
+              items: [],
+            },
           ],
         }
       ],

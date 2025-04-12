@@ -1,6 +1,6 @@
 ---
 title: Stepper
-description: A versatile component designed to mimic the appearance and functionality of a traditional Stepper, offering a range of customization options for various use cases.
+description: A versatile component designed to guide users through a multi-step process with visual indicators for completed, active, and upcoming steps.
 ---
 
 <Preview
@@ -18,7 +18,7 @@ description: A versatile component designed to mimic the appearance and function
   </TabsList>
   <TabsContent value="cli">
     ```bash 
-    npx shadcn add https://extend-ui.com/registry/Stepper.json 
+    npx shadcn add https://extend-ui.com/registry/stepper.json 
     ```
   </TabsContent>
   <TabsContent value="manual">
@@ -28,16 +28,280 @@ description: A versatile component designed to mimic the appearance and function
         ```bash 
         npx install @radix-ui/react-slot 
         ```
-        ```bash 
-        npx install @radix-ui/react-tooltip 
-        ```
       </Step>
       <Step>
         Copy and paste the following code into your project.
         <ComponentSourceLive componentName={'Stepper'} />
       </Step>
+      <Step>Update the import paths to match your project setup.</Step>
     </Steps>
   </TabsContent>
 </Tabs>
 
+### Stepper core subcomponents and usage
 
+#### Stepper.Item
+
+The `Stepper.Item` component represents a single step in the process.
+
+```tsx
+<Stepper>
+  <Stepper.Item step={0}>
+    {/* Step content */}
+  </Stepper.Item>
+</Stepper>
+```
+
+#### Stepper.Trigger
+
+The `Stepper.Trigger` component is used to make steps interactive and clickable.
+
+```tsx
+<Stepper>
+  <Stepper.Item step={0}>
+    <Stepper.Trigger>
+      {/* Trigger content */}
+    </Stepper.Trigger>
+  </Stepper.Item>
+</Stepper>
+```
+
+#### Stepper.Indicator
+
+The `Stepper.Indicator` component displays the step number or completion status.
+
+```tsx
+<Stepper>
+  <Stepper.Item step={0}>
+    <Stepper.Indicator />
+  </Stepper.Item>
+</Stepper>
+```
+
+#### Stepper.Title
+
+The `Stepper.Title` component displays the title of the step.
+
+```tsx
+<Stepper>
+  <Stepper.Item step={0}>
+    <Stepper.Title>Step Title</Stepper.Title>
+  </Stepper.Item>
+</Stepper>
+```
+
+#### Stepper.Description
+
+The `Stepper.Description` component provides additional information about the step.
+
+```tsx
+<Stepper>
+  <Stepper.Item step={0}>
+    <Stepper.Description>Step description</Stepper.Description>
+  </Stepper.Item>
+</Stepper>
+```
+
+#### Stepper.Separator
+
+The `Stepper.Separator` component creates a visual connector between steps.
+
+```tsx
+<Stepper>
+  <Stepper.Item step={0}>
+    {/* Step content */}
+  </Stepper.Item>
+  <Stepper.Separator />
+  <Stepper.Item step={1}>
+    {/* Step content */}
+  </Stepper.Item>
+</Stepper>
+```
+
+### Stepper component props
+
+<div className="my-6 w-full overflow-x-auto">
+  <table className="w-full border-collapse border border-gray-300 ">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>defaultValue</td>
+        <td>number</td>
+        <td>
+          The default active step index when the component is uncontrolled. Defaults to 0.
+        </td>
+      </tr>
+      <tr>
+        <td>value</td>
+        <td>number</td>
+        <td>
+          The controlled active step index. When provided, the component becomes controlled.
+        </td>
+      </tr>
+      <tr>
+        <td>separatorWidth</td>
+        <td>number</td>
+        <td>
+          The width of the separator between steps in pixels. Defaults to 50.
+        </td>
+      </tr>
+      <tr>
+        <td>onValueChange</td>
+        <td>(value: number) => void</td>
+        <td>
+          Callback function triggered when the active step changes.
+        </td>
+      </tr>
+      <tr>
+        <td>variant</td>
+        <td>default</td>
+        <td>
+          The visual style variant of the stepper. Currently only supports the default variant.
+        </td>
+      </tr>
+      <tr>
+        <td>orientation</td>
+        <td>horizontal | vertical</td>
+        <td>
+          The orientation of the stepper. Defaults to "horizontal".
+        </td>
+      </tr>
+      <tr>
+        <td>className</td>
+        <td>string</td>
+        <td>
+          Additional CSS classes to apply custom styling to the stepper.
+        </td>
+      </tr>
+      <tr>
+        <td>...props</td>
+        <td>React.HTMLAttributes&lt;HTMLDivElement&gt;</td>
+        <td>
+          Additional props that can be passed to the stepper div.
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+### Stepper.Item component props
+
+<div className="my-6 w-full overflow-x-auto">
+  <table className="w-full border-collapse border border-gray-300 ">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>step</td>
+        <td>number</td>
+        <td>
+          The index of the step. Required.
+        </td>
+      </tr>
+      <tr>
+        <td>completed</td>
+        <td>boolean</td>
+        <td>
+          Whether the step is marked as completed. Defaults to false.
+        </td>
+      </tr>
+      <tr>
+        <td>disabled</td>
+        <td>boolean</td>
+        <td>
+          Whether the step is disabled and cannot be interacted with. Defaults to false.
+        </td>
+      </tr>
+      <tr>
+        <td>loading</td>
+        <td>boolean</td>
+        <td>
+          Whether the step is in a loading state. Defaults to false.
+        </td>
+      </tr>
+      <tr>
+        <td>className</td>
+        <td>string</td>
+        <td>
+          Additional CSS classes to apply custom styling to the step item.
+        </td>
+      </tr>
+      <tr>
+        <td>children</td>
+        <td>React.ReactNode</td>
+        <td>
+          The content of the step item.
+        </td>
+      </tr>
+      <tr>
+        <td>...props</td>
+        <td>React.HTMLAttributes&lt;HTMLDivElement&gt;</td>
+        <td>
+          Additional props that can be passed to the step item div.
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+### Stepper.Indicator component props
+
+<div className="my-6 w-full overflow-x-auto">
+  <table className="w-full border-collapse border border-gray-300 ">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>variant</td>
+        <td>default | outline | dotted</td>
+        <td>
+          The visual style variant of the indicator. Defaults to "default".
+        </td>
+      </tr>
+      <tr>
+        <td>asChild</td>
+        <td>boolean</td>
+        <td>
+          If true, the indicator will render its children as the root element. Defaults to false.
+        </td>
+      </tr>
+      <tr>
+        <td>className</td>
+        <td>string</td>
+        <td>
+          Additional CSS classes to apply custom styling to the indicator.
+        </td>
+      </tr>
+      <tr>
+        <td>children</td>
+        <td>React.ReactNode</td>
+        <td>
+          The content of the indicator. By default, it shows the step number, a check icon for completed steps, or a loading icon.
+        </td>
+      </tr>
+      <tr>
+        <td>...props</td>
+        <td>React.HTMLAttributes&lt;HTMLSpanElement&gt;</td>
+        <td>
+          Additional props that can be passed to the indicator span.
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
