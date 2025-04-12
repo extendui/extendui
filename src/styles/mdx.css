@@ -22,7 +22,7 @@
 }
 
 [data-rehype-pretty-code-fragment] code {
-  @apply grid min-w-full break-words rounded-none border-0 bg-transparent p-0;
+  @apply grid min-w-full rounded-none border-0 bg-transparent p-0 break-words;
   counter-reset: line;
   box-decoration-break: clone;
 }
@@ -35,7 +35,7 @@
   @apply px-2;
 }
 
-[data-rehype-pretty-code-fragment] [data-line-numbers]>.line::before {
+[data-rehype-pretty-code-fragment] [data-line-numbers] > .line::before {
   @apply text-xs text-zinc-50/40;
   counter-increment: line;
   content: counter(line);
@@ -59,40 +59,40 @@
 }
 
 [data-rehype-pretty-code-title] {
-  @apply mt-2 px-4 pt-6 text-sm font-medium text-foreground;
+  @apply text-foreground mt-2 px-4 pt-6 text-sm font-medium;
 }
 
-[data-rehype-pretty-code-title]+pre {
+[data-rehype-pretty-code-title] + pre {
   @apply mt-2;
 }
 
-.mdx>.steps:first-child>h3:first-child {
+.mdx > .steps:first-child > h3:first-child {
   @apply mt-0;
 }
 
-.steps>h3 {
-  @apply mb-4 mt-8 text-base font-semibold;
+.steps > h3 {
+  @apply mt-8 mb-4 text-base font-semibold;
 }
 
 code[data-line-numbers] {
   counter-reset: line;
 }
 
-code[data-line-numbers]>[data-line]::before {
+code[data-line-numbers] > [data-line]::before {
   counter-increment: line;
   content: counter(line);
   @apply mr-4 inline-block w-3 text-right text-gray-500;
 }
 
-code[data-line-numbers-max-digits='2']>[data-line]::before {
+code[data-line-numbers-max-digits='2'] > [data-line]::before {
   @apply w-5;
 }
 
-code[data-line-numbers-max-digits='3']>[data-line]::before {
+code[data-line-numbers-max-digits='3'] > [data-line]::before {
   @apply w-7;
 }
 
-code[data-line-numbers-max-digits='4']>[data-line]::before {
+code[data-line-numbers-max-digits='4'] > [data-line]::before {
   @apply w-9;
 }
 

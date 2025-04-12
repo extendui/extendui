@@ -1,5 +1,5 @@
 export function getStepperLabeled02Code() {
-    return `"use client";
+  return `"use client";
 
 import { FaceIcon, ImageIcon, CheckIcon } from "@radix-ui/react-icons";
 import { useState } from "react";
@@ -98,5 +98,5 @@ export const StepperLabeled02 = () => {
     );
 };
 
-StepperLabeled02.displayName = "StepperLabeled02";`
+StepperLabeled02.displayName = "StepperLabeled02";`;
 }

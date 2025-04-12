@@ -1,5 +1,5 @@
 export function getButtonSubscribeCode() {
-    return `
+  return `
 import { AnimatePresence, motion } from 'framer-motion';
 import { Check, ChevronRight } from 'lucide-react';
 import * as React from 'react';

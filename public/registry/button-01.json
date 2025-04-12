@@ -1,10 +1,7 @@
 {
   "name": "button-01",
   "type": "registry:component",
-  "dependencies": [
-    "@radix-ui/react-slot",
-    "@radix-ui/react-tooltip"
-  ],
+  "dependencies": ["@radix-ui/react-slot", "@radix-ui/react-tooltip"],
   "files": [
     {
       "content": "import { Button } from '@/components/extendui/button';\r\n\r\nexport function ButtonDemo() {\r\n    return (\r\n        <Button>\r\n            Button\r\n        </Button>\r\n    );\r\n}",

@@ -5,15 +5,17 @@ import React from 'react';
 import { Input } from '@/components/extendui/input';
 import { Switch } from '@/components/ui/switch';
 import {
-  setLabelText, setNotFoundText, useEngineSettingsCommandStore, setDisabled,
+  setLabelText,
+  setNotFoundText,
+  useEngineSettingsCommandStore,
+  setDisabled,
   setPlaceholder,
   setShowIcon,
 } from '@/zustand/stores/useEngineSettingsCommand';
 
-
-
 export const CommandSettingsEngine = () => {
-  const { disabled, showIcon, labelText, notFoundText, placeholder } = useEngineSettingsCommandStore();
+  const { disabled, showIcon, labelText, notFoundText, placeholder } =
+    useEngineSettingsCommandStore();
 
   const handleChangeDisabled = (value: boolean) => {
     setDisabled(value);
@@ -38,13 +40,25 @@ export const CommandSettingsEngine = () => {
   return (
     <div className="flex flex-col space-y-4 sm:space-y-6">
       <div className="flex w-full items-center space-x-2 sm:w-[180px]">
-        <Input value={placeholder} onChange={(e) => handleChangePlaceholder(e.target.value)} placeholder="Placeholder" />
+        <Input
+          value={placeholder}
+          onChange={(e) => handleChangePlaceholder(e.target.value)}
+          placeholder="Placeholder"
+        />
       </div>
       <div className="flex w-full items-center space-x-2 sm:w-[180px]">
-        <Input value={labelText} onChange={(e) => handleChangeLabelText(e.target.value)} placeholder="Helper text" />
+        <Input
+          value={labelText}
+          onChange={(e) => handleChangeLabelText(e.target.value)}
+          placeholder="Helper text"
+        />
       </div>
       <div className="flex w-full items-center space-x-2 sm:w-[180px]">
-        <Input value={notFoundText} onChange={(e) => handleChangeNotFoundText(e.target.value)} placeholder="Not found text" />
+        <Input
+          value={notFoundText}
+          onChange={(e) => handleChangeNotFoundText(e.target.value)}
+          placeholder="Not found text"
+        />
       </div>
       <div className="flex w-full items-center space-x-2 sm:w-auto">
         <Switch checked={showIcon} onCheckedChange={handleShowIcon} />
@@ -56,4 +70,4 @@ export const CommandSettingsEngine = () => {
       </div>
     </div>
   );
-}
+};

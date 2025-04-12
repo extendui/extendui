@@ -1,11 +1,7 @@
 {
   "compilerOptions": {
     "target": "es2022",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -19,12 +15,8 @@
     "jsx": "preserve",
     "incremental": true,
     "paths": {
-      "@/*": [
-        "./src/*"
-      ],
-      "contentlayer/generated": [
-        "./.contentlayer/generated"
-      ]
+      "@/*": ["./src/*"],
+      "contentlayer/generated": ["./.contentlayer/generated"]
     },
     "plugins": [
       {
@@ -32,9 +24,7 @@
       }
     ],
     "baseUrl": ".",
-    "types": [
-      "react/canary"
-    ]
+    "types": ["react/canary"]
   },
   "mdx": {
     "checkMdx": true
@@ -52,10 +42,7 @@
     "next.config.mjs",
     "src/**/*",
     "tailwindcss.config.js",
-    "postcss.config.js",
+    "postcss.config.js"
   ],
-  "exclude": [
-    "node_modules",
-    ".next"
-  ]
+  "exclude": ["node_modules", ".next"]
 }

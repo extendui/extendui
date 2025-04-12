@@ -9,7 +9,6 @@ import { buttonVariants } from './extendui/button';
 
 import type { Doc } from 'contentlayer/generated';
 
-
 interface DocsPagerProps {
   doc: Doc;
 }

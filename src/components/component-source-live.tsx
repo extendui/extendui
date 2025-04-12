@@ -79,7 +79,7 @@ export function ComponentSourceLive({
               {content}
             </SyntaxHighlighter>
           ) : (
-            <div className="flex h-72 items-center justify-center text-muted-foreground">
+            <div className="text-muted-foreground flex h-72 items-center justify-center">
               Failed to load component
             </div>
           )}
@@ -88,7 +88,7 @@ export function ComponentSourceLive({
       {content && (
         <CopyButton
           value={content}
-          className={cn('absolute right-4 top-4 z-10')}
+          className={cn('absolute top-4 right-4 z-10')}
         />
       )}
     </div>

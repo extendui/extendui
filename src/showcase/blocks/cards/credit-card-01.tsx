@@ -54,7 +54,10 @@ export default function CreditCard01() {
               className="text-2xl font-bold text-blue-900"
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: INITIAL_DELAY, duration: CARD_ANIMATION_DURATION }}
+              transition={{
+                delay: INITIAL_DELAY,
+                duration: CARD_ANIMATION_DURATION,
+              }}
             >
               VISA
             </motion.div>
@@ -67,7 +70,11 @@ export default function CreditCard01() {
               onClick={() => setIsVisible(!isVisible)}
               aria-label={isVisible ? 'Hide card details' : 'Show card details'}
             >
-              {isVisible ? <EyeOff className="h-4 w-4 text-blue-900" /> : <Eye className="h-4 w-4 text-blue-900" />}
+              {isVisible ? (
+                <EyeOff className="h-4 w-4 text-blue-900" />
+              ) : (
+                <Eye className="h-4 w-4 text-blue-900" />
+              )}
             </motion.button>
           </div>
 
@@ -98,7 +105,9 @@ export default function CreditCard01() {
               transition={{ delay: 1, duration: CARD_ANIMATION_DURATION }}
             >
               <div className="text-xs opacity-80">Expires</div>
-              <div className="font-semibold">{isVisible ? cardData.expiry : '**/**'}</div>
+              <div className="font-semibold">
+                {isVisible ? cardData.expiry : '**/**'}
+              </div>
             </motion.div>
           </div>
         </motion.div>

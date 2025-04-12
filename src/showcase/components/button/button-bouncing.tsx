@@ -9,7 +9,7 @@ type BouncingButtonProps = ButtonProps & {
     stiffness: number;
     damping: number;
   };
-}
+};
 
 const springTransitionDefault = {
   type: 'spring',
@@ -20,11 +20,7 @@ const springTransitionDefault = {
 export const BouncingButton = React.forwardRef<
   HTMLButtonElement,
   BouncingButtonProps
->(({
-  children,
-  springTransition = springTransitionDefault,
-  ...props
-}, ref) => {
+>(({ children, springTransition = springTransitionDefault, ...props }, ref) => {
   return (
     <motion.div
       whileHover={{ y: -10 }}

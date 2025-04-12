@@ -1,7 +1,7 @@
 export function getDatePickerExampleCode(state: Record<string, any>) {
-    const { variant, error, disabled, calendarVariant } = state;
-  
-    return `import { useState } from 'react';
+  const { variant, error, disabled, calendarVariant } = state;
+
+  return `import { useState } from 'react';
 import { Calendar } from "@/components/extendui/calendar"
 import { Input } from "@/components/extendui/input"
 import {

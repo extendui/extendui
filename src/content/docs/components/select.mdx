@@ -17,20 +17,13 @@ description: A customizable list of predefined options allowing users to select 
     <TabsTrigger value="manual">Manual</TabsTrigger>
   </TabsList>
   <TabsContent value="cli">
-    ```bash 
-    npx shadcn add https://extend-ui.com/registry/select.json 
-    ```
+    ```bash npx shadcn add https://extend-ui.com/registry/select.json ```
   </TabsContent>
   <TabsContent value="manual">
     <Steps>
       <Step>
-        Install the following dependencies: 
-        ```bash 
-        npx install @radix-ui/react-select 
-        ```
-        ```bash 
-        npx install @radix-ui/react-icons 
-        ```
+        Install the following dependencies: ```bash npx install
+        @radix-ui/react-select ``` ```bash npx install @radix-ui/react-icons ```
       </Step>
       <Step>
         Copy and paste the following code into your project.
@@ -50,12 +43,8 @@ description: A customizable list of predefined options allowing users to select 
       <Select.Value placeholder="Select value" />
     </Select.Trigger>
     <Select.Content>
-        <Select.Item value={'value1'}>
-          First value
-        </Select.Item>
-        <Select.Item value={'value2'}>
-          Second value
-        </Select.Item>
+      <Select.Item value={'value1'}>First value</Select.Item>
+      <Select.Item value={'value2'}>Second value</Select.Item>
     </Select.Content>
   </Select>
 </div>
@@ -80,35 +69,37 @@ description: A customizable list of predefined options allowing users to select 
         <td>default | filled | flushed | flushedfilled | dashed</td>
         <td>
           Defines the visual style of the select trigger and dropdown. Available
-          variants include <code>default</code>, <code>filled</code>, <code>flushed</code>, and more.
+          variants include <code>default</code>, <code>filled</code>,{' '}
+          <code>flushed</code>, and more.
         </td>
       </tr>
       <tr>
         <td>error</td>
         <td>boolean</td>
         <td>
-          If <code>true</code>, applies an error style to the select trigger and helper text.
+          If <code>true</code>, applies an error style to the select trigger and
+          helper text.
         </td>
       </tr>
       <tr>
         <td>icon</td>
         <td>React.ReactNode</td>
-        <td>
-          Custom icon displayed on the left side of the select trigger.
-        </td>
+        <td>Custom icon displayed on the left side of the select trigger.</td>
       </tr>
       <tr>
         <td>openIcon</td>
         <td>React.ReactNode</td>
         <td>
-          Icon displayed to indicate the dropdown is open. Defaults to <code>&lt;CaretSortIcon&gt;</code>.
+          Icon displayed to indicate the dropdown is open. Defaults to{' '}
+          <code>&lt;CaretSortIcon&gt;</code>.
         </td>
       </tr>
       <tr>
         <td>leftText</td>
         <td>string</td>
         <td>
-          Text displayed on the left side of the select trigger before the value.
+          Text displayed on the left side of the select trigger before the
+          value.
         </td>
       </tr>
       <tr>
@@ -135,10 +126,10 @@ description: A customizable list of predefined options allowing users to select 
       </tr>
       <tr>
         <td>...props</td>
-        <td className="break-all">React.ComponentPropsWithoutRef&lt;SelectPrimitive.Trigger&gt;</td>
-        <td>
-          Additional props passed to the root trigger component.
+        <td className="break-all">
+          React.ComponentPropsWithoutRef&lt;SelectPrimitive.Trigger&gt;
         </td>
+        <td>Additional props passed to the root trigger component.</td>
       </tr>
     </tbody>
   </table>

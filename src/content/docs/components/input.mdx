@@ -17,17 +17,13 @@ description: Render a user interface element that resembles or functions as an i
     <TabsTrigger value="manual">Manual</TabsTrigger>
   </TabsList>
   <TabsContent value="cli">
-    ```bash 
-    npx shadcn add https://extend-ui.com/registry/input.json 
-    ```
+    ```bash npx shadcn add https://extend-ui.com/registry/input.json ```
   </TabsContent>
   <TabsContent value="manual">
     <Steps>
       <Step>
-        Install the following dependencies: 
-        ```bash 
-        npx install @radix-ui/react-slot 
-        ```
+        Install the following dependencies: ```bash npx install
+        @radix-ui/react-slot ```
       </Step>
       <Step>
         Copy and paste the following code into your project.
@@ -50,8 +46,7 @@ The Input.Group component serves as a container that groups related Input elemen
 
 ```tsx
 <Input placeholder="Enter your name">
-  <Input.Group>
-  </Input.Group>
+  <Input.Group></Input.Group>
 </Input>
 ```
 
@@ -76,7 +71,7 @@ The Input.LeftIcon component renders an icon to the left of the input field. Thi
   <Input.Group>
     <Input.Label>Email</Input.Label>
     <Input.LeftIcon>
-      <Icon.email/>
+      <Icon.email />
     </Input.LeftIcon>
   </Input.Group>
 </Input>
@@ -91,7 +86,7 @@ The Input.RightIcon component displays an icon to the right of the input field. 
   <Input.Group>
     <Input.Label>Confirm</Input.Label>
     <Input.RightIcon>
-      <Icon.check/>
+      <Icon.check />
     </Input.RightIcon>
   </Input.Group>
 </Input>
@@ -117,7 +112,7 @@ The Input.ClearButton component displays a button to the right of the input that
 ```tsx
 <Input placeholder="Search something">
   <Input.Group>
-    <Input.ClearButton onClick={handleClear}/>
+    <Input.ClearButton onClick={handleClear} />
   </Input.Group>
 </Input>
 ```
@@ -131,14 +126,13 @@ Below is a more comprehensive example that combines multiple sub-components.
   <Input.Group>
     <Input.Label>Password</Input.Label>
     <Input.LeftIcon>
-      <Icon.lock/>
+      <Icon.lock />
     </Input.LeftIcon>
     <Input.PasswordToggle />
-    <Input.ClearButton  onClick={handleClear}/>
+    <Input.ClearButton onClick={handleClear} />
   </Input.Group>
 </Input>
 ```
-
 
 ### Input component props
 

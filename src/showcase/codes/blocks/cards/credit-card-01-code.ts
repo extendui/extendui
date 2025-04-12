@@ -1,5 +1,5 @@
 export function getCreditCard01Code() {
-    return `'use client';
+  return `'use client';
 
 import { motion } from 'framer-motion';
 import { Eye, EyeOff } from 'lucide-react';
@@ -108,4 +108,3 @@ export default function CreditCard01() {
   );
 }`;
 }
-  

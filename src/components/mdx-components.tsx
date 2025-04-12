@@ -266,10 +266,7 @@ const components = {
     />
   ),
   p: ({ className, ...props }: React.HTMLAttributes<HTMLParagraphElement>) => (
-    <p
-      className={cn('leading-7 not-first:mt-6', className)}
-      {...props}
-    />
+    <p className={cn('leading-7 not-first:mt-6', className)} {...props} />
   ),
   ul: ({ className, ...props }: React.HTMLAttributes<HTMLUListElement>) => (
     <ul className={cn('my-6 list-disc', className)} {...props} />
@@ -290,7 +287,7 @@ const components = {
   code: ({ className, ...props }: React.HTMLAttributes<HTMLElement>) => (
     <code
       className={cn(
-        'dark relative rounded px-[0.3rem] py-[0.2rem] font-mono text-sm ',
+        'dark relative rounded px-[0.3rem] py-[0.2rem] font-mono text-sm',
         className,
       )}
       {...props}
@@ -337,7 +334,7 @@ const components = {
   }: React.ComponentProps<typeof TabsTrigger>) => (
     <TabsTrigger
       className={cn(
-        'relative h-9 rounded-none border-b-2 border-b-transparent bg-transparent px-4 pb-3 pt-2 font-semibold text-muted-foreground shadow-none transition-none data-[state=active]:border-b-primary data-[state=active]:text-foreground data-[state=active]:shadow-none',
+        'text-muted-foreground data-[state=active]:border-b-primary data-[state=active]:text-foreground relative h-9 rounded-none border-b-2 border-b-transparent bg-transparent px-4 pt-2 pb-3 font-semibold shadow-none transition-none data-[state=active]:shadow-none',
         className,
       )}
       {...props}
@@ -364,7 +361,7 @@ const components = {
   LinkedCard: ({ className, ...props }: React.ComponentProps<typeof Link>) => (
     <Link
       className={cn(
-        'flex w-full flex-col items-center rounded-xl border bg-card p-6 text-card-foreground shadow-sm transition-colors hover:bg-muted/50 sm:p-10',
+        'bg-card text-card-foreground hover:bg-muted/50 flex w-full flex-col items-center rounded-xl border p-6 shadow-sm transition-colors sm:p-10',
         className,
       )}
       {...props}
@@ -394,7 +391,7 @@ export function Mdx({ code }: MDXProps) {
   });
 
   return (
-    <div className="mdx max-w-none dark:prose-invert">
+    <div className="mdx dark:prose-invert max-w-none">
       <Component components={components as unknown as MDXComponents} />
     </div>
   );

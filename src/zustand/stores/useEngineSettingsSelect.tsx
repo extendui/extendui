@@ -70,5 +70,13 @@ export const useEngineSettingsSelectStore = create(
   })),
 );
 
-export const { setVariant, setDisabled, setError, setLeftText, setPlaceholder, setHelperText, setShowIcon, setChangeOpenIcon } =
-  useEngineSettingsSelectStore.getState();
+export const {
+  setVariant,
+  setDisabled,
+  setError,
+  setLeftText,
+  setPlaceholder,
+  setHelperText,
+  setShowIcon,
+  setChangeOpenIcon,
+} = useEngineSettingsSelectStore.getState();

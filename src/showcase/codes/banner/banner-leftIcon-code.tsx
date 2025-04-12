@@ -1,5 +1,5 @@
 export function getBannerLeftIconCode() {
-    return `'use client';
+  return `'use client';
 
 import React from 'react';
 import { Banner } from '@/components/extendui/banner';
@@ -20,5 +20,5 @@ export default function BannerLeftIcon() {
             <div className="flex h-full min-h-[150px] items-center justify-center"/>
         </div>
     )
-}`
+}`;
 }

@@ -1,5 +1,5 @@
 export function getAlertDialog03() {
-    return `"use client"
+  return `"use client"
     
     import { BellRing, X, Clock, Check } from "lucide-react"
     import { useState } from "react"

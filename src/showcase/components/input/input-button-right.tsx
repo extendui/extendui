@@ -13,7 +13,7 @@ export const InputButtonRight = () => {
   return (
     <div className="flex items-center">
       <Input
-        className={`grow -me-px rounded-r-none focus-visible:rounded-r-none`}
+        className={`-me-px grow rounded-r-none focus-visible:rounded-r-none`}
         value={value}
         onChange={(e) => setValue(e.target.value)}
         placeholder="Type here..."
@@ -21,15 +21,16 @@ export const InputButtonRight = () => {
       <Button
         onClick={() => toast.info('Value: ' + value)}
         size={'icon'}
-        className="w-[40px] rounded-l-none border-l-0 shadow-none hover:bg-primary/90"
+        className="hover:bg-primary/90 w-[40px] rounded-l-none border-l-0 shadow-none"
         onMouseDown={() => setIsPressed(true)}
         onMouseUp={() => setIsPressed(false)}
         onMouseLeave={() => setIsPressed(false)}
         disabled={!value}
       >
         <SendHorizonal
-          className={`h-4 w-4 transition-all duration-200 ease-in-out text-primary-foreground ${isPressed ? 'scale-100' : 'hover:scale-125'
-            }`}
+          className={`text-primary-foreground h-4 w-4 transition-all duration-200 ease-in-out ${
+            isPressed ? 'scale-100' : 'hover:scale-125'
+          }`}
         />
       </Button>
     </div>

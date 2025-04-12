@@ -1,5 +1,5 @@
 export function getStepperLoadingCode() {
-    return `"use client";
+  return `"use client";
     
     import { useState } from "react";
     
@@ -58,5 +58,5 @@ export function getStepperLoadingCode() {
         );
     };
     
-    StepperLoading.displayName = 'StepperLoading';`
+    StepperLoading.displayName = 'StepperLoading';`;
 }

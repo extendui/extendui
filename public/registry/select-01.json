@@ -1,10 +1,7 @@
 {
   "name": "select-01",
   "type": "registry:ui",
-  "dependencies": [
-    "@radix-ui/react-select",
-    "@radix-ui/react-icons"
-  ],
+  "dependencies": ["@radix-ui/react-select", "@radix-ui/react-icons"],
   "files": [
     {
       "content": "'use client';\r\n\r\nimport {\r\n    Select,\r\n} from '@/components/extendui/select';\r\n\r\nexport const SelectDemo = () => {\r\n    return (\r\n        <div>\r\n            <Select >\r\n                <Select.Trigger\r\n                    className=\"min-w-[160px]\"\r\n                >\r\n                    <Select.Value placeholder={'Fruits'} />\r\n                </Select.Trigger>\r\n                <Select.Content>\r\n                    <Select.Group >\r\n                        <Select.Label>Fruits</Select.Label>\r\n                        <Select.Item value=\"apple\">Apple</Select.Item>\r\n                        <Select.Item value=\"banana\">Banana</Select.Item>\r\n                        <Select.Item value=\"blueberry\">Blueberry</Select.Item>\r\n                        <Select.Item value=\"grapes\">Grapes</Select.Item>\r\n                        <Select.Item value=\"pineapple\">Pineapple</Select.Item>\r\n                    </Select.Group>\r\n                </Select.Content>\r\n                <Select.HelperText>\r\n                    {'Helper text'}\r\n                </Select.HelperText>\r\n            </Select>\r\n        </div>\r\n    );\r\n}\r\n\r\n",

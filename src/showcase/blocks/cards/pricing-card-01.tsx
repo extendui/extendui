@@ -38,7 +38,7 @@ export default function PricingCard01() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
               <motion.span
-                className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-accent"
+                className="bg-accent flex h-5 w-5 shrink-0 items-center justify-center rounded-full"
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
                 transition={{

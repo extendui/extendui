@@ -1,5 +1,5 @@
 export function getStepperProgressCode() {
-    return `"use client";
+  return `"use client";
 
 import { useState } from "react";
 
@@ -78,5 +78,5 @@ export const StepperProgress = () => {
     );
 };
 
-StepperProgress.displayName = "StepperProgress";`
+StepperProgress.displayName = "StepperProgress";`;
 }

@@ -3,9 +3,7 @@
 import * as React from 'react';
 
 import { Input } from '@/components/extendui/input';
-import {
-  Select,
-} from '@/components/extendui/select';
+import { Select } from '@/components/extendui/select';
 
 export const InputSelectRight = () => {
   const [value, setValue] = React.useState('');
@@ -14,14 +12,14 @@ export const InputSelectRight = () => {
   return (
     <div className="flex items-center">
       <Input
-        className={`grow -me-px rounded-r-none focus-visible:rounded-r-none`}
+        className={`-me-px grow rounded-r-none focus-visible:rounded-r-none`}
         value={value}
         onChange={(e) => setValue(e.target.value)}
         type="text"
         placeholder="Type here..."
       />
       <Select value={selectValue} onValueChange={(val) => setSelectValue(val)}>
-        <Select.Trigger className="w-[80px] rounded-l-none border-l-0 shadow-none focus:outline-hidden focus:ring-0">
+        <Select.Trigger className="w-[80px] rounded-l-none border-l-0 shadow-none focus:ring-0 focus:outline-hidden">
           <Select.Value placeholder=".com" />
         </Select.Trigger>
         <Select.Content>

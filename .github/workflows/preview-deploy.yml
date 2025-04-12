@@ -2,7 +2,7 @@ name: Deploy Preview
 on:
   push:
     branches-ignore:
-      - main  
+      - main
 
 jobs:
   deploy-preview:
@@ -19,5 +19,5 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           vercel-org-id: ${{ secrets.ORG_ID }}
           vercel-project-id: ${{ secrets.PROJECT_ID }}
-          alias-domains: |  
+          alias-domains: |
             extendui.vercel.app

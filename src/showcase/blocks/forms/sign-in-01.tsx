@@ -1,28 +1,29 @@
-'use client'
+'use client';
 
-import { zodResolver } from '@hookform/resolvers/zod'
-import Link from 'next/link'
-import { useForm } from 'react-hook-form'
-import { toast } from 'sonner'
-import * as z from 'zod'
+import { zodResolver } from '@hookform/resolvers/zod';
+import Link from 'next/link';
+import { useForm } from 'react-hook-form';
+import { toast } from 'sonner';
+import * as z from 'zod';
 
-import { Button } from '@/components/extendui/button'
-import { Input } from '@/components/extendui/input'
+import { Button } from '@/components/extendui/button';
+import { Input } from '@/components/extendui/input';
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from '@/components/ui/card'
-
+} from '@/components/ui/card';
 
 const signInSchema = z.object({
   email: z.string().email({ message: 'Invalid email address' }),
-  password: z.string().min(8, { message: 'Password must be at least 8 characters' }),
-})
+  password: z
+    .string()
+    .min(8, { message: 'Password must be at least 8 characters' }),
+});
 
-type SignInValues = z.infer<typeof signInSchema>
+type SignInValues = z.infer<typeof signInSchema>;
 
 export default function SignIn01() {
   const {
@@ -37,10 +38,10 @@ export default function SignIn01() {
       email: '',
       password: '',
     },
-  })
+  });
 
-  const emailValue = watch('email')
-  const passwordValue = watch('password')
+  const emailValue = watch('email');
+  const passwordValue = watch('password');
 
   const onSubmit = (data: SignInValues) => {
     toast.success(<pre>{JSON.stringify(data, null, 2)}</pre>);
@@ -55,7 +56,11 @@ export default function SignIn01() {
         </CardDescription>
       </CardHeader>
       <CardContent>
-        <form onSubmit={handleSubmit(onSubmit)} className="space-y-4" autoComplete='off'>
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          className="space-y-4"
+          autoComplete="off"
+        >
           <div className="space-y-2">
             <Input
               id="email"
@@ -98,9 +103,11 @@ export default function SignIn01() {
               </Link>
             </div>
           </div>
-          <Button type="submit" className="w-full">Sign In</Button>
+          <Button type="submit" className="w-full">
+            Sign In
+          </Button>
         </form>
-        <Button variant="outline" className="w-full mt-4">
+        <Button variant="outline" className="mt-4 w-full">
           Login with Google
         </Button>
         <div className="mt-4 text-center text-sm">
@@ -111,5 +118,5 @@ export default function SignIn01() {
         </div>
       </CardContent>
     </Card>
-  )
+  );
 }

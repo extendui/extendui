@@ -1,7 +1,6 @@
 // .eslintrc.js
 /** @type {import("eslint").Linter.Config} */
 const config = {
-
   parser: '@typescript-eslint/parser',
   parserOptions: {
     project: './tsconfig.json',
@@ -16,13 +15,13 @@ const config = {
   ],
   overrides: [
     {
-      "files": [".tsx", ".ts"],
-      "extends": "plugin:@typescript-eslint/recommended-requiring-type-checking"
+      files: ['.tsx', '.ts'],
+      extends: 'plugin:@typescript-eslint/recommended-requiring-type-checking',
     },
     {
-      "files": ["*.mdx"],
-      "extends": "plugin:mdx/recommended"
-    }
+      files: ['*.mdx'],
+      extends: 'plugin:mdx/recommended',
+    },
   ],
   rules: {
     // Typescript specific rules

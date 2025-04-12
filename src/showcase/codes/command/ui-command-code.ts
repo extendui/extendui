@@ -1,5 +1,5 @@
-export function getCommandCode() {  
-    return `"use client"
+export function getCommandCode() {
+  return `"use client"
     
     import { DialogTitle, type DialogProps } from "@radix-ui/react-dialog"
     import { Command as CommandPrimitive } from "cmdk"
@@ -154,4 +154,3 @@ export function getCommandCode() {
     
     export { Command }`;
 }
-  

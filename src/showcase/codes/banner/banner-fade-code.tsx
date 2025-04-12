@@ -1,5 +1,5 @@
 export function getBannerFadeCode() {
-    return `"use client"
+  return `"use client"
 
 import { AnimatePresence, motion } from "framer-motion"
 import { useState } from "react"
@@ -64,5 +64,5 @@ export default function BannerFade({
             <div className="flex h-full min-h-[150px] items-center justify-center" />
         </div>
     )
-}`
+}`;
 }

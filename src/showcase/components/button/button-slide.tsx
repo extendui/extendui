@@ -31,7 +31,7 @@ const ANIMATION_CONFIG = {
 
 type StatusIconProps = {
   status: string;
-}
+};
 
 const StatusIcon: React.FC<StatusIconProps> = ({ status }) => {
   const iconMap: Record<StatusIconProps['status'], JSX.Element> = useMemo(
@@ -127,7 +127,7 @@ export const ButtonSlide = React.forwardRef<HTMLButtonElement, ButtonProps>(
             style={{
               width: adjustedWidth,
             }}
-            className="absolute bottom-0 left-0 top-0 z-0 bg-primary"
+            className="bg-primary absolute top-0 bottom-0 left-0 z-0"
           />
         )}
         <AnimatePresence key={crypto.randomUUID()}>
@@ -152,7 +152,7 @@ export const ButtonSlide = React.forwardRef<HTMLButtonElement, ButtonProps>(
                 className={cn(
                   'shadow-button rounded-xl',
                   isDragging && 'scale-105 transition-transform',
-                  className
+                  className,
                 )}
               >
                 <SendHorizontal className="h-4 w-4" />
@@ -175,7 +175,7 @@ export const ButtonSlide = React.forwardRef<HTMLButtonElement, ButtonProps>(
                 {...props}
                 className={cn(
                   'h-full w-full rounded-xl transition-all duration-300',
-                  className
+                  className,
                 )}
               >
                 <AnimatePresence key={crypto.randomUUID()} mode="wait">

@@ -13,7 +13,7 @@ export default function BannerDemo() {
   useEffect(() => {
     if (bannerSettings.visible) {
       setIsBannerDismissed(false);
-      setBannerKey(prevKey => prevKey + 1);
+      setBannerKey((prevKey) => prevKey + 1);
     }
   }, [bannerSettings]);
 
@@ -34,7 +34,7 @@ export default function BannerDemo() {
           onDismiss={handleDismiss}
         >
           <Banner.Description position="center">
-            <div className="flex justify-center items-center">
+            <div className="flex items-center justify-center">
               {bannerSettings.icon} {bannerSettings.title}
             </div>
           </Banner.Description>
@@ -43,5 +43,5 @@ export default function BannerDemo() {
       )}
       <div className="flex h-full min-h-[150px] items-center justify-center" />
     </div>
-  )
+  );
 }

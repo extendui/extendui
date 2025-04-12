@@ -1,5 +1,5 @@
 export function getBannerCode() {
-    return `'use client';
+  return `'use client';
 
 import { cva, type VariantProps } from 'class-variance-authority';
 import { X } from 'lucide-react';
@@ -328,5 +328,5 @@ const Banner = Object.assign(BannerRoot, {
     Dismiss: BannerDismiss,
 });
 
-export { Banner, bannerVariants };`
+export { Banner, bannerVariants };`;
 }

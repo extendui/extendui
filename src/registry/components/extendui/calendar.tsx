@@ -6,7 +6,7 @@ import { DayPicker } from 'react-day-picker';
 
 import { cn } from '@/lib/utils';
 
-import { buttonVariants } from '../extendui/button';
+import { buttonVariants } from './button';
 
 const calendarVariants = cva('p-3', {
   variants: {
@@ -34,8 +34,6 @@ function Calendar({
   onMonthChange,
   ...props
 }: CalendarProps) {
-
-
   return (
     <DayPicker
       month={month}

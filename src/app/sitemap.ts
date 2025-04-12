@@ -1,16 +1,18 @@
-import { type MetadataRoute } from 'next'
+import { type MetadataRoute } from 'next';
 
-import { docsConfig } from '@/config/docs'
+import { docsConfig } from '@/config/docs';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://www.extend-ui.com'
-  const seenUrls = new Set<string>()
-  
+  const baseUrl = 'https://www.extend-ui.com';
+  const seenUrls = new Set<string>();
+
   // Add the homepage
-  const routes: MetadataRoute.Sitemap = [{
-    url: baseUrl,
-    lastModified: new Date(),
-  }]
+  const routes: MetadataRoute.Sitemap = [
+    {
+      url: baseUrl,
+      lastModified: new Date(),
+    },
+  ];
 
   // Safely handle the sidebar navigation
   if (docsConfig?.sidebarNav?.length) {
@@ -22,8 +24,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
             routes.push({
               url: baseUrl + item.href,
               lastModified: new Date(),
-            })
-            seenUrls.add(baseUrl + item.href)
+            });
+            seenUrls.add(baseUrl + item.href);
           }
 
           // Handle nested items
@@ -33,16 +35,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
                 routes.push({
                   url: baseUrl + nestedItem.href,
                   lastModified: new Date(),
-                })
-                seenUrls.add(baseUrl + nestedItem.href)
+                });
+                seenUrls.add(baseUrl + nestedItem.href);
               }
-            })
+            });
           }
-        })
+        });
       }
-    })
+    });
   }
 
-  return routes
+  return routes;
 }
-

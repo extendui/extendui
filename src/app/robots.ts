@@ -1,7 +1,7 @@
-import type { MetadataRoute } from 'next'
- 
+import type { MetadataRoute } from 'next';
+
 export default function robots(): MetadataRoute.Robots {
-  const baseUrl = 'https://www.extend-ui.com'
+  const baseUrl = 'https://www.extend-ui.com';
 
   return {
     rules: [
@@ -10,8 +10,7 @@ export default function robots(): MetadataRoute.Robots {
         allow: ['/'],
         disallow: '',
       },
-     
     ],
     sitemap: `${baseUrl}/sitemap.xml`,
-  }
+  };
 }

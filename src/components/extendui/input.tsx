@@ -14,13 +14,15 @@ const inputVariants = cva(
       variant: {
         default: 'border-input bg-background focus:outline-primary',
         filled: 'border-transparent bg-muted focus:outline-primary',
-        flushed: 'rounded-none border-x-0 border-t-0 outline-hidden focus:bg-secondary focus-visible:outline-hidden',
-        flushedfilled: 'rounded-none border-x-0 border-t-0 outline-hidden focus:bg-secondary',
+        flushed:
+          'rounded-none border-x-0 border-t-0 outline-hidden focus:bg-secondary focus-visible:outline-hidden',
+        flushedfilled:
+          'rounded-none border-x-0 border-t-0 outline-hidden focus:bg-secondary',
         dashed: 'border-dashed border-2 focus:outline-primary',
       },
     },
     defaultVariants: { variant: 'default' },
-  }
+  },
 );
 
 type InputContextType = {
@@ -47,7 +49,9 @@ type InputContextType = {
   setShowPassword: (show: boolean) => void;
 };
 
-const InputContext = React.createContext<InputContextType | undefined>(undefined);
+const InputContext = React.createContext<InputContextType | undefined>(
+  undefined,
+);
 
 const useInputContext = () => {
   const context = React.useContext(InputContext);
@@ -61,27 +65,43 @@ const useInputContext = () => {
 
 interface InputRootProps
   extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size'>,
-  VariantProps<typeof inputVariants> {
+    VariantProps<typeof inputVariants> {
   error?: boolean;
   textError?: string;
   maxLength?: number;
   children?: React.ReactNode;
 }
 
-const getCounterPosition = (elementChecks: InputContextType['elementChecks'], hasValue: boolean) => {
-  if (elementChecks.hasClearButton && hasValue && elementChecks.hasPassword) return 'right-[3.2rem]';
+const getCounterPosition = (
+  elementChecks: InputContextType['elementChecks'],
+  hasValue: boolean,
+) => {
+  if (elementChecks.hasClearButton && hasValue && elementChecks.hasPassword)
+    return 'right-[3.2rem]';
   if (elementChecks.hasPassword || elementChecks.hasRightIcon) return 'right-8';
   if (elementChecks.hasClearButton && hasValue) return 'right-8';
   return 'right-3';
 };
 
-const getLabelPadding = (elementChecks: InputContextType['elementChecks'], hasValue: boolean, maxLength?: number) => {
-  if (elementChecks.hasClearButton && hasValue && elementChecks.hasPassword && maxLength) return 'pe-24';
-  if (elementChecks.hasClearButton && hasValue && elementChecks.hasPassword) return 'pe-20';
-  if ((elementChecks.hasPassword || elementChecks.hasRightIcon) && maxLength) return 'pe-20';
+const getLabelPadding = (
+  elementChecks: InputContextType['elementChecks'],
+  hasValue: boolean,
+  maxLength?: number,
+) => {
+  if (
+    elementChecks.hasClearButton &&
+    hasValue &&
+    elementChecks.hasPassword &&
+    maxLength
+  )
+    return 'pe-24';
+  if (elementChecks.hasClearButton && hasValue && elementChecks.hasPassword)
+    return 'pe-20';
+  if ((elementChecks.hasPassword || elementChecks.hasRightIcon) && maxLength)
+    return 'pe-20';
   if (elementChecks.hasClearButton && hasValue && maxLength) return 'pe-20';
   return 'pe-8';
-}
+};
 
 const InputComponent = React.forwardRef<HTMLInputElement, InputRootProps>(
   (props, ref) => {
@@ -118,14 +138,16 @@ const InputComponent = React.forwardRef<HTMLInputElement, InputRootProps>(
       propOnBlur?.(e);
     };
 
-
-    const elementChecks = React.useMemo(() => ({
-      hasLeftIcon: hasNestedElementOfType(children, [InputLeftIcon]),
-      hasRightIcon: hasNestedElementOfType(children, [InputRightIcon]),
-      hasLabel: hasNestedElementOfType(children, [InputLabel]),
-      hasPassword: hasNestedElementOfType(children, [InputPasswordToggle]),
-      hasClearButton: hasNestedElementOfType(children, [InputClearButton])
-    }), [children]);
+    const elementChecks = React.useMemo(
+      () => ({
+        hasLeftIcon: hasNestedElementOfType(children, [InputLeftIcon]),
+        hasRightIcon: hasNestedElementOfType(children, [InputRightIcon]),
+        hasLabel: hasNestedElementOfType(children, [InputLabel]),
+        hasPassword: hasNestedElementOfType(children, [InputPasswordToggle]),
+        hasClearButton: hasNestedElementOfType(children, [InputClearButton]),
+      }),
+      [children],
+    );
 
     const generatedId = React.useId();
     const inputId = id || generatedId;
@@ -153,7 +175,6 @@ const InputComponent = React.forwardRef<HTMLInputElement, InputRootProps>(
     const counterPosition = getCounterPosition(elementChecks, hasValue);
     const labelPadding = getLabelPadding(elementChecks, hasValue, maxLength);
 
-
     const inputClassName = cn(
       inputVariants({ variant }),
       elementChecks.hasLeftIcon ? 'ps-9' : 'px-3',
@@ -161,7 +182,8 @@ const InputComponent = React.forwardRef<HTMLInputElement, InputRootProps>(
       value && variant === 'flushedfilled' && 'bg-secondary',
       error && [
         'border-red-500 text-red-500',
-        !['flushedfilled', 'flushed'].includes(variant as string) && 'focus:outline-red-500'
+        !['flushedfilled', 'flushed'].includes(variant as string) &&
+          'focus:outline-red-500',
       ],
       disabled && 'opacity-50 cursor-not-allowed',
       labelPadding,
@@ -185,10 +207,12 @@ const InputComponent = React.forwardRef<HTMLInputElement, InputRootProps>(
             {...inputProps}
           />
           {maxLength && (
-            <div className={cn(
-              "absolute top-2.5 text-xs text-muted-foreground",
-              counterPosition
-            )}>
+            <div
+              className={cn(
+                'text-muted-foreground absolute top-2.5 text-xs',
+                counterPosition,
+              )}
+            >
               {String(value || '').length}/{maxLength}
             </div>
           )}
@@ -243,7 +267,7 @@ const InputLabel = React.forwardRef<
     'z-10 absolute top-2 text-sm text-muted-foreground transition-all duration-200 ease-in-out cursor-text border-transparent ',
     elementChecks.hasLeftIcon ? 'left-9' : 'left-3',
     isFocused && 'font-medium',
-    (isFocused || value || (type === 'date') || placeholder) && [
+    (isFocused || value || type === 'date' || placeholder) && [
       '-top-2.5  bg-background px-1 text-primary text-xs rounded-md',
       variant === 'flushed' || variant === 'flushedfilled'
         ? `-left-[7px] ps-2`
@@ -274,7 +298,7 @@ const InputLeftIcon = React.forwardRef<
     <div
       ref={ref}
       className={cn(
-        'absolute left-3 top-2.5 flex h-4 w-4 items-center',
+        'absolute top-2.5 left-3 flex h-4 w-4 items-center',
         disabled && 'opacity-50',
         error && 'text-red-500',
         className,
@@ -298,7 +322,7 @@ const InputRightIcon = React.forwardRef<
     <div
       ref={ref}
       className={cn(
-        'absolute right-3 top-2.5 flex h-4 w-4 items-center',
+        'absolute top-2.5 right-3 flex h-4 w-4 items-center',
         disabled && 'opacity-50',
         error && 'text-red-500',
         elementChecks.hasPassword && 'hidden',
@@ -323,7 +347,7 @@ const InputPasswordToggle = React.forwardRef<
     <button
       ref={ref}
       type="button"
-      className={cn('absolute right-3 top-2.5 flex items-center', className)}
+      className={cn('absolute top-2.5 right-3 flex items-center', className)}
       onClick={() => setShowPassword(!showPassword)}
       {...rest}
     >
@@ -351,7 +375,7 @@ const InputClearButton = React.forwardRef<
       ref={ref}
       type="button"
       className={cn(
-        'absolute right-3 top-2.5 flex items-center',
+        'absolute top-2.5 right-3 flex items-center',
         (elementChecks.hasPassword || elementChecks.hasRightIcon) && 'right-8',
         className,
       )}

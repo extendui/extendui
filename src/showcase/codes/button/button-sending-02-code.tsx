@@ -1,5 +1,5 @@
 export function getButtonSending02Code() {
-    return `import { AnimatePresence, motion } from 'framer-motion';
+  return `import { AnimatePresence, motion } from 'framer-motion';
 import { Check, Loader, SendHorizonal, X } from 'lucide-react';
 import * as React from 'react';
 

@@ -2,9 +2,7 @@
 
 import Image from 'next/image';
 
-import {
-  Select,
-} from '@/components/extendui/select';
+import { Select } from '@/components/extendui/select';
 
 const users = [
   {
@@ -64,7 +62,7 @@ export const AvatarDescriptionSelect = () => {
                 />
                 <span className="flex flex-col items-start">
                   <span className="font-medium">{user.name}</span>
-                  <span className="mt-0.5 block text-xs text-muted-foreground">
+                  <span className="text-muted-foreground mt-0.5 block text-xs">
                     {user.twitter}
                   </span>
                 </span>
@@ -75,4 +73,4 @@ export const AvatarDescriptionSelect = () => {
       </Select>
     </div>
   );
-}
+};

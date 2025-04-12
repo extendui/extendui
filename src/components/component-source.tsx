@@ -20,7 +20,7 @@ export function ComponentSource({ children, className, ...props }: Props) {
     <div className="relative w-full max-w-full overflow-auto">
       <CopyButton
         value={content}
-        className={cn('absolute right-4 top-4 z-10')}
+        className={cn('absolute top-4 right-4 z-10')}
       />
       <CodeBlockWrapper
         expandButtonTitle="Expand"

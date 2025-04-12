@@ -5,13 +5,13 @@ export default function Footer() {
     <footer className="flex-start flex">
       <div className="px-4 sm:px-6">
         <div className="mx-auto w-full max-w-5xl py-8 text-center">
-          <p className="text-[13px] text-muted-foreground">
+          <p className="text-muted-foreground text-[13px]">
             Built with ❤️ + ☕️ by{' '}
             <Link
               href="https://github.com/kicky1"
               target="_blank"
               rel="noopener noreferrer"
-              className="underline outline-ring/70 hover:text-foreground hover:no-underline"
+              className="outline-ring/70 hover:text-foreground underline hover:no-underline"
               aria-label="Kicky's Github profile"
             >
               kicky
@@ -21,7 +21,7 @@ export default function Footer() {
               href="https://github.com/rynkovski"
               target="_blank"
               rel="noopener noreferrer"
-              className="underline outline-ring/70 hover:text-foreground hover:no-underline"
+              className="outline-ring/70 hover:text-foreground underline hover:no-underline"
               aria-label="Rynkovski's Github profile"
             >
               rynkovski

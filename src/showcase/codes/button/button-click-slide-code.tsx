@@ -1,5 +1,5 @@
 export function getButtonClickSlideCode() {
-    return `'use client'
+  return `'use client'
 
 import { motion } from "framer-motion"
 import { LockKeyhole, LockKeyholeOpen } from 'lucide-react'

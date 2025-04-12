@@ -17,20 +17,13 @@ description: A flexible command menu component for keyboard-centric navigation, 
     <TabsTrigger value="manual">Manual</TabsTrigger>
   </TabsList>
   <TabsContent value="cli">
-    ```bash 
-    npx shadcn add https://extend-ui.com/registry/command.json 
-    ```
+    ```bash npx shadcn add https://extend-ui.com/registry/command.json ```
   </TabsContent>
   <TabsContent value="manual">
     <Steps>
       <Step>
-        Install the following dependencies: 
-        ```bash 
-        npx install @radix-ui/react-dialog
-        ```
-        ```bash 
-        npx shadcn@latest add dialog
-        ```
+        Install the following dependencies: ```bash npx install
+        @radix-ui/react-dialog ``` ```bash npx shadcn@latest add dialog ```
       </Step>
       <Step>
         Copy and paste the following code into your project.
@@ -59,15 +52,14 @@ description: A flexible command menu component for keyboard-centric navigation, 
         <td>children</td>
         <td>React.ReactNode</td>
         <td>
-          Defines the nested elements or components, typically a combination of <code>CommandItem</code>, <code>CommandGroup</code>, and others.
+          Defines the nested elements or components, typically a combination of{' '}
+          <code>CommandItem</code>, <code>CommandGroup</code>, and others.
         </td>
       </tr>
       <tr>
         <td>className</td>
         <td>string</td>
-        <td>
-          Additional CSS classes to style the root Command component.
-        </td>
+        <td>Additional CSS classes to style the root Command component.</td>
       </tr>
       <tr>
         <td>ref</td>
@@ -78,7 +70,9 @@ description: A flexible command menu component for keyboard-centric navigation, 
       </tr>
       <tr>
         <td>...props</td>
-        <td className="break-all">React.ComponentPropsWithoutRef&lt;CommandPrimitive&gt;</td>
+        <td className="break-all">
+          React.ComponentPropsWithoutRef&lt;CommandPrimitive&gt;
+        </td>
         <td>
           Additional props that can be passed to the root Command component.
         </td>

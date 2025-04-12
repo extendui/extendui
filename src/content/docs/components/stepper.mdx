@@ -17,17 +17,13 @@ description: A versatile component designed to guide users through a multi-step 
     <TabsTrigger value="manual">Manual</TabsTrigger>
   </TabsList>
   <TabsContent value="cli">
-    ```bash 
-    npx shadcn add https://extend-ui.com/registry/stepper.json 
-    ```
+    ```bash npx shadcn add https://extend-ui.com/registry/stepper.json ```
   </TabsContent>
   <TabsContent value="manual">
     <Steps>
       <Step>
-          Install the following dependencies: 
-        ```bash 
-        npx install @radix-ui/react-slot 
-        ```
+        Install the following dependencies: ```bash npx install
+        @radix-ui/react-slot ```
       </Step>
       <Step>
         Copy and paste the following code into your project.
@@ -46,9 +42,7 @@ The `Stepper.Item` component represents a single step in the process.
 
 ```tsx
 <Stepper>
-  <Stepper.Item step={0}>
-    {/* Step content */}
-  </Stepper.Item>
+  <Stepper.Item step={0}>{/* Step content */}</Stepper.Item>
 </Stepper>
 ```
 
@@ -59,9 +53,7 @@ The `Stepper.Trigger` component is used to make steps interactive and clickable.
 ```tsx
 <Stepper>
   <Stepper.Item step={0}>
-    <Stepper.Trigger>
-      {/* Trigger content */}
-    </Stepper.Trigger>
+    <Stepper.Trigger>{/* Trigger content */}</Stepper.Trigger>
   </Stepper.Item>
 </Stepper>
 ```
@@ -108,20 +100,16 @@ The `Stepper.Separator` component creates a visual connector between steps.
 
 ```tsx
 <Stepper>
-  <Stepper.Item step={0}>
-    {/* Step content */}
-  </Stepper.Item>
+  <Stepper.Item step={0}>{/* Step content */}</Stepper.Item>
   <Stepper.Separator />
-  <Stepper.Item step={1}>
-    {/* Step content */}
-  </Stepper.Item>
+  <Stepper.Item step={1}>{/* Step content */}</Stepper.Item>
 </Stepper>
 ```
 
 ### Stepper component props
 
 <div className="my-6 w-full overflow-x-auto">
-  <table className="w-full border-collapse border border-gray-300 ">
+  <table className="w-full border-collapse border border-gray-300">
     <thead>
       <tr>
         <th>Name</th>
@@ -134,14 +122,16 @@ The `Stepper.Separator` component creates a visual connector between steps.
         <td>defaultValue</td>
         <td>number</td>
         <td>
-          The default active step index when the component is uncontrolled. Defaults to 0.
+          The default active step index when the component is uncontrolled.
+          Defaults to 0.
         </td>
       </tr>
       <tr>
         <td>value</td>
         <td>number</td>
         <td>
-          The controlled active step index. When provided, the component becomes controlled.
+          The controlled active step index. When provided, the component becomes
+          controlled.
         </td>
       </tr>
       <tr>
@@ -154,37 +144,30 @@ The `Stepper.Separator` component creates a visual connector between steps.
       <tr>
         <td>onValueChange</td>
         <td>(value: number) => void</td>
-        <td>
-          Callback function triggered when the active step changes.
-        </td>
+        <td>Callback function triggered when the active step changes.</td>
       </tr>
       <tr>
         <td>variant</td>
         <td>default</td>
         <td>
-          The visual style variant of the stepper. Currently only supports the default variant.
+          The visual style variant of the stepper. Currently only supports the
+          default variant.
         </td>
       </tr>
       <tr>
         <td>orientation</td>
         <td>horizontal | vertical</td>
-        <td>
-          The orientation of the stepper. Defaults to "horizontal".
-        </td>
+        <td>The orientation of the stepper. Defaults to "horizontal".</td>
       </tr>
       <tr>
         <td>className</td>
         <td>string</td>
-        <td>
-          Additional CSS classes to apply custom styling to the stepper.
-        </td>
+        <td>Additional CSS classes to apply custom styling to the stepper.</td>
       </tr>
       <tr>
         <td>...props</td>
         <td>React.HTMLAttributes&lt;HTMLDivElement&gt;</td>
-        <td>
-          Additional props that can be passed to the stepper div.
-        </td>
+        <td>Additional props that can be passed to the stepper div.</td>
       </tr>
     </tbody>
   </table>
@@ -193,7 +176,7 @@ The `Stepper.Separator` component creates a visual connector between steps.
 ### Stepper.Item component props
 
 <div className="my-6 w-full overflow-x-auto">
-  <table className="w-full border-collapse border border-gray-300 ">
+  <table className="w-full border-collapse border border-gray-300">
     <thead>
       <tr>
         <th>Name</th>
@@ -205,30 +188,25 @@ The `Stepper.Separator` component creates a visual connector between steps.
       <tr>
         <td>step</td>
         <td>number</td>
-        <td>
-          The index of the step. Required.
-        </td>
+        <td>The index of the step. Required.</td>
       </tr>
       <tr>
         <td>completed</td>
         <td>boolean</td>
-        <td>
-          Whether the step is marked as completed. Defaults to false.
-        </td>
+        <td>Whether the step is marked as completed. Defaults to false.</td>
       </tr>
       <tr>
         <td>disabled</td>
         <td>boolean</td>
         <td>
-          Whether the step is disabled and cannot be interacted with. Defaults to false.
+          Whether the step is disabled and cannot be interacted with. Defaults
+          to false.
         </td>
       </tr>
       <tr>
         <td>loading</td>
         <td>boolean</td>
-        <td>
-          Whether the step is in a loading state. Defaults to false.
-        </td>
+        <td>Whether the step is in a loading state. Defaults to false.</td>
       </tr>
       <tr>
         <td>className</td>
@@ -240,16 +218,12 @@ The `Stepper.Separator` component creates a visual connector between steps.
       <tr>
         <td>children</td>
         <td>React.ReactNode</td>
-        <td>
-          The content of the step item.
-        </td>
+        <td>The content of the step item.</td>
       </tr>
       <tr>
         <td>...props</td>
         <td>React.HTMLAttributes&lt;HTMLDivElement&gt;</td>
-        <td>
-          Additional props that can be passed to the step item div.
-        </td>
+        <td>Additional props that can be passed to the step item div.</td>
       </tr>
     </tbody>
   </table>
@@ -258,7 +232,7 @@ The `Stepper.Separator` component creates a visual connector between steps.
 ### Stepper.Indicator component props
 
 <div className="my-6 w-full overflow-x-auto">
-  <table className="w-full border-collapse border border-gray-300 ">
+  <table className="w-full border-collapse border border-gray-300">
     <thead>
       <tr>
         <th>Name</th>
@@ -278,7 +252,8 @@ The `Stepper.Separator` component creates a visual connector between steps.
         <td>asChild</td>
         <td>boolean</td>
         <td>
-          If true, the indicator will render its children as the root element. Defaults to false.
+          If true, the indicator will render its children as the root element.
+          Defaults to false.
         </td>
       </tr>
       <tr>
@@ -292,15 +267,14 @@ The `Stepper.Separator` component creates a visual connector between steps.
         <td>children</td>
         <td>React.ReactNode</td>
         <td>
-          The content of the indicator. By default, it shows the step number, a check icon for completed steps, or a loading icon.
+          The content of the indicator. By default, it shows the step number, a
+          check icon for completed steps, or a loading icon.
         </td>
       </tr>
       <tr>
         <td>...props</td>
         <td>React.HTMLAttributes&lt;HTMLSpanElement&gt;</td>
-        <td>
-          Additional props that can be passed to the indicator span.
-        </td>
+        <td>Additional props that can be passed to the indicator span.</td>
       </tr>
     </tbody>
   </table>

@@ -1,5 +1,5 @@
-export function getSelectCode() {  
-    return `'use client';
+export function getSelectCode() {
+  return `'use client';
 
 import {
   CaretSortIcon,
@@ -276,4 +276,3 @@ export {
   SelectHelperText
 };`;
 }
-  

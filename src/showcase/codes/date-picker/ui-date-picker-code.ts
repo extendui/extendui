@@ -1,5 +1,5 @@
-export function getDatePickerCode() {  
-    return `'use client';
+export function getDatePickerCode() {
+  return `'use client';
 
 import { cva, type VariantProps } from 'class-variance-authority';
 import * as React from 'react';
@@ -93,4 +93,3 @@ Calendar.displayName = 'Calendar';
 
 export { Calendar, calendarVariants };`;
 }
-  

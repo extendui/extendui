@@ -1,5 +1,5 @@
-export function getSelectAvatarDescriptionCode() {  
-    return `'use client';
+export function getSelectAvatarDescriptionCode() {
+  return `'use client';
 
 import Image from "next/image";
 
@@ -76,4 +76,4 @@ export const AvatarDescriptionSelect = () => {
     </div>
   );
 }`;
-} 
+}

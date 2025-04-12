@@ -48,7 +48,7 @@ export default function MobileSidebar({ navLinks }: Props) {
               href={link.href}
               className={
                 link.name === 'Templates'
-                  ? 'relative cursor-not-allowed text-muted-foreground'
+                  ? 'text-muted-foreground relative cursor-not-allowed'
                   : 'relative text-zinc-600 duration-200 hover:text-zinc-900 dark:text-zinc-200'
               }
               onClick={handleLinkClick}

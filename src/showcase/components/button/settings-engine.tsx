@@ -71,7 +71,7 @@ export default function ButtonSettingsEngine() {
     <div className="flex flex-col space-y-4 sm:space-y-6">
       <div className="w-full sm:w-auto">
         <Select onValueChange={handleChangeVariant} value={variant}>
-          <Select.Trigger className="w-full bg-secondary text-secondary-foreground sm:w-[180px]">
+          <Select.Trigger className="bg-secondary text-secondary-foreground w-full sm:w-[180px]">
             <Select.Value placeholder="Select variant" />
           </Select.Trigger>
           <Select.Content>
@@ -93,7 +93,7 @@ export default function ButtonSettingsEngine() {
       </div>
       <div className="w-full sm:w-auto">
         <Select onValueChange={handleChangeSize} value={size}>
-          <Select.Trigger className="w-full bg-secondary text-secondary-foreground sm:w-[180px]">
+          <Select.Trigger className="bg-secondary text-secondary-foreground w-full sm:w-[180px]">
             <Select.Value placeholder="Select size" />
           </Select.Trigger>
           <Select.Content>

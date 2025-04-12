@@ -58,7 +58,7 @@ export default function SidebarItem({ items, pathname, onClickProp }: Props) {
             >
               {item.title}
               {item.label && (
-                <span className="ml-2 rounded-md bg-accent px-1.5 py-0.5 text-base leading-none text-white no-underline group-hover:no-underline dark:text-black">
+                <span className="bg-accent ml-2 rounded-md px-1.5 py-0.5 text-base leading-none text-white no-underline group-hover:no-underline dark:text-black">
                   {item.label}
                 </span>
               )}
@@ -69,10 +69,10 @@ export default function SidebarItem({ items, pathname, onClickProp }: Props) {
                   key={subIndex}
                   href={subItem.href!}
                   className={cn(
-                    'group flex w-full items-center rounded-md border border-transparent px-4 py-1 text-base hover:bg-muted hover:text-foreground',
+                    'group hover:bg-muted hover:text-foreground flex w-full items-center rounded-md border border-transparent px-4 py-1 text-base',
                     subItem.disabled && 'cursor-not-allowed opacity-60',
                     pathname === subItem.href
-                      ? 'font-medium text-foreground'
+                      ? 'text-foreground font-medium'
                       : 'text-muted-foreground',
                   )}
                   onClick={onClickProp}
@@ -94,7 +94,7 @@ export default function SidebarItem({ items, pathname, onClickProp }: Props) {
         >
           {item.title}
           {item.label && (
-            <span className="ml-2 rounded-md bg-accent px-1.5 py-0.5 text-xs leading-none text-white no-underline group-hover:no-underline dark:text-black">
+            <span className="bg-accent ml-2 rounded-md px-1.5 py-0.5 text-xs leading-none text-white no-underline group-hover:no-underline dark:text-black">
               {item.label}
             </span>
           )}

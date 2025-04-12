@@ -24,14 +24,14 @@ type Props = {
 
 async function getDocFromParams({ params }: Props) {
   const { slug } = await params;
-  const doc = allDocs.find((doc) => doc.slugAsParams === (slug?.join('/') || ''));
+  const doc = allDocs.find(
+    (doc) => doc.slugAsParams === (slug?.join('/') || ''),
+  );
   if (!doc) return null;
   return doc;
 }
 
-export async function generateMetadata({
-  params,
-}: Props): Promise<Metadata> {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const doc = await getDocFromParams({ params });
 
   if (!doc) return {};
@@ -48,9 +48,7 @@ export async function generateMetadata({
   };
 }
 
-export async function generateStaticParams(): Promise<
-  Props['params'][]
-> {
+export async function generateStaticParams(): Promise<Props['params'][]> {
   return allDocs.map((doc) => ({
     slug: doc.slugAsParams.split('/'),
   }));
@@ -66,7 +64,7 @@ export default async function DocPage({ params }: Props) {
   return (
     <div className="relative mb-6 lg:gap-10 xl:grid xl:grid-cols-[1fr_300px]">
       <div className="mx-auto w-full min-w-0">
-        <div className="mb-4 flex space-x-1 text-sm leading-none text-muted-foreground">
+        <div className="text-muted-foreground mb-4 flex space-x-1 text-sm leading-none">
           <div className="truncate">Docs</div>
           <ChevronRightIcon className="size-3.5" />
           <div className="text-foreground">{doc.title}</div>
@@ -76,7 +74,7 @@ export default async function DocPage({ params }: Props) {
             {doc.title}
           </h1>
           {doc.description && (
-            <p className="text-base text-muted-foreground">
+            <p className="text-muted-foreground text-base">
               <Balancer>{doc.description}</Balancer>
             </p>
           )}
@@ -107,7 +105,7 @@ export default async function DocPage({ params }: Props) {
             )}
           </div>
         ) : null}
-        <div className="pb-12 pt-8">
+        <div className="pt-8 pb-12">
           <Mdx code={doc.body.code} />
         </div>
         <DocsPager doc={doc} />

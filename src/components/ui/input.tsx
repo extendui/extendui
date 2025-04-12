@@ -42,8 +42,8 @@ type InputContextType = {
     hasRightIcon: boolean;
     hasLabel: boolean;
     hasPassword: boolean;
-    hasClearButton: boolean
-  }
+    hasClearButton: boolean;
+  };
   onFocus: (e: React.FocusEvent<HTMLInputElement>) => void;
   onBlur: (e: React.FocusEvent<HTMLInputElement>) => void;
   setShowPassword: (show: boolean) => void;
@@ -65,7 +65,7 @@ const useInputContext = () => {
 
 interface InputRootProps
   extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size'>,
-  VariantProps<typeof inputVariants> {
+    VariantProps<typeof inputVariants> {
   error?: boolean;
   textError?: string;
   maxLength?: number;
@@ -106,14 +106,16 @@ const InputComponent = React.forwardRef<HTMLInputElement, InputRootProps>(
       propOnBlur?.(e);
     };
 
-
-    const elementChecks = React.useMemo(() => ({
-      hasLeftIcon: hasNestedElementOfType(children, [InputLeftIcon]),
-      hasRightIcon: hasNestedElementOfType(children, [InputRightIcon]),
-      hasLabel: hasNestedElementOfType(children, [InputLabel]),
-      hasPassword: hasNestedElementOfType(children, [InputPasswordToggle]),
-      hasClearButton: hasNestedElementOfType(children, [InputClearButton])
-    }), [children]);
+    const elementChecks = React.useMemo(
+      () => ({
+        hasLeftIcon: hasNestedElementOfType(children, [InputLeftIcon]),
+        hasRightIcon: hasNestedElementOfType(children, [InputRightIcon]),
+        hasLabel: hasNestedElementOfType(children, [InputLabel]),
+        hasPassword: hasNestedElementOfType(children, [InputPasswordToggle]),
+        hasClearButton: hasNestedElementOfType(children, [InputClearButton]),
+      }),
+      [children],
+    );
 
     const contextValue: InputContextType = {
       id: id || '',
@@ -135,18 +137,41 @@ const InputComponent = React.forwardRef<HTMLInputElement, InputRootProps>(
     const hasValue = currentValue.length > 0;
 
     const getCounterPosition = React.useCallback(() => {
-      if (elementChecks.hasClearButton && hasValue && elementChecks.hasPassword) return 'right-[3.2rem]';
-      if (elementChecks.hasPassword || elementChecks.hasRightIcon) return 'right-8';
+      if (elementChecks.hasClearButton && hasValue && elementChecks.hasPassword)
+        return 'right-[3.2rem]';
+      if (elementChecks.hasPassword || elementChecks.hasRightIcon)
+        return 'right-8';
       if (elementChecks.hasClearButton && hasValue) return 'right-8';
       return 'right-3';
-    }, [elementChecks.hasClearButton, hasValue, elementChecks.hasPassword, elementChecks.hasRightIcon]);
+    }, [
+      elementChecks.hasClearButton,
+      hasValue,
+      elementChecks.hasPassword,
+      elementChecks.hasRightIcon,
+    ]);
 
     const getLabelPadding = React.useCallback(() => {
-      if (elementChecks.hasClearButton && hasValue && elementChecks.hasPassword && maxLength) return 'pe-24';
-      if ((elementChecks.hasPassword || elementChecks.hasRightIcon) && maxLength) return 'pe-20';
+      if (
+        elementChecks.hasClearButton &&
+        hasValue &&
+        elementChecks.hasPassword &&
+        maxLength
+      )
+        return 'pe-24';
+      if (
+        (elementChecks.hasPassword || elementChecks.hasRightIcon) &&
+        maxLength
+      )
+        return 'pe-20';
       if (elementChecks.hasClearButton && hasValue && maxLength) return 'pe-20';
       return 'pe-8';
-    }, [elementChecks.hasClearButton, hasValue, elementChecks.hasPassword, elementChecks.hasRightIcon, maxLength]);
+    }, [
+      elementChecks.hasClearButton,
+      hasValue,
+      elementChecks.hasPassword,
+      elementChecks.hasRightIcon,
+      maxLength,
+    ]);
 
     const inputClassName = cn(
       inputVariants({ variant }),
@@ -155,8 +180,8 @@ const InputComponent = React.forwardRef<HTMLInputElement, InputRootProps>(
       value && variant === 'flushedfilled' && 'bg-secondary',
       error && 'border-red-500',
       error &&
-      !['flushedfilled', 'flushed'].includes(variant as string) &&
-      'focus:outline-red-500',
+        !['flushedfilled', 'flushed'].includes(variant as string) &&
+        'focus:outline-red-500',
       disabled && 'opacity-50 cursor-not-allowed',
       getLabelPadding(),
       className,
@@ -178,10 +203,12 @@ const InputComponent = React.forwardRef<HTMLInputElement, InputRootProps>(
             {...inputProps}
           />
           {maxLength && (
-            <div className={cn(
-              "absolute top-2.5 text-xs text-muted-foreground",
-              getCounterPosition()
-            )}>
+            <div
+              className={cn(
+                'text-muted-foreground absolute top-2.5 text-xs',
+                getCounterPosition(),
+              )}
+            >
               {currentValue.length}/{maxLength}
             </div>
           )}
@@ -194,7 +221,6 @@ const InputComponent = React.forwardRef<HTMLInputElement, InputRootProps>(
   },
 );
 InputComponent.displayName = 'InputComponent';
-
 
 type InputType = typeof InputComponent & {
   Group: typeof InputGroup;
@@ -243,7 +269,7 @@ const InputLabel = React.forwardRef<
       (variant === 'flushed' ||
         variant === 'filled' ||
         variant === 'flushedfilled') &&
-      '-translate-y-[calc(95%)]',
+        '-translate-y-[calc(95%)]',
     ],
     error && 'text-red-500',
     disabled && 'opacity-50 cursor-not-allowed',
@@ -270,7 +296,7 @@ const InputLeftIcon = React.forwardRef<
     <div
       ref={ref}
       className={cn(
-        'absolute left-3 top-2.5 flex h-4 w-4 items-center',
+        'absolute top-2.5 left-3 flex h-4 w-4 items-center',
         disabled && 'opacity-50',
         error && 'text-red-500',
         className,
@@ -294,7 +320,7 @@ const InputRightIcon = React.forwardRef<
     <div
       ref={ref}
       className={cn(
-        'absolute right-3 top-2.5 flex h-4 w-4 items-center',
+        'absolute top-2.5 right-3 flex h-4 w-4 items-center',
         disabled && 'opacity-50',
         error && 'text-red-500',
         elementChecks.hasPassword && 'hidden',
@@ -319,7 +345,7 @@ const InputPasswordToggle = React.forwardRef<
     <button
       ref={ref}
       type="button"
-      className={cn('absolute right-3 top-2.5 flex items-center', className)}
+      className={cn('absolute top-2.5 right-3 flex items-center', className)}
       onClick={() => setShowPassword(!showPassword)}
       {...rest}
     >
@@ -347,7 +373,7 @@ const InputClearButton = React.forwardRef<
       ref={ref}
       type="button"
       className={cn(
-        'absolute right-3 top-2.5 flex items-center',
+        'absolute top-2.5 right-3 flex items-center',
         (elementChecks.hasPassword || elementChecks.hasRightIcon) && 'right-8',
         className,
       )}

@@ -2,9 +2,7 @@
 
 import React from 'react';
 
-import {
-  Select
-} from '@/components/extendui/select';
+import { Select } from '@/components/extendui/select';
 import { Switch } from '@/components/ui/switch';
 import {
   setDisabled,
@@ -39,7 +37,7 @@ export default function InputSettingsEngine() {
     <div className="flex flex-col space-y-4 sm:space-y-6">
       <div className="w-full sm:w-auto">
         <Select onValueChange={handleChangeVariant} value={variant}>
-          <Select.Trigger className="w-full bg-secondary text-secondary-foreground sm:w-[180px]">
+          <Select.Trigger className="bg-secondary text-secondary-foreground w-full sm:w-[180px]">
             <Select.Value placeholder="Select variant" />
           </Select.Trigger>
           <Select.Content>

@@ -14,7 +14,7 @@ export default function ContactDialog() {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button className='w-full bg-accent hover:bg-accent/80'>
+        <Button className="bg-accent hover:bg-accent/80 w-full">
           Contact Us
         </Button>
       </DialogTrigger>

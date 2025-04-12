@@ -1,5 +1,5 @@
 export function getAlertDialog01() {
-    return `import { Trash2 } from "lucide-react"
+  return `import { Trash2 } from "lucide-react"
 
 import {
     AlertDialog,

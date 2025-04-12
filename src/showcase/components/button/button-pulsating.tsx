@@ -14,7 +14,7 @@ type PulsatingShadowButtonProps = ButtonProps & {
     damping: number;
   };
   filter?: string;
-}
+};
 
 const transitionDefault = {
   duration: 2.5,
@@ -75,7 +75,7 @@ export const PulsatingShadowButton = React.forwardRef<
           variant={'default'}
           ref={ref}
           className={cn(
-            'relative z-10 bg-accent-foreground shadow-none hover:bg-accent-foreground/90',
+            'bg-accent-foreground hover:bg-accent-foreground/90 relative z-10 shadow-none',
             className,
           )}
           {...props}

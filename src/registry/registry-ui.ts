@@ -28,7 +28,10 @@ export const ui: Registry = [
     name: 'banner-01',
     type: 'registry:ui',
     dependencies: ['@radix-ui/react-slot'],
-    files: ['components/extendui/demo/banner-01.tsx','components/extendui/banner.tsx'],
+    files: [
+      'components/extendui/demo/banner-01.tsx',
+      'components/extendui/banner.tsx',
+    ],
     tailwind: {
       config: {
         theme: {
@@ -64,8 +67,14 @@ export const ui: Registry = [
           extend: {
             keyframes: {
               glow: {
-                '0%, 100%': { boxShadow: '0 0 5px rgba(52, 211, 153, 0.5), 0 0 10px rgba(52, 211, 153, 0.3)' },
-                '50%': { boxShadow: '0 0 10px rgba(52, 211, 153, 0.8), 0 0 20px rgba(52, 211, 153, 0.5)' },
+                '0%, 100%': {
+                  boxShadow:
+                    '0 0 5px rgba(52, 211, 153, 0.5), 0 0 10px rgba(52, 211, 153, 0.3)',
+                },
+                '50%': {
+                  boxShadow:
+                    '0 0 10px rgba(52, 211, 153, 0.8), 0 0 20px rgba(52, 211, 153, 0.5)',
+                },
               },
               shimmer: {
                 '0%': { backgroundPosition: '200% 0' },
@@ -92,15 +101,25 @@ export const ui: Registry = [
     name: 'button-01',
     type: 'registry:component',
     dependencies: ['@radix-ui/react-slot', '@radix-ui/react-tooltip'],
-    files: ['components/extendui/demo/button-01.tsx', 'components/extendui/button.tsx', 'components/ui/tooltip.tsx'],
+    files: [
+      'components/extendui/demo/button-01.tsx',
+      'components/extendui/button.tsx',
+      'components/ui/tooltip.tsx',
+    ],
     tailwind: {
       config: {
         theme: {
           extend: {
             keyframes: {
               glow: {
-                '0%, 100%': { boxShadow: '0 0 5px rgba(52, 211, 153, 0.5), 0 0 10px rgba(52, 211, 153, 0.3)' },
-                '50%': { boxShadow: '0 0 10px rgba(52, 211, 153, 0.8), 0 0 20px rgba(52, 211, 153, 0.5)' },
+                '0%, 100%': {
+                  boxShadow:
+                    '0 0 5px rgba(52, 211, 153, 0.5), 0 0 10px rgba(52, 211, 153, 0.3)',
+                },
+                '50%': {
+                  boxShadow:
+                    '0 0 10px rgba(52, 211, 153, 0.8), 0 0 20px rgba(52, 211, 153, 0.5)',
+                },
               },
               shimmer: {
                 '0%': { backgroundPosition: '200% 0' },
@@ -127,49 +146,69 @@ export const ui: Registry = [
     name: 'input',
     type: 'registry:ui',
     dependencies: [],
-    files: ['components/extendui/input.tsx', 'helpers/hasNestedElementOfType.ts']
+    files: [
+      'components/extendui/input.tsx',
+      'helpers/hasNestedElementOfType.ts',
+    ],
   },
   {
     name: 'input-01',
     type: 'registry:ui',
     dependencies: [],
-    files: ['components/extendui/demo/input-01.tsx','components/extendui/input.tsx', 'helpers/hasNestedElementOfType.ts']
+    files: [
+      'components/extendui/demo/input-01.tsx',
+      'components/extendui/input.tsx',
+      'helpers/hasNestedElementOfType.ts',
+    ],
   },
   {
     name: 'select',
     type: 'registry:ui',
     dependencies: ['@radix-ui/react-select', '@radix-ui/react-icons'],
-    files: ['components/extendui/select.tsx']
+    files: ['components/extendui/select.tsx'],
   },
   {
     name: 'select-01',
     type: 'registry:ui',
     dependencies: ['@radix-ui/react-select', '@radix-ui/react-icons'],
-    files: ['components/extendui/demo/select-01.tsx','components/extendui/select.tsx']
+    files: [
+      'components/extendui/demo/select-01.tsx',
+      'components/extendui/select.tsx',
+    ],
   },
   {
     name: 'command',
     type: 'registry:ui',
     dependencies: ['@radix-ui/react-dialog', '@radix-ui/react-icons', 'cmdk'],
-    files: ['components/extendui/command.tsx', 'components/ui/dialog.tsx']
+    files: ['components/extendui/command.tsx', 'components/ui/dialog.tsx'],
   },
   {
     name: 'command-01',
     type: 'registry:ui',
     dependencies: ['@radix-ui/react-dialog', '@radix-ui/react-icons', 'cmdk'],
-    files: ['components/extendui/demo/command-01.tsx', 'components/extendui/command.tsx', 'components/ui/dialog.tsx']
+    files: [
+      'components/extendui/demo/command-01.tsx',
+      'components/extendui/command.tsx',
+      'components/ui/dialog.tsx',
+    ],
   },
   {
     name: 'calendar',
     type: 'registry:ui',
     dependencies: ['react-day-picker'],
-    files: ['components/extendui/calendar.tsx', 'components/extendui/button.tsx' ]
+    files: [
+      'components/extendui/calendar.tsx',
+      'components/extendui/button.tsx',
+    ],
   },
   {
     name: 'date-picker-01',
     type: 'registry:ui',
     dependencies: ['react-day-picker'],
-    files: ['components/extendui/demo/date-picker-01.tsx', 'components/extendui/calendar.tsx', 'components/extendui/button.tsx' ]
+    files: [
+      'components/extendui/demo/date-picker-01.tsx',
+      'components/extendui/calendar.tsx',
+      'components/extendui/button.tsx',
+    ],
   },
-
 ];

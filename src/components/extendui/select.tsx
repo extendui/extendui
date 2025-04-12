@@ -54,7 +54,9 @@ type SelectContextType = {
   disabled?: boolean;
 };
 
-const SelectContext = React.createContext<SelectContextType | undefined>(undefined);
+const SelectContext = React.createContext<SelectContextType | undefined>(
+  undefined,
+);
 
 const useSelectContext = () => {
   const context = React.useContext(SelectContext);
@@ -66,8 +68,9 @@ const useSelectContext = () => {
   return context;
 };
 
-interface SelectProps extends React.ComponentProps<typeof SelectPrimitive.Root>,
-  VariantProps<typeof selectVariants> {
+interface SelectProps
+  extends React.ComponentProps<typeof SelectPrimitive.Root>,
+    VariantProps<typeof selectVariants> {
   error?: boolean;
   children: React.ReactNode;
 }
@@ -101,47 +104,70 @@ const SelectTrigger = React.forwardRef<
     icon?: React.ReactNode;
     leftText?: string;
   }
->(({ className, children, error: triggerError, variant: triggerVariant, openIcon = <CaretSortIcon />, icon, leftText, ...props }, ref) => {
-  const { variant: contextVariant, error: contextError, disabled } = useSelectContext();
-  const effectiveError = triggerError !== undefined ? triggerError : contextError;
-  const effectiveVariant = triggerVariant !== undefined ? triggerVariant : contextVariant;
+>(
+  (
+    {
+      className,
+      children,
+      error: triggerError,
+      variant: triggerVariant,
+      openIcon = <CaretSortIcon />,
+      icon,
+      leftText,
+      ...props
+    },
+    ref,
+  ) => {
+    const {
+      variant: contextVariant,
+      error: contextError,
+      disabled,
+    } = useSelectContext();
+    const effectiveError =
+      triggerError !== undefined ? triggerError : contextError;
+    const effectiveVariant =
+      triggerVariant !== undefined ? triggerVariant : contextVariant;
 
-  return (
-    <SelectPrimitive.Trigger
-      ref={ref}
-      className={cn(
-        selectVariants({ variant: effectiveVariant }), // Use effectiveVariant here
-        className,
-        effectiveError === true && [
-          'border-red-500 text-red-500',
-          !['flushedfilled', 'flushed'].includes(effectiveVariant as string) && 'focus:outline-red-500'
-        ],
-        disabled && 'cursor-not-allowed opacity-50',
-        icon && 'relative ps-9',
-      )}
-      {...props}
-    >
-      {icon && (
-        <div className={cn(
-          "pointer-events-none absolute inset-y-0 start-0 flex items-center justify-center ps-3 text-primary",
-          effectiveError === true && 'text-red-500',
-        )}>
-          {icon}
-        </div>
-      )}
-      {leftText ? (
-        <span className={cn(effectiveError === true && 'text-red-500')}>
-          {`${leftText} `}{children}
-        </span>
-      ) : (
-        children
-      )}
-      <SelectPrimitive.Icon asChild>
-        {openIcon}
-      </SelectPrimitive.Icon>
-    </SelectPrimitive.Trigger>
-  );
-});
+    return (
+      <SelectPrimitive.Trigger
+        ref={ref}
+        className={cn(
+          selectVariants({ variant: effectiveVariant }), // Use effectiveVariant here
+          className,
+          effectiveError === true && [
+            'border-red-500 text-red-500',
+            !['flushedfilled', 'flushed'].includes(
+              effectiveVariant as string,
+            ) && 'focus:outline-red-500',
+          ],
+          disabled && 'cursor-not-allowed opacity-50',
+          icon && 'relative ps-9',
+        )}
+        {...props}
+      >
+        {icon && (
+          <div
+            className={cn(
+              'text-primary pointer-events-none absolute inset-y-0 start-0 flex items-center justify-center ps-3',
+              effectiveError === true && 'text-red-500',
+            )}
+          >
+            {icon}
+          </div>
+        )}
+        {leftText ? (
+          <span className={cn(effectiveError === true && 'text-red-500')}>
+            {`${leftText} `}
+            {children}
+          </span>
+        ) : (
+          children
+        )}
+        <SelectPrimitive.Icon asChild>{openIcon}</SelectPrimitive.Icon>
+      </SelectPrimitive.Trigger>
+    );
+  },
+);
 SelectTrigger.displayName = 'SelectTrigger';
 
 const SelectScrollUpButton = React.forwardRef<
@@ -150,7 +176,10 @@ const SelectScrollUpButton = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <SelectPrimitive.ScrollUpButton
     ref={ref}
-    className={cn('flex cursor-default items-center justify-center py-1', className)}
+    className={cn(
+      'flex cursor-default items-center justify-center py-1',
+      className,
+    )}
     {...props}
   >
     <ChevronUpIcon />
@@ -164,7 +193,10 @@ const SelectScrollDownButton = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <SelectPrimitive.ScrollDownButton
     ref={ref}
-    className={cn('flex cursor-default items-center justify-center py-1', className)}
+    className={cn(
+      'flex cursor-default items-center justify-center py-1',
+      className,
+    )}
     {...props}
   >
     <ChevronDownIcon />
@@ -177,38 +209,49 @@ const SelectContent = React.forwardRef<
   React.ComponentPropsWithoutRef<typeof SelectPrimitive.Content> & {
     variant?: VariantProps<typeof selectContentVariants>['variant'];
   }
->(({ className, children, position = 'popper', variant: contentVariant, ...props }, ref) => {
-  const { variant: rootVariant } = useSelectContext();
-  const effectiveVariant = contentVariant || rootVariant;
+>(
+  (
+    {
+      className,
+      children,
+      position = 'popper',
+      variant: contentVariant,
+      ...props
+    },
+    ref,
+  ) => {
+    const { variant: rootVariant } = useSelectContext();
+    const effectiveVariant = contentVariant || rootVariant;
 
-  return (
-    <SelectPrimitive.Portal>
-      <SelectPrimitive.Content
-        ref={ref}
-        className={cn(
-          selectContentVariants({ variant: effectiveVariant }),
-          position === 'popper' &&
-          'data-[side=bottom]:translate-y-1 data-[side=left]:-translate-x-1 data-[side=right]:translate-x-1 data-[side=top]:-translate-y-1',
-          className,
-        )}
-        position={position}
-        {...props}
-      >
-        <SelectScrollUpButton />
-        <SelectPrimitive.Viewport
+    return (
+      <SelectPrimitive.Portal>
+        <SelectPrimitive.Content
+          ref={ref}
           className={cn(
-            'p-1',
+            selectContentVariants({ variant: effectiveVariant }),
             position === 'popper' &&
-            'h-[var(--radix-select-trigger-height)] w-full min-w-[var(--radix-select-trigger-width)]',
+              'data-[side=bottom]:translate-y-1 data-[side=left]:-translate-x-1 data-[side=right]:translate-x-1 data-[side=top]:-translate-y-1',
+            className,
           )}
+          position={position}
+          {...props}
         >
-          {children}
-        </SelectPrimitive.Viewport>
-        <SelectScrollDownButton />
-      </SelectPrimitive.Content>
-    </SelectPrimitive.Portal>
-  );
-});
+          <SelectScrollUpButton />
+          <SelectPrimitive.Viewport
+            className={cn(
+              'p-1',
+              position === 'popper' &&
+                'h-[var(--radix-select-trigger-height)] w-full min-w-[var(--radix-select-trigger-width)]',
+            )}
+          >
+            {children}
+          </SelectPrimitive.Viewport>
+          <SelectScrollDownButton />
+        </SelectPrimitive.Content>
+      </SelectPrimitive.Portal>
+    );
+  },
+);
 SelectContent.displayName = 'SelectContent';
 
 const SelectLabel = React.forwardRef<
@@ -230,7 +273,7 @@ const SelectItem = React.forwardRef<
   <SelectPrimitive.Item
     ref={ref}
     className={cn(
-      'relative flex w-full cursor-default select-none items-center rounded-sm py-1.5 pl-2 pr-8 text-sm outline-hidden focus:bg-secondary focus:text-secondary-foreground data-disabled:pointer-events-none data-disabled:opacity-50',
+      'focus:bg-secondary focus:text-secondary-foreground relative flex w-full cursor-default items-center rounded-sm py-1.5 pr-8 pl-2 text-sm outline-hidden select-none data-disabled:pointer-events-none data-disabled:opacity-50',
       className,
     )}
     {...props}
@@ -251,7 +294,7 @@ const SelectSeparator = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <SelectPrimitive.Separator
     ref={ref}
-    className={cn('-mx-1 my-1 h-px bg-muted', className)}
+    className={cn('bg-muted -mx-1 my-1 h-px', className)}
     {...props}
   />
 ));
@@ -270,9 +313,9 @@ const SelectHelperText = React.forwardRef<
     <p
       ref={ref}
       className={cn(
-        'mt-2 text-xs text-muted-foreground',
+        'text-muted-foreground mt-2 text-xs',
         effectiveError === true && 'text-red-500',
-        className
+        className,
       )}
       {...props}
     />

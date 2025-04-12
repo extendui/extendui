@@ -1,5 +1,5 @@
 export function getSignIn01Code() {
-    return `'use client'
+  return `'use client'
 
 import { zodResolver } from '@hookform/resolvers/zod'
 import Link from 'next/link'
@@ -115,4 +115,3 @@ export default function SignIn01() {
   )
 }`;
 }
-  

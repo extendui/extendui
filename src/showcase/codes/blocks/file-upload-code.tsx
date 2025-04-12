@@ -1,4 +1,3 @@
-
 export function getFileUploadCode() {
   return `'use client'
 
@@ -337,5 +336,5 @@ export default function FileUpload({
       {renderUploadedFiles()}
     </div>
   )
-}`
+}`;
 }

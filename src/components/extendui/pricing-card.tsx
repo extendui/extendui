@@ -55,15 +55,17 @@ export default function PricingCard({ plan }: Props) {
           animate="visible"
           transition={{ duration: 1 }}
         >
-          <div className="rounded-l-3xl rounded-r-xl bg-accent px-4 py-1.5 pb-12 pl-6 text-sm font-medium text-white">
+          <div className="bg-accent rounded-l-3xl rounded-r-xl px-4 py-1.5 pb-12 pl-6 text-sm font-medium text-white">
             Most Popular
           </div>
         </motion.div>
       )}
       <motion.div
         className={cn(
-          "flex flex-col grow z-10 w-full rounded-3xl p-6 ",
-          plan.featured ? "bg-linear-to-b from-gray-800 to-gray-900 text-white" : "bg-background"
+          'z-10 flex w-full grow flex-col rounded-3xl p-6',
+          plan.featured
+            ? 'bg-linear-to-b from-gray-800 to-gray-900 text-white'
+            : 'bg-background',
         )}
         variants={variants.card}
         initial="hidden"
@@ -86,7 +88,7 @@ export default function PricingCard({ plan }: Props) {
         <div className="mb-6">
           <ContactDialog />
         </div>
-        <ul className="space-y-3 grow">
+        <ul className="grow space-y-3">
           {plan.features.map((feature, index) => (
             <motion.li
               key={index}
@@ -96,7 +98,7 @@ export default function PricingCard({ plan }: Props) {
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
               <motion.span
-                className="flex h-5 w-5 shrink-0 items-center justify-center mt-0.5"
+                className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center"
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
                 transition={{
@@ -105,7 +107,7 @@ export default function PricingCard({ plan }: Props) {
                   delay: index * 0.1 + 0.2,
                 }}
               >
-                <Check className="h-4 w-4 text-accent" />
+                <Check className="text-accent h-4 w-4" />
               </motion.span>
               <p className="text-sm">{feature}</p>
             </motion.li>

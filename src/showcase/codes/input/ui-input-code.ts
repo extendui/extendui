@@ -1,5 +1,5 @@
-export function getInputCode() {  
-    return `'use client';
+export function getInputCode() {
+  return `'use client';
 
 import { cva, type VariantProps } from 'class-variance-authority';
 import { Eye, EyeOff, X } from 'lucide-react';
@@ -374,4 +374,3 @@ Input.ClearButton = InputClearButton;
 
 export { Input };`;
 }
-  

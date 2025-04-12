@@ -34,8 +34,6 @@ function Calendar({
   onMonthChange,
   ...props
 }: CalendarProps) {
-
-
   return (
     <DayPicker
       month={month}

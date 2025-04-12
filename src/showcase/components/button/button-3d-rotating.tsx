@@ -12,7 +12,7 @@ type Rotating3DButtonProps = ButtonProps & {
     damping: number;
   };
   rotationRange?: number;
-}
+};
 
 const ROTATION_RANGE = 20;
 
@@ -25,70 +25,75 @@ const springTransitionDefault = {
 export const Rotating3DButton = React.forwardRef<
   HTMLButtonElement,
   Rotating3DButtonProps
->(({
-  children,
-  springTransition = springTransitionDefault,
-  rotationRange = ROTATION_RANGE,
-  ...props
-}, ref) => {
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
-
-  const rotateX = useTransform(y, [-50, 50], [rotationRange, -rotationRange]);
-  const rotateY = useTransform(x, [-50, 50], [-rotationRange, rotationRange]);
-
-  const handleMove = (
-    clientX: number,
-    clientY: number,
-    currentTarget: HTMLElement,
+>(
+  (
+    {
+      children,
+      springTransition = springTransitionDefault,
+      rotationRange = ROTATION_RANGE,
+      ...props
+    },
+    ref,
   ) => {
-    const rect = currentTarget.getBoundingClientRect();
-    const centerX = rect.left + rect.width / 2;
-    const centerY = rect.top + rect.height / 2;
-    x.set(clientX - centerX);
-    y.set(clientY - centerY);
-  };
+    const x = useMotionValue(0);
+    const y = useMotionValue(0);
 
-  const handleMouseMove = (event: React.MouseEvent<HTMLDivElement>) => {
-    handleMove(event.clientX, event.clientY, event.currentTarget);
-  };
+    const rotateX = useTransform(y, [-50, 50], [rotationRange, -rotationRange]);
+    const rotateY = useTransform(x, [-50, 50], [-rotationRange, rotationRange]);
 
-  const handleTouchMove = (event: React.TouchEvent<HTMLDivElement>) => {
-    event.preventDefault();
-    const touch = event.touches[0];
-    handleMove(touch.clientX, touch.clientY, event.currentTarget);
-  };
+    const handleMove = (
+      clientX: number,
+      clientY: number,
+      currentTarget: HTMLElement,
+    ) => {
+      const rect = currentTarget.getBoundingClientRect();
+      const centerX = rect.left + rect.width / 2;
+      const centerY = rect.top + rect.height / 2;
+      x.set(clientX - centerX);
+      y.set(clientY - centerY);
+    };
 
-  const handleLeave = () => {
-    x.set(0);
-    y.set(0);
-  };
+    const handleMouseMove = (event: React.MouseEvent<HTMLDivElement>) => {
+      handleMove(event.clientX, event.clientY, event.currentTarget);
+    };
 
-  return (
-    <motion.div
-      style={{
-        perspective: 400,
-        display: 'inline-block',
-      }}
-      className='touch-none'
-      onMouseMove={handleMouseMove}
-      onTouchMove={handleTouchMove}
-      onTouchEnd={handleLeave}
-      onMouseLeave={handleLeave}
-    >
+    const handleTouchMove = (event: React.TouchEvent<HTMLDivElement>) => {
+      event.preventDefault();
+      const touch = event.touches[0];
+      handleMove(touch.clientX, touch.clientY, event.currentTarget);
+    };
+
+    const handleLeave = () => {
+      x.set(0);
+      y.set(0);
+    };
+
+    return (
       <motion.div
         style={{
-          rotateX,
-          rotateY,
+          perspective: 400,
+          display: 'inline-block',
         }}
-        transition={springTransition}
+        className="touch-none"
+        onMouseMove={handleMouseMove}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleLeave}
+        onMouseLeave={handleLeave}
       >
-        <Button ref={ref} {...props}>
-          {children}
-        </Button>
+        <motion.div
+          style={{
+            rotateX,
+            rotateY,
+          }}
+          transition={springTransition}
+        >
+          <Button ref={ref} {...props}>
+            {children}
+          </Button>
+        </motion.div>
       </motion.div>
-    </motion.div>
-  );
-});
+    );
+  },
+);
 
 Rotating3DButton.displayName = 'Rotating3DButton';

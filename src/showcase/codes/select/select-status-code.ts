@@ -1,5 +1,5 @@
-export function getSelectStatusCode() {  
-    return `'use client';
+export function getSelectStatusCode() {
+  return `'use client';
 
 import { Dot } from "lucide-react";
 
@@ -46,4 +46,3 @@ export const StatusSelect = () => {
   );
 }`;
 }
-  

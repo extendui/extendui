@@ -26,7 +26,7 @@ const componentShowcases = [
     href: '/docs/components/banner',
     title: 'Banner',
     description: '1+ variants',
-    component: <BannerPlaceholder />
+    component: <BannerPlaceholder />,
   },
   {
     href: '/docs/components/button',
@@ -50,13 +50,13 @@ const componentShowcases = [
     href: '/docs/components/command',
     title: 'Command',
     description: '3+ variants',
-    component: <CommandPlaceholder />
+    component: <CommandPlaceholder />,
   },
   {
     href: '/docs/components/date-picker',
     title: 'Date picker',
     description: '5+ variants',
-    component: <DatePickerPlaceholder />
+    component: <DatePickerPlaceholder />,
   },
 ];
 
@@ -65,19 +65,19 @@ const blockShowcases = [
     href: '/docs/blocks/cards/pricing-card',
     title: 'Cards',
     description: '4 variants',
-    component: <CardsPlaceholder />
+    component: <CardsPlaceholder />,
   },
   {
     href: '/docs/blocks/file-upload',
     title: 'File Upload',
     description: '1 variant',
-    component: <FileUploadPlaceholder />
+    component: <FileUploadPlaceholder />,
   },
   {
     href: '/docs/blocks/forms/sign-in',
     title: 'Forms',
     description: '2 variants',
-    component: <FormsPlaceholder />
+    component: <FormsPlaceholder />,
   },
 ];
 
@@ -128,7 +128,7 @@ export default function ShowcaseSection() {
         </Carousel>
       </FadeUp>
       <FadeUp duration={0.8} delay={0.1}>
-        <h2 className="mb-8 mt-32 text-center text-3xl font-bold">Blocks</h2>
+        <h2 className="mt-32 mb-8 text-center text-3xl font-bold">Blocks</h2>
         <Carousel
           opts={{
             align: 'start',

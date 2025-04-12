@@ -1,17 +1,15 @@
 'use client';
 
-import { Dot } from "lucide-react";
+import { Dot } from 'lucide-react';
 
-import {
-  Select
-} from "@/components/extendui/select";
+import { Select } from '@/components/extendui/select';
 
 const statuses = [
-  { value: "completed", label: "Completed", color: "text-emerald-600" },
-  { value: "in_progress", label: "In Progress", color: "text-blue-600" },
-  { value: "pending", label: "Pending", color: "text-yellow-500" },
-  { value: "cancelled", label: "Cancelled", color: "text-gray-500" },
-  { value: "failed", label: "Failed", color: "text-red-600" },
+  { value: 'completed', label: 'Completed', color: 'text-emerald-600' },
+  { value: 'in_progress', label: 'In Progress', color: 'text-blue-600' },
+  { value: 'pending', label: 'Pending', color: 'text-yellow-500' },
+  { value: 'cancelled', label: 'Cancelled', color: 'text-gray-500' },
+  { value: 'failed', label: 'Failed', color: 'text-red-600' },
 ];
 
 export const StatusSelect = () => {
@@ -39,4 +37,4 @@ export const StatusSelect = () => {
       </Select>
     </div>
   );
-}
+};

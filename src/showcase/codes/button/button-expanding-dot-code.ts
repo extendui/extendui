@@ -1,5 +1,5 @@
 export function getButtonExpandingDotCode() {
-    return `'use client';
+  return `'use client';
 
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
@@ -58,5 +58,5 @@ export const ExpandingDotButton = React.forwardRef<
     </motion.button>
   );
 });
-ExpandingDotButton.displayName = 'ExpandingDotButton';`
+ExpandingDotButton.displayName = 'ExpandingDotButton';`;
 }

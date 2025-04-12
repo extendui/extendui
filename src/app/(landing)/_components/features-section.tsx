@@ -35,9 +35,9 @@ export default function FeaturesSection() {
           <FadeUp key={feature.title} delay={0.2 + index * 0.2} duration={0.8}>
             <Card className="border-none shadow-none">
               <CardContent className="flex flex-col items-center space-y-2 p-6">
-                <feature.icon className="h-12 w-12 text-accent-foreground" />
+                <feature.icon className="text-accent-foreground h-12 w-12" />
                 <h3 className="text-xl font-bold">{feature.title}</h3>
-                <p className="text-center text-muted-foreground">
+                <p className="text-muted-foreground text-center">
                   {feature.description}
                 </p>
               </CardContent>

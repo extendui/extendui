@@ -9,7 +9,7 @@ type ScalingButtonProps = ButtonProps & {
     stiffness: number;
     damping: number;
   };
-}
+};
 
 const springTransitionDefault = {
   type: 'spring',
@@ -20,11 +20,7 @@ const springTransitionDefault = {
 export const ScalingButton = React.forwardRef<
   HTMLButtonElement,
   ScalingButtonProps
->(({
-  children,
-  springTransition = springTransitionDefault,
-  ...props
-}, ref) => {
+>(({ children, springTransition = springTransitionDefault, ...props }, ref) => {
   return (
     <motion.div
       whileHover={{ scale: 1.1 }}

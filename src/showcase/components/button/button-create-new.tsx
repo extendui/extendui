@@ -112,7 +112,7 @@ export default function CreateNewButton() {
               <Button
                 variant="ghost"
                 size="icon"
-                className="absolute right-2 top-2 text-gray-400 hover:text-gray-600"
+                className="absolute top-2 right-2 text-gray-400 hover:text-gray-600"
                 onClick={() => setIsOpen(false)}
                 aria-label="Close menu"
               >

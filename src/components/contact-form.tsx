@@ -112,7 +112,7 @@ export default function ContactForm() {
             </div>
           )}
         </Button>
-        <p className="mt-4 text-xs text-muted-foreground">
+        <p className="text-muted-foreground mt-4 text-xs">
           By submitting this form, I agree to the{' '}
           <Popover>
             <PopoverTrigger> privacy&nbsp;policy.</PopoverTrigger>

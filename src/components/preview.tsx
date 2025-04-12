@@ -31,7 +31,7 @@ export default function Preview({
   return (
     <div className="mx-auto">
       <Tabs defaultValue="preview" className="w-full">
-        <TabsList className={cn('flex items-center justify-end bg-inherit ')}>
+        <TabsList className={cn('flex items-center justify-end bg-inherit')}>
           <div className="flex items-center space-x-2">
             {v0url && <OpenInV0Button url={v0url} />}
             <TabsTrigger
@@ -68,7 +68,7 @@ export default function Preview({
             {animated && (
               <Button
                 onClick={() => setKey((prev) => prev + 1)}
-                className="absolute right-4 top-4 z-10 flex size-6 items-center"
+                className="absolute top-4 right-4 z-10 flex size-6 items-center"
                 variant="ghost"
                 size={'icon'}
               >
@@ -77,7 +77,7 @@ export default function Preview({
             )}
             <Suspense
               fallback={
-                <div className="col-span-1 flex items-center text-sm text-muted-foreground lg:col-span-2">
+                <div className="text-muted-foreground col-span-1 flex items-center text-sm lg:col-span-2">
                   <Loader2 className="mr-2 size-4 animate-spin" />
                   Loading...
                 </div>

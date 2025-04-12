@@ -47,5 +47,10 @@ export const useEngineSettingsCommandStore = create(
   })),
 );
 
-export const { setDisabled, setPlaceholder, setLabelText, setShowIcon, setNotFoundText } =
-  useEngineSettingsCommandStore.getState();
+export const {
+  setDisabled,
+  setPlaceholder,
+  setLabelText,
+  setShowIcon,
+  setNotFoundText,
+} = useEngineSettingsCommandStore.getState();

@@ -1,5 +1,5 @@
-export function getCommandAvatarDescriptionCode() {  
-    return `'use client';
+export function getCommandAvatarDescriptionCode() {
+  return `'use client';
 
 import { Check, ChevronDown } from "lucide-react";
 import Image from "next/image";
@@ -176,4 +176,3 @@ export const CommandAvatarDescription = () => {
   );
 }`;
 }
-  

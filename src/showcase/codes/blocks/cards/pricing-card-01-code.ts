@@ -1,5 +1,5 @@
 export function getPricingCardCode() {
-    return `'use client';
+  return `'use client';
 
 import { motion } from 'framer-motion';
 import { Check } from 'lucide-react';
@@ -61,5 +61,4 @@ export default function PricingCard01() {
     </div>
   );
 }`;
-  }
-  
+}

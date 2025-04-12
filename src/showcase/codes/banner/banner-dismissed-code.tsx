@@ -1,5 +1,5 @@
 export function getBannerDismissedCode() {
-    return `'use client';
+  return `'use client';
 
 import React from 'react';
 import { Banner } from '@/components/extendui/banner';
@@ -19,5 +19,5 @@ export default function BannerDismissed() {
             <div className="flex h-full min-h-[150px] items-center justify-center"/>
         </div>
     )
-}`
+}`;
 }

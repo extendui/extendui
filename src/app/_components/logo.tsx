@@ -16,7 +16,7 @@ export default function Logo({ className }: { className?: string }) {
       )}
     >
       <div className="mr-4 flex items-center justify-center gap-2 font-bold">
-        <Blocks className="h-6 w-6 text-accent-foreground" />
+        <Blocks className="text-accent-foreground h-6 w-6" />
         <span className="text-base font-bold">
           Extend
           <span className="text-accent-foreground dark:text-accent">UI</span>

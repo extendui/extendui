@@ -19,28 +19,30 @@ type EngineSettingsDatePickerActions = {
 };
 
 export const useEngineSettingsDatePickerStore = create(
-  immer<EngineSettingsDatePickerState & EngineSettingsDatePickerActions>((set) => ({
-    variant: 'default',
-    disabled: false,
-    error: false,
-    calendarVariant: 'default',
-    setVariant: (variant) =>
-      set((state) => {
-        state.variant = variant;
-      }),
-    setCalendarVariant: (variant) =>
-      set((state) => {
-        state.calendarVariant = variant;
-      }),
-    setDisabled: (disabled) =>
-      set((state) => {
-        state.disabled = disabled;
-      }),
-    setError: (error) =>
-      set((state) => {
-        state.error = error;
-      }),
-  })),
+  immer<EngineSettingsDatePickerState & EngineSettingsDatePickerActions>(
+    (set) => ({
+      variant: 'default',
+      disabled: false,
+      error: false,
+      calendarVariant: 'default',
+      setVariant: (variant) =>
+        set((state) => {
+          state.variant = variant;
+        }),
+      setCalendarVariant: (variant) =>
+        set((state) => {
+          state.calendarVariant = variant;
+        }),
+      setDisabled: (disabled) =>
+        set((state) => {
+          state.disabled = disabled;
+        }),
+      setError: (error) =>
+        set((state) => {
+          state.error = error;
+        }),
+    }),
+  ),
 );
 
 export const { setVariant, setCalendarVariant, setDisabled, setError } =

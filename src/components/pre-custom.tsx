@@ -30,7 +30,7 @@ export function PreCustom({
 }: PreProps) {
   return (
     <StyleWrapper styleName={__style__}>
-      <div className="relative mb-4 mt-6">
+      <div className="relative mt-6 mb-4">
         <pre
           className={cn(
             'max-h-[650px] overflow-x-auto rounded-lg border bg-[#1a1a1a] py-4',
@@ -45,7 +45,7 @@ export function PreCustom({
             value={__rawString__}
             event={__event__}
             className={cn(
-              'absolute right-4 top-4 z-10',
+              'absolute top-4 right-4 z-10',
               __withMeta__ && 'top-16',
             )}
           />
@@ -62,7 +62,7 @@ export function PreCustom({
                 __bunCommand__,
               }}
               className={cn(
-                'absolute right-4 top-4 z-10',
+                'absolute top-4 right-4 z-10',
                 __withMeta__ && 'top-16',
               )}
             />

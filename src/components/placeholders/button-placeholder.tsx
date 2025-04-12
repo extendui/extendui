@@ -1,9 +1,9 @@
-import { Card } from "../ui/card"
+import { Card } from '../ui/card';
 
 export const ButtonPlaceholder = () => {
-    return (
-        <Card className="w-[120px] h-9 border-accent border-2 flex items-center justify-center">
-            <div className="w-16 h-1.5 rounded-sm bg-gray-200 dark:bg-gray-200/80" />
-        </Card>
-    )
-}
+  return (
+    <Card className="border-accent flex h-9 w-[120px] items-center justify-center border-2">
+      <div className="h-1.5 w-16 rounded-sm bg-gray-200 dark:bg-gray-200/80" />
+    </Card>
+  );
+};

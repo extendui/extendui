@@ -1,7 +1,7 @@
-export function getBannerExampleCode(state: Record<string, any>)  {
-    const { variant, position, size, title, icon, link } = state;
+export function getBannerExampleCode(state: Record<string, any>) {
+  const { variant, position, size, title, icon, link } = state;
 
-    return `import { Banner } from '@/components/extendui/banner';
+  return `import { Banner } from '@/components/extendui/banner';
 
 export function BannerDemo() {
   return (

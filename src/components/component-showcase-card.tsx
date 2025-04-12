@@ -21,11 +21,11 @@ export default function ComponentShowcaseCard({
 }) {
   return (
     <Link href={href}>
-      <Card className="group shadow-none hover:border-accent border-2">
+      <Card className="group hover:border-accent border-2 shadow-none">
         <CardContent className="flex h-44 flex-col items-center justify-center space-y-2 p-6">
           {component}
         </CardContent>
-        <CardFooter className="flex flex-col items-start py-6 group-hover:border-t-accent border-t-2 group-hover:border-t-2 group-hover:bg-accent/30">
+        <CardFooter className="group-hover:border-t-accent group-hover:bg-accent/30 flex flex-col items-start border-t-2 py-6 group-hover:border-t-2">
           <CardTitle>{title}</CardTitle>
           <CardDescription>{description}</CardDescription>
         </CardFooter>

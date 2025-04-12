@@ -16,10 +16,8 @@ type Props = {
 
 export const Navbar = ({ navLinks, socialLinks }: Props) => {
   return (
-    <header
-      className="sticky top-0 z-40 shadow-none w-full border-b border-border bg-background/40 backdrop-blur-lg supports-backdrop-blur:bg-background/90"
-    >
-      <div className="mx-auto  px-4 sm:px-6 lg:px-8">
+    <header className="border-border bg-background/40 supports-backdrop-blur:bg-background/90 sticky top-0 z-40 w-full border-b shadow-none backdrop-blur-lg">
+      <div className="mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           <div className="flex items-center gap-4">
             <MobileSidebar navLinks={navLinks} />
@@ -32,7 +30,7 @@ export const Navbar = ({ navLinks, socialLinks }: Props) => {
                   className={cn(
                     'text-zinc-600 transition-colors hover:text-zinc-900 dark:text-zinc-200',
                     link.name === 'Templates' &&
-                    'cursor-not-allowed text-muted-foreground',
+                      'text-muted-foreground cursor-not-allowed',
                   )}
                 >
                   {link.name}

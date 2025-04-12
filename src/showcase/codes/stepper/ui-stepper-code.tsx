@@ -1,5 +1,5 @@
 export function getStepperCode() {
-    return `"use client";
+  return `"use client";
 
 import { Slot } from "@radix-ui/react-slot";
 import { cva, type VariantProps } from "class-variance-authority";
@@ -322,5 +322,5 @@ Stepper.Description = StepperDescription;
 Stepper.Separator = StepperSeparator;
 
 export { Stepper };
-`
+`;
 }

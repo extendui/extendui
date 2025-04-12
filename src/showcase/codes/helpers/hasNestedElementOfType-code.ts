@@ -1,5 +1,5 @@
-export function getHasNestedElementOfType() {  
-    return `import React from 'react';
+export function getHasNestedElementOfType() {
+  return `import React from 'react';
 
 export const hasNestedElementOfType = (
   children: React.ReactNode,
@@ -41,4 +41,3 @@ export const hasNestedElementOfType = (
   return childrenArray.some(child => checkChild(child));
 };`;
 }
-  

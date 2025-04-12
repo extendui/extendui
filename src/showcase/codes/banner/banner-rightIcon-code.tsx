@@ -1,5 +1,5 @@
 export function getBannerRightIconCode() {
-    return `'use client';
+  return `'use client';
 
 import { ChatBubbleIcon } from '@radix-ui/react-icons';
 import React from 'react';
@@ -20,5 +20,5 @@ export default function BannerRightIcon() {
             <div className="flex h-full min-h-[150px] items-center justify-center"/>
         </div>
     )
-}`
+}`;
 }

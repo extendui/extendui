@@ -73,49 +73,51 @@ description: A date picker component that allows users to select a date from a c
         <td>variant</td>
         <td>default | glowingRing | outline</td>
         <td>
-          Determines the visual style of the calendar. Options include <code>default</code>, <code>glowingRing</code> (adds a glowing border), and <code>outline</code> (adds a bordered style).
+          Determines the visual style of the calendar. Options include{' '}
+          <code>default</code>, <code>glowingRing</code> (adds a glowing
+          border), and <code>outline</code> (adds a bordered style).
         </td>
       </tr>
       <tr>
         <td>className</td>
         <td>string</td>
-        <td>
-          Additional CSS classes to style the calendar's root element.
-        </td>
+        <td>Additional CSS classes to style the calendar's root element.</td>
       </tr>
       <tr>
         <td>classNames</td>
         <td>Record&lt;string, string&gt;</td>
         <td>
-          Custom class names for specific calendar parts (e.g., days, rows, navigation buttons). Overrides default classes.
+          Custom class names for specific calendar parts (e.g., days, rows,
+          navigation buttons). Overrides default classes.
         </td>
       </tr>
       <tr>
         <td>showOutsideDays</td>
         <td>boolean</td>
         <td>
-          If <code>true</code>, displays days from the previous and next months within the current month's grid. Defaults to <code>true</code>.
+          If <code>true</code>, displays days from the previous and next months
+          within the current month's grid. Defaults to <code>true</code>.
         </td>
       </tr>
       <tr>
         <td>month</td>
         <td>Date</td>
         <td>
-          The current month displayed in the calendar. Useful for controlled components.
+          The current month displayed in the calendar. Useful for controlled
+          components.
         </td>
       </tr>
       <tr>
         <td>onMonthChange</td>
         <td>(month: Date) => void</td>
-        <td>
-          Callback function triggered when the displayed month changes.
-        </td>
+        <td>Callback function triggered when the displayed month changes.</td>
       </tr>
       <tr>
         <td>...props</td>
         <td>React.ComponentProps&lt;typeof DayPicker&gt;</td>
         <td>
-          Additional props passed to the underlying <code>DayPicker</code> component from <code>react-day-picker</code>.
+          Additional props passed to the underlying <code>DayPicker</code>{' '}
+          component from <code>react-day-picker</code>.
         </td>
       </tr>
     </tbody>

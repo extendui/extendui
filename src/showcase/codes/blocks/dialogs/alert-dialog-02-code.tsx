@@ -1,5 +1,5 @@
 export function getAlertDialog02() {
-    return `import { XCircle } from "lucide-react"
+  return `import { XCircle } from "lucide-react"
 
 import {
     AlertDialog,

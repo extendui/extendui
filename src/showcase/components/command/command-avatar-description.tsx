@@ -5,9 +5,7 @@ import Image from 'next/image';
 import { Fragment, type JSX, useState } from 'react';
 
 import { Button } from '@/components/extendui/button';
-import {
-  Command
-} from '@/components/extendui/command';
+import { Command } from '@/components/extendui/command';
 import {
   Popover,
   PopoverContent,
@@ -102,7 +100,7 @@ export const CommandAvatarDescription = () => {
         />
         <span className="flex flex-col items-start">
           <span className="font-medium">{user.name}</span>
-          <span className="mt-0.5 block text-xs text-muted-foreground">
+          <span className="text-muted-foreground mt-0.5 block text-xs">
             {user.twitter}
           </span>
         </span>
@@ -160,7 +158,7 @@ export const CommandAvatarDescription = () => {
                           />
                           <span className="flex flex-col items-start">
                             <span className="font-medium">{user.name}</span>
-                            <span className="mt-0.5 block text-xs text-muted-foreground">
+                            <span className="text-muted-foreground mt-0.5 block text-xs">
                               {user.twitter}
                             </span>
                           </span>
@@ -182,4 +180,4 @@ export const CommandAvatarDescription = () => {
       </Popover>
     </div>
   );
-}
+};

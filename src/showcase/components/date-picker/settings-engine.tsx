@@ -4,11 +4,17 @@ import React from 'react';
 
 import { Select } from '@/components/extendui/select';
 import { Switch } from '@/components/ui/switch';
-import { setCalendarVariant, setDisabled, setError, setVariant, useEngineSettingsDatePickerStore } from '@/zustand/stores/useEngineSettingsDatePicker';
-
+import {
+  setCalendarVariant,
+  setDisabled,
+  setError,
+  setVariant,
+  useEngineSettingsDatePickerStore,
+} from '@/zustand/stores/useEngineSettingsDatePicker';
 
 export default function DatePickerSettingsEngine() {
-  const { variant, calendarVariant, disabled, error } = useEngineSettingsDatePickerStore();
+  const { variant, calendarVariant, disabled, error } =
+    useEngineSettingsDatePickerStore();
 
   const handleChangeVariant = (
     value: 'default' | 'flushed' | 'flushedfilled' | 'filled' | 'dashed',
@@ -34,7 +40,7 @@ export default function DatePickerSettingsEngine() {
     <div className="flex flex-col space-y-4 sm:space-y-6">
       <div className="w-full sm:w-auto">
         <Select onValueChange={handleChangeVariant} value={variant}>
-          <Select.Trigger className="w-full bg-secondary text-secondary-foreground sm:w-[180px]">
+          <Select.Trigger className="bg-secondary text-secondary-foreground w-full sm:w-[180px]">
             <Select.Value placeholder="Select variant" />
           </Select.Trigger>
           <Select.Content>
@@ -50,8 +56,11 @@ export default function DatePickerSettingsEngine() {
         </Select>
       </div>
       <div className="w-full sm:w-auto">
-        <Select onValueChange={handleChangeCalendarVariant} value={calendarVariant}>
-          <Select.Trigger className="w-full bg-secondary text-secondary-foreground sm:w-[180px]">
+        <Select
+          onValueChange={handleChangeCalendarVariant}
+          value={calendarVariant}
+        >
+          <Select.Trigger className="bg-secondary text-secondary-foreground w-full sm:w-[180px]">
             <Select.Value placeholder="Select variant" />
           </Select.Trigger>
           <Select.Content>

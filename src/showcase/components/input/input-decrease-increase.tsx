@@ -10,9 +10,13 @@ type Props = {
   min?: number;
   max?: number;
   step?: number;
-}
+};
 
-export const InputDecreaseIncrease = ({ min = 0, max = 100, step = 1 }: Props) => {
+export const InputDecreaseIncrease = ({
+  min = 0,
+  max = 100,
+  step = 1,
+}: Props) => {
   const [value, setValue] = React.useState(min);
 
   const decrease = () => {
@@ -35,8 +39,7 @@ export const InputDecreaseIncrease = ({ min = 0, max = 100, step = 1 }: Props) =
       </Button>
       <Input
         type="number"
-        className="h-9 w-20 rounded-none border-x-0 p-0 text-center focus-visible:outline-hidden focus-visible:ring-0 focus-visible:ring-offset-0 pointer-events-none
-          [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+        className="pointer-events-none h-9 w-20 [appearance:textfield] rounded-none border-x-0 p-0 text-center focus-visible:ring-0 focus-visible:ring-offset-0 focus-visible:outline-hidden [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
         value={value}
         readOnly
         min={min}

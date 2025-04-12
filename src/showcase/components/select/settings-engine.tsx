@@ -18,7 +18,16 @@ import {
 import { useEngineSettingsSelectStore } from '@/zustand/stores/useEngineSettingsSelect';
 
 export const SelectSettingsEngine = () => {
-  const { variant, error, disabled, changeOpenIcon, leftText, showIcon, helperText, placeholder } = useEngineSettingsSelectStore();
+  const {
+    variant,
+    error,
+    disabled,
+    changeOpenIcon,
+    leftText,
+    showIcon,
+    helperText,
+    placeholder,
+  } = useEngineSettingsSelectStore();
 
   const handleChangeVariant = (
     value: 'default' | 'flushed' | 'flushedfilled' | 'filled' | 'dashed',
@@ -58,7 +67,7 @@ export const SelectSettingsEngine = () => {
     <div className="flex flex-col space-y-4 sm:space-y-6">
       <div className="w-full sm:w-auto">
         <Select onValueChange={handleChangeVariant} value={variant}>
-          <Select.Trigger className="w-full bg-secondary text-secondary-foreground sm:w-[180px]">
+          <Select.Trigger className="bg-secondary text-secondary-foreground w-full sm:w-[180px]">
             <Select.Value placeholder="Select variant" />
           </Select.Trigger>
           <Select.Content>
@@ -74,20 +83,35 @@ export const SelectSettingsEngine = () => {
         </Select>
       </div>
       <div className="flex w-full items-center space-x-2 sm:w-[180px]">
-        <Input value={placeholder} onChange={(e) => handleChangePlaceholeder(e.target.value)} placeholder="Placeholder" />
+        <Input
+          value={placeholder}
+          onChange={(e) => handleChangePlaceholeder(e.target.value)}
+          placeholder="Placeholder"
+        />
       </div>
       <div className="flex w-full items-center space-x-2 sm:w-[180px]">
-        <Input value={helperText} onChange={(e) => handleChangeHelperText(e.target.value)} placeholder="Helper text" />
+        <Input
+          value={helperText}
+          onChange={(e) => handleChangeHelperText(e.target.value)}
+          placeholder="Helper text"
+        />
       </div>
       <div className="flex w-full items-center space-x-2 sm:w-[180px]">
-        <Input value={leftText} onChange={(e) => handleChangeLeftText(e.target.value)} placeholder="Left text" />
+        <Input
+          value={leftText}
+          onChange={(e) => handleChangeLeftText(e.target.value)}
+          placeholder="Left text"
+        />
       </div>
       <div className="flex w-full items-center space-x-2 sm:w-auto">
         <Switch checked={showIcon} onCheckedChange={handleShowIcon} />
         <span className="text-sm">Left icon</span>
       </div>
       <div className="flex w-full items-center space-x-2 sm:w-auto">
-        <Switch checked={changeOpenIcon} onCheckedChange={handleChangeOpenIcon} />
+        <Switch
+          checked={changeOpenIcon}
+          onCheckedChange={handleChangeOpenIcon}
+        />
         <span className="text-sm">Change open icon</span>
       </div>
       <div className="flex w-full items-center space-x-2 sm:w-auto">
@@ -100,4 +124,4 @@ export const SelectSettingsEngine = () => {
       </div>
     </div>
   );
-}
+};

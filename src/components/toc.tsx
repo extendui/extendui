@@ -58,7 +58,7 @@ function Tree({ tree, level = 1, activeItem, itemIds }: TreeProps) {
     <div className="relative">
       {level == 1 && (
         <motion.div
-          className="absolute bottom-0 left-0 top-0 w-0.5 origin-top bg-accent"
+          className="bg-accent absolute top-0 bottom-0 left-0 w-0.5 origin-top"
           initial={{ scaleY: 0 }}
           animate={{ scaleY: progress }}
           transition={{ duration: 0.3, ease: 'easeInOut' }}

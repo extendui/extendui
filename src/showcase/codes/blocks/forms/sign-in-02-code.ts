@@ -1,5 +1,5 @@
 export function getSignIn02Code() {
-    return `'use client';
+  return `'use client';
 
 import { zodResolver } from '@hookform/resolvers/zod'
 import { AnimatePresence, motion } from 'framer-motion';
@@ -158,4 +158,3 @@ export default function SignIn02() {
   );
 }`;
 }
-  

@@ -122,13 +122,15 @@
   }
 
   .input-error {
-    @apply ml-1 mt-2 text-sm text-rose-400;
+    @apply mt-2 ml-1 text-sm text-rose-400;
   }
 
   .gradient {
-    background-image: radial-gradient(circle 300px at center,
-        #34d399,
-        hsla(0, 0%, 0%, 0));
+    background-image: radial-gradient(
+      circle 300px at center,
+      #34d399,
+      hsla(0, 0%, 0%, 0)
+    );
   }
 
   .step {
@@ -136,12 +138,12 @@
   }
 
   .step:before {
-    @apply absolute inline-flex h-9 w-9 items-center justify-center rounded-full border-4 border-background bg-muted text-center -indent-px font-mono text-base font-medium;
-    @apply ml-[-50px] mt-[-4px];
+    @apply border-background bg-muted absolute inline-flex h-9 w-9 items-center justify-center rounded-full border-4 text-center -indent-px font-mono text-base font-medium;
+    @apply mt-[-4px] ml-[-50px];
     content: counter(step);
   }
 
-  input[type="date"]::-webkit-calendar-picker-indicator {
+  input[type='date']::-webkit-calendar-picker-indicator {
     display: none;
     -webkit-appearance: none;
   }
